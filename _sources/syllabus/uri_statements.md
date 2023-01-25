@@ -1,5 +1,7 @@
 # General URI Policies
-
+```{warning}
+URI changed some links and this page is not yet up to date
+```
 
 ## Anti-Bias  Statement:
 
