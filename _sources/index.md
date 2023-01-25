@@ -52,6 +52,14 @@ Both notes and assignment pages will have hints from time to time. Pay attention
 Think ahead boxes will guide you to start thinking about what can go into your portfolio to build on the material at hand.
 ```
 
-```{admonition} Ram Token Opportunity
-Chances to earn ram tokens are highlighted this way.
+```{admonition} Click here! 
+:class: anchor, dropdown
+
+Special tips will be formatted like this
+```
+
+```{admonition}  Check your Comprehension
+:class: checkin
+
+Questions to use to check your comprehension will looklike this
 ```
