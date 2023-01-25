@@ -137,9 +137,14 @@ For example, if you achieve level 2 on all of the skills and level 3 on 7 skills
 
 If you achieve level 3 on 14 of the skills, but only level 1 on one of the skills, that will be a B-, because the minimum number of level 2 achievements for a B is 15. In this scenario the total number of achievements is 14 at level 3, 14 at level 2 and 15 at level 3, because you have to earn achievements within a skill in sequence.
 
-The letter grade can be computed as follows
+The letter grade can be computed as follows 
+
+```{important}
+this will be revealed after assignment 1
+```
 
 ```{code-cell} ipython3
+:tags: [remove-input]
 
 def compute_grade(num_level1,num_level2,num_level3):
     '''
@@ -243,7 +248,7 @@ Portfolio due dates will be announced well in advance and prompts for it will be
 ### Grading Examples
 
 
-If you always attend and get everything correct, you will earn and A and you won't need to submit the 4th portfolio check or assignment 13.
+If you always attend and get everything correct, you will earn and A and you won't need to submit the 4th portfolio check.
 
 #### Getting  an A Without Perfection
 
@@ -274,9 +279,3 @@ This student was content with getting a B and chose to not submit a portfolio.
 In this example, the student struggled to understand in class and on assignments. Assignments were submitted that showed some understanding, but all had some serious mistakes, so only level 1 achievements were earned from assignments.
 The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks.
 
-
-## Ram Tokens
-
-Ram Tokens in this course will be used as a currency for extra effort.  You can earn Ram Tokens by doing work that supports your learning or class activities, but do not directly demonstrate achievements. You can spend Ram Tokens to get extra grading.  This will be mostly applicable to Portfolio Checks.  In Checks 3 & 4, some achievements will not be eligible for grading as per the [table](portfolioskills).  However, you can exchange Ram Tokens to make more achievements eligible for assessment.  This system rewards you for putting in consistent effort, even if it takes you many tries to understand a concept.
-
-To accumulate Ram Tokens, you submit a 'Deposit' to the [Ram Token Bank: http://drsmb.co/ramtoken](http://drsmb.co/ramtoken) with a link to what you did to earn a token. To apply Ram tokens for extra grading, submit the same form, with a link to the assignment and add the Ramtoken label to the Feedback PR. 

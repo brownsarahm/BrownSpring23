@@ -49,9 +49,9 @@ parse:
     - smartquotes
     - substitution
   myst_substitutions:
-    time: TTh -6:15
+    time: TTh 5-6:15pm
     location: Tyler 108
-    repo_name: BrownFall21
+    repo_name: BrownSpring23
     repo_commits: |
       [commit history](https://github.com/rhodyprog4ds/BrownSpring23/commits)
     repo_issue: |

@@ -31,7 +31,7 @@ Seeing the BrightSpace site requires loging in with your URI SSO and being enrol
 ```
 ````
 This will be the central location from which you can access all other materials.
-Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/158179).
+Any links that are for private discussion among those enrolled in the course will be available only from our course [Brightspace site](https://brightspace.uri.edu/d2l/home/226416).
 
 <!-- 
 For announcements, you can [customize](https://documentation.brightspace.com/EN/le/announcements/learner/enable_notifications_in_announcements.htm) how you receive them. -->
@@ -47,7 +47,7 @@ On Prismia, all students see the instructor's messages, but only the Instructor 
 ## Course website
 
 The course manual will have content including the class policies, scheduling, class notes, assignment information, and additional resources.
-This will be linked from Brightspace and available publicly online at [rhodyprog4ds.github.io/FIXME/](https://rhodyprog4ds.github.io/FIXME/).
+This will be linked from Brightspace and available publicly online at [rhodyprog4ds.github.io/BrownSpring23/](https://rhodyprog4ds.github.io/BrownSpring23/).
 Links to the course reference text and code documentation will also be included here in the assignments and class notes.
 
 ## GitHub
@@ -118,12 +118,7 @@ Notebook.
 
 (texteditor)=
 Optional:
-````{margin}
-```{admonition} A tip from Dr. Brown
-:class: tip
-I use [atom](https://atom.io/), but I decided to use it by downloading both Atom and Sublime and trying different things in each for a week. I liked Atom better after that and I've stuck with it since. I used Atom to write all of the content in this syllabus. VScode will also work, if needed
-```
-````
+
 - Text Editor: you may want a text editor outside of the Jupyter environment. Jupyter can edit markdown files (that you'll need for your portfolio), in browser, but it is more common to use a text editor like Atom or Sublime for this purpose.
 
 
@@ -144,7 +139,7 @@ Python for Data Science is available free [online](https://jakevdp.github.io/Pyt
 
 
 
-### Zoom (backup only, Fall 2021 is in person)
+### Zoom (backup and office hours only)
 
 [^tldr]: Too long; didn't read.
 
