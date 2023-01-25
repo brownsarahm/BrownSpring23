@@ -1,5 +1,5 @@
 # Book settings
-title: Programming for Data Science at URI Fall 2021
+title: Programming for Data Science at URI Spring 2023
 author: Professor Sarah M Brown
 logo: img/310_2021.png
 
@@ -15,7 +15,7 @@ html:
 
 
 repository:
-  url                       : https://github.com/rhodyprog4ds/BrownFall21/  # The URL to your book's repository
+  url                       : https://github.com/rhodyprog4ds/BrownSpring23/  # The URL to your book's repository
   path_to_book              : ""  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 
@@ -49,17 +49,17 @@ parse:
     - smartquotes
     - substitution
   myst_substitutions:
-    time: MWF 3-3:50pm
-    location: Chafee Social Sci Center 235
+    time: TTh -6:15
+    location: Tyler 108
     repo_name: BrownFall21
     repo_commits: |
-      [commit history](https://github.com/rhodyprog4ds/BrownFall21/commits)
+      [commit history](https://github.com/rhodyprog4ds/BrownSpring23/commits)
     repo_issue: |
-      [issue](https://github.com/rhodyprog4ds/BrownFall21/issues)
+      [issue](https://github.com/rhodyprog4ds/BrownSpring23/issues)
     bscalendar: |
-      [Course Calendar on BrightSpace](https://brightspace.uri.edu/d2l/le/calendar/158179)
-    ghinstructors: fall21instructors
-    p1due: October 17
-    p2due: November 14
-    p3due: December 5
-    p4due: December 20
+      [Course Calendar on BrightSpace](https://brightspace.uri.edu/d2l/le/calendar/226416)
+    ghinstructors: instructors
+    p1due: TBA
+    p2due: TBA
+    p3due: TBA
+    p4due: TBA
