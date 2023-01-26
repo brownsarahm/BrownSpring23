@@ -18,7 +18,7 @@ parts:
   - caption: Assignments
     numbered: True
     chapters:
-    - file: assignments/index
+    - file: assignments/01-syllabus-install
   - caption: Portfolio
     chapters:
       - file: portfolio/index
