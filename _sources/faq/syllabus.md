@@ -10,6 +10,12 @@ However, if you do not submit (or earn no achievements from) assignments or port
 If you do not submit (or earn no achievements from) your portfolio, the maximum grade you can earn is a B.
 ```
 
+(duetime)=
+## What time are assignments due? 
+```{toggle}
+End of day.  I could start grading at any time the next morning.  If your work is not there when I start grading it will not be graded, but if it is, I won't check the time stamp. 
+```
+
 
 ## Can I submit this assignment late if ...?
 ```{toggle}
