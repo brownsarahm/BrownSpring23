@@ -38,7 +38,7 @@ Announcements will be made via GitHub Release. You can view them [online in the 
 ```{code-cell}
 :tags: ["remove-input"]
 
-help_df.style.hide(axis="index",
+help_df.style.hide(axis="index")
 ```
 
 
