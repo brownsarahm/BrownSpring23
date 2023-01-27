@@ -945,6 +945,33 @@ Features:</p>
 <p>When your cursor is inside the <code class="docutils literal notranslate"><span class="pre">()</span></code> of a function if you hold the shift key and press tab it will open a popup with information. If you press tab twice, it gets bigger and three times will make a popup window.</p>
 <p>Python has a <code class="docutils literal notranslate"><span class="pre">print</span></code> function and we can use the help in jupyter to learn about
 how to use it in different ways.</p>
+<p>We can print the docstring out, as a whole instead of using the shfit + tab to view it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first line says that it can take multiple values, because it says <code class="docutils literal notranslate"><span class="pre">value,</span> <span class="pre">...,</span> <span class="pre">sep</span></code></p>
+<p>It also has a
+keyword argument (must be used like <code class="docutils literal notranslate"><span class="pre">argument=value</span></code> and has a default) described as  <code class="docutils literal notranslate"><span class="pre">sep='</span> <span class="pre">'</span></code>.
+This means that by default it adds a space as above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>

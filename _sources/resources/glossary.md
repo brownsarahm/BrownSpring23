@@ -16,6 +16,9 @@ Contribute glossary items and  links for further reading using the suggest an ed
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   a python library used to assist in web scraping, it pulls data from html and xml files that can be parsed in a variety of different ways using different methods.
 
+conditional 
+  a logical control to do something, conditioned on something else, for example the `if`, `elif` `else` 
+  
 corpus
   (NLP) a set of documents for analysis 
 
