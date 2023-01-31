@@ -20,6 +20,7 @@ parts:
     numbered: True
     chapters:
     - file: assignments/01-syllabus-install
+    - file: assignments/02-python-access
   - caption: Portfolio
     chapters:
       - file: portfolio/index
