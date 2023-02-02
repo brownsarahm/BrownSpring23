@@ -1,8 +1,8 @@
 ---
 substitutions:
   accept_assignment: |
-    [accept the assignment]()
-  date : 20yy-mm-dd
+    [accept the assignment](https://classroom.github.com/a/j3Vblcvf)
+  date : 2023-02-06
 ---
 # Assignment 2: Practicing Python and Accessing Data
 
@@ -37,12 +37,13 @@ Next week, we are going to learn about summarizing data. In this assignment, you
 - how many total rows of data did each student load?
 
 
+## Tasks
 
 
 First, {{ accept_assignment }}. It contains a notebook with some template structure (and will set you up for grading).
 
 
-## Find Datasets
+### Find Datasets
 
 Find 3 datasets of interest to you that are provided in at least two different file formats. Choose datasets that are not too big, so that they do not take more than a few second to load. At least one dataset, must have non numerical (eg string or boolean) data in at least 1 column.
 
@@ -52,7 +53,7 @@ In your notebook, create a markdown cell for each dataset that includes:
 - a "more info" link to where someone can learn about the dataset
 - 1-2 questions you would like to answer with that dataset.
 
-## Store them for loading
+### Store them for loading
 
 Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset. Each dictionary should have the following keys:
 
@@ -68,7 +69,7 @@ Create a list of dictionaries in `datasets.py`, so that there is one dictionary 
 
 ```
 
-## Make a dataset about your datasets
+### Make a dataset about your datasets
 
 ````{margin}
 ```{hint}
@@ -97,7 +98,7 @@ Then {term}`iterate` over the list of dictionaries, and:
   - number of numerical variables in the dataset
 ```
 
-## Explore Your Datasets
+### Explore Your Datasets
 
 In a second notebook file called `exploration.ipynb`: 
 
@@ -118,8 +119,9 @@ For the third dataset:
 - read it in from your local csv using a relative path
 - display the first 3 multiples of 3 rows (eg 3,6,9) of the data for two columns of your choice
 
-## Exploring data files
+### Exploring data files
 
+Continue in your `exploration.ipynb`. 
 There are two files in the data folder, both can be read in with `read_csv` but need some options or fixing.
 
 - try to read in the `german.data` file, what happens with the default settings? What option do you need to use to make it look right?
