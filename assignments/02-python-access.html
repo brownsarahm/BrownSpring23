@@ -697,6 +697,7 @@ and extracting basic information about them.</p>
 <section id="store-them-for-loading">
 <h3><span class="section-number">2.4.2. </span>Store them for loading<a class="headerlink" href="#store-them-for-loading" title="Permalink to this headline">#</a></h3>
 <p>Create a list of dictionaries in <code class="docutils literal notranslate"><span class="pre">datasets.py</span></code>, so that there is one dictionary for each dataset. Each dictionary should have the following keys:</p>
+<!-- :header-rows:0 -->
 </section>
 <section id="make-a-dataset-about-your-datasets">
 <h3><span class="section-number">2.4.3. </span>Make a dataset about your datasets<a class="headerlink" href="#make-a-dataset-about-your-datasets" title="Permalink to this headline">#</a></h3>
@@ -714,6 +715,29 @@ Then <a class="reference internal" href="../resources/glossary.html#term-iterate
 <li><p>record attributes about the dataset as in the table below in a list of lists or dictionary</p></li>
 <li><p>Use that to create a DataFrame with columns that match the rows of the following table.</p></li>
 </ol>
+<table class="table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>a short name for the dataset</p></td>
+</tr>
+<tr class="row-even"><td><p>source</p></td>
+<td><p>a url to where you found the data</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_rows</p></td>
+<td><p>number of rows in the dataset</p></td>
+</tr>
+<tr class="row-even"><td><p>num_columns</p></td>
+<td><p>number of columns in the dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p>num_numerical</p></td>
+<td><p>number of numerical variables in the dataset</p></td>
+</tr>
+</tbody>
+</table>
 <p>Meta Data Description of the DataFrame to build</p>
 </section>
 <section id="explore-your-datasets">

@@ -58,7 +58,6 @@ In your notebook, create a markdown cell for each dataset that includes:
 Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset. Each dictionary should have the following keys:
 
 ```{list-table} 
-:header-rows:0
 
 *- `url`
   - with the url
@@ -66,8 +65,8 @@ Create a list of dictionaries in `datasets.py`, so that there is one dictionary 
   - a short name
 * - `load_function`
   - (the actual function handle) what function should be used to load the data into a `pandas.DataFrame`.
-
 ```
+<!-- :header-rows:0 -->
 
 ### Make a dataset about your datasets
 
@@ -84,7 +83,6 @@ Then {term}`iterate` over the list of dictionaries, and:
 1. Use that to create a DataFrame with columns that match the rows of the following table.
 
 ```{list-table} 
-:header-rows:0
 
 * - name
   - a short name for the dataset
@@ -97,6 +95,7 @@ Then {term}`iterate` over the list of dictionaries, and:
 * - num_numerical
   - number of numerical variables in the dataset
 ```
+
 Meta Data Description of the DataFrame to build
 
 ### Explore Your Datasets
