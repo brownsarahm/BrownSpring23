@@ -57,7 +57,7 @@ In your notebook, create a markdown cell for each dataset that includes:
 
 Create a list of dictionaries in `datasets.py`, so that there is one dictionary for each dataset. Each dictionary should have the following keys:
 
-```{list-table} Meta Data Description of the dictionary to create
+```{list-table} 
 :header-rows:0
 
 *- `url`
@@ -83,7 +83,7 @@ Then {term}`iterate` over the list of dictionaries, and:
 1. record attributes about the dataset as in the table below in a list of lists or dictionary
 1. Use that to create a DataFrame with columns that match the rows of the following table.
 
-```{list-table} Meta Data Description of the DataFrame to build
+```{list-table} 
 :header-rows:0
 
 * - name
@@ -97,6 +97,7 @@ Then {term}`iterate` over the list of dictionaries, and:
 * - num_numerical
   - number of numerical variables in the dataset
 ```
+Meta Data Description of the DataFrame to build
 
 ### Explore Your Datasets
 
