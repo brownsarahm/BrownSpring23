@@ -23,6 +23,7 @@ parts:
     chapters:
     - file: assignments/01-syllabus-install
     - file: assignments/02-python-access
+    - file: assignments/03-eda
   - caption: Portfolio
     chapters:
       - file: portfolio/index
