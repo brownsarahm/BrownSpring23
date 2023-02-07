@@ -59,7 +59,7 @@ Create a list of dictionaries in `datasets.py`, so that there is one dictionary 
 
 ```{list-table} 
 
-*- `url`
+* - `url`
   - with the url
 * - `short_name`
   - a short name
