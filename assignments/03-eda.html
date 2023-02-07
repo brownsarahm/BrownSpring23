@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Assignment 1: Portfolio Setup, Data Science, and Python &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>3. Assignment 3: Exploratory Data Analysis &#8212; Programming for Data Science at URI Spring 2023</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Assignment 2: Practicing Python and Accessing Data" href="02-python-access.html" />
-    <link rel="prev" title="4. Pandas and Indexing" href="../notes/2023-02-02.html" />
+    <link rel="next" title="Portfolio" href="../portfolio/index.html" />
+    <link rel="prev" title="2. Assignment 2: Practicing Python and Accessing Data" href="02-python-access.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -194,8 +194,8 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-syllabus-install.html">
    1. Assignment 1: Portfolio Setup, Data Science, and Python
   </a>
  </li>
@@ -204,8 +204,8 @@ const thebe_selector_output = ".output, .cell_output"
    2. Assignment 2: Practicing Python and Accessing Data
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-eda.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    3. Assignment 3: Exploratory Data Analysis
   </a>
  </li>
@@ -410,7 +410,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/rhodyprog4ds/BrownSpring23//issues/new?title=Issue%20on%20page%20%2Fassignments/01-syllabus-install.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/rhodyprog4ds/BrownSpring23//issues/new?title=Issue%20on%20page%20%2Fassignments/03-eda.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -427,7 +427,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/rhodyprog4ds/BrownSpring23/edit/main/assignments/01-syllabus-install.md"
+        <a href="https://github.com/rhodyprog4ds/BrownSpring23/edit/main/assignments/03-eda.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -455,7 +455,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/assignments/01-syllabus-install.md"
+        <a href="../_sources/assignments/03-eda.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -515,33 +515,67 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-notes">
-   1.1. Related notes
+  <a class="reference internal nav-link" href="#objective-evaluation">
+   3.1. Objective &amp; Evaluation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#to-do">
-   1.2. To Do
+  <a class="reference internal nav-link" href="#related-notes">
+   3.2. Related notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-datasets">
+   3.3. Choose Datasets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstring">
-     1.2.1. Docstring
+    <a class="reference internal nav-link" href="#dataset-1-d1">
+     3.3.1. Dataset 1 (d1)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sample-tests">
-     1.2.2. Sample tests
+    <a class="reference internal nav-link" href="#dataset-2-d2">
+     3.3.2. Dataset 2 (d2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda">
+   3.4. EDA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-checklist">
+     3.4.1. Question checklist
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook-checklist">
-     1.2.3. Notebook Checklist
+    <a class="reference internal nav-link" href="#dataset-1-checklist">
+     3.4.2. Dataset 1 Checklist
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grading-notes">
-     1.2.4. Grading Notes:
+    <a class="reference internal nav-link" href="#dataset-2-checklist">
+     3.4.3. Dataset 2 Checklist
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#peer-review">
+   3.5. Peer Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-questions">
+     3.5.1. Review Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#response">
+     3.5.2. Response
     </a>
    </li>
   </ul>
@@ -555,7 +589,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Assignment 1: Portfolio Setup, Data Science, and Python</h1>
+                <h1>Assignment 3: Exploratory Data Analysis</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -566,33 +600,67 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-notes">
-   1.1. Related notes
+  <a class="reference internal nav-link" href="#objective-evaluation">
+   3.1. Objective &amp; Evaluation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#to-do">
-   1.2. To Do
+  <a class="reference internal nav-link" href="#related-notes">
+   3.2. Related notes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-datasets">
+   3.3. Choose Datasets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#docstring">
-     1.2.1. Docstring
+    <a class="reference internal nav-link" href="#dataset-1-d1">
+     3.3.1. Dataset 1 (d1)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sample-tests">
-     1.2.2. Sample tests
+    <a class="reference internal nav-link" href="#dataset-2-d2">
+     3.3.2. Dataset 2 (d2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda">
+   3.4. EDA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-checklist">
+     3.4.1. Question checklist
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook-checklist">
-     1.2.3. Notebook Checklist
+    <a class="reference internal nav-link" href="#dataset-1-checklist">
+     3.4.2. Dataset 1 Checklist
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grading-notes">
-     1.2.4. Grading Notes:
+    <a class="reference internal nav-link" href="#dataset-2-checklist">
+     3.4.3. Dataset 2 Checklist
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#peer-review">
+   3.5. Peer Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#review-questions">
+     3.5.1. Review Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#response">
+     3.5.2. Response
     </a>
    </li>
   </ul>
@@ -607,123 +675,180 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-1-portfolio-setup-data-science-and-python">
-<h1><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python<a class="headerlink" href="#assignment-1-portfolio-setup-data-science-and-python" title="Permalink to this headline">#</a></h1>
-<p><strong>Due: 2023-01-30</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-3-exploratory-data-analysis">
+<h1><span class="section-number">3. </span>Assignment 3: Exploratory Data Analysis<a class="headerlink" href="#assignment-3-exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
+<p>__Due:2023-02-13 __</p>
+<!-- {{ accept_assignment }} -->
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You have the option to work with a partner. You must plan this in advance so that you have access to collaborate</p>
+</div>
+<section id="objective-evaluation">
+<h2><span class="section-number">3.1. </span>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this headline">#</a></h2>
+<p>This week your goal is to do a small exploratory data analysis for two datasets of your choice.</p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
-<li><p><span class="fa fa-star"></span><a class="footnote-reference brackets" href="#starredskill" id="id1">1</a>  python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1">level 1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2">level 2</a></p></li>
-<li><p><span class="fa fa-star"></span>process<a class="footnote-reference brackets" href="#processnote" id="id2">2</a> <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#process-level1">level 1</a></p></li>
-</ul>
-<section id="related-notes">
-<h2><span class="section-number">1.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="../notes/2023-01-24.html"><span class="doc std std-doc">Welcome and Introduction</span></a></p></li>
-<li><p><a class="reference internal" href="../notes/2023-01-26.html"><span class="doc std std-doc">Syllabus and Python Review</span></a></p></li>
+<li><p>process <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#process-level1">1</a></p></li>
+<li><p>access <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level2">2</a></p></li>
+<li><p><strong>first chance</strong> summarize <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level2">2</a></p></li>
+<li><p><strong>first chance</strong> visualize <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level2">2</a></p></li>
 </ul>
 </section>
-<section id="to-do">
-<h2><span class="section-number">1.2. </span>To Do<a class="headerlink" href="#to-do" title="Permalink to this headline">#</a></h2>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
+<section id="related-notes">
+<h2><span class="section-number">3.2. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst"></span></p></li>
+<li><p><span class="xref myst"></span></p></li>
+</ul>
+</section>
+<section id="choose-datasets">
+<h2><span class="section-number">3.3. </span>Choose Datasets<a class="headerlink" href="#choose-datasets" title="Permalink to this headline">#</a></h2>
+<p>Each Dataset must have at least three variables, but can have more. Both datasets
+must have multiple types of variables. These can be datasets you used last week,
+if they meet the criteria below.</p>
+<section id="dataset-1-d1">
+<h3><span class="section-number">3.3.1. </span>Dataset 1 (d1)<a class="headerlink" href="#dataset-1-d1" title="Permalink to this headline">#</a></h3>
+<p>must include at least:</p>
+<ul class="simple">
+<li><p>two continuous valued variables <strong>and</strong></p></li>
+<li><p>one categorical variable.</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>a dataset from the UCI data repository that’s for classification and has continuous features would work for this</p>
+</div>
+</section>
+<section id="dataset-2-d2">
+<h3><span class="section-number">3.3.2. </span>Dataset 2 (d2)<a class="headerlink" href="#dataset-2-d2" title="Permalink to this headline">#</a></h3>
+<p>must include at least:</p>
+<ul class="simple">
+<li><p>two categorical variables <strong>and</strong></p></li>
+<li><p>one continuous valued variable</p></li>
+</ul>
+</section>
+</section>
+<section id="eda">
+<h2><span class="section-number">3.4. </span>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h2>
+<p>Use a separate notebook for each dataset, name them <code class="docutils literal notranslate"><span class="pre">dataset_01.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_02.ipynb</span></code>.</p>
+<p>For <strong>each</strong> dataset, in the corresponding notebook complete the following:</p>
+<ol class="simple">
+<li><p>Load the data to a notebook as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from url or local path, if local, include the data file in your repository.</p></li>
+<li><p>Explore the dataset in a notebook enough to describe its structure use the heading <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Description</span></code></p>
+<ul class="simple">
+<li><p>shape</p></li>
+<li><p>columns</p></li>
+<li><p>variable types</p></li>
+<li><p>overall summary statisics</p></li>
+</ul>
+</li>
+<li><p>Write a short description of what the data contains and what it could be used for</p></li>
+<li><p>include overall summary for the data and interpret what that means. Are there limitations? are the variables what you expect?</p></li>
+<li><p>Ask and answer 3 questions by using and interpreting statistics and visualizations as appropriate. Include a heading for each question using a markdown cell and H2:<code class="docutils literal notranslate"><span class="pre">##</span></code>. Make sure your analyses meet the criteria in the check lists below. Use the checklists to think of what kinds of questions would use those type of analyses and help shape your questions.</p></li>
+<li><p>Describe what, if anything might need to be done to clean or prepare this data for further analysis in a finale <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Future</span> <span class="pre">analysis</span></code> markdown cell in your notebook.</p></li>
+</ol>
+<section id="question-checklist">
+<h3><span class="section-number">3.4.1. </span>Question checklist<a class="headerlink" href="#question-checklist" title="Permalink to this headline">#</a></h3>
+<p>be sure that every question (all eight, 4 per dataset) has:</p>
+<ul class="simple">
+<li><p>a heading</p></li>
+<li><p>at least 1 statistic or plot</p></li>
+<li><p>interpretation that answers the question</p></li>
+</ul>
+</section>
+<section id="dataset-1-checklist">
+<h3><span class="section-number">3.4.2. </span>Dataset 1 Checklist<a class="headerlink" href="#dataset-1-checklist" title="Permalink to this headline">#</a></h3>
+<p>make sure that your <code class="docutils literal notranslate"><span class="pre">dataset_01.ipynb</span></code> has:</p>
+<ul class="simple">
+<li><p>Overall summary statistics grouped by a categorical variable</p></li>
+<li><p>A single statistic grouped by a categorical variable</p></li>
+<li><p>at least one plot that uses 3 total variables</p></li>
+<li><p>a plot and summary table that convey the same information. This can be one statistic or many.</p></li>
+</ul>
+</section>
+<section id="dataset-2-checklist">
+<h3><span class="section-number">3.4.3. </span>Dataset 2 Checklist<a class="headerlink" href="#dataset-2-checklist" title="Permalink to this headline">#</a></h3>
+<p>make sure that your <code class="docutils literal notranslate"><span class="pre">dataset_02.ipynb</span></code> has:</p>
+<ul class="simple">
+<li><p>overall summary statistics</p></li>
+<li><p>two individual summary statistics for one variable</p></li>
+<li><p>one summary statistic grouped by two categorical variables</p></li>
+<li><p>a figure with a grid of subplots that correspond to two categorical variables</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Be sure to start early and use help hours to make sure you have a plan for all of these.</p>
+</div>
+</section>
+</section>
+<section id="peer-review">
+<h2><span class="section-number">3.5. </span>Peer Review<a class="headerlink" href="#peer-review" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you get stuck on any of this after accepting the assignment and creating a repository, you can create an issue on your repository, describing what you’re stuck on and tag us with <code class="docutils literal notranslate"><span class="pre">&#64;rhodyprog4ds/{{</span> <span class="pre">ghinstructors</span> <span class="pre">}}</span></code>.</p>
-<p>To do this click Issues at the top, the green “New Issue” button and then type away.</p>
+<p>This is optional, but if you do a review, you only need to do one analysis each.</p>
 </div>
-</aside>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you have trouble, check the GitHub FAQ on the left before e-mailing</p>
-</div>
-<p>Your task is to:</p>
+<p>With a partner (or group of 3 where person 1 review’s 2 work, 2 reviews 3, and 3 reviews 1) read
+your partner’s notebook and complete a peer review on their pull request.  You can do peer review
+when you have done most of your analysis, and explanation, even if some parts of the code do not
+work.</p>
+<p>In your review:</p>
+<ul class="simple">
+<li><p>Use inline comments to denote places that are confusing or if you see solutions to problems your classmate could not solve</p></li>
+<li><p>Use the template below for your summary review</p></li>
+</ul>
+<section id="review-questions">
+<h3><span class="section-number">3.5.1. </span>Review Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
-<li><p>Install required software from the Tools &amp; Resource page</p></li>
-<li><p>Create your portfolio, by <a class="reference external" href="https://classroom.github.com/a/oIJowjlW">accepting the assignment</a>
-</p></li>
-<li><p>Learn about your portfolio from the README file on your repository.</p></li>
-<li><p>edit <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> to set your name as author and  change the logo if you wish</p></li>
-<li><p>Fill in <code class="docutils literal notranslate"><span class="pre">about/index.md</span></code> with information about yourself(not evaluated, but useful) and your own definition of data science (graded for <strong>level 1 process</strong>)</p></li>
-<li><p>Add a Jupyter notebook called <code class="docutils literal notranslate"><span class="pre">grading.ipynb</span></code> to the <code class="docutils literal notranslate"><span class="pre">about</span></code> folder and write a function that computes a grade for this course, with the  docstring below.</p></li>
-<li><p>Add the line <code class="docutils literal notranslate">&#160; <span class="pre">-</span> <span class="pre">file:</span> <span class="pre">about/grading</span></code> in your <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> file.</p></li>
+<li><p>How was the analysis overall to read? easy? hard? cohesive? jumpy?</p></li>
+<li><p>Did the data summaries tell you enough about the data to understand the analysis and anticipate what kinds of questions could be answered? If not, what questions do you still have about the data?</p></li>
+<li><p>Do the questions make sense based on the data? Are they interesting questions? What could improve the questions</p></li>
+<li><p>Are the statistics and plots appropriate for the questions?</p></li>
+<li><p>Are the interpretations complete, clear, and consistent with the statistics and plots?</p></li>
+<li><p>What could be done to make the explanations more clear and complete?</p></li>
+<li><p>What additional analysis might make the analysis more compelling and clear?</p></li>
 </ol>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Do not merge your “Feedback” Pull Request</p>
-</div>
-<section id="docstring">
-<h3><span class="section-number">1.2.1. </span>Docstring<a class="headerlink" href="#docstring" title="Permalink to this headline">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Computes a grade for CSC/DSP310 from numbers of achievements at each level</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- delete sections that are not needed --&gt;
+## Overall  
 
-<span class="sd">    Parameters:</span>
-<span class="sd">    ------------</span>
-<span class="sd">    num_level1 : int</span>
-<span class="sd">      number of level 1 achievements earned</span>
-<span class="sd">    num_level2 : int</span>
-<span class="sd">      number of level 2 achievements earned</span>
-<span class="sd">    num_level3 : int</span>
-<span class="sd">      number of level 3 achievements earned</span>
+This analysis was ...
 
-<span class="sd">    Returns:</span>
-<span class="sd">    --------</span>
-<span class="sd">    letter_grade : string</span>
-<span class="sd">      letter grade with possible modifier (+/-)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+## Data Summaries
+
+- [ ] complete
+
+To understand this analysis I still need to know ...
+
+## Checklist
+
+- [ ] questions fit the data
+- [ ] questions are in natural language
+- [ ] chosen statistics and plots match questions
+- [ ] all statistics and plots have an interpretation in English
+
+## Areas of improvement
+
 </pre></div>
 </div>
 </section>
-<section id="sample-tests">
-<h3><span class="section-number">1.2.2. </span>Sample tests<a class="headerlink" href="#sample-tests" title="Permalink to this headline">#</a></h3>
-<p>Here are some sample tests you could run to confirm that your function works correctly:</p>
+<section id="response">
+<h3><span class="section-number">3.5.2. </span>Response<a class="headerlink" href="#response" title="Permalink to this headline">#</a></h3>
+<p>Respond to your review either inline comments, replies, or by updating your analysis accordingly.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>remember the difference between side effects and returns</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>when the value of the expression after <code class="docutils literal notranslate"><span class="pre">assert</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will look like nothing happened. <code class="docutils literal notranslate"><span class="pre">assert</span></code> is used for testing</p>
+<p>This section is not required, but is intended to help you get started thinking
+about ideas for your portfolio.  If you complete it, we’ll give your feedback to
+help shape your ideas to get to level 3 achievements.  If you want to focus only
+on level 2 at this moment in time, feel free to skip this part.</p>
 </div>
 </aside>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span>
-
-<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;A-&#39;</span>
-
-<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;B-&#39;</span>
-
-<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;C-&#39;</span>
-
-<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span>
-
-<span class="k">assert</span> <span class="n">compute_grade</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="o">==</span><span class="s1">&#39;B+&#39;</span>
-</pre></div>
+<div class="admonition-think-ahead admonition">
+<p class="admonition-title">Think Ahead</p>
+<ol class="simple">
+<li><p>How could you make more customized summary tables?</p></li>
+<li><p>Could you use any of the variables in this dataset to add more variables that would make interesting ways to apply split-apply-combine? (eg thresholding a continuous value to make a categorical value)</p></li>
+</ol>
 </div>
-</section>
-<section id="notebook-checklist">
-<h3><span class="section-number">1.2.3. </span>Notebook Checklist<a class="headerlink" href="#notebook-checklist" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>a Markdown cell with a heading</p></li>
-<li><p>your function called <code class="docutils literal notranslate"><span class="pre">compute_grade</span></code></p></li>
-<li><p>three calls to your function that verify it returns the correct value for different number of badges that produce at three different letter grades.</p></li>
-</ul>
-</section>
-<section id="grading-notes">
-<h3><span class="section-number">1.2.4. </span>Grading Notes:<a class="headerlink" href="#grading-notes" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>a basic function that uses conditionals in python will earn <strong>level 1 python</strong></p></li>
-<li><p>to earn <strong>level 2 python</strong> use pythonic code to write a loop that tests your function’s correctness, by iterating over a list or dictionary. Remember you will have many chances to earn level 2 achievement in python, so you do not need to do this step for this assignment if you are not sure how.</p></li>
-</ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="starredskill"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>skills will be marked like this on the first time they are eligible. There will also be a <span class="fa fa-hourglass-end"></span>  on skills for the last assignment they are eligible</p>
-</dd>
-<dt class="label" id="processnote"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>process is a special skill. You’ll earn level 1 in this assignment or a soon one and two in either portfolio 1 or assignments 6-10, then level 3 in portfolio 2,3, or 4.</p>
-</dd>
-</dl>
 </section>
 </section>
 </section>
@@ -755,17 +880,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../notes/2023-02-02.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02-python-access.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Pandas and Indexing</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Assignment 2: Practicing Python and Accessing Data</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02-python-access.html" title="next page">
+    <a class='right-next' id="next-link" href="../portfolio/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Assignment 2: Practicing Python and Accessing Data</p>
+        <p class="prev-next-title">Portfolio</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
