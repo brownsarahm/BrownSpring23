@@ -559,6 +559,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-locally">
+   Importing locally
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#questions-after-class">
    Questions After Class
   </a>
@@ -632,6 +637,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reading-data-other-ways">
    Reading data other ways
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-locally">
+   Importing locally
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -962,7 +972,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1842</span><span class="o">/</span><span class="mf">4120816115.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1858</span><span class="o">/</span><span class="mf">4120816115.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">achievements_df_list</span><span class="o">.</span><span class="n">shape</span>
 
 <span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;shape&#39;
@@ -1264,6 +1274,25 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 </div>
+</section>
+<section id="importing-locally">
+<h2>Importing locally<a class="headerlink" href="#importing-locally" title="Permalink to this headline">#</a></h2>
+<p>If I make a file in the same folder as my notebook called <code class="docutils literal notranslate"><span class="pre">example.py</span></code>
+and then put</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+cat example.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name = &#39;sarah&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>in the file, we can use that file like:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">example</span> <span class="kn">import</span> <span class="n">name</span>
