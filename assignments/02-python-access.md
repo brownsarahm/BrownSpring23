@@ -131,9 +131,7 @@ There are two files in the data folder, both can be read in with `read_csv` but 
 
 ## Submission
 
-```{important}
-This is TBA instructins will be here on Thursday
-```
+Upload to your repository. 
 
 ## Thinking ahead
 
