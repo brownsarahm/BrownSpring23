@@ -59,7 +59,7 @@ Create a list of dictionaries in `datasets.py`, so that there is one dictionary 
 
 ```{list-table} 
 
-*- `url`
+* - `url`
   - with the url
 * - `short_name`
   - a short name
@@ -131,9 +131,7 @@ There are two files in the data folder, both can be read in with `read_csv` but 
 
 ## Submission
 
-```{important}
-This is TBA instructins will be here on Thursday
-```
+Upload to your repository. 
 
 ## Thinking ahead
 
