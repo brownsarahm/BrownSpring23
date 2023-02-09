@@ -1,8 +1,8 @@
 ---
 substitutions:
   accept_assignment: |
-    [Template repo for submission](https://classroom.github.com/a/WL4HroJ_)
-  date : 2023-02-13
+    [Template repo for submission](https://classroom.github.com/a/ttGG2ZCa)
+  date : 2023-02-14
 ---
 
 # Assignment 3: Exploratory Data Analysis
