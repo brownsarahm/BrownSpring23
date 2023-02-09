@@ -6,4 +6,3 @@ pandas
 lxml
 seaborn
 xlrd
-sklearn
