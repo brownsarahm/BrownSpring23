@@ -9,7 +9,7 @@ substitutions:
 
 __Due:{{ date }} __
 
-<!-- {{ accept_assignment }} -->
+{{ accept_assignment }}
 
 ```{important}
 You have the option to work with a partner. You must plan this in advance so that you have access to collaborate
