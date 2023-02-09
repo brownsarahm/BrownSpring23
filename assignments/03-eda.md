@@ -79,7 +79,7 @@ For **each** dataset, in the corresponding notebook complete the following:
 
 ### Question checklist
 
-be sure that every question (all eight, 4 per dataset) has:
+be sure that every question (all six, 3 per dataset) has:
 - a heading
 - at least 1 statistic or plot
 - interpretation that answers the question
