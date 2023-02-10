@@ -12,7 +12,7 @@ __Due:{{ date }} __
 {{ accept_assignment }}
 
 ```{important}
-You have the option to work with a partner. You must plan this in advance so that you have access to collaborate
+You have the option to work with a partner. You must plan this in advance so that you have access to collaborate. If you did not find a partner in class and you would like one, try to find one [on the class discussion](https://github.com/rhodyprog4ds/sp23-discuss-sp23community/discussions). @brownsarahm if you do not get a reply. 
 ```
 
 
