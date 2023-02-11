@@ -51,7 +51,7 @@ We have several different ways to communicate in this course. This section summa
 :tags: ["remove-input"]
 
 df = df[['usage','platform','area','note']]
-display(HTML(df.style.hide_index()._repr_html_()))
+display(HTML(df.style.hide()))
 ```
 
 ```{note}
