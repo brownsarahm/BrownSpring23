@@ -21,10 +21,10 @@ You have the option to work with a partner. You must plan this in advance so tha
 This week your goal is to do a small exploratory data analysis for two datasets of your choice.
 
 Eligible skills: (links to checklists)
--  process [1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#process-level1)
-- access [1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level1) and [2](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level2)
-- **first chance** summarize [1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level1) and [2](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level2)
-- **first chance** visualize [1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level1) and [2](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level2)
+-  process [1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#process-level1)
+- access [1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#access-level1) and [2](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#access-level2)
+- **first chance** summarize [1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#summarize-level1) and [2](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#summarize-level2)
+- **first chance** visualize [1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#visualize-level1) and [2](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#visualize-level2)
 
 
 
