@@ -1,2 +1,4 @@
 _build/
 *.ipynb_checkpoints/
+notes/__pycache__/*
+syllabus/achmd.md
