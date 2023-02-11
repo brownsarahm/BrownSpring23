@@ -17,32 +17,54 @@ jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     # Install dependencies
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
+    - name: Set up Python 
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.7
+        python-version: 3.8
+    
+    - uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
 
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
 
-    # Build the book
-    - name: Build the book
+    - name: Restore cached build
+      id: cache-build-restore
+      uses: actions/cache/restore@v3
+      with:
+        path: |
+          _build/html/
+        key: ${{ runner.os }}-build
+
+    # Build the whole webste
+    - name: Build the whole website
       run: |
         jupyter-book build . --builder pdfhtml
         mv _build/pdf/book.pdf _build/html/coursemanual.pdf
         jupyter-book build .
 
     # Build the syllabus only
-    - name: Build the book
+    - name: Build the syllabus pdf and save with the rest
       run: |
         cd syllabus/
         jupyter-book build .  --toc _toc_syllabus.yml --builder pdfhtml --all
         mv _build/pdf/book.pdf ../_build/html/syllabus.pdf
 
+    - name: Save Build
+      id: cache-build-save
+      uses: actions/cache/save@v3
+      with:
+        path: |
+          _build/html
+        key: ${{ steps.cache-build-restore.outputs.cache-primary-key }}
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
