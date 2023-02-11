@@ -11,8 +11,8 @@ __Due: {{ date }}__
 
 
 Eligible skills: (links to checklists)
-- {fa}`star`[^starredskill]  python [level 1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1) and [level 2](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2)
-- {fa}`star`process[^processnote] [level 1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#process-level1) 
+- {fa}`star`[^starredskill]  python [level 1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level1) and [level 2](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level2)
+- {fa}`star`process[^processnote] [level 1](https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#process-level1) 
 
 [^starredskill]: skills will be marked like this on the first time they are eligible. There will also be a {fa}`hourglass-end`  on skills for the last assignment they are eligible
 [^processnote]: process is a special skill. You'll earn level 1 in this assignment or a soon one and two in either portfolio 1 or assignments 6-10, then level 3 in portfolio 2,3, or 4. 
