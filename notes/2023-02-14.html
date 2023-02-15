@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tidy Data and Reshaping Datasets &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>7. Tidy Data and Reshaping Datasets &#8212; Programming for Data Science at URI Spring 2023</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="prev" title="6. Visualization" href="2023-02-09.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2023-01-24.html">
    1. Welcome and Introduction
@@ -193,6 +195,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="2023-02-09.html">
    6. Visualization
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Tidy Data and Reshaping Datasets
   </a>
  </li>
 </ul>
@@ -546,12 +553,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-manipulations">
+   7.1. More manipulations
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -563,6 +594,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-manipulations">
+   7.1. More manipulations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -571,7 +615,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="tidy-data-and-reshaping-datasets">
-<h1>Tidy Data and Reshaping Datasets<a class="headerlink" href="#tidy-data-and-reshaping-datasets" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7. </span>Tidy Data and Reshaping Datasets<a class="headerlink" href="#tidy-data-and-reshaping-datasets" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -779,7 +823,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1862/1880485675.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/1880485675.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
   list_of_df[2].mean()
 </pre></div>
 </div>
@@ -820,7 +864,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1862/2310255724.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/2310255724.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   list_of_df[2].groupby(&#39;treatment&#39;).mean()
 </pre></div>
 </div>
@@ -869,7 +913,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1862/344217198.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/344217198.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   list_of_df[2].groupby(&#39;person&#39;).mean()
 </pre></div>
 </div>
@@ -1642,7 +1686,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdc8b4c8ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fda35a19d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/2023-02-14_26_1.png" src="../_images/2023-02-14_26_1.png" />
@@ -1656,7 +1700,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdc8b502d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fda64d894c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2023-02-14_27_1.png" src="../_images/2023-02-14_27_1.png" />
@@ -1737,34 +1781,616 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1862/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdc864b2580&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1933/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fda35a19cd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2023-02-14_30_3.png" src="../_images/2023-02-14_30_3.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Number.of.Bags</th>
+      <th>Aroma</th>
+      <th>Flavor</th>
+      <th>Aftertaste</th>
+      <th>Acidity</th>
+      <th>Body</th>
+      <th>Balance</th>
+      <th>Uniformity</th>
+      <th>Clean.Cup</th>
+      <th>Sweetness</th>
+      <th>Cupper.Points</th>
+      <th>Total.Cup.Points</th>
+      <th>Moisture</th>
+      <th>Category.One.Defects</th>
+      <th>Quakers</th>
+      <th>Category.Two.Defects</th>
+      <th>altitude_low_meters</th>
+      <th>altitude_high_meters</th>
+      <th>altitude_mean_meters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.00000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1311.000000</td>
+      <td>1310.000000</td>
+      <td>1311.000000</td>
+      <td>1084.000000</td>
+      <td>1084.000000</td>
+      <td>1084.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>656.000763</td>
+      <td>153.887872</td>
+      <td>7.563806</td>
+      <td>7.518070</td>
+      <td>7.397696</td>
+      <td>7.533112</td>
+      <td>7.517727</td>
+      <td>7.517506</td>
+      <td>9.833394</td>
+      <td>9.83312</td>
+      <td>9.903272</td>
+      <td>7.497864</td>
+      <td>82.115927</td>
+      <td>0.088863</td>
+      <td>0.426392</td>
+      <td>0.177099</td>
+      <td>3.591915</td>
+      <td>1759.548954</td>
+      <td>1808.843803</td>
+      <td>1784.196379</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>378.598733</td>
+      <td>129.733734</td>
+      <td>0.378666</td>
+      <td>0.399979</td>
+      <td>0.405119</td>
+      <td>0.381599</td>
+      <td>0.359213</td>
+      <td>0.406316</td>
+      <td>0.559343</td>
+      <td>0.77135</td>
+      <td>0.530832</td>
+      <td>0.474610</td>
+      <td>3.515761</td>
+      <td>0.047957</td>
+      <td>1.832415</td>
+      <td>0.840583</td>
+      <td>5.350371</td>
+      <td>8767.847252</td>
+      <td>8767.187498</td>
+      <td>8767.016913</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>328.500000</td>
+      <td>14.500000</td>
+      <td>7.420000</td>
+      <td>7.330000</td>
+      <td>7.250000</td>
+      <td>7.330000</td>
+      <td>7.330000</td>
+      <td>7.330000</td>
+      <td>10.000000</td>
+      <td>10.00000</td>
+      <td>10.000000</td>
+      <td>7.250000</td>
+      <td>81.170000</td>
+      <td>0.090000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1100.000000</td>
+      <td>1100.000000</td>
+      <td>1100.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>656.000000</td>
+      <td>175.000000</td>
+      <td>7.580000</td>
+      <td>7.580000</td>
+      <td>7.420000</td>
+      <td>7.500000</td>
+      <td>7.500000</td>
+      <td>7.500000</td>
+      <td>10.000000</td>
+      <td>10.00000</td>
+      <td>10.000000</td>
+      <td>7.500000</td>
+      <td>82.500000</td>
+      <td>0.110000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>1310.640000</td>
+      <td>1350.000000</td>
+      <td>1310.640000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>983.500000</td>
+      <td>275.000000</td>
+      <td>7.750000</td>
+      <td>7.750000</td>
+      <td>7.580000</td>
+      <td>7.750000</td>
+      <td>7.670000</td>
+      <td>7.750000</td>
+      <td>10.000000</td>
+      <td>10.00000</td>
+      <td>10.000000</td>
+      <td>7.750000</td>
+      <td>83.670000</td>
+      <td>0.120000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>1600.000000</td>
+      <td>1650.000000</td>
+      <td>1600.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1312.000000</td>
+      <td>1062.000000</td>
+      <td>8.750000</td>
+      <td>8.830000</td>
+      <td>8.670000</td>
+      <td>8.750000</td>
+      <td>8.580000</td>
+      <td>8.750000</td>
+      <td>10.000000</td>
+      <td>10.00000</td>
+      <td>10.000000</td>
+      <td>10.000000</td>
+      <td>90.580000</td>
+      <td>0.280000</td>
+      <td>31.000000</td>
+      <td>11.000000</td>
+      <td>55.000000</td>
+      <td>190164.000000</td>
+      <td>190164.000000</td>
+      <td>190164.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="more-manipulations">
+<h2><span class="section-number">7.1. </span>More manipulations<a class="headerlink" href="#more-manipulations" title="Permalink to this headline">#</a></h2>
+<p>Here, we will make a tiny <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from scratch to illustrate a couple of points</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_num_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span> <span class="p">[[</span><span class="mi">730000000</span><span class="p">,</span><span class="mi">392000000</span><span class="p">,</span><span class="mi">580200000</span><span class="p">],</span>
+                                   <span class="p">[</span><span class="mi">315040009</span><span class="p">,</span><span class="mi">580000000</span><span class="p">,</span><span class="mi">967290000</span><span class="p">]],</span>
+                           <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">large_num_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>730000000</td>
+      <td>392000000</td>
+      <td>580200000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>315040009</td>
+      <td>580000000</td>
+      <td>967290000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This dataet is not tidy, but making it this way was faster to set it up.  We could make it tidy using melt as is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_num_df</span><span class="o">.</span><span class="n">melt</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>730000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a</td>
+      <td>315040009</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>b</td>
+      <td>392000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b</td>
+      <td>580000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>c</td>
+      <td>580200000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>c</td>
+      <td>967290000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>However, I want an additional variable, so I wil reset the index, which adds an index column for the original index and adds a new index that is numerical. In this case they’re the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_num_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>730000000</td>
+      <td>392000000</td>
+      <td>580200000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>315040009</td>
+      <td>580000000</td>
+      <td>967290000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If I melt this one, using the index as the <code class="docutils literal notranslate"><span class="pre">id</span></code>, then I get a reasonable tidy DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_tall_df</span> <span class="o">=</span> <span class="n">large_num_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">ls_tall_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>a</td>
+      <td>730000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>a</td>
+      <td>315040009</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>b</td>
+      <td>392000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>b</td>
+      <td>580000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>c</td>
+      <td>580200000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>c</td>
+      <td>967290000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now, we can plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ls_tall_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span>
+            <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fda31dfd1f0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2023-02-14_41_1.png" src="../_images/2023-02-14_41_1.png" />
+</div>
+</div>
+<p>Since the numbers are so big, this might be hard to interpret.  Displaying it with all the 0s would not be easier to read.  The best thing to do is to add a new colum with adjusted values and a corresponding title.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_tall_df</span><span class="p">[</span><span class="s1">&#39;value (millions)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ls_tall_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000000</span>
+<span class="n">ls_tall_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>variable</th>
+      <th>value</th>
+      <th>value (millions)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>a</td>
+      <td>730000000</td>
+      <td>730.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>a</td>
+      <td>315040009</td>
+      <td>315.040009</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>b</td>
+      <td>392000000</td>
+      <td>392.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>b</td>
+      <td>580000000</td>
+      <td>580.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>c</td>
+      <td>580200000</td>
+      <td>580.200000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we can plot again, with the smaller values and an updated axis label.  Adding a column with the adjusted title is good practice because it does not lose any data and since we set the value and the title at the same time it keeps it clear what the values are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ls_tall_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;value (millions)&#39;</span><span class="p">,</span>
+            <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fda31f91700&gt;
+</pre></div>
+</div>
+<img alt="../_images/2023-02-14_45_1.png" src="../_images/2023-02-14_45_1.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1794,6 +2420,20 @@ Name: Number.of.Bags, dtype: int64
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2023-02-09.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Visualization</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-syllabus-install.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
