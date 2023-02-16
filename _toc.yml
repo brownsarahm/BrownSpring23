@@ -27,6 +27,7 @@ parts:
     - file: assignments/01-syllabus-install
     - file: assignments/02-python-access
     - file: assignments/03-eda
+    - file: assignments/04-prepare
   - caption: Portfolio
     chapters:
       - file: portfolio/index
