@@ -12,6 +12,22 @@ This page is a semi-curated source of datasets for use in assignments.  The diff
 - Lots of wikipedia pages have tables in them.
 
 
+## Cleaning Examples
+
+
+
+- [Messy Artists](https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/messy_artist.csv) .csv file, that needs to be cleaned, containing data on artists
+- [Messy Wheels](https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/messy_wheels.csv) .csv file, that needs to be cleaned, containing data on various wheel attractions around the globe
+- [Clean Artists](https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/clean_artist.csv) .csv file, already cleaned, containing data on artists
+- [Clean Wheels](https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/clean_wheels.csv), .csv file, already cleaned, containing data on various wheel attractions around the globe
+- [Women's Rugby](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-05-24/readme.md)
+- [Web page metrics](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-11-15)
+- [data cleaning with open refine on survey data](https://datacarpentry.org/openrefine-socialsci/) this is a tutorial for cleaning data with another tool, but it demonstrates common problems with data well. 
+- [data clearning for ecology](https://datacarpentry.org/OpenRefine-ecology-lesson/) this is a tutorial for cleaning data with another tool, but it demonstrates common problems with data well. 
+- [us solar data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-05-03/readme.md)
+- [NYT Data Preparation document](https://data.post45.org/wp-content/uploads/2022/01/NYT-Data-Description.pdf)
+- [Corporate Repuation Rankings](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-05-31)
+
 ## General Sources
 
 These may require some more work
@@ -34,6 +50,8 @@ These may require some more work
 - [Caribou Tracking](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-06-23)
 - [Video games from steam 2021](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-03-16/readme.md) and from [2019](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-07-30)
 - [BBC Rap Artists](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-04-14)
+- [character psychometrics](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-08-16)
+- [weather forecast accuracy](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-12-20)
 
 ## Datasets with time
 - [Superbowl commercials](https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-02)
