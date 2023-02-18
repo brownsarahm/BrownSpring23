@@ -1,7 +1,7 @@
 ---
 substitutions:
   accept_assignment: |
-    [accept the assignment]()
+    [accept the assignment](https://classroom.github.com/a/X4txYKLU)
   date : 2023-02-21
 ---
 # Assignment 4:
