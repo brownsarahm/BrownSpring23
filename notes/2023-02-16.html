@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reparing values &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>8. Reparing values &#8212; Programming for Data Science at URI Spring 2023</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="prev" title="7. Tidy Data and Reshaping Datasets" href="2023-02-14.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2023-01-24.html">
    1. Welcome and Introduction
@@ -198,6 +200,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="2023-02-14.html">
    7. Tidy Data and Reshaping Datasets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Reparing values
   </a>
  </li>
 </ul>
@@ -579,9 +586,105 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpacking-jsons">
-   unpacking jsons
+  <a class="reference internal nav-link" href="#cleaning-data-review">
+   8.1. Cleaning Data review
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-cleaning-data-recipe">
+     8.1.1. A Cleaning Data Recipe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-clean-enough">
+   8.2. What is clean enough?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-column-names">
+   8.3. Fixing Column names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values">
+   8.4. Missing Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filling-missing-values">
+     8.4.1. Filling missing values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dropping-missing-values">
+     8.4.2. Dropping missing values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inconsistent-values">
+   8.5. Inconsistent values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-unpacking-jsons">
+   8.6. Example: Unpacking Jsons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   8.7. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-the-apply-function-works-use-cases">
+     8.7.1. How the apply function works/use cases?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-na-values">
+     8.7.2. Is there a better way to see na values?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for">
+     8.7.3. in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       col_name_mapper
+      </span>
+      <span class="pre">
+       =
+      </span>
+      <span class="pre">
+       {col_name:col_name.lower().replace('.','_')
+      </span>
+      <span class="pre">
+       for
+      </span>
+      <span class="pre">
+       col_name
+      </span>
+      <span class="pre">
+       in
+      </span>
+      <span class="pre">
+       coffee_df.columns}
+      </span>
+     </code>
+     what is the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       {}
+      </span>
+     </code>
+     for?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -603,9 +706,105 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#unpacking-jsons">
-   unpacking jsons
+  <a class="reference internal nav-link" href="#cleaning-data-review">
+   8.1. Cleaning Data review
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-cleaning-data-recipe">
+     8.1.1. A Cleaning Data Recipe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-clean-enough">
+   8.2. What is clean enough?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixing-column-names">
+   8.3. Fixing Column names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-values">
+   8.4. Missing Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filling-missing-values">
+     8.4.1. Filling missing values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dropping-missing-values">
+     8.4.2. Dropping missing values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inconsistent-values">
+   8.5. Inconsistent values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-unpacking-jsons">
+   8.6. Example: Unpacking Jsons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   8.7. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-the-apply-function-works-use-cases">
+     8.7.1. How the apply function works/use cases?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-na-values">
+     8.7.2. Is there a better way to see na values?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for">
+     8.7.3. in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       col_name_mapper
+      </span>
+      <span class="pre">
+       =
+      </span>
+      <span class="pre">
+       {col_name:col_name.lower().replace('.','_')
+      </span>
+      <span class="pre">
+       for
+      </span>
+      <span class="pre">
+       col_name
+      </span>
+      <span class="pre">
+       in
+      </span>
+      <span class="pre">
+       coffee_df.columns}
+      </span>
+     </code>
+     what is the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       {}
+      </span>
+     </code>
+     for?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -618,7 +817,35 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="reparing-values">
-<h1>Reparing values<a class="headerlink" href="#reparing-values" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8. </span>Reparing values<a class="headerlink" href="#reparing-values" title="Permalink to this headline">#</a></h1>
+<p>So far, we’ve dealt with structural issues in data. but there’s a lot more to
+cleaning.</p>
+<p>Today,  we’ll deal with how to fix the values within  the data.</p>
+<section id="cleaning-data-review">
+<h2><span class="section-number">8.1. </span>Cleaning Data review<a class="headerlink" href="#cleaning-data-review" title="Permalink to this headline">#</a></h2>
+<p>Instead of more practice with these manipulations, below are more
+examples of cleaning data to see how these types of manipulations get used.<br />
+Your goal here is not to memorize every possible thing, but to build a general
+idea of what good data looks like and good habits for cleaning data and keeping
+it reproducible.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ryanwingate.com/projects/machine-learning-data-prep/adult/adult-cleaning/">Cleaning the Adult Dataset</a></p></li>
+<li><p><a class="reference external" href="https://github.com/the-pudding/data/tree/master/foundation-names#allshadescsv--allshadesr">All Shades</a>
+Also here are some tips on general data management and organization.</p></li>
+</ul>
+<p>This article is a comprehensive <a class="reference external" href="https://towardsdatascience.com/the-ultimate-guide-to-data-cleaning-3969843991d4">discussion of data cleaning</a>.</p>
+<section id="a-cleaning-data-recipe">
+<h3><span class="section-number">8.1.1. </span>A Cleaning Data Recipe<a class="headerlink" href="#a-cleaning-data-recipe" title="Permalink to this headline">#</a></h3>
+<p><strong>not everything possible, but good enough for this course</strong></p>
+<ol class="simple">
+<li><p>Can you use parameters to read the data in better?</p></li>
+<li><p>Fix the index and column headers (making these easier to use makes the rest easier)</p></li>
+<li><p>Is the data strucutred well?</p></li>
+<li><p>Are there missing values?</p></li>
+<li><p>Do the datatypes match what you expect by looking at the head or a sample?</p></li>
+<li><p>Are categorical variables represented in usable way?</p></li>
+<li><p>Does your analysis require filtering or augmenting the data?</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -639,6 +866,17 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="what-is-clean-enough">
+<h2><span class="section-number">8.2. </span>What is clean enough?<a class="headerlink" href="#what-is-clean-enough" title="Permalink to this headline">#</a></h2>
+<p>This is a great question, without an easy answer.</p>
+<p>It depends on what you want to do.  This is why it’s important to have potential
+questions in mind if you are cleaning data for others <em>and</em> why we often have to
+do a little bit more preparation after a dataset has been “cleaned”</p>
+</section>
+<section id="fixing-column-names">
+<h2><span class="section-number">8.3. </span>Fixing Column names<a class="headerlink" href="#fixing-column-names" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">columns</span>
@@ -1020,6 +1258,40 @@ Name: unit_of_measurement, Length: 1311, dtype: object
 <p>1 rows × 44 columns</p>
 </div></div></div>
 </div>
+</section>
+<section id="missing-values">
+<h2><span class="section-number">8.4. </span>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">#</a></h2>
+<p>Dealing with missing data is a whole research area. There isn’t one solution.</p>
+<p><a class="reference external" href="https://artemiss-workshop.github.io/">in 2020 there was a whole workshop on missing</a></p>
+<p>one organizer is the main developer of <a class="reference external" href="https://scikit-learn.org/stable/">sci-kit learn</a> the ML package we will use soon.  In a <a class="reference external" href="https://static.sched.com/hosted_files/ray2020/08/Keynote-%20Easier%20Machine%20Learning%20Thoughts%20From%20Scikit-Learn%20-%20Ga%C3%ABl%20Varoquaux%2C%20Research%20Director%2C%20Inria.pdf">2020 invited talk</a> he listed more automatic handling as an active area of research  and a development goal for sklearn.</p>
+<p>There are also many classic approaches both when training and when <a class="reference external" href="https://www.jmlr.org/papers/volume8/saar-tsechansky07a/saar-tsechansky07a.pdf">applying models</a>.</p>
+<p><a class="reference external" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.701.4234&amp;rep=rep1&amp;type=pdf">example application in breast cancer detection</a></p>
+<p>Even in pandas, dealing with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">missing values</a> is under <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html#missing-data-na">experimentation</a>
+as to how to represent it symbolically</p>
+<p>Missing values even causes the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html#missing-data-casting-rules-and-indexing">datatypes to change</a></p>
+<p>That said, there are are om
+Pandas gives a few basic tools:</p>
+<ul class="simple">
+<li><p>dropna</p></li>
+<li><p>fillna</p></li>
+</ul>
+<p>Dropping is a good choice when you otherwise have a lot of data and the data is
+missing at random.</p>
+<p>Dropping can be risky if it’s not missing at random. For example, if we saw in
+the coffee data that one of the scores was missing for all of the rows from one
+country, or even just missing more often in one country, that could bias our
+results.</p>
+<p>Filling can be good if you know how to fill reasonably, but don’t have data to
+spare by dropping.  For example</p>
+<ul class="simple">
+<li><p>you can approximate with another column</p></li>
+<li><p>you can approximate with that column from other rows</p></li>
+</ul>
+<p>Special case, what if we’re filling a summary table?</p>
+<ul class="simple">
+<li><p>filling with a symbol for printing can be a good choice, but not for analysis.</p></li>
+</ul>
+<p><strong>whatever you do, document it</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -1082,6 +1354,10 @@ memory usage: 460.9+ KB
 </div>
 </div>
 </div>
+<section id="filling-missing-values">
+<h3><span class="section-number">8.4.1. </span>Filling missing values<a class="headerlink" href="#filling-missing-values" title="Permalink to this headline">#</a></h3>
+<p>The ‘Lot.Number’ has a lot of NaN values, how can we explore it?</p>
+<p>We can look at the type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;lot_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
@@ -1094,6 +1370,7 @@ memory usage: 460.9+ KB
 </div>
 </div>
 </div>
+<p>And we can look at the value counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;lot_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -1117,6 +1394,7 @@ Name: lot_number, Length: 221, dtype: int64
 </div>
 </div>
 </div>
+<p>We see that a lot are ‘1’, maybe we know that when the data was collected, if the Farm only has one lot, some people recorded ‘1’ and others left it as missing. So we could fill in with 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;lot_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -1140,6 +1418,14 @@ Name: lot_number, Length: 1311, dtype: object
 </div>
 </div>
 </div>
+<p>Note that even after we called <code class="docutils literal notranslate"><span class="pre">fillna</span></code> we display it again and the original data is unchanged.
+To save the filled in column we have a few choices:</p>
+<ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">inplace</span></code> parameter. This doesn’t offer performance advantages, but does It still copies the object, but then reassigns the pointer. Its under discussion to <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/16529">deprecate</a></p></li>
+<li><p>write to a new DataFrame</p></li>
+<li><p>add a column</p></li>
+</ul>
+<p>We’ll use adding a column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;lot_number_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;lot_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -1170,6 +1456,10 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </div>
 </div>
+</section>
+<section id="dropping-missing-values">
+<h3><span class="section-number">8.4.2. </span>Dropping missing values<a class="headerlink" href="#dropping-missing-values" title="Permalink to this headline">#</a></h3>
+<p>To illustrate how <code class="docutils literal notranslate"><span class="pre">dropna</span></code> works, we’ll use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">shape</span>
@@ -1194,84 +1484,8 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>species</th>
-      <th>owner</th>
-      <th>country_of_origin</th>
-      <th>farm_name</th>
-      <th>lot_number</th>
-      <th>mill</th>
-      <th>ico_number</th>
-      <th>company</th>
-      <th>altitude</th>
-      <th>region</th>
-      <th>...</th>
-      <th>expiration</th>
-      <th>certification_body</th>
-      <th>certification_address</th>
-      <th>certification_contact</th>
-      <th>unit_of_measurement</th>
-      <th>altitude_low_meters</th>
-      <th>altitude_high_meters</th>
-      <th>altitude_mean_meters</th>
-      <th>unit_of_measurement_long</th>
-      <th>lot_number_clean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Arabica</td>
-      <td>metad plc</td>
-      <td>Ethiopia</td>
-      <td>metad plc</td>
-      <td>NaN</td>
-      <td>metad plc</td>
-      <td>2014/2015</td>
-      <td>metad agricultural developmet plc</td>
-      <td>1950-2200</td>
-      <td>guji-hambela</td>
-      <td>...</td>
-      <td>April 3rd, 2016</td>
-      <td>METAD Agricultural Development plc</td>
-      <td>309fcf77415a3661ae83e027f7e5f05dad786e44</td>
-      <td>19fef5a731de2db57d16da10287413f5f99bc2dd</td>
-      <td>m</td>
-      <td>1950.0</td>
-      <td>2200.0</td>
-      <td>2075.0</td>
-      <td>meters</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>1 rows × 45 columns</p>
-</div></div></div>
-</div>
+<p>By default, it drops any row with one or more <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
+<p>We could instead tell it to only drop rows with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in a subset of the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;altitude_low_meters&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
@@ -1291,6 +1505,7 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </div>
 </div>
+<p>In the <a class="reference external" href="https://openpolicing.stanford.edu/data/">Open Policing Project Data Summary</a> we saw that they made a summary information that showed which variables had at least 70% not missing values.  We can similarly choose to keep only variables that have more than a specific threshold of data, using the <code class="docutils literal notranslate"><span class="pre">thresh</span></code> parameter and <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> to drop along columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">shape</span>
@@ -1304,6 +1519,7 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </div>
 </div>
+<p>This dataset is actually in pretty good shape, but if we use a more stringent threshold it drops more columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span> <span class="o">=</span> <span class="mf">.85</span><span class="o">*</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
@@ -1316,6 +1532,12 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="inconsistent-values">
+<h2><span class="section-number">8.5. </span>Inconsistent values<a class="headerlink" href="#inconsistent-values" title="Permalink to this headline">#</a></h2>
+<p>This was one of the things that many of you anticipated or had observed.  A useful way to investigate for this, is to use <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> and sort them alphabetically by the values from the original data, so that similar ones will be consecutive in the list. Once we have the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> Series, the values from the <code class="docutils literal notranslate"><span class="pre">coffee_df</span></code> become the index, so we use <code class="docutils literal notranslate"><span class="pre">sort_index</span></code>.</p>
+<p>Let’s look at the <code class="docutils literal notranslate"><span class="pre">in_country_partner</span></code> column</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df_fixedcols</span><span class="p">[</span><span class="s1">&#39;in_country_partner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
@@ -1355,6 +1577,7 @@ Name: in_country_partner, dtype: int64
 </div>
 </div>
 </div>
+<p>We can see there’s only one <code class="docutils literal notranslate"><span class="pre">Blossom</span> <span class="pre">Valley</span> <span class="pre">International\n</span></code> but 58 <code class="docutils literal notranslate"><span class="pre">Blossom</span> <span class="pre">Valley</span> <span class="pre">International</span></code>, the former is likely a typo, especially since <code class="docutils literal notranslate"><span class="pre">\n</span></code> is a special character for a newline. Similarly, with ‘Specialty Coffee Ass’ and ‘Specialty Coffee Association’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">partner_corrections</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Blossom Valley International</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">:</span><span class="s1">&#39;Blossom Valley International&#39;</span><span class="p">,</span>
@@ -1370,8 +1593,9 @@ Name: in_country_partner, dtype: int64
 </div>
 </div>
 </div>
-<section id="unpacking-jsons">
-<h2>unpacking jsons<a class="headerlink" href="#unpacking-jsons" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="example-unpacking-jsons">
+<h2><span class="section-number">8.6. </span>Example: Unpacking Jsons<a class="headerlink" href="#example-unpacking-jsons" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhodyprog4ds_gh_events_url</span>
@@ -1387,10 +1611,103 @@ Name: in_country_partner, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">rhodyprog4ds_gh_events_url</span><span class="p">)</span>
+<span class="n">gh_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>type</th>
+      <th>actor</th>
+      <th>repo</th>
+      <th>payload</th>
+      <th>public</th>
+      <th>created_at</th>
+      <th>org</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>27175920008</td>
+      <td>CreateEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'ref': 'c8', 'ref_type': 'tag', 'master_branc...</td>
+      <td>True</td>
+      <td>2023-02-18 01:55:10+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27175916054</td>
+      <td>PushEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126635...</td>
+      <td>True</td>
+      <td>2023-02-18 01:54:30+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27175740686</td>
+      <td>PushEvent</td>
+      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126634...</td>
+      <td>True</td>
+      <td>2023-02-18 01:28:21+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27175717296</td>
+      <td>DeleteEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'ref': 'link', 'ref_type': 'branch', 'pusher_...</td>
+      <td>True</td>
+      <td>2023-02-18 01:24:55+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27175717207</td>
+      <td>PushEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126634...</td>
+      <td>True</td>
+      <td>2023-02-18 01:24:54+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<p>Some datasets have a nested structure</p>
+<p>We want to transform each one of those from a dictionary like thing into a
+row in a data frame.</p>
+<p>We can see each row is a Series type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">gh_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1406,13 +1723,7 @@ Name: in_country_partner, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1422,6 +1733,8 @@ Name: in_country_partner, dtype: int64
 </div>
 </div>
 </div>
+<p>Recall, that base python types can be used as function, to cast an object from
+type to another.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
@@ -1434,6 +1747,7 @@ Name: in_country_partner, dtype: int64
 </div>
 </div>
 </div>
+<p>This works with Pandas Series too</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">gh_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;actor&#39;</span><span class="p">])</span>
@@ -1452,6 +1766,8 @@ dtype: object
 </div>
 </div>
 </div>
+<p>We can use <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">pandas <code class="docutils literal notranslate"><span class="pre">apply</span></code></a> to do the same thing to every item in a dataset (over rows or columns as items )
+For example</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh_df</span><span class="p">[</span><span class="s1">&#39;actor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1506,12 +1822,12 @@ dtype: object
     </tr>
     <tr>
       <th>2</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1535,6 +1851,7 @@ dtype: object
 </table>
 </div></div></div>
 </div>
+<p>compared to the original:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1573,19 +1890,20 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>27175717296</td>
-      <td>DeleteEvent</td>
+      <td>27175920008</td>
+      <td>CreateEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
       <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'ref': 'link', 'ref_type': 'branch', 'pusher_...</td>
+      <td>{'ref': 'c8', 'ref_type': 'tag', 'master_branc...</td>
       <td>True</td>
-      <td>2023-02-18 01:24:55+00:00</td>
+      <td>2023-02-18 01:55:10+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>We want to handle several columns this way, so we’ll make alist of the names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">js_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;actor&#39;</span><span class="p">,</span><span class="s1">&#39;repo&#39;</span><span class="p">,</span><span class="s1">&#39;payload&#39;</span><span class="p">,</span><span class="s1">&#39;org&#39;</span><span class="p">]</span>
@@ -1593,6 +1911,186 @@ dtype: object
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> takes a list of dataframes and puts the together in one DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gh_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">js_cols</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>login</th>
+      <th>display_login</th>
+      <th>gravatar_id</th>
+      <th>url</th>
+      <th>avatar_url</th>
+      <th>id</th>
+      <th>name</th>
+      <th>url</th>
+      <th>ref</th>
+      <th>...</th>
+      <th>commits</th>
+      <th>action</th>
+      <th>number</th>
+      <th>pull_request</th>
+      <th>release</th>
+      <th>id</th>
+      <th>login</th>
+      <th>gravatar_id</th>
+      <th>url</th>
+      <th>avatar_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>592944632</td>
+      <td>rhodyprog4ds/BrownSpring23</td>
+      <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
+      <td>c8</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>592944632</td>
+      <td>rhodyprog4ds/BrownSpring23</td>
+      <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
+      <td>refs/heads/main</td>
+      <td>...</td>
+      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>592944632</td>
+      <td>rhodyprog4ds/BrownSpring23</td>
+      <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
+      <td>refs/heads/gh-pages</td>
+      <td>...</td>
+      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>592944632</td>
+      <td>rhodyprog4ds/BrownSpring23</td>
+      <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
+      <td>link</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>592944632</td>
+      <td>rhodyprog4ds/BrownSpring23</td>
+      <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
+      <td>refs/heads/main</td>
+      <td>...</td>
+      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 30 columns</p>
+</div></div></div>
+</div>
+<p>This is close, but a lot of columns have the same name. To fix this we will
+rename the new columns so that they have the original column
+name prepended to the new name.</p>
+<p>pandas has a rename method for this.</p>
+<p>and this is another job for lambdas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gh_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">,</span><span class="n">col</span><span class="p">]))</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">js_cols</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1602,10 +2100,10 @@ dtype: object
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="nn">----&gt; 1 pd.concat([gh_df[col].apply(pd.Series).rename(lambda c: &#39;_&#39;.join([c,col])) for col</span> in <span class="ni">js_cols],axis=1).head</span><span class="nt">()</span>
 
-<span class="nn">Cell In[36], line 1,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="nn">Cell In[35], line 1,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
 <span class="nn">----&gt; 1 pd.concat([gh_df[col].apply(pd.Series).rename(lambda c: &#39;_&#39;.join([c,col])) for col</span> in <span class="ni">js_cols],axis=1).head</span><span class="nt">()</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:5573,</span> in <span class="ni">DataFrame.rename</span><span class="nt">(self, mapper, index, columns, axis, copy, inplace, level, errors)</span>
@@ -1655,7 +2153,7 @@ dtype: object
 <span class="ne">-&gt; </span><span class="mi">6416</span>     <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
 <span class="g g-Whitespace">   </span><span class="mi">6417</span>     <span class="k">return</span> <span class="n">Index</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">tupleize_cols</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nn">Cell In[36], line 1,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(c)</span>
+<span class="nn">Cell In[35], line 1,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(c)</span>
 <span class="nn">----&gt; 1 pd.concat([gh_df[col].apply(pd.Series).rename(lambda c: &#39;_&#39;.join([c,col])) for col</span> in <span class="ni">js_cols],axis=1).head</span><span class="nt">()</span>
 
 <span class="ne">TypeError</span>: sequence item 0: expected str instance, int found
@@ -1717,12 +2215,12 @@ dtype: object
     </tr>
     <tr>
       <th>2</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1744,12 +2242,12 @@ dtype: object
     </tr>
     <tr>
       <th>5</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1771,12 +2269,12 @@ dtype: object
     </tr>
     <tr>
       <th>8</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1789,12 +2287,12 @@ dtype: object
     </tr>
     <tr>
       <th>10</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>11</th>
@@ -1834,24 +2332,15 @@ dtype: object
     </tr>
     <tr>
       <th>15</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>17</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
@@ -1860,13 +2349,22 @@ dtype: object
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>17</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>19</th>
@@ -1897,24 +2395,15 @@ dtype: object
     </tr>
     <tr>
       <th>22</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>24</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
@@ -1923,13 +2412,22 @@ dtype: object
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>24</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>26</th>
@@ -1942,21 +2440,21 @@ dtype: object
     </tr>
     <tr>
       <th>27</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>28</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
       <td></td>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>29</th>
@@ -2001,18 +2499,18 @@ dtype: object
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id_actor&#39;, &#39;login_actor&#39;, &#39;display_login_actor&#39;, &#39;gravatar_id_actor&#39;,
        &#39;url_actor&#39;, &#39;avatar_url_actor&#39;, &#39;id_repo&#39;, &#39;name_repo&#39;, &#39;url_repo&#39;,
-       &#39;ref_payload&#39;, &#39;ref_type_payload&#39;, &#39;pusher_type_payload&#39;,
-       &#39;repository_id_payload&#39;, &#39;push_id_payload&#39;, &#39;size_payload&#39;,
-       &#39;distinct_size_payload&#39;, &#39;head_payload&#39;, &#39;before_payload&#39;,
-       &#39;commits_payload&#39;, &#39;action_payload&#39;, &#39;number_payload&#39;,
-       &#39;pull_request_payload&#39;, &#39;master_branch_payload&#39;, &#39;description_payload&#39;,
-       &#39;release_payload&#39;, &#39;id_org&#39;, &#39;login_org&#39;, &#39;gravatar_id_org&#39;, &#39;url_org&#39;,
-       &#39;avatar_url_org&#39;],
+       &#39;ref_payload&#39;, &#39;ref_type_payload&#39;, &#39;master_branch_payload&#39;,
+       &#39;description_payload&#39;, &#39;pusher_type_payload&#39;, &#39;repository_id_payload&#39;,
+       &#39;push_id_payload&#39;, &#39;size_payload&#39;, &#39;distinct_size_payload&#39;,
+       &#39;head_payload&#39;, &#39;before_payload&#39;, &#39;commits_payload&#39;, &#39;action_payload&#39;,
+       &#39;number_payload&#39;, &#39;pull_request_payload&#39;, &#39;release_payload&#39;, &#39;id_org&#39;,
+       &#39;login_org&#39;, &#39;gravatar_id_org&#39;, &#39;url_org&#39;, &#39;avatar_url_org&#39;],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Then we can put the two parts of the data together</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gh_df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;created_at&#39;</span><span class="p">]],</span><span class="n">json_cols_df</span><span class="p">],)</span>
@@ -2049,10 +2547,10 @@ dtype: object
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
+      <th>commits_payload</th>
+      <th>action_payload</th>
       <th>number_payload</th>
       <th>pull_request_payload</th>
-      <th>master_branch_payload</th>
-      <th>description_payload</th>
       <th>release_payload</th>
       <th>id_org</th>
       <th>login_org</th>
@@ -2064,6 +2562,78 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
+      <td>2.717592e+10</td>
+      <td>CreateEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:55:10+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.717592e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:54:30+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.717574e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:28:21+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>2.717572e+10</td>
       <td>DeleteEvent</td>
       <td>True</td>
@@ -2087,7 +2657,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
       <td>2.717572e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2111,7 +2681,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>5</th>
       <td>2.717572e+10</td>
       <td>PullRequestEvent</td>
       <td>True</td>
@@ -2135,7 +2705,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>6</th>
       <td>2.717571e+10</td>
       <td>PullRequestEvent</td>
       <td>True</td>
@@ -2159,7 +2729,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>7</th>
       <td>2.717571e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2183,7 +2753,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>8</th>
       <td>2.713725e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2207,7 +2777,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>9</th>
       <td>2.713723e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2231,7 +2801,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>10</th>
       <td>2.713719e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2255,7 +2825,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>11</th>
       <td>2.713718e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2279,7 +2849,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>12</th>
       <td>2.709641e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2303,7 +2873,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>13</th>
       <td>2.709639e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2327,7 +2897,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>14</th>
       <td>2.709637e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2351,7 +2921,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>15</th>
       <td>2.709636e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2375,7 +2945,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>16</th>
       <td>2.709519e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2399,7 +2969,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>17</th>
       <td>2.709516e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2423,7 +2993,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>18</th>
       <td>2.702796e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2447,7 +3017,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>19</th>
       <td>2.702795e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2471,7 +3041,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>20</th>
       <td>2.702606e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2495,7 +3065,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>21</th>
       <td>2.702605e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2519,7 +3089,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>22</th>
       <td>2.702604e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2543,7 +3113,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>23</th>
       <td>2.702599e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2567,7 +3137,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>24</th>
       <td>2.702598e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2591,7 +3161,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>25</th>
       <td>2.699789e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2615,7 +3185,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>26</th>
       <td>2.699787e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2639,7 +3209,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>27</th>
       <td>2.699644e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2663,7 +3233,7 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>28</th>
       <td>2.699641e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2687,83 +3257,11 @@ dtype: object
       <td>NaN</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>29</th>
       <td>2.699640e+10</td>
       <td>PushEvent</td>
       <td>True</td>
       <td>2023-02-10 01:39:41+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>2.699640e+10</td>
-      <td>CreateEvent</td>
-      <td>True</td>
-      <td>2023-02-10 01:39:34+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2.699368e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-09 22:15:42+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2.699364e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-09 22:13:20+00:00</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2819,7 +3317,7 @@ dtype: object
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>NaN</td>
+      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2836,15 +3334,15 @@ dtype: object
       <td>NaN</td>
       <td>NaN</td>
       <td>NaT</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282.0</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>...</td>
-      <td>7.0</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
+      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2867,8 +3365,8 @@ dtype: object
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>7.0</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2891,10 +3389,10 @@ dtype: object
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
+      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>main</td>
-      <td>Releases below is course announcements</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -2907,6 +3405,7 @@ dtype: object
 <p>35 rows × 34 columns</p>
 </div></div></div>
 </div>
+<p>and finally save this</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh_df_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gh_df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;public&#39;</span><span class="p">,</span><span class="s1">&#39;created_at&#39;</span><span class="p">]],</span><span class="n">json_cols_df</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2944,10 +3443,10 @@ dtype: object
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
+      <th>commits_payload</th>
+      <th>action_payload</th>
       <th>number_payload</th>
       <th>pull_request_payload</th>
-      <th>master_branch_payload</th>
-      <th>description_payload</th>
       <th>release_payload</th>
       <th>id_org</th>
       <th>login_org</th>
@@ -2959,6 +3458,78 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
+      <td>27175920008</td>
+      <td>CreateEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:55:10+00:00</td>
+      <td>10656079.0</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187.0</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27175916054</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:54:30+00:00</td>
+      <td>10656079.0</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>...</td>
+      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187.0</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27175740686</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:28:21+00:00</td>
+      <td>41898282.0</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>...</td>
+      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187.0</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>27175717296</td>
       <td>DeleteEvent</td>
       <td>True</td>
@@ -2982,7 +3553,7 @@ dtype: object
       <td>https://avatars.githubusercontent.com/u/69595187?</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
       <td>27175717207</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2994,82 +3565,10 @@ dtype: object
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
+      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>69595187.0</td>
-      <td>rhodyprog4ds</td>
-      <td></td>
-      <td>https://api.github.com/orgs/rhodyprog4ds</td>
-      <td>https://avatars.githubusercontent.com/u/69595187?</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27175717138</td>
-      <td>PullRequestEvent</td>
-      <td>True</td>
-      <td>2023-02-18 01:24:54+00:00</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-      <td>...</td>
-      <td>7.0</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>69595187.0</td>
-      <td>rhodyprog4ds</td>
-      <td></td>
-      <td>https://api.github.com/orgs/rhodyprog4ds</td>
-      <td>https://avatars.githubusercontent.com/u/69595187?</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27175714675</td>
-      <td>PullRequestEvent</td>
-      <td>True</td>
-      <td>2023-02-18 01:24:32+00:00</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-      <td>...</td>
-      <td>7.0</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>69595187.0</td>
-      <td>rhodyprog4ds</td>
-      <td></td>
-      <td>https://api.github.com/orgs/rhodyprog4ds</td>
-      <td>https://avatars.githubusercontent.com/u/69595187?</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27175712282</td>
-      <td>CreateEvent</td>
-      <td>True</td>
-      <td>2023-02-18 01:24:11+00:00</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>main</td>
-      <td>Releases below is course announcements</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3082,6 +3581,30 @@ dtype: object
 <p>5 rows × 34 columns</p>
 </div></div></div>
 </div>
+<p>If we want to analyze this data, this is a good place to save it to disk and start an analysis in  separate notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gh_df_clean</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;gh_events_unpacked.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="questions-after-class">
+<h2><span class="section-number">8.7. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
+<section id="how-the-apply-function-works-use-cases">
+<h3><span class="section-number">8.7.1. </span>How the apply function works/use cases?<a class="headerlink" href="#how-the-apply-function-works-use-cases" title="Permalink to this headline">#</a></h3>
+<p>A4 will give you some examples, espeically the airline dataset. We will also keep seing it come up as we manipulate data more.</p>
+<p>the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">apply docs</a> have tiny examples that help illustrate what it does and some of how it works. The <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/gotchas.html#mutating-with-user-defined-function-udf-methods">pandas faq has a section on apply and similar methods</a> that gives some more use cases.</p>
+</section>
+<section id="is-there-a-better-way-to-see-na-values">
+<h3><span class="section-number">8.7.2. </span>Is there a better way to see na values?<a class="headerlink" href="#is-there-a-better-way-to-see-na-values" title="Permalink to this headline">#</a></h3>
+<p>There are lots of ways. All are fine.</p>
+</section>
+<section id="in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for">
+<h3><span class="section-number">8.7.3. </span>in <code class="docutils literal notranslate"><span class="pre">col_name_mapper</span> <span class="pre">=</span> <span class="pre">{col_name:col_name.lower().replace('.','_')</span> <span class="pre">for</span> <span class="pre">col_name</span> <span class="pre">in</span> <span class="pre">coffee_df.columns}</span></code> what is the <code class="docutils literal notranslate"><span class="pre">{}</span></code> for?<a class="headerlink" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for" title="Permalink to this headline">#</a></h3>
+<p>This is called a dictionary comphrehension. It is very similar to a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>. It is one of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">defined ways to build a <code class="docutils literal notranslate"><span class="pre">dict</span></code> type object</a></p>
+</section>
 </section>
 </section>
 
@@ -3112,6 +3635,20 @@ dtype: object
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="2023-02-14.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Tidy Data and Reshaping Datasets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignments/01-syllabus-install.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
