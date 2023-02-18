@@ -645,8 +645,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-na-values">
-     8.7.2. Is there a better way to see na values?
+    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-how-many-missing-values">
+     8.7.2. Is there a better way to see how many missing values?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -765,8 +765,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-na-values">
-     8.7.2. Is there a better way to see na values?
+    <a class="reference internal nav-link" href="#is-there-a-better-way-to-see-how-many-missing-values">
+     8.7.2. Is there a better way to see how many missing values?
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -851,7 +851,8 @@ Also here are some tips on general data management and organization.</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#</span>
-<span class="n">na_toy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="n">na_toy_df_np</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+<span class="n">na_toy_df_pd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">]])</span>
 
 <span class="c1"># make plots look nicer and increase font size</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1647,6 +1648,39 @@ Name: in_country_partner, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
+      <td>27180473459</td>
+      <td>PushEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126665...</td>
+      <td>True</td>
+      <td>2023-02-18 15:09:35+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27175942665</td>
+      <td>ReleaseEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'action': 'published', 'release': {'url': 'ht...</td>
+      <td>True</td>
+      <td>2023-02-18 01:58:44+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27175934766</td>
+      <td>PushEvent</td>
+      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126635...</td>
+      <td>True</td>
+      <td>2023-02-18 01:57:43+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>27175920008</td>
       <td>CreateEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
@@ -1657,7 +1691,7 @@ Name: in_country_partner, dtype: int64
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
       <td>27175916054</td>
       <td>PushEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
@@ -1665,39 +1699,6 @@ Name: in_country_partner, dtype: int64
       <td>{'repository_id': 592944632, 'push_id': 126635...</td>
       <td>True</td>
       <td>2023-02-18 01:54:30+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27175740686</td>
-      <td>PushEvent</td>
-      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 126634...</td>
-      <td>True</td>
-      <td>2023-02-18 01:28:21+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27175717296</td>
-      <td>DeleteEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'ref': 'link', 'ref_type': 'branch', 'pusher_...</td>
-      <td>True</td>
-      <td>2023-02-18 01:24:55+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27175717207</td>
-      <td>PushEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 126634...</td>
-      <td>True</td>
-      <td>2023-02-18 01:24:54+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1890,13 +1891,13 @@ For example</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>27175920008</td>
-      <td>CreateEvent</td>
+      <td>27180473459</td>
+      <td>PushEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
       <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'ref': 'c8', 'ref_type': 'tag', 'master_branc...</td>
+      <td>{'repository_id': 592944632, 'push_id': 126665...</td>
       <td>True</td>
-      <td>2023-02-18 01:55:10+00:00</td>
+      <td>2023-02-18 15:09:35+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1946,13 +1947,13 @@ For example</p>
       <th>id</th>
       <th>name</th>
       <th>url</th>
-      <th>ref</th>
+      <th>repository_id</th>
       <th>...</th>
-      <th>commits</th>
-      <th>action</th>
+      <th>master_branch</th>
+      <th>description</th>
+      <th>pusher_type</th>
       <th>number</th>
       <th>pull_request</th>
-      <th>release</th>
       <th>id</th>
       <th>login</th>
       <th>gravatar_id</th>
@@ -1972,7 +1973,7 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>c8</td>
+      <td>592944632.0</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1996,9 +1997,9 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>refs/heads/main</td>
+      <td>NaN</td>
       <td>...</td>
-      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2020,9 +2021,9 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>refs/heads/gh-pages</td>
+      <td>592944632.0</td>
       <td>...</td>
-      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2044,11 +2045,11 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>link</td>
+      <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>main</td>
+      <td>Releases below is course announcements</td>
+      <td>user</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>69595187</td>
@@ -2068,9 +2069,9 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>refs/heads/main</td>
+      <td>592944632.0</td>
       <td>...</td>
-      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2242,12 +2243,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>5</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>6</th>
@@ -2269,12 +2270,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>8</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>9</th>
@@ -2296,12 +2297,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>11</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>12</th>
@@ -2314,12 +2315,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>13</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>14</th>
@@ -2359,24 +2360,15 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>18</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>20</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
@@ -2385,13 +2377,22 @@ name prepended to the new name.</p>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>20</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>22</th>
@@ -2422,24 +2423,15 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>25</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>27</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
@@ -2448,13 +2440,22 @@ name prepended to the new name.</p>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>27</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>29</th>
@@ -2499,12 +2500,13 @@ name prepended to the new name.</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id_actor&#39;, &#39;login_actor&#39;, &#39;display_login_actor&#39;, &#39;gravatar_id_actor&#39;,
        &#39;url_actor&#39;, &#39;avatar_url_actor&#39;, &#39;id_repo&#39;, &#39;name_repo&#39;, &#39;url_repo&#39;,
-       &#39;ref_payload&#39;, &#39;ref_type_payload&#39;, &#39;master_branch_payload&#39;,
-       &#39;description_payload&#39;, &#39;pusher_type_payload&#39;, &#39;repository_id_payload&#39;,
-       &#39;push_id_payload&#39;, &#39;size_payload&#39;, &#39;distinct_size_payload&#39;,
-       &#39;head_payload&#39;, &#39;before_payload&#39;, &#39;commits_payload&#39;, &#39;action_payload&#39;,
-       &#39;number_payload&#39;, &#39;pull_request_payload&#39;, &#39;release_payload&#39;, &#39;id_org&#39;,
-       &#39;login_org&#39;, &#39;gravatar_id_org&#39;, &#39;url_org&#39;, &#39;avatar_url_org&#39;],
+       &#39;repository_id_payload&#39;, &#39;push_id_payload&#39;, &#39;size_payload&#39;,
+       &#39;distinct_size_payload&#39;, &#39;ref_payload&#39;, &#39;head_payload&#39;,
+       &#39;before_payload&#39;, &#39;commits_payload&#39;, &#39;action_payload&#39;,
+       &#39;release_payload&#39;, &#39;ref_type_payload&#39;, &#39;master_branch_payload&#39;,
+       &#39;description_payload&#39;, &#39;pusher_type_payload&#39;, &#39;number_payload&#39;,
+       &#39;pull_request_payload&#39;, &#39;id_org&#39;, &#39;login_org&#39;, &#39;gravatar_id_org&#39;,
+       &#39;url_org&#39;, &#39;avatar_url_org&#39;],
       dtype=&#39;object&#39;)
 </pre></div>
 </div>
@@ -2547,11 +2549,11 @@ name prepended to the new name.</p>
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
-      <th>commits_payload</th>
-      <th>action_payload</th>
+      <th>master_branch_payload</th>
+      <th>description_payload</th>
+      <th>pusher_type_payload</th>
       <th>number_payload</th>
       <th>pull_request_payload</th>
-      <th>release_payload</th>
       <th>id_org</th>
       <th>login_org</th>
       <th>gravatar_id_org</th>
@@ -2562,6 +2564,78 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
+      <td>2.718047e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 15:09:35+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.717594e+10</td>
+      <td>ReleaseEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:58:44+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.717593e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-02-18 01:57:43+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>2.717592e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2585,7 +2659,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
       <td>2.717592e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2609,7 +2683,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>5</th>
       <td>2.717574e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2633,7 +2707,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>6</th>
       <td>2.717572e+10</td>
       <td>DeleteEvent</td>
       <td>True</td>
@@ -2657,7 +2731,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>7</th>
       <td>2.717572e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2681,7 +2755,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>8</th>
       <td>2.717572e+10</td>
       <td>PullRequestEvent</td>
       <td>True</td>
@@ -2705,7 +2779,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>9</th>
       <td>2.717571e+10</td>
       <td>PullRequestEvent</td>
       <td>True</td>
@@ -2729,7 +2803,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>10</th>
       <td>2.717571e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2753,7 +2827,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>11</th>
       <td>2.713725e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2777,7 +2851,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>12</th>
       <td>2.713723e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2801,7 +2875,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>13</th>
       <td>2.713719e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2825,7 +2899,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>14</th>
       <td>2.713718e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2849,7 +2923,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>15</th>
       <td>2.709641e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2873,7 +2947,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>16</th>
       <td>2.709639e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2897,7 +2971,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>17</th>
       <td>2.709637e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2921,7 +2995,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>18</th>
       <td>2.709636e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2945,7 +3019,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>19</th>
       <td>2.709519e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2969,7 +3043,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>20</th>
       <td>2.709516e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2993,7 +3067,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>21</th>
       <td>2.702796e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3017,7 +3091,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>22</th>
       <td>2.702795e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3041,7 +3115,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>23</th>
       <td>2.702606e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3065,7 +3139,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>24</th>
       <td>2.702605e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3089,7 +3163,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>25</th>
       <td>2.702604e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3113,7 +3187,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>26</th>
       <td>2.702599e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3137,7 +3211,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>27</th>
       <td>2.702598e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3161,7 +3235,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>28</th>
       <td>2.699789e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3185,83 +3259,11 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>29</th>
       <td>2.699787e+10</td>
       <td>PushEvent</td>
       <td>True</td>
       <td>2023-02-10 03:48:46+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>2.699644e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-10 01:42:31+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2.699641e+10</td>
-      <td>ReleaseEvent</td>
-      <td>True</td>
-      <td>2023-02-10 01:40:27+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2.699640e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-10 01:39:41+00:00</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3317,7 +3319,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3341,7 +3343,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>...</td>
-      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3365,9 +3367,9 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>main</td>
+      <td>Releases below is course announcements</td>
+      <td>user</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>69595187.0</td>
@@ -3389,7 +3391,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3443,11 +3445,11 @@ name prepended to the new name.</p>
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
-      <th>commits_payload</th>
-      <th>action_payload</th>
+      <th>master_branch_payload</th>
+      <th>description_payload</th>
+      <th>pusher_type_payload</th>
       <th>number_payload</th>
       <th>pull_request_payload</th>
-      <th>release_payload</th>
       <th>id_org</th>
       <th>login_org</th>
       <th>gravatar_id_org</th>
@@ -3458,10 +3460,10 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>27175920008</td>
-      <td>CreateEvent</td>
+      <td>27180473459</td>
+      <td>PushEvent</td>
       <td>True</td>
-      <td>2023-02-18 01:55:10+00:00</td>
+      <td>2023-02-18 15:09:35+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3482,10 +3484,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>27175916054</td>
-      <td>PushEvent</td>
+      <td>27175942665</td>
+      <td>ReleaseEvent</td>
       <td>True</td>
-      <td>2023-02-18 01:54:30+00:00</td>
+      <td>2023-02-18 01:58:44+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3493,7 +3495,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>[{'sha': '26d52c1212b9cd414e2559d101de80df2943...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3506,10 +3508,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>2</th>
-      <td>27175740686</td>
+      <td>27175934766</td>
       <td>PushEvent</td>
       <td>True</td>
-      <td>2023-02-18 01:28:21+00:00</td>
+      <td>2023-02-18 01:57:43+00:00</td>
       <td>41898282.0</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
@@ -3517,7 +3519,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>...</td>
-      <td>[{'sha': 'e6df4295a5ca2720bddb20e1a8ad120c905c...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3530,10 +3532,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>27175717296</td>
-      <td>DeleteEvent</td>
+      <td>27175920008</td>
+      <td>CreateEvent</td>
       <td>True</td>
-      <td>2023-02-18 01:24:55+00:00</td>
+      <td>2023-02-18 01:55:10+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3541,9 +3543,9 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>main</td>
+      <td>Releases below is course announcements</td>
+      <td>user</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>69595187.0</td>
@@ -3554,10 +3556,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>4</th>
-      <td>27175717207</td>
+      <td>27175916054</td>
       <td>PushEvent</td>
       <td>True</td>
-      <td>2023-02-18 01:24:54+00:00</td>
+      <td>2023-02-18 01:54:30+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3565,7 +3567,7 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>[{'sha': 'b402e7b8a57b40aac03b3cca92f80e99b280...</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3597,13 +3599,212 @@ name prepended to the new name.</p>
 <p>A4 will give you some examples, espeically the airline dataset. We will also keep seing it come up as we manipulate data more.</p>
 <p>the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">apply docs</a> have tiny examples that help illustrate what it does and some of how it works. The <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/gotchas.html#mutating-with-user-defined-function-udf-methods">pandas faq has a section on apply and similar methods</a> that gives some more use cases.</p>
 </section>
-<section id="is-there-a-better-way-to-see-na-values">
-<h3><span class="section-number">8.7.2. </span>Is there a better way to see na values?<a class="headerlink" href="#is-there-a-better-way-to-see-na-values" title="Permalink to this headline">#</a></h3>
-<p>There are lots of ways. All are fine.</p>
+<section id="is-there-a-better-way-to-see-how-many-missing-values">
+<h3><span class="section-number">8.7.2. </span>Is there a better way to see how many missing values?<a class="headerlink" href="#is-there-a-better-way-to-see-how-many-missing-values" title="Permalink to this headline">#</a></h3>
+<p>There are lots of ways. All are fine. We used <code class="docutils literal notranslate"><span class="pre">info</span></code> in class because I was trying to use the way we had already seen.
+Info focuses on how many values are <em>present</em> instead of what is missing because it makes more sense in most cases. The more common question is: are there enough values to make decisions with?</p>
+<p>If you wanted to get counts of the missing values, you can use the pandas <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.isna.html"><code class="docutils literal notranslate"><span class="pre">isna</span></code></a> function.  It is a pandas function, the docs say <code class="docutils literal notranslate"><span class="pre">pandas.isna</span></code> not a DataFrame method (which would be described like <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.methodname</span></code>).
+This means we use it like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value_to_test</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">value_to_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it Yourself</p>
+<p>pass different values like: <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (also <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>) and, <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code>, <code class="docutils literal notranslate"><span class="pre">hello</span></code> to this function</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function isna in module pandas.core.dtypes.missing:
+
+isna(obj: &#39;object&#39;) -&gt; &#39;bool | npt.NDArray[np.bool_] | NDFrame&#39;
+    Detect missing values for an array-like object.
+    
+    This function takes a scalar or array-like object and indicates
+    whether values are missing (``NaN`` in numeric arrays, ``None`` or ``NaN``
+    in object arrays, ``NaT`` in datetimelike).
+    
+    Parameters
+    ----------
+    obj : scalar or array-like
+        Object to check for null or missing values.
+    
+    Returns
+    -------
+    bool or array-like of bool
+        For scalar input, returns a scalar boolean.
+        For array input, returns an array of boolean indicating whether each
+        corresponding element is missing.
+    
+    See Also
+    --------
+    notna : Boolean inverse of pandas.isna.
+    Series.isna : Detect missing values in a Series.
+    DataFrame.isna : Detect missing values in a DataFrame.
+    Index.isna : Detect missing values in an Index.
+    
+    Examples
+    --------
+    Scalar arguments (including strings) result in a scalar boolean.
+    
+    &gt;&gt;&gt; pd.isna(&#39;dog&#39;)
+    False
+    
+    &gt;&gt;&gt; pd.isna(pd.NA)
+    True
+    
+    &gt;&gt;&gt; pd.isna(np.nan)
+    True
+    
+    ndarrays result in an ndarray of booleans.
+    
+    &gt;&gt;&gt; array = np.array([[1, np.nan, 3], [4, 5, np.nan]])
+    &gt;&gt;&gt; array
+    array([[ 1., nan,  3.],
+           [ 4.,  5., nan]])
+    &gt;&gt;&gt; pd.isna(array)
+    array([[False,  True, False],
+           [False, False,  True]])
+    
+    For indexes, an ndarray of booleans is returned.
+    
+    &gt;&gt;&gt; index = pd.DatetimeIndex([&quot;2017-07-05&quot;, &quot;2017-07-06&quot;, None,
+    ...                           &quot;2017-07-08&quot;])
+    &gt;&gt;&gt; index
+    DatetimeIndex([&#39;2017-07-05&#39;, &#39;2017-07-06&#39;, &#39;NaT&#39;, &#39;2017-07-08&#39;],
+                  dtype=&#39;datetime64[ns]&#39;, freq=None)
+    &gt;&gt;&gt; pd.isna(index)
+    array([False, False,  True, False])
+    
+    For Series and DataFrame, the same type is returned, containing booleans.
+    
+    &gt;&gt;&gt; df = pd.DataFrame([[&#39;ant&#39;, &#39;bee&#39;, &#39;cat&#39;], [&#39;dog&#39;, None, &#39;fly&#39;]])
+    &gt;&gt;&gt; df
+         0     1    2
+    0  ant   bee  cat
+    1  dog  None  fly
+    &gt;&gt;&gt; pd.isna(df)
+           0      1      2
+    0  False  False  False
+    1  False   True  False
+    
+    &gt;&gt;&gt; pd.isna(df[1])
+    0    False
+    1     True
+    Name: 1, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>The docstring says that it returns “bool or array-like of bool” but if we go to the website docs that have more examples, we can find out what that it will <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.isna.html#:~:text=For%20Series%20and%20DataFrame%2C%20the%20same%20type%20is%20returned%2C%20containing%20booleans">return a DataFrame if we pass it a DataFrame</a>. Then we can use the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sum.html"><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.sum</span></code></a> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">coffee_df_clean</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species                        0
+owner                          7
+country_of_origin              1
+farm_name                    356
+lot_number                  1041
+mill                         310
+ico_number                   146
+company                      209
+altitude                     223
+region                        57
+producer                     230
+number_of_bags                 0
+bag_weight                     0
+in_country_partner             0
+harvest_year                  47
+grading_date                   0
+owner_1                        7
+variety                      201
+processing_method            152
+aroma                          0
+flavor                         0
+aftertaste                     0
+acidity                        0
+body                           0
+balance                        0
+uniformity                     0
+clean_cup                      0
+sweetness                      0
+cupper_points                  0
+total_cup_points               0
+moisture                       0
+category_one_defects           0
+quakers                        1
+color                        216
+category_two_defects           0
+expiration                     0
+certification_body             0
+certification_address          0
+certification_contact          0
+unit_of_measurement            0
+altitude_low_meters          227
+altitude_high_meters         227
+altitude_mean_meters         227
+unit_of_measurement_long       0
+lot_number_clean               0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for">
 <h3><span class="section-number">8.7.3. </span>in <code class="docutils literal notranslate"><span class="pre">col_name_mapper</span> <span class="pre">=</span> <span class="pre">{col_name:col_name.lower().replace('.','_')</span> <span class="pre">for</span> <span class="pre">col_name</span> <span class="pre">in</span> <span class="pre">coffee_df.columns}</span></code> what is the <code class="docutils literal notranslate"><span class="pre">{}</span></code> for?<a class="headerlink" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for" title="Permalink to this headline">#</a></h3>
 <p>This is called a dictionary comphrehension. It is very similar to a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>. It is one of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">defined ways to build a <code class="docutils literal notranslate"><span class="pre">dict</span></code> type object</a></p>
+<p>We also saw one when we looked at different types in a <a class="reference internal" href="2023-02-02.html"><span class="doc std std-doc">previous class</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">char</span><span class="p">:</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: 0, &#39;b&#39;: 1, &#39;c&#39;: 2, &#39;d&#39;: 3, &#39;e&#39;: 4}
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a> is a built in function that
+iterates over items in an iterable type(list-like) and pops the each value paired with its index within
+the structure.</p>
+<p>This way we get each character and it’s position. We could use this as follows</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_chars</span> <span class="o">=</span> <span class="p">{</span><span class="n">char</span><span class="p">:</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">)}</span>
+<span class="n">alpha_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">47</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">alpha_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;]</span>
+                                        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: EOL while scanning string literal
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
