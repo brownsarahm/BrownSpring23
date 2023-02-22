@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Formatting Tips" href="formatting.html" />
-    <link rel="prev" title="4. Assignment 4:" href="../assignments/04-prepare.html" />
+    <link rel="prev" title="5. Assignment 5: Constructing Datasets and Using Databases" href="../assignments/05-construct.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -207,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
    8. Reparing values
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notes/2023-02-21.html">
+   9. Merging  and Databases
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -232,6 +237,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../assignments/04-prepare.html">
    4. Assignment 4:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/05-construct.html">
+   5. Assignment 5: Constructing Datasets and Using Databases
   </a>
  </li>
 </ul>
@@ -642,9 +652,9 @@ title="Print to PDF"
 <h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1952/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1947/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   assignment_dummies  = pd.get_dummies(rubric_df[&#39;assignments&#39;].apply(pd.Series).stack()).sum(level=0)
-/tmp/ipykernel_1952/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+/tmp/ipykernel_1947/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   portfolio_dummies  = pd.get_dummies(rubric_df[&#39;portfolios&#39;].apply(pd.Series).stack()).sum(level=0)
 </pre></div>
 </div>
@@ -720,11 +730,11 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../assignments/04-prepare.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../assignments/05-construct.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Assignment 4:</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Assignment 5: Constructing Datasets and Using Databases</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="formatting.html" title="next page">
