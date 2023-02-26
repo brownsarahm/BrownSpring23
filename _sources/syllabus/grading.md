@@ -279,3 +279,13 @@ This student was content with getting a B and chose to not submit a portfolio.
 In this example, the student struggled to understand in class and on assignments. Assignments were submitted that showed some understanding, but all had some serious mistakes, so only level 1 achievements were earned from assignments.
 The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks.
 
+
+## Academic Dishonesty 
+
+If you are found to have submitted work that does not constitute your own work, the following penalties apply: 
+- in a portfolio, all achievements attempted in the dishonest component are permanently ineligible. 
+- in an assignment the level three achievements for the skills of focus in the assignment are ineligible, and the relevent level two for those skills requires meeting the standard for the level 3. 
+
+For example, if you are caught violating academic honesty in asignment 4, Prepare level 3 becomes ineligible and you must meet the requirements for prepare level 3 in a portfolio in order to earn prepare level 2. 
+
+If you violate acadmic honesty in portfolio 1 while attempting level 3 at Python, access, prepare, summarize and visualize and process level 2, then your maximum grade becomes a B+, beause level 3 in all of those skills becomes inelgible.  
