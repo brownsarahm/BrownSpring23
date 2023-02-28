@@ -11,6 +11,7 @@ kernelspec:
   name: python3
 ---
 
+(portolioindex)=
 # Portfolio
 
 ```{code-cell} ipython3
@@ -81,10 +82,20 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 
 ## Upcoming Checks
 
-### Portfolio 1
+<!-- ### Portfolio 1 -->
+- Portfolio Check 1 is due March 6
+- Portfolio Check 2 is due April 7
+- Portfolio check 3 is due April 21
+- Portfolio check 4 is due on our assigned final exam date
 
-More information to follow
-<!--
+
+
+```{important}
+start early, assignment 9 and 10 will be due on Wednesdays like regular the week before and of this deadline. You will get feedback on Assignment 9 by Friday so that you can use that to update your portfolio on the construct achievements.
+```
+
+Portfolio check 2 will assess the following *new* achievements in addition to an a chance to make up any that you have missed:
+
 ```{code-cell} ipython3
 :tags: [remove-input]
 
@@ -92,7 +103,7 @@ portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword'
 ```
 
 
-
+<!--
 
 The third submission will be graded on the following criteria and due on December 4:
 
