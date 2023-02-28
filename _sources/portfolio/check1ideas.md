@@ -14,6 +14,8 @@ Collect data from multiple sources, prepare each for analysis, and merge them to
 
 This would be one long notebook that covers all of the skills.
 
+Be sure to check the checklists for how level 3s are more complex than level 2s.  I recommend using office hours to help get ideas if you are not sure how to extend your analysis.  
+
 ## Several shorter reflections/analyses
 
 You could also submit a few shorter pieces that in total cover
@@ -37,6 +39,11 @@ Write a blog post styled Notebook that compares or analyzes something, for examp
 ### Correction & Reflection
 
 If you had trouble with an assignment so far, you can revise what you submitted and resubmit it, with reflections and explanation of what you were confused about, what you tried initially, how you eventually figured it out, and explains the correct answer. Then go a little deeper in exploring the topic in that context to also earn level 3.
+
+
+### Extension
+
+If there were parts of your previous assignments that you thought were interesting and you want to work with those data more, you can. You need to do *more complex* analyses of them, but you can build off of what you already have done, especially for assignments 2, 3, and 5. 
 
 
 ### Practice Problems and Solutions
