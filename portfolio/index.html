@@ -604,13 +604,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#upcoming-checks">
    Upcoming Checks
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#portfolio-1">
-     Portfolio 1
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -635,13 +628,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#upcoming-checks">
    Upcoming Checks
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#portfolio-1">
-     Portfolio 1
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -654,12 +640,12 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="portfolio">
-<h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h1>
+<span id="portolioindex"></span><h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2070/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1989/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   assignment_dummies  = pd.get_dummies(rubric_df[&#39;assignments&#39;].apply(pd.Series).stack()).sum(level=0)
-/tmp/ipykernel_2070/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+/tmp/ipykernel_1989/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   portfolio_dummies  = pd.get_dummies(rubric_df[&#39;portfolios&#39;].apply(pd.Series).stack()).sum(level=0)
 </pre></div>
 </div>
@@ -677,18 +663,95 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
 <p>You can view a (fake) example <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-brownsarahm">in this repository</a> as a <a class="reference external" href="https://github.com/rhodyprog4ds/portfolio-brownsarahm/blob/gh-pages/portfolio.pdf">pdf</a> or as a <a class="reference external" href="https://rhodyprog4ds.github.io/portfolio-brownsarahm/intro.html">rendered website</a></p>
 <section id="upcoming-checks">
 <h2>Upcoming Checks<a class="headerlink" href="#upcoming-checks" title="Permalink to this headline">#</a></h2>
-<section id="portfolio-1">
-<h3>Portfolio 1<a class="headerlink" href="#portfolio-1" title="Permalink to this headline">#</a></h3>
-<p>More information to follow</p>
+<!-- ### Portfolio 1 -->
+<ul class="simple">
+<li><p>Portfolio Check 1 is due March 6</p></li>
+<li><p>Portfolio Check 2 is due April 7</p></li>
+<li><p>Portfolio check 3 is due April 21</p></li>
+<li><p>Portfolio check 4 is due on our assigned final exam date</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>start early, assignment 9 and 10 will be due on Wednesdays like regular the week before and of this deadline. You will get feedback on Assignment 9 by Friday so that you can use that to update your portfolio on the construct achievements.</p>
+</div>
+<p>Portfolio check 2 will assess the following <em>new</em> achievements in addition to an a chance to make up any that you have missed:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Level 3</th>
+    </tr>
+    <tr>
+      <th>keyword</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>python</th>
+      <td>reliable, efficient, pythonic code that consistently adheres to pep8</td>
+    </tr>
+    <tr>
+      <th>process</th>
+      <td>Compare different ways that data science can facilitate decision making</td>
+    </tr>
+    <tr>
+      <th>access</th>
+      <td>access data from both common and uncommon formats and identify best practices for formats in different contexts</td>
+    </tr>
+    <tr>
+      <th>construct</th>
+      <td>merge data that is not automatically aligned</td>
+    </tr>
+    <tr>
+      <th>summarize</th>
+      <td>Compute and interpret various summary statistics of subsets of data</td>
+    </tr>
+    <tr>
+      <th>visualize</th>
+      <td>generate complex plots with pandas and plotting libraries and customize with matplotlib or additional parameters</td>
+    </tr>
+    <tr>
+      <th>prepare</th>
+      <td>apply data reshaping, cleaning, and filtering manipulations reliably and correctly by assessing data as received</td>
+    </tr>
+    <tr>
+      <th>evaluate</th>
+      <td>Evaluate a model with multiple metrics and cross validation</td>
+    </tr>
+    <tr>
+      <th>classification</th>
+      <td>fit and apply classification models and select appropriate classification models for different contexts</td>
+    </tr>
+    <tr>
+      <th>regression</th>
+      <td>fit and explain regrularized or nonlinear regression</td>
+    </tr>
+    <tr>
+      <th>clustering</th>
+      <td>apply multiple clustering techniques, and interpret results</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <!--
-```{code-cell} ipython3
-:tags: [remove-input]
-
-portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword')
-```
-
-
-
 
 The third submission will be graded on the following criteria and due on December 4:
 
@@ -705,7 +768,6 @@ portfolio_df['Level 3'][portfolio_df['P3']==1].reset_index().set_index('keyword'
 portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword')
 ```
  --></section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
