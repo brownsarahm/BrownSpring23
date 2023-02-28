@@ -36,6 +36,7 @@ parts:
     chapters:
       - file: portfolio/index
       - file: portfolio/formatting
+      - file: portfolio/check1ideas
   - caption: FAQ
     chapters:
     - file: faq/index
