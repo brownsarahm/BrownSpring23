@@ -1,7 +1,7 @@
 ---
 substitutions:
   accept_assignment: |
-    [accept the assignment]()
+    [accept the assignment](https://classroom.github.com/a/Tar0f4BB)
   date : 2023-02-28
 ---
 # Assignment 5: Constructing Datasets and Using Databases
@@ -22,7 +22,8 @@ Eligible skills: (links to checklists)
 [^expiringskill]: skills will be marked like this on the last assignment they are eligible
 ## Related notes
 
-- [](../notes/2022-10-24)
+- [](../notes/2023-20-21)
+- [](../notes/2023-02-23)
 
 
 ## Constructing Datasets
