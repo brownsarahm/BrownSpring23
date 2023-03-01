@@ -1,49 +1,57 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>6. Visualization &#8212; Programming for Data Science at URI Spring 2023</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/course-admonitions.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,61 +59,830 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-09';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Tidy Data and Reshaping Datasets" href="2023-02-14.html" />
     <link rel="prev" title="5. Exploratory Data Analysis (EDA)" href="2023-02-07.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/310_2021.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/310_2021.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/about.html">
+                        About
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/tools.html">
+                        Tools and Resources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/achievements.html">
+                        Data Science Achievements
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/grading.html">
+                        Grading
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/policies.html">
+                        Grading Policies
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/uri_resources.html">
+                        Support
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/uri_statements.html">
+                        General URI Policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/communication.html">
+                        Course Communications
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-24.html">
+                        Welcome and Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-26.html">
+                        Syllabus and Python Review
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-31.html">
+                        Grading review, Pandas, and Iterables
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-02.html">
+                        Pandas and Indexing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-07.html">
+                        Exploratory Data Analysis (EDA)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-14.html">
+                        Tidy Data and Reshaping Datasets
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-16.html">
+                        Reparing values
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-21.html">
+                        Merging  and Databases
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-23.html">
+                        Web Scraping
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-28.html">
+                        Evaluating ML Algorithms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/01-syllabus-install.html">
+                        Assignment 1: Portfolio Setup, Data Science, and Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/02-python-access.html">
+                        Assignment 2: Practicing Python and Accessing Data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/03-eda.html">
+                        Assignment 3: Exploratory Data Analysis
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/04-prepare.html">
+                        Assignment 4:
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/05-construct.html">
+                        Assignment 5: Constructing Datasets and Using Databases
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/index.html">
+                        Portfolio
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/formatting.html">
+                        Formatting Tips
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/check1ideas.html">
+                        Portfolio Check 1 Ideas
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/index.html">
+                        FAQ
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/syllabus.html">
+                        Syllabus and Grading FAQ
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/github.html">
+                        Git and GitHub
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/debugging.html">
+                        Code Errors
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/glossary.html">
+                        Glossary
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/python.html">
+                        References on Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/cheatsheet.html">
+                        Cheatsheet
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/datasets.html">
+                        Data Sources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/tips.html">
+                        General Tips and Resources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/learning.html">
+                        How to Study in this class
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/gettinghelp.html">
+                        Getting Help with Programming
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/terminal.html">
+                        Terminals and Environments
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/organization.html">
+                        Getting Organized for class
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+                        Advice from FA2020 Students
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://rhodyprog4ds.github.io/BrownFall21/letters/">
+                        Advice from FA2021 Students
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../letters/index.html">
+                        Letters to Future students
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="../_static/310_2021.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">Programming for Data Science at URI Spring 2023</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/about.html">
+                        About
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/tools.html">
+                        Tools and Resources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/achievements.html">
+                        Data Science Achievements
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/grading.html">
+                        Grading
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/policies.html">
+                        Grading Policies
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/uri_resources.html">
+                        Support
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/uri_statements.html">
+                        General URI Policies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../syllabus/communication.html">
+                        Course Communications
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-24.html">
+                        Welcome and Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-26.html">
+                        Syllabus and Python Review
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-01-31.html">
+                        Grading review, Pandas, and Iterables
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-02.html">
+                        Pandas and Indexing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-07.html">
+                        Exploratory Data Analysis (EDA)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-14.html">
+                        Tidy Data and Reshaping Datasets
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-16.html">
+                        Reparing values
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-21.html">
+                        Merging  and Databases
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-23.html">
+                        Web Scraping
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="2023-02-28.html">
+                        Evaluating ML Algorithms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/01-syllabus-install.html">
+                        Assignment 1: Portfolio Setup, Data Science, and Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/02-python-access.html">
+                        Assignment 2: Practicing Python and Accessing Data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/03-eda.html">
+                        Assignment 3: Exploratory Data Analysis
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/04-prepare.html">
+                        Assignment 4:
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../assignments/05-construct.html">
+                        Assignment 5: Constructing Datasets and Using Databases
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/index.html">
+                        Portfolio
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/formatting.html">
+                        Formatting Tips
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../portfolio/check1ideas.html">
+                        Portfolio Check 1 Ideas
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/index.html">
+                        FAQ
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/syllabus.html">
+                        Syllabus and Grading FAQ
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/github.html">
+                        Git and GitHub
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../faq/debugging.html">
+                        Code Errors
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/glossary.html">
+                        Glossary
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/python.html">
+                        References on Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/cheatsheet.html">
+                        Cheatsheet
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/datasets.html">
+                        Data Sources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/tips.html">
+                        General Tips and Resources
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/learning.html">
+                        How to Study in this class
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/gettinghelp.html">
+                        Getting Help with Programming
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/terminal.html">
+                        Terminals and Environments
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../resources/organization.html">
+                        Getting Organized for class
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
+                        Advice from FA2020 Students
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://rhodyprog4ds.github.io/BrownFall21/letters/">
+                        Advice from FA2021 Students
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../letters/index.html">
+                        Letters to Future students
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/310_2021.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/310_2021.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -114,686 +891,349 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Syllabus
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/about.html">
-   About
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/tools.html">
-   Tools and Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/achievements.html">
-   Data Science Achievements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/grading.html">
-   Grading
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/policies.html">
-   Grading Policies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/uri_resources.html">
-   Support
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/uri_statements.html">
-   General URI Policies
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus/communication.html">
-   Course Communications
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/tools.html">Tools and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/achievements.html">Data Science Achievements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading.html">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/policies.html">Grading Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_resources.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/uri_statements.html">General URI Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Course Communications</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Notes
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-01-24.html">
-   1. Welcome and Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-01-26.html">
-   2. Syllabus and Python Review
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-01-31.html">
-   3. Grading review, Pandas, and Iterables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-02.html">
-   4. Pandas and Indexing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-07.html">
-   5. Exploratory Data Analysis (EDA)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   6. Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-14.html">
-   7. Tidy Data and Reshaping Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-16.html">
-   8. Reparing values
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-21.html">
-   9. Merging  and Databases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2023-02-23.html">
-   10. Web Scraping
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="2023-01-24.html">1. Welcome and Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-01-26.html">2. Syllabus and Python Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-01-31.html">3. Grading review, Pandas, and Iterables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-02.html">4. Pandas and Indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-07.html">5. Exploratory Data Analysis (EDA)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-14.html">7. Tidy Data and Reshaping Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-16.html">8. Reparing values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Assignments
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/01-syllabus-install.html">
-   1. Assignment 1: Portfolio Setup, Data Science, and Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/02-python-access.html">
-   2. Assignment 2: Practicing Python and Accessing Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/03-eda.html">
-   3. Assignment 3: Exploratory Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/04-prepare.html">
-   4. Assignment 4:
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/05-construct.html">
-   5. Assignment 5: Constructing Datasets and Using Databases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/01-syllabus-install.html">1. Assignment 1: Portfolio Setup, Data Science, and Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/02-python-access.html">2. Assignment 2: Practicing Python and Accessing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/03-eda.html">3. Assignment 3: Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/04-prepare.html">4. Assignment 4:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Portfolio
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../portfolio/index.html">
-   Portfolio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../portfolio/formatting.html">
-   Formatting Tips
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../portfolio/check1ideas.html">
-   Portfolio Check 1 Ideas
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../portfolio/index.html">Portfolio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portfolio/formatting.html">Formatting Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portfolio/check1ideas.html">Portfolio Check 1 Ideas</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  FAQ
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq/index.html">
-   FAQ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq/syllabus.html">
-   Syllabus and Grading FAQ
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq/github.html">
-   Git and GitHub
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq/debugging.html">
-   Code Errors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/syllabus.html">Syllabus and Grading FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/github.html">Git and GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/debugging.html">Code Errors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Resources
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/glossary.html">
-   Glossary
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/python.html">
-   References on Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/cheatsheet.html">
-   Cheatsheet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/datasets.html">
-   Data Sources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/tips.html">
-   General Tips and Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/learning.html">
-   How to Study in this class
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/gettinghelp.html">
-   Getting Help with Programming
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/terminal.html">
-   Terminals and Environments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../resources/organization.html">
-   Getting Organized for class
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">
-   Advice from FA2020 Students
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall21/letters/">
-   Advice from FA2021 Students
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../letters/index.html">
-   Letters to Future students
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/python.html">References on Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/cheatsheet.html">Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/datasets.html">Data Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tips.html">General Tips and Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/learning.html">How to Study in this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/gettinghelp.html">Getting Help with Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/terminal.html">Terminals and Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/organization.html">Getting Organized for class</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall20/letters/">Advice from FA2020 Students</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall21/letters/">Advice from FA2021 Students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../letters/index.html">Letters to Future students</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/rhodyprog4ds/BrownSpring23/main?urlpath=tree/notes/2023-02-09.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
+  <ul class="dropdown-menu">
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/rhodyprog4ds/BrownSpring23/"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/rhodyprog4ds/BrownSpring23/" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/rhodyprog4ds/BrownSpring23//issues/new?title=Issue%20on%20page%20%2Fnotes/2023-02-09.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/rhodyprog4ds/BrownSpring23//issues/new?title=Issue%20on%20page%20%2Fnotes/2023-02-09.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/rhodyprog4ds/BrownSpring23/edit/main/notes/2023-02-09.md"
-   class="headerbtn"
+      <li><a href="https://github.com/rhodyprog4ds/BrownSpring23/edit/main/notes/2023-02-09.md" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Edit this page"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-pencil-alt"></i>
   </span>
-<span class="headerbtn__text-container">suggest edit</span>
+<span class="btn__text-container">suggest edit</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notes/2023-02-09.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../_sources/notes/2023-02-09.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download notebook file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-code"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="../_sources/notes/2023-02-09.md"
-   class="headerbtn"
+      <li><a href="../_sources/notes/2023-02-09.md" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="btn__text-container">.md</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summarizing-review">
-   6.1. Summarizing Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-in-python">
-   6.2. Plotting in Python
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anatomy-of-a-figure">
-     6.2.1. Anatomy of a figure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-function-types-in-seaborn">
-     6.2.2. Plotting Function types in Seaborn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#more">
-     6.2.3. More
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#styling-in-seaborn">
-     6.2.4. Styling in Seaborn
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bags-by-country">
-   6.3. Bags by country
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtering-a-dataframe">
-   6.4. Filtering a DataFrame
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable-types-and-data-types">
-   6.5. Variable types and data types
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#questions-after-class">
-   6.6. Questions After Class
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
-     6.6.1. Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-can-i-check-what-parameters-can-go-into-a-method">
-     6.6.2. How can I check what parameters can go into a method?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-you-know-you-can-put-kind-bar-into-the-method">
-     6.6.3. How do you know you can put kind = “bar” into the method?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
-     6.6.4. Do companies use things like “sns” for more in depth/graphical plots?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
-     6.6.5. Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Visualization</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summarizing-review">
-   6.1. Summarizing Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-in-python">
-   6.2. Plotting in Python
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anatomy-of-a-figure">
-     6.2.1. Anatomy of a figure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-function-types-in-seaborn">
-     6.2.2. Plotting Function types in Seaborn
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#more">
-     6.2.3. More
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#styling-in-seaborn">
-     6.2.4. Styling in Seaborn
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bags-by-country">
-   6.3. Bags by country
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#filtering-a-dataframe">
-   6.4. Filtering a DataFrame
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable-types-and-data-types">
-   6.5. Variable types and data types
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#questions-after-class">
-   6.6. Questions After Class
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
-     6.6.1. Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-can-i-check-what-parameters-can-go-into-a-method">
-     6.6.2. How can I check what parameters can go into a method?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-do-you-know-you-can-put-kind-bar-into-the-method">
-     6.6.3. How do you know you can put kind = “bar” into the method?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
-     6.6.4. Do companies use things like “sns” for more in depth/graphical plots?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
-     6.6.5. Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visualization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-review">
+   6.1. Summarizing Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-in-python">
+   6.2. Plotting in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-a-figure">
+     6.2.1. Anatomy of a figure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-function-types-in-seaborn">
+     6.2.2. Plotting Function types in Seaborn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more">
+     6.2.3. More
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#styling-in-seaborn">
+     6.2.4. Styling in Seaborn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bags-by-country">
+   6.3. Bags by country
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-a-dataframe">
+   6.4. Filtering a DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-types-and-data-types">
+   6.5. Variable types and data types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   6.6. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
+     6.6.1. Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-check-what-parameters-can-go-into-a-method">
+     6.6.2. How can I check what parameters can go into a method?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-you-know-you-can-put-kind-bar-into-the-method">
+     6.6.3. How do you know you can put kind = “bar” into the method?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
+     6.6.4. Do companies use things like “sns” for more in depth/graphical plots?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
+     6.6.5. Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="visualization">
-<h1><span class="section-number">6. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h1>
 <p>If your plots do not show, include this in any cell. The <code class="docutils literal notranslate"><span class="pre">%</span></code> signals that this is an
 ipython <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic</a>. This one controls <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-matplotlib">matplotlib</a>. Jupyter uses the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/about/history.html">IPython</a> python kernel.</p>
 <div class="cell docutils container">
@@ -814,7 +1254,7 @@ ipython <a class="reference external" href="https://ipython.readthedocs.io/en/st
 </div>
 </div>
 <section id="summarizing-review">
-<h2><span class="section-number">6.1. </span>Summarizing Review<a class="headerlink" href="#summarizing-review" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1. </span>Summarizing Review<a class="headerlink" href="#summarizing-review" title="Permalink to this heading">#</a></h2>
 <p>We will start with the same dataset we hvae been working with</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -960,10 +1400,10 @@ ipython <a class="reference external" href="https://ipython.readthedocs.io/en/st
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe03cffb370&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa31b5ea550&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_12_1.png" src="../_images/2023-02-09_12_1.png" />
+<img alt="../_images/a4adad7d1af998150be7c6b99a37d43204e2d22973f477cd912036bb3c30528b.png" src="../_images/a4adad7d1af998150be7c6b99a37d43204e2d22973f477cd912036bb3c30528b.png" />
 </div>
 </div>
 <p>We can change the kind, for example to a <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">Kernel Density Estimate</a>.
@@ -976,10 +1416,10 @@ a smoothed out histogram.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe0460226a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa3194a1340&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_14_1.png" src="../_images/2023-02-09_14_1.png" />
+<img alt="../_images/e840cdd5583068631d65fcaae01b9ca6ce75f26686580a81829457b2de98d8ec.png" src="../_images/e840cdd5583068631d65fcaae01b9ca6ce75f26686580a81829457b2de98d8ec.png" />
 </div>
 </div>
 <p>This version makess it more visually clear that the the Aftertaste is more consistently, but it also helps us see that that might not be the whole story.  Both have a second smaller bump, so the overall std might not be the best measure.</p>
@@ -1058,7 +1498,7 @@ a smoothed out histogram.</p>
 </div>
 </section>
 <section id="plotting-in-python">
-<h2><span class="section-number">6.2. </span>Plotting in Python<a class="headerlink" href="#plotting-in-python" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2. </span>Plotting in Python<a class="headerlink" href="#plotting-in-python" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a>: low level plotting tools</p></li>
 <li><p><a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a>: high level plotting with opinionated defaults</p></li>
@@ -1077,7 +1517,7 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p>There are lots of type of plots, we saw the basic patterns of how to use them and we’ve used a few types, but we cannot (and do not need to) go through every single type.  There are general patterns that you can use that will help you think about what type of plot you might want and help you understand them to be able to customize plots.</p>
 <p>[Seaborn’s main goal is opinionated defaults and flexible customization](<a class="reference external" href="https://seaborn.pydata.org/tutorial/introduction.html#opinionated-defaults-and-flexible-customization">https://seaborn.pydata.org/tutorial/introduction.html#opinionated-defaults-and-flexible-customization</a></p>
 <section id="anatomy-of-a-figure">
-<h3><span class="section-number">6.2.1. </span>Anatomy of a figure<a class="headerlink" href="#anatomy-of-a-figure" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Anatomy of a figure<a class="headerlink" href="#anatomy-of-a-figure" title="Permalink to this heading">#</a></h3>
 <p>First is the <a class="reference external" href="https://matplotlib.org">matplotlib</a> structure of a figure.  BOth pandas and seaborn and other plotting libraries use matplotlib. Matplotlib was used <a class="reference external" href="https://numfocus.org/case-studies/first-photograph-black-hole">in visualizing the first Black hole</a>.</p>
 <p><img alt="annotated graph" src="https://matplotlib.org/stable/_images/sphx_glr_anatomy_001.png" /></p>
 <p>This is a lot of information, but these are good to know things.  THe most important is the figure and the axes.</p>
@@ -1088,7 +1528,7 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p><em>that image was <a class="reference external" href="https://matplotlib.org/stable/gallery/showcase/anatomy.html#anatomy-of-a-figure">drawn with code</a></em> and that page explains more.</p>
 </section>
 <section id="plotting-function-types-in-seaborn">
-<h3><span class="section-number">6.2.2. </span>Plotting Function types in Seaborn<a class="headerlink" href="#plotting-function-types-in-seaborn" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Plotting Function types in Seaborn<a class="headerlink" href="#plotting-function-types-in-seaborn" title="Permalink to this heading">#</a></h3>
 <p>Seaborn has two <em>levels</em> or groups of plotting functions. Figure and axes.  Figure level fucntions can plot with subplots.</p>
 <p><img alt="summary of plot types" src="https://seaborn.pydata.org/_images/function_overview_8_0.png" /></p>
 <p>This is from thie <span class="xref myst">overivew</span> section of the official seaborn tutorial. It also includes a comparison of
@@ -1096,11 +1536,11 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p>The <a class="reference external" href="https://seaborn.pydata.org/tutorial/introduction.html">official introduction</a> is also a good read.</p>
 </section>
 <section id="more">
-<h3><span class="section-number">6.2.3. </span>More<a class="headerlink" href="#more" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>More<a class="headerlink" href="#more" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">seaborn gallery</a> and <a class="reference external" href="https://matplotlib.org/2.0.2/gallery.html">matplotlib gallery</a> are nice to look at too.</p>
 </section>
 <section id="styling-in-seaborn">
-<h3><span class="section-number">6.2.4. </span>Styling in Seaborn<a class="headerlink" href="#styling-in-seaborn" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.2.4. </span>Styling in Seaborn<a class="headerlink" href="#styling-in-seaborn" title="Permalink to this heading">#</a></h3>
 <p>Seaborn also lets us set a theme for visual styling
 This by default styles the plots to be more visually appealing</p>
 <div class="cell docutils container">
@@ -1116,7 +1556,7 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </section>
 </section>
 <section id="bags-by-country">
-<h2><span class="section-number">6.3. </span>Bags by country<a class="headerlink" href="#bags-by-country" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.3. </span>Bags by country<a class="headerlink" href="#bags-by-country" title="Permalink to this heading">#</a></h2>
 <p>the <code class="docutils literal notranslate"><span class="pre">catplot</span></code> lets us plot vs categorical variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1125,10 +1565,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe00e4d7490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa3194223d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_24_1.png" src="../_images/2023-02-09_24_1.png" />
+<img alt="../_images/fe72fea837fb68677e774ccfe6e7cc07946bac92b1cecd0fffa659e17d0493d5.png" src="../_images/fe72fea837fb68677e774ccfe6e7cc07946bac92b1cecd0fffa659e17d0493d5.png" />
 </div>
 </div>
 <p>This is hard to read, we could try stretching it out to make it better</p>
@@ -1139,10 +1579,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe00e0ecfa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa319398850&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_26_1.png" src="../_images/2023-02-09_26_1.png" />
+<img alt="../_images/ac91d59679a32ec5900e6fee7761bd5c54f60437c61e9ae8caca24b1d2a8aa56.png" src="../_images/ac91d59679a32ec5900e6fee7761bd5c54f60437c61e9ae8caca24b1d2a8aa56.png" />
 </div>
 </div>
 <p>A better way might be to filter only the top countries. We’ll find those by grouping by country
@@ -1177,7 +1617,7 @@ Name: Number.of.Bags, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Country.of.Origin&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_30_1.png" src="../_images/2023-02-09_30_1.png" />
+<img alt="../_images/91b3b72bd5044911f3cdf5dcb84cd3790f551803adb95f493bdbe20fed5e7515.png" src="../_images/91b3b72bd5044911f3cdf5dcb84cd3790f551803adb95f493bdbe20fed5e7515.png" />
 </div>
 </div>
 <p>What if we take out only the top 10 countries? First we have to sort it.  The default
@@ -1218,12 +1658,12 @@ Name: Number.of.Bags, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Country.of.Origin&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_34_1.png" src="../_images/2023-02-09_34_1.png" />
+<img alt="../_images/fdd850de74e912786c6bf3103fd9ed160b848ab8d5cde167cb002b200e859f32.png" src="../_images/fdd850de74e912786c6bf3103fd9ed160b848ab8d5cde167cb002b200e859f32.png" />
 </div>
 </div>
 </section>
 <section id="filtering-a-dataframe">
-<h2><span class="section-number">6.4. </span>Filtering a DataFrame<a class="headerlink" href="#filtering-a-dataframe" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4. </span>Filtering a DataFrame<a class="headerlink" href="#filtering-a-dataframe" title="Permalink to this heading">#</a></h2>
 <p>Now, we’ll take just the country names out</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2400,15 +2840,15 @@ Name: Country.of.Origin, Length: 1311, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe00c8f2dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa314483e20&gt;
 </pre></div>
 </div>
-<img alt="../_images/2023-02-09_46_1.png" src="../_images/2023-02-09_46_1.png" />
+<img alt="../_images/c9933878a79981386c1ab062412e073952355c654c577b3bff5673f8612dbb47.png" src="../_images/c9933878a79981386c1ab062412e073952355c654c577b3bff5673f8612dbb47.png" />
 </div>
 </div>
 </section>
 <section id="variable-types-and-data-types">
-<h2><span class="section-number">6.5. </span>Variable types and data types<a class="headerlink" href="#variable-types-and-data-types" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.5. </span>Variable types and data types<a class="headerlink" href="#variable-types-and-data-types" title="Permalink to this heading">#</a></h2>
 <p>Related but not the same.</p>
 <hr class="docutils" />
 <p>Data types are literal, related to the representation in the computer.</p>
@@ -2434,26 +2874,26 @@ only integers range high enough that we treat them more like continuous most of
 the time.</p>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">6.6. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.6. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
 <section id="do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
-<h3><span class="section-number">6.6.1. </span>Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?<a class="headerlink" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.1. </span>Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?<a class="headerlink" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required" title="Permalink to this heading">#</a></h3>
 <p>You earn level 3s from your portfio.  The portfolio makes more sense after you have completed assignment 3, so we will follow up on it next week after you all get a3 feedback.</p>
 </section>
 <section id="how-can-i-check-what-parameters-can-go-into-a-method">
-<h3><span class="section-number">6.6.2. </span>How can I check what parameters can go into a method?<a class="headerlink" href="#how-can-i-check-what-parameters-can-go-into-a-method" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.2. </span>How can I check what parameters can go into a method?<a class="headerlink" href="#how-can-i-check-what-parameters-can-go-into-a-method" title="Permalink to this heading">#</a></h3>
 <p>You can use the documentation online, or in jupyter, you can get help from the docstring.  I usually use shift+tab to read the docstring but you can also use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function or the <code class="docutils literal notranslate"><span class="pre">?</span></code> in jupyter.</p>
 </section>
 <section id="how-do-you-know-you-can-put-kind-bar-into-the-method">
-<h3><span class="section-number">6.6.3. </span>How do you know you can put kind = “bar” into the method?<a class="headerlink" href="#how-do-you-know-you-can-put-kind-bar-into-the-method" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.3. </span>How do you know you can put kind = “bar” into the method?<a class="headerlink" href="#how-do-you-know-you-can-put-kind-bar-into-the-method" title="Permalink to this heading">#</a></h3>
 <p>I happen to reembmer this now, but to know what values you can read the docstring as above.</p>
 </section>
 <section id="do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
-<h3><span class="section-number">6.6.4. </span>Do companies use things like “sns” for more in depth/graphical plots?<a class="headerlink" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.4. </span>Do companies use things like “sns” for more in depth/graphical plots?<a class="headerlink" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots" title="Permalink to this heading">#</a></h3>
 <p>It depends on your role within the company.  If you are a data scientist in a more reasearch role you might use seaborn more, but if you build customer facing visualizations, you might use something else.</p>
 <p>For more interactive visualization, you could use <a class="reference external" href="https://plotly.com/python/">plotly</a> or <a class="reference external" href="https://docs.bokeh.org/en/latest/">bokeh</a> that generate more javascript for you. <a class="reference external" href="https://plotly.com/">Plotly</a> as a company now also has a product called <a class="reference external" href="https://dash.plotly.com/">dash</a> for building data dashboard apps.</p>
 </section>
 <section id="does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
-<h3><span class="section-number">6.6.5. </span>Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?<a class="headerlink" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.5. </span>Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?<a class="headerlink" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy" title="Permalink to this heading">#</a></h3>
 <p>Yes.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -2483,50 +2923,179 @@ the time.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2023-02-07.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">5. </span>Exploratory Data Analysis (EDA)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="2023-02-14.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Tidy Data and Reshaping Datasets</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="2023-02-07.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title"><span class="section-number">5. </span>Exploratory Data Analysis (EDA)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="2023-02-14.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title"><span class="section-number">7. </span>Tidy Data and Reshaping Datasets</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Professor Sarah M Brown<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summarizing-review">
+   6.1. Summarizing Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-in-python">
+   6.2. Plotting in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-a-figure">
+     6.2.1. Anatomy of a figure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-function-types-in-seaborn">
+     6.2.2. Plotting Function types in Seaborn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more">
+     6.2.3. More
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#styling-in-seaborn">
+     6.2.4. Styling in Seaborn
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bags-by-country">
+   6.3. Bags by country
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-a-dataframe">
+   6.4. Filtering a DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-types-and-data-types">
+   6.5. Variable types and data types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions-after-class">
+   6.6. Questions After Class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
+     6.6.1. Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-i-check-what-parameters-can-go-into-a-method">
+     6.6.2. How can I check what parameters can go into a method?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-do-you-know-you-can-put-kind-bar-into-the-method">
+     6.6.3. How do you know you can put kind = “bar” into the method?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
+     6.6.4. Do companies use things like “sns” for more in depth/graphical plots?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
+     6.6.5. Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Professor Sarah M Brown
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
