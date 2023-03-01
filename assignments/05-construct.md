@@ -6,7 +6,8 @@ substitutions:
 ---
 # Assignment 5: Constructing Datasets and Using Databases
 
-{{accept_assignment}}
+{{ accept_assignment }}
+
 __Due: {{ date }}__
 
 Eligible skills: (links to checklists)
@@ -22,7 +23,7 @@ Eligible skills: (links to checklists)
 [^expiringskill]: skills will be marked like this on the last assignment they are eligible
 ## Related notes
 
-- [](../notes/2023-20-21)
+- [](../notes/2023-02-21)
 - [](../notes/2023-02-23)
 
 
