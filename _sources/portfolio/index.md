@@ -90,20 +90,22 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 
 
 
-```{important}
-start early, assignment 9 and 10 will be due on Wednesdays like regular the week before and of this deadline. You will get feedback on Assignment 9 by Friday so that you can use that to update your portfolio on the construct achievements.
-```
 
-Portfolio check 2 will assess the following *new* achievements in addition to an a chance to make up any that you have missed:
+
+Portfolio check 1 will assess the following *new* achievements in addition to an a chance to make up any that you have missed:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword')
+portfolio_df['Level 3'][portfolio_df['P1']==1].reset_index().set_index('keyword')
 ```
 
 
 <!--
+
+```{important}
+start early, assignment 9 and 10 will be due on Wednesdays like regular the week before and of this deadline. You will get feedback on Assignment 9 by Friday so that you can use that to update your portfolio on the construct achievements.
+```
 
 The third submission will be graded on the following criteria and due on December 4:
 
