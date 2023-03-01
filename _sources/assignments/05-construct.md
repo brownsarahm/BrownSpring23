@@ -6,9 +6,11 @@ substitutions:
 ---
 # Assignment 5: Constructing Datasets and Using Databases
 
-{{ accept_assignment }}
+<!-- {{ accept_assignment }} -->
 
-__Due: {{ date }}__
+[accept the assignment](https://classroom.github.com/a/Tar0f4BB)
+
+__Due: 2023-03-01__
 
 Eligible skills: (links to checklists)
 - **first chance** construct [1](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#construct-level1) and [2](https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#construct-level2)
