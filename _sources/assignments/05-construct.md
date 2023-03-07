@@ -32,7 +32,7 @@ Eligible skills: (links to checklists)
 ## Constructing Datasets
 
 
-Your goal is to programmatically construct three ready to analyze datasets from multiple sources. 
+Your goal is to programmatically construct two ready to analyze datasets from multiple sources. 
 
 - Each dataset must combine at least 2 source tables(4 total source tables).
 - At least one source table must come from a database or from web scraping.
