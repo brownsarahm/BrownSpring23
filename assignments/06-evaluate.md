@@ -6,8 +6,9 @@ substitutions:
 ---
 
 # Assignment 6: Auditing Algorithms
-{{accept_assignment}}
-__Due: {{ date }}__
+
+[accept the assignment](https://classroom.github.com/a/pJ-8jn5f)
+__Due: 2023-03-09__
 
 Eligible skills: (links to checklists)
 
@@ -26,7 +27,8 @@ the definition for evaluate is going to be updated in your gradetrackers soon, t
 
 ## Related notes
 
-- [2022-10-24](../notes/2022-10-24)
+- [](../notes/2023-02-28)
+- [](../notes/2023-02-02)
 
 
 ## About the data
