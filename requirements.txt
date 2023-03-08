@@ -1,11 +1,11 @@
 jupyter-book
-matplotlib
-numpy
 pyppeteer
-pandas
 lxml
-seaborn
 xlrd
-sklearn
 sphinx-panels
 git+https://github.com/brownsarahm/sphinxcontrib-mermaid@cdnupdate
+matplotlib
+numpy
+pandas
+seaborn
+sklearn
