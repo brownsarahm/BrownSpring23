@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Check 2 Ideas &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'portfolio/check2ideas';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -179,7 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -450,12 +452,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="check-2-ideas">
-<h1>Check 2 Ideas<a class="headerlink" href="#check-2-ideas" title="Permalink to this heading">#</a></h1>
+<h1>Check 2 Ideas<a class="headerlink" href="#check-2-ideas" title="Permalink to this headline">#</a></h1>
 <p>For Check 2, all of the prompts from check 1 apply, plus the following additional
 prompts, since there are new skills.</p>
 <p>If you have other ideas, you can also ask and those are likely posible.</p>
 <section id="level-1-achievement-catchup">
-<h2>Level 1 Achievement Catchup<a class="headerlink" href="#level-1-achievement-catchup" title="Permalink to this heading">#</a></h2>
+<h2>Level 1 Achievement Catchup<a class="headerlink" href="#level-1-achievement-catchup" title="Permalink to this headline">#</a></h2>
 <p>To make up level 1 achievements, include a detailed introduction file to your
 portfolio and one of the following (per skill):</p>
 <ul class="simple">
@@ -466,7 +468,7 @@ portfolio and one of the following (per skill):</p>
 </ul>
 </section>
 <section id="extend-assignment-7-8-or-9">
-<h2>Extend Assignment 7, 8, or 9<a class="headerlink" href="#extend-assignment-7-8-or-9" title="Permalink to this heading">#</a></h2>
+<h2>Extend Assignment 7, 8, or 9<a class="headerlink" href="#extend-assignment-7-8-or-9" title="Permalink to this headline">#</a></h2>
 <p>Assignments 7-9 help you think through what machine learning tasks are.
 Extend those ideas by adding additional experiments based on your own questions
 or the questions in your feedback.</p>
@@ -479,37 +481,37 @@ or the questions in your feedback.</p>
 </aside>
 </section>
 <section id="build-a-data-set-for-prediction">
-<h2>Build a data set for Prediction<a class="headerlink" href="#build-a-data-set-for-prediction" title="Permalink to this heading">#</a></h2>
+<h2>Build a data set for Prediction<a class="headerlink" href="#build-a-data-set-for-prediction" title="Permalink to this headline">#</a></h2>
 <p>Build a dataset that works for prediction (classification, regression, or clustering)
 from other sources.</p>
 </section>
 <section id="learn-a-new-model">
-<h2>Learn a new model<a class="headerlink" href="#learn-a-new-model" title="Permalink to this heading">#</a></h2>
+<h2>Learn a new model<a class="headerlink" href="#learn-a-new-model" title="Permalink to this headline">#</a></h2>
 <p>Repeat what you did in 7, 8, or 9, with a different model.</p>
 </section>
 <section id="create-datasets-that-fail">
-<h2>Create datasets that fail<a class="headerlink" href="#create-datasets-that-fail" title="Permalink to this heading">#</a></h2>
+<h2>Create datasets that fail<a class="headerlink" href="#create-datasets-that-fail" title="Permalink to this headline">#</a></h2>
 <p>Create datasets that violate assumptions of a model we have learned.  The
 <a class="reference external" href="https://scikit-learn.org/stable/datasets/sample_generators.html#generated-datasets">sklearn data generators</a> are a good place to start.</p>
 </section>
 <section id="process-level-3">
-<h2>Process level 3<a class="headerlink" href="#process-level-3" title="Permalink to this heading">#</a></h2>
+<h2>Process level 3<a class="headerlink" href="#process-level-3" title="Permalink to this headline">#</a></h2>
 <p>Process level 3 is a little different than most of the others.  You may be able
 to work it into an analysis notebook, but likely, you’ll need to do one of the
 following.</p>
 <section id="data-science-pipeline-comparisons">
-<h3>Data Science Pipeline Comparisons<a class="headerlink" href="#data-science-pipeline-comparisons" title="Permalink to this heading">#</a></h3>
+<h3>Data Science Pipeline Comparisons<a class="headerlink" href="#data-science-pipeline-comparisons" title="Permalink to this headline">#</a></h3>
 <p>Find two different sources that describe the data science pipeline or lifecycle. Write a blog style post that discusses their differences and hypothesizes about why they may be different? Are they for different audiences? Is one domain specific? How do they emphasize different modeling tasks?
 Include a Recommendation for when you think each one is better</p>
 </section>
 <section id="write-a-short-story">
-<h3>Write a short story<a class="headerlink" href="#write-a-short-story" title="Permalink to this heading">#</a></h3>
+<h3>Write a short story<a class="headerlink" href="#write-a-short-story" title="Permalink to this headline">#</a></h3>
 <p>Write a short story that explains the concepts of data science to demonstrate your
 understanding of process.</p>
 </section>
 <section id="media-review">
-<h3>Media Review<a class="headerlink" href="#media-review" title="Permalink to this heading">#</a></h3>
-<p>Watch/listen/read to an episode of a high quality<a class="footnote-reference brackets" href="#hq" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> podcast or other type of media
+<h3>Media Review<a class="headerlink" href="#media-review" title="Permalink to this headline">#</a></h3>
+<p>Watch/listen/read to an episode of a high quality<a class="footnote-reference brackets" href="#hq" id="id1">1</a> podcast or other type of media
 and write a blog style summary and review. Highlight what you learned and how it
 relates to topics covered in class.</p>
 <p>Approved Media:</p>
@@ -521,10 +523,11 @@ relates to topics covered in class.</p>
 <li><p><a class="reference external" href="https://www.codedbias.com/">Coded Bias</a> (film, available on netflix &amp; <a class="reference external" href="https://www.pbs.org/independentlens/documentaries/coded-bias/">PBS</a>)</p></li>
 </ul>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="hq" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>approved Dr. Brown by creating a pull request to add it to the list on this page that is successfully merged.  To create a PR, use the suggest an edit button at the top of this page.</p>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="hq"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>approved Dr. Brown by creating a pull request to add it to the list on this page that is successfully merged.  To create a PR, use the suggest an edit button at the top of this page.</p>
+</dd>
+</dl>
 </section>
 </section>
 </section>

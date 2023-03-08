@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>4. Pandas and Indexing &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-02';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Exploratory Data Analysis (EDA)" href="2023-02-07.html" />
     <link rel="prev" title="3. Grading review, Pandas, and Iterables" href="2023-01-31.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -455,9 +457,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-and-indexing">
-<h1><span class="section-number">4. </span>Pandas and Indexing<a class="headerlink" href="#pandas-and-indexing" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Pandas and Indexing<a class="headerlink" href="#pandas-and-indexing" title="Permalink to this headline">#</a></h1>
 <section id="iterable-types">
-<h2><span class="section-number">4.1. </span>Iterable types<a class="headerlink" href="#iterable-types" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Iterable types<a class="headerlink" href="#iterable-types" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;abcde&#39;</span><span class="p">]</span>
@@ -566,7 +568,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-data-other-ways">
-<h2><span class="section-number">4.2. </span>Reading data other ways<a class="headerlink" href="#reading-data-other-ways" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Reading data other ways<a class="headerlink" href="#reading-data-other-ways" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1010,7 +1012,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </section>
 <section id="importing-locally">
-<h2><span class="section-number">4.3. </span>Importing locally<a class="headerlink" href="#importing-locally" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Importing locally<a class="headerlink" href="#importing-locally" title="Permalink to this headline">#</a></h2>
 <p>If I make a file in the same folder as my notebook called <code class="docutils literal notranslate"><span class="pre">example.py</span></code>
 and then put</p>
 <div class="cell tag_hide-input docutils container">
@@ -1073,9 +1075,9 @@ cat example.py
 </div>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">4.4. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
 <section id="why-does-casting-the-int-over-the-num-100-give-you-the-right-number-is-it-because-of-floor-division">
-<h3><span class="section-number">4.4.1. </span>why does casting the int over the (num/100) give you the right number? Is it because of floor division?<a class="headerlink" href="#why-does-casting-the-int-over-the-num-100-give-you-the-right-number-is-it-because-of-floor-division" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.1. </span>why does casting the int over the (num/100) give you the right number? Is it because of floor division?<a class="headerlink" href="#why-does-casting-the-int-over-the-num-100-give-you-the-right-number-is-it-because-of-floor-division" title="Permalink to this headline">#</a></h3>
 <p>First let’s look at an interim value, lets pick a value for <code class="docutils literal notranslate"><span class="pre">num</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1100,33 +1102,33 @@ cat example.py
 <p>Remember that <code class="docutils literal notranslate"><span class="pre">int</span></code> type is an integer or whole number, no fraction.  So, casting drops the decimal part.</p>
 </section>
 <section id="how-would-adding-2-dataframetogether-of-separate-types-affect-the-type-command">
-<h3><span class="section-number">4.4.2. </span>How would adding 2 DataFrametogether of separate types affect the type command?<a class="headerlink" href="#how-would-adding-2-dataframetogether-of-separate-types-affect-the-type-command" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.2. </span>How would adding 2 DataFrametogether of separate types affect the type command?<a class="headerlink" href="#how-would-adding-2-dataframetogether-of-separate-types-affect-the-type-command" title="Permalink to this headline">#</a></h3>
 <p>It depends what “add” means.  If addition it might error, but if it worked, then it would still be a DataFrame. If stacking with <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> it would also be a DatFrame.</p>
 <p>If you make them into a list, then the would be a list.</p>
 </section>
 <section id="what-keys-to-use-in-the-dictionaries">
-<h3><span class="section-number">4.4.3. </span>what keys to use in the dictionaries?<a class="headerlink" href="#what-keys-to-use-in-the-dictionaries" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.3. </span>what keys to use in the dictionaries?<a class="headerlink" href="#what-keys-to-use-in-the-dictionaries" title="Permalink to this headline">#</a></h3>
 <p>In the assignment the instruction say</p>
 </section>
 <section id="how-to-save-as-a-local-csv-file">
-<h3><span class="section-number">4.4.4. </span>how to save as a local csv file?<a class="headerlink" href="#how-to-save-as-a-local-csv-file" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.4. </span>how to save as a local csv file?<a class="headerlink" href="#how-to-save-as-a-local-csv-file" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html">pandas.DataFrame.to_csv</a></p>
 </section>
 <section id="how-to-create-a-dataframe">
-<h3><span class="section-number">4.4.5. </span>how to create a Dataframe?<a class="headerlink" href="#how-to-create-a-dataframe" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.5. </span>how to create a Dataframe?<a class="headerlink" href="#how-to-create-a-dataframe" title="Permalink to this headline">#</a></h3>
 <p>Use the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">constructor</a></p>
 </section>
 <section id="how-to-read-using-relative-path">
-<h3><span class="section-number">4.4.6. </span>how to read using relative path?<a class="headerlink" href="#how-to-read-using-relative-path" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.6. </span>how to read using relative path?<a class="headerlink" href="#how-to-read-using-relative-path" title="Permalink to this headline">#</a></h3>
 <p>A relative path can work just like a URL. <a class="reference external" href="https://www.redhat.com/sysadmin/linux-path-absolute-relativehttps://www.redhat.com/sysadmin/linux-path-absolute-relative">read about them here</a></p>
 </section>
 <section id="i-would-like-to-know-about-other-common-forms-of-data-files">
-<h3><span class="section-number">4.4.7. </span>I would like to know about other common forms of data files.<a class="headerlink" href="#i-would-like-to-know-about-other-common-forms-of-data-files" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.7. </span>I would like to know about other common forms of data files.<a class="headerlink" href="#i-would-like-to-know-about-other-common-forms-of-data-files" title="Permalink to this headline">#</a></h3>
 <p>The pandas documentation’s <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">I/O</a> page is where I recommend starting</p>
 </section>
 </section>
 <section id="what-other-libraries-do-we-end-up-using">
-<h2><span class="section-number">4.5. </span>What other libraries do we end up using?<a class="headerlink" href="#what-other-libraries-do-we-end-up-using" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>What other libraries do we end up using?<a class="headerlink" href="#what-other-libraries-do-we-end-up-using" title="Permalink to this headline">#</a></h2>
 <p>Next week we will use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> for plotting. Later in the semester we will use <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> for machine learning.  We will use a few other libaries for a few features, but these three are the main ones.</p>
 </section>
 </section>

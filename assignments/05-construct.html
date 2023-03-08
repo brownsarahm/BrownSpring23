@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>5. Assignment 5: Constructing Datasets and Using Databases &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/05-construct';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Assignment 6: Auditing Algorithms" href="06-evaluate.html" />
     <link rel="prev" title="4. Assignment 4:" href="04-prepare.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -449,28 +451,28 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-constructing-datasets-and-using-databases">
-<h1><span class="section-number">5. </span>Assignment 5: Constructing Datasets and Using Databases<a class="headerlink" href="#assignment-5-constructing-datasets-and-using-databases" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Assignment 5: Constructing Datasets and Using Databases<a class="headerlink" href="#assignment-5-constructing-datasets-and-using-databases" title="Permalink to this headline">#</a></h1>
 <!-- {{ accept_assignment }} -->
 <p><a class="reference external" href="https://classroom.github.com/a/Tar0f4BB">accept the assignment</a></p>
 <p><strong>Due: 2023-03-01</strong></p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
 <li><p><strong>first chance</strong> construct <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#construct-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#construct-level2">2</a></p></li>
-<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> access <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level2">2</a></p></li>
-<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2">2</a></p></li>
-<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> prepare <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#prepare-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#prepare-level2">2</a></p></li>
+<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id1">1</a> access <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#access-level2">2</a></p></li>
+<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id2">1</a> python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2">2</a></p></li>
+<li><p><span class="fa fa-hourglass-end"></span> <a class="footnote-reference brackets" href="#expiringskill" id="id3">1</a> prepare <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#prepare-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#prepare-level2">2</a></p></li>
 <li><p>summarize <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#summarize-level2">2</a></p></li>
 <li><p>visualize <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level2">2</a></p></li>
 </ul>
 <section id="related-notes">
-<h2><span class="section-number">5.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../notes/2023-02-21.html"><span class="doc std std-doc">Merging  and Databases</span></a></p></li>
 <li><p><a class="reference internal" href="../notes/2023-02-23.html"><span class="doc std std-doc">Web Scraping</span></a></p></li>
 </ul>
 </section>
 <section id="constructing-datasets">
-<h2><span class="section-number">5.2. </span>Constructing Datasets<a class="headerlink" href="#constructing-datasets" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Constructing Datasets<a class="headerlink" href="#constructing-datasets" title="Permalink to this headline">#</a></h2>
 <p>Your goal is to programmatically construct two ready to analyze datasets from multiple sources.</p>
 <ul class="simple">
 <li><p>Each dataset must combine at least 2 source tables(4 total source tables).</p></li>
@@ -501,10 +503,10 @@ document.write(`
 <p>For construct, this can be very minimal EDA.</p>
 </section>
 <section id="additional-achievements">
-<h2><span class="section-number">5.3. </span>Additional achievements<a class="headerlink" href="#additional-achievements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Additional achievements<a class="headerlink" href="#additional-achievements" title="Permalink to this headline">#</a></h2>
 <p>To earn additional achievements, you must do more cleaning and/or exploratory data analysis.</p>
 <section id="prepare-level-2">
-<h3><span class="section-number">5.3.1. </span>Prepare level 2<a class="headerlink" href="#prepare-level-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Prepare level 2<a class="headerlink" href="#prepare-level-2" title="Permalink to this headline">#</a></h3>
 <p>To earn level 2 for prepare, you must manipulate either a component table or the final dataset.  See your Achievement checklist for which aspects of prepare you still need, but sample manipulations include:</p>
 <ul class="simple">
 <li><p>transform into a tidy format</p></li>
@@ -514,12 +516,12 @@ document.write(`
 </ul>
 </section>
 <section id="summarize-and-visualize-level-2">
-<h3><span class="section-number">5.3.2. </span>Summarize and Visualize level 2<a class="headerlink" href="#summarize-and-visualize-level-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>Summarize and Visualize level 2<a class="headerlink" href="#summarize-and-visualize-level-2" title="Permalink to this headline">#</a></h3>
 <p>To earn level 2 for summarize and/or visualize, include additional analyses after building the datasets.</p>
 <p>Connect your EDA to questions, and focus on the aspects of these achiements you have not successfully demonstrated.</p>
 </section>
 <section id="python-level-2">
-<h3><span class="section-number">5.3.3. </span>Python Level 2<a class="headerlink" href="#python-level-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.3. </span>Python Level 2<a class="headerlink" href="#python-level-2" title="Permalink to this headline">#</a></h3>
 <p>Use pythonic naming conventions throughout, AND:</p>
 <ul class="simple">
 <li><p>Use pythonic loops and a list or dictionary OR</p></li>
@@ -536,11 +538,11 @@ that is provided as a single table with redundant information into a number of
 smaller tables in a database.</p>
 </div>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="expiringskill" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>)</span>
-<p>skills will be marked like this on the last assignment they are eligible</p>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="expiringskill"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>)</span></dt>
+<dd><p>skills will be marked like this on the last assignment they are eligible</p>
+</dd>
+</dl>
 </section>
 </section>
 </section>

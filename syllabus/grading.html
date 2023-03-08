@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Grading &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus/grading';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Grading Policies" href="policies.html" />
     <link rel="prev" title="Data Science Achievements" href="achievements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -460,11 +462,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="grading">
-<h1>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h1>
+<h1>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">#</a></h1>
 <p>This section of the syllabus describes the principles and mechanics of the grading for the course.
 This course will be graded on a basis of a set of <em>skills</em> (described in detail the next section of the syllabus). This is in contrast to more common grading on a basis of points earned through assignments.</p>
 <section id="principles-of-grading">
-<h2>Principles of Grading<a class="headerlink" href="#principles-of-grading" title="Permalink to this heading">#</a></h2>
+<h2>Principles of Grading<a class="headerlink" href="#principles-of-grading" title="Permalink to this headline">#</a></h2>
 <p>Learning happens through practice and feedback. My goal as a teacher is for you to learn. The grading in this course is based on your learning of the material, rather than your completion of the activities that are assigned.</p>
 <p>This course is designed to encourage you to work steadily at learning the material and demonstrating your new knowledge. There are no single points of failure, where you lose points that cannot be recovered. Also, you cannot cram anything one time and then forget it. The material will build and you have to demonstrate that you retained things.</p>
 <ul class="simple">
@@ -475,7 +477,7 @@ This course will be graded on a basis of a set of <em>skills</em> (described in 
 <!-- Earning an A  -->
 <p>Grading this way also is more amenable to the fact that there are correct and incorrect ways to do things, but there is not always a single correct answer to a realistic data science problem. Your work will be assessed on whether or not it demonstrates your learning of the targeted skills. You will also receive feedback on how to improve.</p>
 <section id="how-it-works">
-<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this heading">#</a></h3>
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">#</a></h3>
 <p>There are 15 skills that you will be graded on in this course.
 While learning these skills, you will work through a progression of learning.
 Your grade will be based on earning 45 achievements that are organized into 15 skill groups with 3 levels for each.</p>
@@ -496,14 +498,14 @@ You will have three <em>types</em> of opportunities to demonstrate your current 
 </ul>
 <p>For each skill these are defined in the <a class="reference internal" href="achievements.html#achievement-definitions"><span class="std std-ref">Achievement Definition Table</span></a></p>
 <section id="participation">
-<h4>Participation<a class="headerlink" href="#participation" title="Permalink to this heading">#</a></h4>
+<h4>Participation<a class="headerlink" href="#participation" title="Permalink to this headline">#</a></h4>
 <p>While attending synchronous class sessions, there will be understanding checks and in class exercises.
 Completing in class exercises and correctly answering questions in class can earn level 1 achievements.
 In class questions will be administered through the classroom chat platform Prismia.chat; these records will be used to update your skill progression.
 You can also earn level 1 achievements from adding annotation to a section of the class notes.</p>
 </section>
 <section id="assignments">
-<h4>Assignments<a class="headerlink" href="#assignments" title="Permalink to this heading">#</a></h4>
+<h4>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">#</a></h4>
 <p>For your learning to progress and earn level 2 achievements, you must practice with the skills outside of class time.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -515,7 +517,7 @@ You can also earn level 1 achievements from adding annotation to a section of th
 <p>Assignments will each evaluate certain skills. After your assignment is reviewed, you will get qualitative feedback on your work, and an assessment of your demonstration of the targeted skills.</p>
 </section>
 <section id="portfolio-checks">
-<h4>Portfolio Checks<a class="headerlink" href="#portfolio-checks" title="Permalink to this heading">#</a></h4>
+<h4>Portfolio Checks<a class="headerlink" href="#portfolio-checks" title="Permalink to this headline">#</a></h4>
 <p>To earn level 3 achievements, you will build a portfolio consisting of reflections, challenge problems, and longer analyses over the course of the semester.
 You will submit your portfolio for review 4 times.
 The first two will cover the skills taught up until 1 week before the submission deadline.</p>
@@ -526,12 +528,12 @@ The fourth will be due during finals. This means that, if you have achieved mast
 <p>Portfolio prompts will be given throughout the class, some will be strucutred questions, others may be questions that arise in class, for which there is not time to answer.</p>
 </section>
 <section id="tldr">
-<h4>TLDR<a class="headerlink" href="#tldr" title="Permalink to this heading">#</a></h4>
+<h4>TLDR<a class="headerlink" href="#tldr" title="Permalink to this headline">#</a></h4>
 <p>You <em>could</em> earn a C through in class participation alone, if you make nearly zero mistakes. To earn a B, you must complete assignments and participate in class. To earn an A you must participate, complete assignments, and build a portfolio.</p>
 </section>
 </section>
 <section id="detailed-mechanics">
-<span id="grade-calculation"></span><h3>Detailed mechanics<a class="headerlink" href="#detailed-mechanics" title="Permalink to this heading">#</a></h3>
+<span id="grade-calculation"></span><h3>Detailed mechanics<a class="headerlink" href="#detailed-mechanics" title="Permalink to this headline">#</a></h3>
 <p>On Brightspace there are 45 Grade items that you will get a 0 or a 1 grade for. These will be revealed, so that you can view them as you have an opportunity to demonstrate each one.
 The table below shows the minimum number of skills at each level to earn each letter grade.</p>
 <div class="cell tag_remove-input docutils container">
@@ -695,7 +697,7 @@ The table below shows the minimum number of skills at each level to earn each le
 </div>
 </section>
 <section id="late-work">
-<h3>Late work<a class="headerlink" href="#late-work" title="Permalink to this heading">#</a></h3>
+<h3>Late work<a class="headerlink" href="#late-work" title="Permalink to this headline">#</a></h3>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -718,10 +720,10 @@ If you submit work that is not complete, however, it will be assessed and receiv
 <p>Portfolio due dates will be announced well in advance and prompts for it will be released weekly.  You should spend some time working on it each week, applying what you’ve learned so far, from the feedback on previous assignments.</p>
 </section>
 <section id="grading-examples">
-<h3>Grading Examples<a class="headerlink" href="#grading-examples" title="Permalink to this heading">#</a></h3>
+<h3>Grading Examples<a class="headerlink" href="#grading-examples" title="Permalink to this headline">#</a></h3>
 <p>If you always attend and get everything correct, you will earn and A and you won’t need to submit the 4th portfolio check.</p>
 <section id="getting-an-a-without-perfection">
-<h4>Getting  an A Without Perfection<a class="headerlink" href="#getting-an-a-without-perfection" title="Permalink to this heading">#</a></h4>
+<h4>Getting  an A Without Perfection<a class="headerlink" href="#getting-an-a-without-perfection" title="Permalink to this headline">#</a></h4>
 <p><img alt="exampleA" src="../_images/example_A.png" /></p>
 <p>In this example the student made several mistakes, but still earned an A. This is the advantage to this grading scheme.
 For the <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">process</span></code>, and <code class="docutils literal notranslate"><span class="pre">classification</span></code> skills, the level 1 achievements were earned on assignments, not in class.
@@ -733,13 +735,13 @@ The student had too much work in another class and chose to skip assignment 8.
 The student tried assignment 12, but didn’t finish it on time, so it was not graded, but the student visited office hours to understand and be sure to earn the level 2 <code class="docutils literal notranslate"><span class="pre">unstructured</span></code> achievement on assignment 13.</p>
 </section>
 <section id="getting-a-b-with-minimal-work">
-<h4>Getting a B with minimal work<a class="headerlink" href="#getting-a-b-with-minimal-work" title="Permalink to this heading">#</a></h4>
+<h4>Getting a B with minimal work<a class="headerlink" href="#getting-a-b-with-minimal-work" title="Permalink to this headline">#</a></h4>
 <p><img alt="exampleBminimal" src="../_images/example_B_easy.png" /></p>
 <p>In this example, the student earned all level 1 achievements in class and all level 2 on assignments.
 This student was content with getting a B and chose to not submit a portfolio.</p>
 </section>
 <section id="getting-a-b-while-having-trouble">
-<h4>Getting a B while having trouble<a class="headerlink" href="#getting-a-b-while-having-trouble" title="Permalink to this heading">#</a></h4>
+<h4>Getting a B while having trouble<a class="headerlink" href="#getting-a-b-while-having-trouble" title="Permalink to this headline">#</a></h4>
 <p><img alt="exampleBstruggle" src="../_images/example_B_struggle.png" /></p>
 <p>In this example, the student struggled to understand in class and on assignments. Assignments were submitted that showed some understanding, but all had some serious mistakes, so only level 1 achievements were earned from assignments.
 The student wanted to get a B and worked hard to get the level 2 achievements on the portfolio checks.</p>
@@ -747,7 +749,7 @@ The student wanted to get a B and worked hard to get the level 2 achievements on
 </section>
 </section>
 <section id="academic-dishonesty">
-<h2>Academic Dishonesty<a class="headerlink" href="#academic-dishonesty" title="Permalink to this heading">#</a></h2>
+<h2>Academic Dishonesty<a class="headerlink" href="#academic-dishonesty" title="Permalink to this headline">#</a></h2>
 <p>If you are found to have submitted work that does not constitute your own work, the following penalties apply:</p>
 <ul class="simple">
 <li><p>in a portfolio, all achievements attempted in the dishonest component are permanently ineligible.</p></li>

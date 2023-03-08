@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Git and GitHub &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'faq/github';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Code Errors" href="debugging.html" />
     <link rel="prev" title="Syllabus and Grading FAQ" href="syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -447,14 +449,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="git-and-github">
-<h1>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h1>
+<h1>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">#</a></h1>
 <!--
 ````{toggle}
 
 ````
  -->
 <section id="i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected">
-<h2>I can’t push to my repository, I get an error that updates were rejected<a class="headerlink" href="#i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected" title="Permalink to this heading">#</a></h2>
+<h2>I can’t push to my repository, I get an error that updates were rejected<a class="headerlink" href="#i-cant-push-to-my-repository-i-get-an-error-that-updates-were-rejected" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! [rejected] main -&gt; main (fetch first)
 error: failed to push some refs to &lt;repository name&gt;
@@ -475,7 +477,7 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 </div>
 </section>
 <section id="the-content-i-added-to-my-portfolio-isnt-in-the-pdf">
-<h2>The content I added to my portfolio isn’t in the pdf<a class="headerlink" href="#the-content-i-added-to-my-portfolio-isnt-in-the-pdf" title="Permalink to this heading">#</a></h2>
+<h2>The content I added to my portfolio isn’t in the pdf<a class="headerlink" href="#the-content-i-added-to-my-portfolio-isnt-in-the-pdf" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>There was an error in the original <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> file, change yours to match the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">format</span><span class="p">:</span> <span class="n">jb</span><span class="o">-</span><span class="n">book</span>
@@ -494,14 +496,14 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 </div>
 </section>
 <section id="my-command-line-says-i-cannot-use-a-password">
-<h2>My command line says I cannot use a password<a class="headerlink" href="#my-command-line-says-i-cannot-use-a-password" title="Permalink to this heading">#</a></h2>
+<h2>My command line says I cannot use a password<a class="headerlink" href="#my-command-line-says-i-cannot-use-a-password" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>GitHub has <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github">strong rules</a> about authentication
 You need to use SSH with a public/private key; HTTPS with a <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Access Token</a> or use the <a class="reference external" href="https://cli.github.com/">GitHub CLI</a> <a class="reference external" href="https://cli.github.com/manual/gh_auth_login">auth</a></p>
 </div>
 </section>
 <section id="my-ipynb-file-isnt-showing-in-the-staging-area-or-didnt-push">
-<h2>My .ipynb file isn’t showing in the staging area or didn’t push<a class="headerlink" href="#my-ipynb-file-isnt-showing-in-the-staging-area-or-didnt-push" title="Permalink to this heading">#</a></h2>
+<h2>My .ipynb file isn’t showing in the staging area or didn’t push<a class="headerlink" href="#my-ipynb-file-isnt-showing-in-the-staging-area-or-didnt-push" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>.ipynb files are json that include all of the output, including tables as html and plots as svg, so, unlike plain code files, they don’t play well with
 version control.</p>
@@ -522,13 +524,13 @@ to your repository.  We’ll set up another workflow for future work</p>
 </div>
 </section>
 <section id="my-portfolio-wont-compile">
-<h2>My portfolio won’t compile<a class="headerlink" href="#my-portfolio-wont-compile" title="Permalink to this heading">#</a></h2>
+<h2>My portfolio won’t compile<a class="headerlink" href="#my-portfolio-wont-compile" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>If there’s an error your notebook it can’t complete running. You can allow it to run if the error is on purpose by changing settings as mentioned on the <span class="xref myst">formatting</span> page.</p>
 </div>
 </section>
 <section id="help-i-accidentally-merged-the-feedback-pull-request-before-my-assignment-was-graded">
-<span id="preemptive-merge"></span><h2>Help! I accidentally merged the Feedback Pull Request before my assignment was graded<a class="headerlink" href="#help-i-accidentally-merged-the-feedback-pull-request-before-my-assignment-was-graded" title="Permalink to this heading">#</a></h2>
+<span id="preemptive-merge"></span><h2>Help! I accidentally merged the Feedback Pull Request before my assignment was graded<a class="headerlink" href="#help-i-accidentally-merged-the-feedback-pull-request-before-my-assignment-was-graded" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>That’s ok. You can fix it.</p>
 <p>You’ll have to work offline and use GitHub in your browser together for this fix. The following instuctions will work in terminal on Mac or Linux or in GitBash for Windows. (see <span class="xref myst">Programming Environment section on the tools page</span>).</p>

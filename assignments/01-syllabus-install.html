@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>1. Assignment 1: Portfolio Setup, Data Science, and Python &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/01-syllabus-install';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Assignment 2: Practicing Python and Accessing Data" href="02-python-access.html" />
-    <link rel="prev" title="12. What is ML?" href="../notes/2023-03-02.html" />
+    <link rel="prev" title="13. Intro to ML &amp; Naive Bayes" href="../notes/2023-03-07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -449,22 +451,22 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-1-portfolio-setup-data-science-and-python">
-<h1><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python<a class="headerlink" href="#assignment-1-portfolio-setup-data-science-and-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python<a class="headerlink" href="#assignment-1-portfolio-setup-data-science-and-python" title="Permalink to this headline">#</a></h1>
 <p><strong>Due: </strong></p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
-<li><p><span class="fa fa-star"></span><a class="footnote-reference brackets" href="#starredskill" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>  python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level1">level 1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level2">level 2</a></p></li>
-<li><p><span class="fa fa-star"></span>process<a class="footnote-reference brackets" href="#processnote" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#process-level1">level 1</a></p></li>
+<li><p><span class="fa fa-star"></span><a class="footnote-reference brackets" href="#starredskill" id="id1">1</a>  python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level1">level 1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#python-level2">level 2</a></p></li>
+<li><p><span class="fa fa-star"></span>process<a class="footnote-reference brackets" href="#processnote" id="id2">2</a> <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/achievements.html#process-level1">level 1</a></p></li>
 </ul>
 <section id="related-notes">
-<h2><span class="section-number">1.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../notes/2023-01-24.html"><span class="doc std std-doc">Welcome and Introduction</span></a></p></li>
 <li><p><a class="reference internal" href="../notes/2023-01-26.html"><span class="doc std std-doc">Syllabus and Python Review</span></a></p></li>
 </ul>
 </section>
 <section id="to-do">
-<h2><span class="section-number">1.2. </span>To Do<a class="headerlink" href="#to-do" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>To Do<a class="headerlink" href="#to-do" title="Permalink to this headline">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -492,7 +494,7 @@ document.write(`
 <p>Do not merge your “Feedback” Pull Request</p>
 </div>
 <section id="docstring">
-<h3><span class="section-number">1.2.1. </span>Docstring<a class="headerlink" href="#docstring" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>Docstring<a class="headerlink" href="#docstring" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Computes a grade for CSC/DSP310 from numbers of achievements at each level</span>
 
@@ -514,7 +516,7 @@ document.write(`
 </div>
 </section>
 <section id="sample-tests">
-<h3><span class="section-number">1.2.2. </span>Sample tests<a class="headerlink" href="#sample-tests" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.2. </span>Sample tests<a class="headerlink" href="#sample-tests" title="Permalink to this headline">#</a></h3>
 <p>Here are some sample tests you could run to confirm that your function works correctly:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -542,7 +544,7 @@ document.write(`
 </div>
 </section>
 <section id="notebook-checklist">
-<h3><span class="section-number">1.2.3. </span>Notebook Checklist<a class="headerlink" href="#notebook-checklist" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.3. </span>Notebook Checklist<a class="headerlink" href="#notebook-checklist" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>a Markdown cell with a heading</p></li>
 <li><p>your function called <code class="docutils literal notranslate"><span class="pre">compute_grade</span></code></p></li>
@@ -550,20 +552,20 @@ document.write(`
 </ul>
 </section>
 <section id="grading-notes">
-<h3><span class="section-number">1.2.4. </span>Grading Notes:<a class="headerlink" href="#grading-notes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.4. </span>Grading Notes:<a class="headerlink" href="#grading-notes" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>a basic function that uses conditionals in python will earn <strong>level 1 python</strong></p></li>
 <li><p>to earn <strong>level 2 python</strong> use pythonic code to write a loop that tests your function’s correctness, by iterating over a list or dictionary. Remember you will have many chances to earn level 2 achievement in python, so you do not need to do this step for this assignment if you are not sure how.</p></li>
 </ul>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="starredskill" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>skills will be marked like this on the first time they are eligible. There will also be a <span class="fa fa-hourglass-end"></span>  on skills for the last assignment they are eligible</p>
-</aside>
-<aside class="footnote brackets" id="processnote" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>process is a special skill. You’ll earn level 1 in this assignment or a soon one and two in either portfolio 1 or assignments 6-10, then level 3 in portfolio 2,3, or 4.</p>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="starredskill"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>skills will be marked like this on the first time they are eligible. There will also be a <span class="fa fa-hourglass-end"></span>  on skills for the last assignment they are eligible</p>
+</dd>
+<dt class="label" id="processnote"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>process is a special skill. You’ll earn level 1 in this assignment or a soon one and two in either portfolio 1 or assignments 6-10, then level 3 in portfolio 2,3, or 4.</p>
+</dd>
+</dl>
 </section>
 </section>
 </section>
@@ -597,12 +599,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../notes/2023-03-02.html"
+       href="../notes/2023-03-07.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>What is ML?</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Intro to ML &amp; Naive Bayes</p>
       </div>
     </a>
     <a class="right-next"

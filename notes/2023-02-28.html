@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>11. Evaluating ML Algorithms &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -64,13 +63,15 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-28';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. What is ML?" href="2023-03-02.html" />
+    <link rel="next" title="12. Auditing with AIF360" href="2023-03-02.html" />
     <link rel="prev" title="10. Web Scraping" href="2023-02-23.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -183,7 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -455,7 +457,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="evaluating-ml-algorithms">
-<h1><span class="section-number">11. </span>Evaluating ML Algorithms<a class="headerlink" href="#evaluating-ml-algorithms" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Evaluating ML Algorithms<a class="headerlink" href="#evaluating-ml-algorithms" title="Permalink to this headline">#</a></h1>
 <p>This week we are going to start learning about machine learning.</p>
 <p>We are going to do this by looking at how to tell if machine learning has worked.</p>
 <p>This is because:</p>
@@ -465,7 +467,7 @@ document.write(`
 <li><p>gives you a chance to learn <em>only</em> evaluation instead of evaluation + an ML task</p></li>
 </ul>
 <section id="what-is-a-machine-learning-algorithm">
-<h2><span class="section-number">11.1. </span>What is a Machine Learning Algorithm?<a class="headerlink" href="#what-is-a-machine-learning-algorithm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>What is a Machine Learning Algorithm?<a class="headerlink" href="#what-is-a-machine-learning-algorithm" title="Permalink to this headline">#</a></h2>
 <p>First, what is an Algorithm?</p>
 <blockquote>
 <div><p>An algorithm is a set of ordered steps to complete a task.</p>
@@ -485,18 +487,18 @@ use those patterns to make predictions or automate a task.</p>
 sometimes they’re used close to exchangeably.</p>
 </section>
 <section id="how-can-we-tell-if-ml-is-working">
-<h2><span class="section-number">11.2. </span>How can we tell if ML is working?<a class="headerlink" href="#how-can-we-tell-if-ml-is-working" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>How can we tell if ML is working?<a class="headerlink" href="#how-can-we-tell-if-ml-is-working" title="Permalink to this headline">#</a></h2>
 <p>We measure the performance of the prediction algorithm, to determine if the learning algorithm worked.</p>
 </section>
 <section id="replicating-the-compas-audit">
-<h2><span class="section-number">11.3. </span>Replicating the COMPAS Audit<a class="headerlink" href="#replicating-the-compas-audit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Replicating the COMPAS Audit<a class="headerlink" href="#replicating-the-compas-audit" title="Permalink to this headline">#</a></h2>
 <p>We are going to replicate the audit from ProPublica <a class="reference external" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">Machine Bias</a></p>
 <section id="why-compas">
-<h3><span class="section-number">11.3.1. </span>Why COMPAS?<a class="headerlink" href="#why-compas" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.3.1. </span>Why COMPAS?<a class="headerlink" href="#why-compas" title="Permalink to this headline">#</a></h3>
 <p>Propublica started the COMPAS Debate with the article <a class="reference external" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencin">Machine Bias</a>.  With their article, they also released details of their methodology and their <a class="reference external" href="https://github.com/propublica/compas-analysis">data and code</a>.  This presents a real data set that can be used for research on how data is used in a criminal justice setting without researchers having to perform their own requests for information, so it has been used and reused a lot of times.</p>
 </section>
 <section id="propublica-compas-data">
-<h3><span class="section-number">11.3.2. </span>Propublica COMPAS Data<a class="headerlink" href="#propublica-compas-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.3.2. </span>Propublica COMPAS Data<a class="headerlink" href="#propublica-compas-data" title="Permalink to this headline">#</a></h3>
 <p>The dataset consists of COMPAS scores assigned to defendants over two years 2013-2014 in Broward County, Florida, it was released by Propublica in a <a class="reference external" href="https://github.com/propublica/compas-analysis/">GitHub Repository</a>. These scores are determined by a proprietary algorithm designed to evaluate a persons recidivism risk - the likelihood that they will reoffend. Risk scoring algorithms are widely used by judges to inform their sentencing and bail decisions in the criminal justice system in the United States.</p>
 <p>The journalists collected, for each person arreste din 2013 and 2014:</p>
 <ul class="simple">
@@ -686,7 +688,7 @@ sometimes they’re used close to exchangeably.</p>
 </section>
 </section>
 <section id="one-hot-encoding">
-<h2><span class="section-number">11.4. </span>One-hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>One-hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">#</a></h2>
 <p>We will audit first to see how good the algorithm is by treating the predictions as either high or not high.  One way we can get to that point is to transform the <code class="docutils literal notranslate"><span class="pre">score_text</span></code> column from one column with three values, to 3 binary columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +872,7 @@ sometimes they’re used close to exchangeably.</p>
 </div>
 </section>
 <section id="sklearn-performance-metrics">
-<h2><span class="section-number">11.5. </span>Sklearn Performance metrics<a class="headerlink" href="#sklearn-performance-metrics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Sklearn Performance metrics<a class="headerlink" href="#sklearn-performance-metrics" title="Permalink to this headline">#</a></h2>
 <p>The first thing we usually check is the accuracy: the percentage of all samples that are correct.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1009,7 +1011,7 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </section>
 <section id="per-group-scores">
-<h2><span class="section-number">11.6. </span>Per Group Scores<a class="headerlink" href="#per-group-scores" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Per Group Scores<a class="headerlink" href="#per-group-scores" title="Permalink to this headline">#</a></h2>
 <p>To groupby and then do the score, we can use a lambda again, with apply</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1254,11 +1256,11 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </aside>
 </section>
 <section id="prepare-for-next-class">
-<h2><span class="section-number">11.7. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.7. </span>Prepare for Next Class<a class="headerlink" href="#prepare-for-next-class" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://github.com/Trusted-AI/AIF360#install-with-pip">install aif360</a></p>
 </section>
 <section id="portfolio">
-<h2><span class="section-number">11.8. </span>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.8. </span>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h2>
 <p>Audience is not <em>me</em>, but a generally knowledgable person.  For example:</p>
 <ul class="simple">
 <li><p>a student deciding if they want to take this course or not.  They know how to code, but not datascience.</p></li>
@@ -1321,7 +1323,7 @@ Think of this more like a report with code as the figures than a coding assignme
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>What is ML?</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Auditing with AIF360</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

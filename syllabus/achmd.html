@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>python-level1 &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus/achmd';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -179,7 +180,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -485,7 +487,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="python-level1">
-<h1><strong>python-level1</strong><a class="headerlink" href="#python-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>python-level1</strong><a class="headerlink" href="#python-level1" title="Permalink to this headline">#</a></h1>
 <p><em>python code that mostly runs, occasional pep8 adherance</em></p>
 <ul class="simple">
 <li><p>[ ] logical use of control structures</p></li>
@@ -496,7 +498,7 @@ document.write(`
 </ul>
 </section>
 <section id="python-level2">
-<h1><strong>python-level2</strong><a class="headerlink" href="#python-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>python-level2</strong><a class="headerlink" href="#python-level2" title="Permalink to this headline">#</a></h1>
 <p><em>python code that reliably runs, frequent pep8 adherance</em></p>
 <ul class="simple">
 <li><p>[ ] descriptive variable names</p></li>
@@ -506,7 +508,7 @@ document.write(`
 </ul>
 </section>
 <section id="python-level3">
-<h1><strong>python-level3</strong><a class="headerlink" href="#python-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>python-level3</strong><a class="headerlink" href="#python-level3" title="Permalink to this headline">#</a></h1>
 <p><em>reliable, efficient, pythonic code that consistently adheres to pep8</em></p>
 <ul class="simple">
 <li><p>[ ] pep8 adherant variable, file, class, and function names</p></li>
@@ -515,7 +517,7 @@ document.write(`
 </ul>
 </section>
 <section id="process-level1">
-<h1><strong>process-level1</strong><a class="headerlink" href="#process-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>process-level1</strong><a class="headerlink" href="#process-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Identify basic components of data science</em></p>
 <ul class="simple">
 <li><p>[ ] identify component disciplines OR</p></li>
@@ -523,7 +525,7 @@ document.write(`
 </ul>
 </section>
 <section id="process-level2">
-<h1><strong>process-level2</strong><a class="headerlink" href="#process-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>process-level2</strong><a class="headerlink" href="#process-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Describe and define each stage of the data science process</em></p>
 <ul class="simple">
 <li><p>[ ] correctly defines stages</p></li>
@@ -532,7 +534,7 @@ document.write(`
 </ul>
 </section>
 <section id="process-level3">
-<h1><strong>process-level3</strong><a class="headerlink" href="#process-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>process-level3</strong><a class="headerlink" href="#process-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Compare different ways that data science can facilitate decision making</em></p>
 <ul class="simple">
 <li><p>[ ] describes exceptions to process and iteration in process</p></li>
@@ -541,7 +543,7 @@ document.write(`
 </ul>
 </section>
 <section id="access-level1">
-<h1><strong>access-level1</strong><a class="headerlink" href="#access-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>access-level1</strong><a class="headerlink" href="#access-level1" title="Permalink to this headline">#</a></h1>
 <p><em>load data from at least one format; identify the most common data formats</em></p>
 <ul class="simple">
 <li><p>[ ] use at least one pandas <code class="docutils literal notranslate"><span class="pre">read_</span></code> function correctly</p></li>
@@ -550,7 +552,7 @@ document.write(`
 </ul>
 </section>
 <section id="access-level2">
-<h1><strong>access-level2</strong><a class="headerlink" href="#access-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>access-level2</strong><a class="headerlink" href="#access-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Load data for processing from the most common formats; Compare and constrast most common formats</em></p>
 <ul class="simple">
 <li><p>[ ] load data from at least two of (.csv, .tsv, .dat, database, .json)</p></li>
@@ -559,7 +561,7 @@ document.write(`
 </ul>
 </section>
 <section id="access-level3">
-<h1><strong>access-level3</strong><a class="headerlink" href="#access-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>access-level3</strong><a class="headerlink" href="#access-level3" title="Permalink to this headline">#</a></h1>
 <p><em>access data from both common and uncommon formats and identify best practices for formats in different contexts</em></p>
 <ul class="simple">
 <li><p>[ ] load data from at least 1 uncommon format</p></li>
@@ -567,7 +569,7 @@ document.write(`
 </ul>
 </section>
 <section id="construct-level1">
-<h1><strong>construct-level1</strong><a class="headerlink" href="#construct-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>construct-level1</strong><a class="headerlink" href="#construct-level1" title="Permalink to this headline">#</a></h1>
 <p><em>identify what should happen to merge datasets or when they can be merged</em></p>
 <ul class="simple">
 <li><p>[ ] identify what the structure of a merged dataset should be (size, shape, columns)</p></li>
@@ -575,7 +577,7 @@ document.write(`
 </ul>
 </section>
 <section id="construct-level2">
-<h1><strong>construct-level2</strong><a class="headerlink" href="#construct-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>construct-level2</strong><a class="headerlink" href="#construct-level2" title="Permalink to this headline">#</a></h1>
 <p><em>apply basic merges</em></p>
 <ul class="simple">
 <li><p>[ ] use 3 different types of merges</p></li>
@@ -583,7 +585,7 @@ document.write(`
 </ul>
 </section>
 <section id="construct-level3">
-<h1><strong>construct-level3</strong><a class="headerlink" href="#construct-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>construct-level3</strong><a class="headerlink" href="#construct-level3" title="Permalink to this headline">#</a></h1>
 <p><em>merge data that is not automatically aligned</em></p>
 <ul class="simple">
 <li><p>[ ] manipulate data to make it mergable</p></li>
@@ -592,7 +594,7 @@ document.write(`
 </ul>
 </section>
 <section id="summarize-level1">
-<h1><strong>summarize-level1</strong><a class="headerlink" href="#summarize-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>summarize-level1</strong><a class="headerlink" href="#summarize-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Describe the shape and structure of a dataset in basic terms</em></p>
 <ul class="simple">
 <li><p>[ ] use attributes to produce a description of a dataset</p></li>
@@ -600,7 +602,7 @@ document.write(`
 </ul>
 </section>
 <section id="summarize-level2">
-<h1><strong>summarize-level2</strong><a class="headerlink" href="#summarize-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>summarize-level2</strong><a class="headerlink" href="#summarize-level2" title="Permalink to this headline">#</a></h1>
 <p><em>compute and interpret summary standard statistics of a whole dataset and grouped data</em></p>
 <ul class="simple">
 <li><p>[ ] compute descriptive statistics on whole datasets</p></li>
@@ -612,7 +614,7 @@ document.write(`
 </ul>
 </section>
 <section id="summarize-level3">
-<h1><strong>summarize-level3</strong><a class="headerlink" href="#summarize-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>summarize-level3</strong><a class="headerlink" href="#summarize-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Compute and interpret various summary statistics of subsets of data</em></p>
 <ul class="simple">
 <li><p>[ ] produce custom aggregation tables to summarize datasets</p></li>
@@ -621,7 +623,7 @@ document.write(`
 </ul>
 </section>
 <section id="visualize-level1">
-<h1><strong>visualize-level1</strong><a class="headerlink" href="#visualize-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>visualize-level1</strong><a class="headerlink" href="#visualize-level1" title="Permalink to this headline">#</a></h1>
 <p><em>identify plot types, generate basic plots from pandas</em></p>
 <ul class="simple">
 <li><p>[ ] generate at least two types of plots with pandas</p></li>
@@ -630,7 +632,7 @@ document.write(`
 </ul>
 </section>
 <section id="visualize-level2">
-<h1><strong>visualize-level2</strong><a class="headerlink" href="#visualize-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>visualize-level2</strong><a class="headerlink" href="#visualize-level2" title="Permalink to this headline">#</a></h1>
 <p><em>generate multiple plot types with complete labeling with pandas and seaborn</em></p>
 <ul class="simple">
 <li><p>[ ] generate at least 3 types of plots</p></li>
@@ -640,7 +642,7 @@ document.write(`
 </ul>
 </section>
 <section id="visualize-level3">
-<h1><strong>visualize-level3</strong><a class="headerlink" href="#visualize-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>visualize-level3</strong><a class="headerlink" href="#visualize-level3" title="Permalink to this headline">#</a></h1>
 <p><em>generate complex plots with pandas and plotting libraries and customize with matplotlib or additional parameters</em></p>
 <ul class="simple">
 <li><p>[ ] use at least two libraries to plot</p></li>
@@ -652,7 +654,7 @@ document.write(`
 </ul>
 </section>
 <section id="prepare-level1">
-<h1><strong>prepare-level1</strong><a class="headerlink" href="#prepare-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>prepare-level1</strong><a class="headerlink" href="#prepare-level1" title="Permalink to this headline">#</a></h1>
 <p><em>identify if data is or is not ready for analysis, potential problems with data</em></p>
 <ul class="simple">
 <li><p>[ ] identify problems in a dataset</p></li>
@@ -662,7 +664,7 @@ document.write(`
 </ul>
 </section>
 <section id="prepare-level2">
-<h1><strong>prepare-level2</strong><a class="headerlink" href="#prepare-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>prepare-level2</strong><a class="headerlink" href="#prepare-level2" title="Permalink to this headline">#</a></h1>
 <p><em>apply data reshaping, cleaning, and filtering as directed</em></p>
 <ul class="simple">
 <li><p>[ ] reshape data to be analyzable as directed</p></li>
@@ -674,7 +676,7 @@ document.write(`
 </ul>
 </section>
 <section id="prepare-level3">
-<h1><strong>prepare-level3</strong><a class="headerlink" href="#prepare-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>prepare-level3</strong><a class="headerlink" href="#prepare-level3" title="Permalink to this headline">#</a></h1>
 <p><em>apply data reshaping, cleaning, and filtering manipulations reliably and correctly by assessing data as received</em></p>
 <ul class="simple">
 <li><p>[ ] identify issues in a dataset and correctly implement solutions</p></li>
@@ -683,7 +685,7 @@ document.write(`
 </ul>
 </section>
 <section id="evaluate-level1">
-<h1><strong>evaluate-level1</strong><a class="headerlink" href="#evaluate-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>evaluate-level1</strong><a class="headerlink" href="#evaluate-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Explain basic performance metrics for different data science tasks</em></p>
 <ul class="simple">
 <li><p>[ ] define at least two performance metrics</p></li>
@@ -691,7 +693,7 @@ document.write(`
 </ul>
 </section>
 <section id="evaluate-level2">
-<h1><strong>evaluate-level2</strong><a class="headerlink" href="#evaluate-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>evaluate-level2</strong><a class="headerlink" href="#evaluate-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Apply and interpret basic model evaluation metrics to a held out test set</em></p>
 <ul class="simple">
 <li><p>[ ] apply at least three performance metrics to models</p></li>
@@ -701,7 +703,7 @@ document.write(`
 </ul>
 </section>
 <section id="evaluate-level3">
-<h1><strong>evaluate-level3</strong><a class="headerlink" href="#evaluate-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>evaluate-level3</strong><a class="headerlink" href="#evaluate-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Evaluate a model with multiple metrics and cross validation</em></p>
 <ul class="simple">
 <li><p>[ ] explain cross validation</p></li>
@@ -712,7 +714,7 @@ document.write(`
 </ul>
 </section>
 <section id="classification-level1">
-<h1><strong>classification-level1</strong><a class="headerlink" href="#classification-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>classification-level1</strong><a class="headerlink" href="#classification-level1" title="Permalink to this headline">#</a></h1>
 <p><em>identify and describe what classification is, apply pre-fit classification models</em></p>
 <ul class="simple">
 <li><p>[ ] describe what classification is</p></li>
@@ -722,7 +724,7 @@ document.write(`
 </ul>
 </section>
 <section id="classification-level2">
-<h1><strong>classification-level2</strong><a class="headerlink" href="#classification-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>classification-level2</strong><a class="headerlink" href="#classification-level2" title="Permalink to this headline">#</a></h1>
 <p><em>fit, apply, and interpret preselected classification model to a dataset</em></p>
 <ul class="simple">
 <li><p>[ ] split data for training and testing</p></li>
@@ -735,7 +737,7 @@ document.write(`
 </ul>
 </section>
 <section id="classification-level3">
-<h1><strong>classification-level3</strong><a class="headerlink" href="#classification-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>classification-level3</strong><a class="headerlink" href="#classification-level3" title="Permalink to this headline">#</a></h1>
 <p><em>fit and apply classification models and select appropriate classification models for different contexts</em></p>
 <ul class="simple">
 <li><p>[ ] choose appropriate classifiers based on application context</p></li>
@@ -744,7 +746,7 @@ document.write(`
 </ul>
 </section>
 <section id="regression-level1">
-<h1><strong>regression-level1</strong><a class="headerlink" href="#regression-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>regression-level1</strong><a class="headerlink" href="#regression-level1" title="Permalink to this headline">#</a></h1>
 <p><em>identify what data that can be used for regression looks like</em></p>
 <ul class="simple">
 <li><p>[ ] identify data that is/not appropriate for regression</p></li>
@@ -753,7 +755,7 @@ document.write(`
 </ul>
 </section>
 <section id="regression-level2">
-<h1><strong>regression-level2</strong><a class="headerlink" href="#regression-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>regression-level2</strong><a class="headerlink" href="#regression-level2" title="Permalink to this headline">#</a></h1>
 <p><em>fit and interpret linear regression models</em></p>
 <ul class="simple">
 <li><p>[ ] split data for training and testing</p></li>
@@ -763,7 +765,7 @@ document.write(`
 </ul>
 </section>
 <section id="regression-level3">
-<h1><strong>regression-level3</strong><a class="headerlink" href="#regression-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>regression-level3</strong><a class="headerlink" href="#regression-level3" title="Permalink to this headline">#</a></h1>
 <p><em>fit and explain regrularized or nonlinear regression</em></p>
 <ul class="simple">
 <li><p>[ ] fit nonlinear or regrularized regression models</p></li>
@@ -771,7 +773,7 @@ document.write(`
 </ul>
 </section>
 <section id="clustering-level1">
-<h1><strong>clustering-level1</strong><a class="headerlink" href="#clustering-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>clustering-level1</strong><a class="headerlink" href="#clustering-level1" title="Permalink to this headline">#</a></h1>
 <p><em>describe what clustering is</em></p>
 <ul class="simple">
 <li><p>[ ] differentiate clustering from classification and regression</p></li>
@@ -779,7 +781,7 @@ document.write(`
 </ul>
 </section>
 <section id="clustering-level2">
-<h1><strong>clustering-level2</strong><a class="headerlink" href="#clustering-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>clustering-level2</strong><a class="headerlink" href="#clustering-level2" title="Permalink to this headline">#</a></h1>
 <p><em>apply basic clustering</em></p>
 <ul class="simple">
 <li><p>[ ] fit Kmeans</p></li>
@@ -788,7 +790,7 @@ document.write(`
 </ul>
 </section>
 <section id="clustering-level3">
-<h1><strong>clustering-level3</strong><a class="headerlink" href="#clustering-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>clustering-level3</strong><a class="headerlink" href="#clustering-level3" title="Permalink to this headline">#</a></h1>
 <p><em>apply multiple clustering techniques, and interpret results</em></p>
 <ul class="simple">
 <li><p>[ ] apply at least two clustering techniques</p></li>
@@ -796,14 +798,14 @@ document.write(`
 </ul>
 </section>
 <section id="optimize-level1">
-<h1><strong>optimize-level1</strong><a class="headerlink" href="#optimize-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>optimize-level1</strong><a class="headerlink" href="#optimize-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Identify when model parameters need to be optimized</em></p>
 <ul class="simple">
 <li><p>[ ] identify when parameters might impact model performance</p></li>
 </ul>
 </section>
 <section id="optimize-level2">
-<h1><strong>optimize-level2</strong><a class="headerlink" href="#optimize-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>optimize-level2</strong><a class="headerlink" href="#optimize-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Optimize basic model parameters such as model order</em></p>
 <ul class="simple">
 <li><p>[ ] automatically optimize multiple parameters</p></li>
@@ -812,7 +814,7 @@ document.write(`
 </ul>
 </section>
 <section id="optimize-level3">
-<h1><strong>optimize-level3</strong><a class="headerlink" href="#optimize-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>optimize-level3</strong><a class="headerlink" href="#optimize-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Select optimal parameters based of mutiple quanttiateve criteria and automate parameter tuning</em></p>
 <ul class="simple">
 <li><p>[ ] optimize models based on multiple metrics</p></li>
@@ -820,14 +822,14 @@ document.write(`
 </ul>
 </section>
 <section id="compare-level1">
-<h1><strong>compare-level1</strong><a class="headerlink" href="#compare-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>compare-level1</strong><a class="headerlink" href="#compare-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Qualitatively compare model classes</em></p>
 <ul class="simple">
 <li><p>[ ] compare models within the same task on complexity</p></li>
 </ul>
 </section>
 <section id="compare-level2">
-<h1><strong>compare-level2</strong><a class="headerlink" href="#compare-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>compare-level2</strong><a class="headerlink" href="#compare-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Compare model classes in specific terms and fit models in terms of traditional model performance metrics</em></p>
 <ul class="simple">
 <li><p>[ ] compare models in multiple terms</p></li>
@@ -835,7 +837,7 @@ document.write(`
 </ul>
 </section>
 <section id="compare-level3">
-<h1><strong>compare-level3</strong><a class="headerlink" href="#compare-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>compare-level3</strong><a class="headerlink" href="#compare-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Evaluate tradeoffs between different model comparison types</em></p>
 <ul class="simple">
 <li><p>[ ] compare models on multiple criteria</p></li>
@@ -845,21 +847,21 @@ document.write(`
 </ul>
 </section>
 <section id="representation-level1">
-<h1><strong>representation-level1</strong><a class="headerlink" href="#representation-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>representation-level1</strong><a class="headerlink" href="#representation-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Identify options for representing text and categorical data in many contexts</em></p>
 <ul class="simple">
 <li><p>[ ] describe the basic goals for changing the representation of data</p></li>
 </ul>
 </section>
 <section id="representation-level2">
-<h1><strong>representation-level2</strong><a class="headerlink" href="#representation-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>representation-level2</strong><a class="headerlink" href="#representation-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Apply at least one representation to transform unstructured  or inappropriately data for model fitting or summarizing</em></p>
 <ul class="simple">
 <li><p>[ ] transform text or image data for use with ML</p></li>
 </ul>
 </section>
 <section id="representation-level3">
-<h1><strong>representation-level3</strong><a class="headerlink" href="#representation-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>representation-level3</strong><a class="headerlink" href="#representation-level3" title="Permalink to this headline">#</a></h1>
 <p><em>apply transformations in different contexts OR  compare and contrast multiple representations a single type of data in terms of model performance</em></p>
 <ul class="simple">
 <li><p>[ ] transform both text and image data for use in ml</p></li>
@@ -867,14 +869,14 @@ document.write(`
 </ul>
 </section>
 <section id="workflow-level1">
-<h1><strong>workflow-level1</strong><a class="headerlink" href="#workflow-level1" title="Permalink to this heading">#</a></h1>
+<h1><strong>workflow-level1</strong><a class="headerlink" href="#workflow-level1" title="Permalink to this headline">#</a></h1>
 <p><em>Solve well strucutred fully specified problems with a single tool pipeline</em></p>
 <ul class="simple">
 <li><p>[ ] pseudocode out the steps to answer basic data science questions</p></li>
 </ul>
 </section>
 <section id="workflow-level2">
-<h1><strong>workflow-level2</strong><a class="headerlink" href="#workflow-level2" title="Permalink to this heading">#</a></h1>
+<h1><strong>workflow-level2</strong><a class="headerlink" href="#workflow-level2" title="Permalink to this headline">#</a></h1>
 <p><em>Solve well-strucutred, open-ended problems, apply common structure to learn new features of standard tools</em></p>
 <ul class="simple">
 <li><p>[ ] plan and execute answering real questions to an open ended question</p></li>
@@ -882,7 +884,7 @@ document.write(`
 </ul>
 </section>
 <section id="workflow-level3">
-<h1><strong>workflow-level3</strong><a class="headerlink" href="#workflow-level3" title="Permalink to this heading">#</a></h1>
+<h1><strong>workflow-level3</strong><a class="headerlink" href="#workflow-level3" title="Permalink to this headline">#</a></h1>
 <p><em>Independently scope and solve realistic data science problems OR independently learn releated tools  and describe strengths and weakensses of common tools</em></p>
 <ul class="simple">
 <li><p>[ ] scope and solve realistic data science problems</p></li>

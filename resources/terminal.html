@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Terminals and Environments &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/terminal';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Getting Organized for class" href="organization.html" />
     <link rel="prev" title="Getting Help with Programming" href="gettinghelp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -444,9 +446,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="terminals-and-environments">
-<h1>Terminals and Environments<a class="headerlink" href="#terminals-and-environments" title="Permalink to this heading">#</a></h1>
+<h1>Terminals and Environments<a class="headerlink" href="#terminals-and-environments" title="Permalink to this headline">#</a></h1>
 <section id="why-all-this-work">
-<h2>Why all this work?<a class="headerlink" href="#why-all-this-work" title="Permalink to this heading">#</a></h2>
+<h2>Why all this work?<a class="headerlink" href="#why-all-this-work" title="Permalink to this headline">#</a></h2>
 <p>Managing environments is <strong>one of the hardest parts of programming</strong> so, as instructors,
 we often design our courses around not having to do it.  In this class, however,
 I’m choosing to take the risk and help you all through beginning to manage your
@@ -483,7 +485,7 @@ Ask for help early and often.</p>
 </aside>
 </section>
 <section id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h2>
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h2>
 <p>Windows has a sort of multiverse of terminal environments.</p>
 <p>The least setup required involves using anaconda prompt and <code class="docutils literal notranslate"><span class="pre">conda</span></code> to manage
 you python environment and GitBash to work with git (and it can also do other
@@ -492,7 +494,7 @@ bash related things).</p>
 make Anaconda work</a></p>
 </section>
 <section id="macos">
-<h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this heading">#</a></h2>
+<h2>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">#</a></h2>
 <p>MacOS has one terminal app, but it can run different shells.</p>
 <p>On MacOS You may want to switch to bash (using the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command or make it your default and <a class="reference external" href="https://itnext.io/upgrading-bash-on-macos-7138bd1066ba">update bash</a>.</p>
 </section>

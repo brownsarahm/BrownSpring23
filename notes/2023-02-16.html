@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>8. Reparing values &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-16';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Merging and Databases" href="2023-02-21.html" />
     <link rel="prev" title="7. Tidy Data and Reshaping Datasets" href="2023-02-14.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -460,12 +462,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reparing-values">
-<h1><span class="section-number">8. </span>Reparing values<a class="headerlink" href="#reparing-values" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Reparing values<a class="headerlink" href="#reparing-values" title="Permalink to this headline">#</a></h1>
 <p>So far, we’ve dealt with structural issues in data. but there’s a lot more to
 cleaning.</p>
 <p>Today,  we’ll deal with how to fix the values within  the data.</p>
 <section id="cleaning-data-review">
-<h2><span class="section-number">8.1. </span>Cleaning Data review<a class="headerlink" href="#cleaning-data-review" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.1. </span>Cleaning Data review<a class="headerlink" href="#cleaning-data-review" title="Permalink to this headline">#</a></h2>
 <p>Instead of more practice with these manipulations, below are more
 examples of cleaning data to see how these types of manipulations get used.<br />
 Your goal here is not to memorize every possible thing, but to build a general
@@ -478,7 +480,7 @@ Also here are some tips on general data management and organization.</p></li>
 </ul>
 <p>This article is a comprehensive <a class="reference external" href="https://towardsdatascience.com/the-ultimate-guide-to-data-cleaning-3969843991d4">discussion of data cleaning</a>.</p>
 <section id="a-cleaning-data-recipe">
-<h3><span class="section-number">8.1.1. </span>A Cleaning Data Recipe<a class="headerlink" href="#a-cleaning-data-recipe" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.1.1. </span>A Cleaning Data Recipe<a class="headerlink" href="#a-cleaning-data-recipe" title="Permalink to this headline">#</a></h3>
 <p><strong>not everything possible, but good enough for this course</strong></p>
 <ol class="arabic simple">
 <li><p>Can you use parameters to read the data in better?</p></li>
@@ -513,14 +515,14 @@ Also here are some tips on general data management and organization.</p></li>
 </section>
 </section>
 <section id="what-is-clean-enough">
-<h2><span class="section-number">8.2. </span>What is clean enough?<a class="headerlink" href="#what-is-clean-enough" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>What is clean enough?<a class="headerlink" href="#what-is-clean-enough" title="Permalink to this headline">#</a></h2>
 <p>This is a great question, without an easy answer.</p>
 <p>It depends on what you want to do.  This is why it’s important to have potential
 questions in mind if you are cleaning data for others <em>and</em> why we often have to
 do a little bit more preparation after a dataset has been “cleaned”</p>
 </section>
 <section id="fixing-column-names">
-<h2><span class="section-number">8.3. </span>Fixing Column names<a class="headerlink" href="#fixing-column-names" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.3. </span>Fixing Column names<a class="headerlink" href="#fixing-column-names" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coffee_df</span><span class="o">.</span><span class="n">columns</span>
@@ -904,7 +906,7 @@ Name: unit_of_measurement, Length: 1311, dtype: object
 </div>
 </section>
 <section id="missing-values">
-<h2><span class="section-number">8.4. </span>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.4. </span>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">#</a></h2>
 <p>Dealing with missing data is a whole research area. There isn’t one solution.</p>
 <p><a class="reference external" href="https://artemiss-workshop.github.io/">in 2020 there was a whole workshop on missing</a></p>
 <p>one organizer is the main developer of <a class="reference external" href="https://scikit-learn.org/stable/">sci-kit learn</a> the ML package we will use soon.  In a <a class="reference external" href="https://static.sched.com/hosted_files/ray2020/08/Keynote-%20Easier%20Machine%20Learning%20Thoughts%20From%20Scikit-Learn%20-%20Ga%C3%ABl%20Varoquaux%2C%20Research%20Director%2C%20Inria.pdf">2020 invited talk</a> he listed more automatic handling as an active area of research  and a development goal for sklearn.</p>
@@ -999,7 +1001,7 @@ memory usage: 460.9+ KB
 </div>
 </div>
 <section id="filling-missing-values">
-<h3><span class="section-number">8.4.1. </span>Filling missing values<a class="headerlink" href="#filling-missing-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.4.1. </span>Filling missing values<a class="headerlink" href="#filling-missing-values" title="Permalink to this headline">#</a></h3>
 <p>The ‘Lot.Number’ has a lot of NaN values, how can we explore it?</p>
 <p>We can look at the type:</p>
 <div class="cell docutils container">
@@ -1102,7 +1104,7 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </div>
 </section>
 <section id="dropping-missing-values">
-<h3><span class="section-number">8.4.2. </span>Dropping missing values<a class="headerlink" href="#dropping-missing-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.4.2. </span>Dropping missing values<a class="headerlink" href="#dropping-missing-values" title="Permalink to this headline">#</a></h3>
 <p>To illustrate how <code class="docutils literal notranslate"><span class="pre">dropna</span></code> works, we’ll use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1179,7 +1181,7 @@ Name: lot_number_clean, Length: 221, dtype: int64
 </section>
 </section>
 <section id="inconsistent-values">
-<h2><span class="section-number">8.5. </span>Inconsistent values<a class="headerlink" href="#inconsistent-values" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5. </span>Inconsistent values<a class="headerlink" href="#inconsistent-values" title="Permalink to this headline">#</a></h2>
 <p>This was one of the things that many of you anticipated or had observed.  A useful way to investigate for this, is to use <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> and sort them alphabetically by the values from the original data, so that similar ones will be consecutive in the list. Once we have the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> Series, the values from the <code class="docutils literal notranslate"><span class="pre">coffee_df</span></code> become the index, so we use <code class="docutils literal notranslate"><span class="pre">sort_index</span></code>.</p>
 <p>Let’s look at the <code class="docutils literal notranslate"><span class="pre">in_country_partner</span></code> column</p>
 <div class="cell docutils container">
@@ -1239,7 +1241,7 @@ Name: in_country_partner, dtype: int64
 </div>
 </section>
 <section id="example-unpacking-jsons">
-<h2><span class="section-number">8.6. </span>Example: Unpacking Jsons<a class="headerlink" href="#example-unpacking-jsons" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.6. </span>Example: Unpacking Jsons<a class="headerlink" href="#example-unpacking-jsons" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rhodyprog4ds_gh_events_url</span>
@@ -1291,6 +1293,50 @@ Name: in_country_partner, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
+      <td>27566266639</td>
+      <td>ReleaseEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'action': 'published', 'release': {'url': 'ht...</td>
+      <td>True</td>
+      <td>2023-03-08 04:13:53+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27566260761</td>
+      <td>CreateEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'ref': 'c13', 'ref_type': 'tag', 'master_bran...</td>
+      <td>True</td>
+      <td>2023-03-08 04:13:22+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27566253730</td>
+      <td>PushEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 128635...</td>
+      <td>True</td>
+      <td>2023-03-08 04:12:47+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27566097347</td>
+      <td>PushEvent</td>
+      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 128634...</td>
+      <td>True</td>
+      <td>2023-03-08 04:00:29+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>4</th>
       <td>27566052520</td>
       <td>PushEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
@@ -1298,50 +1344,6 @@ Name: in_country_partner, dtype: int64
       <td>{'repository_id': 592944632, 'push_id': 128634...</td>
       <td>True</td>
       <td>2023-03-08 03:57:05+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>27564810701</td>
-      <td>PushEvent</td>
-      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128628...</td>
-      <td>True</td>
-      <td>2023-03-08 02:20:30+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>27564769670</td>
-      <td>PushEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128628...</td>
-      <td>True</td>
-      <td>2023-03-08 02:17:12+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27562697804</td>
-      <td>IssuesEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'action': 'opened', 'issue': {'url': 'https:/...</td>
-      <td>True</td>
-      <td>2023-03-07 23:46:48+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27534624104</td>
-      <td>ReleaseEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'action': 'published', 'release': {'url': 'ht...</td>
-      <td>True</td>
-      <td>2023-03-07 01:56:11+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1457,12 +1459,12 @@ For example</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1475,12 +1477,12 @@ For example</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1534,13 +1536,13 @@ For example</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>27566052520</td>
-      <td>PushEvent</td>
+      <td>27566266639</td>
+      <td>ReleaseEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
       <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128634...</td>
+      <td>{'action': 'published', 'release': {'url': 'ht...</td>
       <td>True</td>
-      <td>2023-03-08 03:57:05+00:00</td>
+      <td>2023-03-08 04:13:53+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1590,13 +1592,13 @@ For example</p>
       <th>id</th>
       <th>name</th>
       <th>url</th>
-      <th>repository_id</th>
+      <th>action</th>
       <th>...</th>
-      <th>release</th>
-      <th>ref_type</th>
-      <th>master_branch</th>
-      <th>description</th>
-      <th>pusher_type</th>
+      <th>distinct_size</th>
+      <th>head</th>
+      <th>before</th>
+      <th>commits</th>
+      <th>issue</th>
       <th>id</th>
       <th>login</th>
       <th>gravatar_id</th>
@@ -1616,7 +1618,7 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>592944632.0</td>
+      <td>published</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1631,16 +1633,16 @@ For example</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>592944632.0</td>
+      <td>NaN</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1664,12 +1666,12 @@ For example</p>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
-      <td>592944632.0</td>
+      <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>4d09a0c36d31a3c980396f8192a96dcf056983bb</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>[{'sha': '4d09a0c36d31a3c980396f8192a96dcf0569...</td>
       <td>NaN</td>
       <td>69595187</td>
       <td>rhodyprog4ds</td>
@@ -1679,21 +1681,21 @@ For example</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>592944632</td>
       <td>rhodyprog4ds/BrownSpring23</td>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
       <td>NaN</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>13514eb709434023312741a6864e60bbec875fc1</td>
+      <td>2468f28cb6492db6f5d07d6efd3dbce848964b9d</td>
+      <td>[{'sha': '13514eb709434023312741a6864e60bbec87...</td>
       <td>NaN</td>
       <td>69595187</td>
       <td>rhodyprog4ds</td>
@@ -1714,10 +1716,10 @@ For example</p>
       <td>https://api.github.com/repos/rhodyprog4ds/Brow...</td>
       <td>NaN</td>
       <td>...</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>8401f199059c8d049ff2ffb35552b4c13e40be8a</td>
+      <td>[{'sha': 'f7aa704ef42f8c083a113293ccd7254c7646...</td>
       <td>NaN</td>
       <td>69595187</td>
       <td>rhodyprog4ds</td>
@@ -1850,12 +1852,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1868,12 +1870,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1913,15 +1915,6 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>8</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-    </tr>
-    <tr>
-      <th>9</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -1930,13 +1923,22 @@ name prepended to the new name.</p>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>9</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
       <td></td>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>11</th>
@@ -1949,12 +1951,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>12</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>13</th>
@@ -1985,12 +1987,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>16</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>17</th>
@@ -2012,21 +2014,21 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>19</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-    </tr>
-    <tr>
-      <th>20</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>21</th>
@@ -2039,30 +2041,30 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>22</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>24</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
       <td></td>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>25</th>
@@ -2075,30 +2077,30 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>26</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-    </tr>
-    <tr>
-      <th>28</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>29</th>
@@ -2143,11 +2145,11 @@ name prepended to the new name.</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id_actor&#39;, &#39;login_actor&#39;, &#39;display_login_actor&#39;, &#39;gravatar_id_actor&#39;,
        &#39;url_actor&#39;, &#39;avatar_url_actor&#39;, &#39;id_repo&#39;, &#39;name_repo&#39;, &#39;url_repo&#39;,
+       &#39;action_payload&#39;, &#39;release_payload&#39;, &#39;ref_payload&#39;, &#39;ref_type_payload&#39;,
+       &#39;master_branch_payload&#39;, &#39;description_payload&#39;, &#39;pusher_type_payload&#39;,
        &#39;repository_id_payload&#39;, &#39;push_id_payload&#39;, &#39;size_payload&#39;,
-       &#39;distinct_size_payload&#39;, &#39;ref_payload&#39;, &#39;head_payload&#39;,
-       &#39;before_payload&#39;, &#39;commits_payload&#39;, &#39;action_payload&#39;, &#39;issue_payload&#39;,
-       &#39;release_payload&#39;, &#39;ref_type_payload&#39;, &#39;master_branch_payload&#39;,
-       &#39;description_payload&#39;, &#39;pusher_type_payload&#39;, &#39;id_org&#39;, &#39;login_org&#39;,
+       &#39;distinct_size_payload&#39;, &#39;head_payload&#39;, &#39;before_payload&#39;,
+       &#39;commits_payload&#39;, &#39;issue_payload&#39;, &#39;id_org&#39;, &#39;login_org&#39;,
        &#39;gravatar_id_org&#39;, &#39;url_org&#39;, &#39;avatar_url_org&#39;],
       dtype=&#39;object&#39;)
 </pre></div>
@@ -2191,11 +2193,11 @@ name prepended to the new name.</p>
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
-      <th>release_payload</th>
-      <th>ref_type_payload</th>
-      <th>master_branch_payload</th>
-      <th>description_payload</th>
-      <th>pusher_type_payload</th>
+      <th>distinct_size_payload</th>
+      <th>head_payload</th>
+      <th>before_payload</th>
+      <th>commits_payload</th>
+      <th>issue_payload</th>
       <th>id_org</th>
       <th>login_org</th>
       <th>gravatar_id_org</th>
@@ -2206,6 +2208,102 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
+      <td>2.756627e+10</td>
+      <td>ReleaseEvent</td>
+      <td>True</td>
+      <td>2023-03-08 04:13:53+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.756626e+10</td>
+      <td>CreateEvent</td>
+      <td>True</td>
+      <td>2023-03-08 04:13:22+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.756625e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-08 04:12:47+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.756610e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-08 04:00:29+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
       <td>2.756605e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2229,7 +2327,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>5</th>
       <td>2.756481e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2253,7 +2351,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>6</th>
       <td>2.756477e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2277,7 +2375,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>7</th>
       <td>2.756270e+10</td>
       <td>IssuesEvent</td>
       <td>True</td>
@@ -2301,7 +2399,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>8</th>
       <td>2.753462e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2325,7 +2423,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>9</th>
       <td>2.753461e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2349,7 +2447,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>10</th>
       <td>2.753458e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2373,7 +2471,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>11</th>
       <td>2.753457e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2397,7 +2495,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>12</th>
       <td>2.742338e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2421,7 +2519,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>13</th>
       <td>2.742331e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2445,7 +2543,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>14</th>
       <td>2.741335e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2469,7 +2567,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>15</th>
       <td>2.741329e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2493,7 +2591,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>16</th>
       <td>2.741329e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2517,7 +2615,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>17</th>
       <td>2.741326e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2541,7 +2639,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>18</th>
       <td>2.741324e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2565,7 +2663,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>19</th>
       <td>2.741314e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2589,7 +2687,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>20</th>
       <td>2.741294e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2613,7 +2711,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>21</th>
       <td>2.741287e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2637,7 +2735,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>22</th>
       <td>2.740257e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2661,7 +2759,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>23</th>
       <td>2.740257e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2685,7 +2783,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>24</th>
       <td>2.740256e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2709,7 +2807,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>25</th>
       <td>2.740254e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2733,7 +2831,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>26</th>
       <td>2.740254e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2757,7 +2855,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>27</th>
       <td>2.740253e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2781,7 +2879,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>28</th>
       <td>2.740034e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2805,107 +2903,11 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>29</th>
       <td>2.740030e+10</td>
       <td>PushEvent</td>
       <td>True</td>
       <td>2023-02-28 23:46:00+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>2.739872e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-28 22:03:16+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>2.739867e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-28 22:00:33+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2.739865e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-28 21:59:44+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2.739861e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-02-28 21:57:16+00:00</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2954,12 +2956,12 @@ name prepended to the new name.</p>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaT</td>
-      <td>41898282.0</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079.0</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2985,10 +2987,10 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>4d09a0c36d31a3c980396f8192a96dcf056983bb</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>[{'sha': '4d09a0c36d31a3c980396f8192a96dcf0569...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3002,17 +3004,17 @@ name prepended to the new name.</p>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaT</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282.0</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>13514eb709434023312741a6864e60bbec875fc1</td>
+      <td>2468f28cb6492db6f5d07d6efd3dbce848964b9d</td>
+      <td>[{'sha': '13514eb709434023312741a6864e60bbec87...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3033,10 +3035,10 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>8401f199059c8d049ff2ffb35552b4c13e40be8a</td>
+      <td>[{'sha': 'f7aa704ef42f8c083a113293ccd7254c7646...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3087,11 +3089,11 @@ name prepended to the new name.</p>
       <th>url_actor</th>
       <th>avatar_url_actor</th>
       <th>...</th>
-      <th>release_payload</th>
-      <th>ref_type_payload</th>
-      <th>master_branch_payload</th>
-      <th>description_payload</th>
-      <th>pusher_type_payload</th>
+      <th>distinct_size_payload</th>
+      <th>head_payload</th>
+      <th>before_payload</th>
+      <th>commits_payload</th>
+      <th>issue_payload</th>
       <th>id_org</th>
       <th>login_org</th>
       <th>gravatar_id_org</th>
@@ -3102,10 +3104,10 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>27566052520</td>
-      <td>PushEvent</td>
+      <td>27566266639</td>
+      <td>ReleaseEvent</td>
       <td>True</td>
-      <td>2023-03-08 03:57:05+00:00</td>
+      <td>2023-03-08 04:13:53+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3126,16 +3128,16 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>27564810701</td>
-      <td>PushEvent</td>
+      <td>27566260761</td>
+      <td>CreateEvent</td>
       <td>True</td>
-      <td>2023-03-08 02:20:30+00:00</td>
-      <td>41898282.0</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>2023-03-08 04:13:22+00:00</td>
+      <td>10656079.0</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3150,10 +3152,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>2</th>
-      <td>27564769670</td>
+      <td>27566253730</td>
       <td>PushEvent</td>
       <td>True</td>
-      <td>2023-03-08 02:17:12+00:00</td>
+      <td>2023-03-08 04:12:47+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3161,10 +3163,10 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>4d09a0c36d31a3c980396f8192a96dcf056983bb</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>[{'sha': '4d09a0c36d31a3c980396f8192a96dcf0569...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3174,21 +3176,21 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>27562697804</td>
-      <td>IssuesEvent</td>
+      <td>27566097347</td>
+      <td>PushEvent</td>
       <td>True</td>
-      <td>2023-03-07 23:46:48+00:00</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>2023-03-08 04:00:29+00:00</td>
+      <td>41898282.0</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>13514eb709434023312741a6864e60bbec875fc1</td>
+      <td>2468f28cb6492db6f5d07d6efd3dbce848964b9d</td>
+      <td>[{'sha': '13514eb709434023312741a6864e60bbec87...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3198,10 +3200,10 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>4</th>
-      <td>27534624104</td>
-      <td>ReleaseEvent</td>
+      <td>27566052520</td>
+      <td>PushEvent</td>
       <td>True</td>
-      <td>2023-03-07 01:56:11+00:00</td>
+      <td>2023-03-08 03:57:05+00:00</td>
       <td>10656079.0</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
@@ -3209,10 +3211,10 @@ name prepended to the new name.</p>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
       <td>...</td>
-      <td>{'url': 'https://api.github.com/repos/rhodypro...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.0</td>
+      <td>f7aa704ef42f8c083a113293ccd7254c7646f1ab</td>
+      <td>8401f199059c8d049ff2ffb35552b4c13e40be8a</td>
+      <td>[{'sha': 'f7aa704ef42f8c083a113293ccd7254c7646...</td>
       <td>NaN</td>
       <td>69595187.0</td>
       <td>rhodyprog4ds</td>
@@ -3235,14 +3237,14 @@ name prepended to the new name.</p>
 </div>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">8.7. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.7. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
 <section id="how-the-apply-function-works-use-cases">
-<h3><span class="section-number">8.7.1. </span>How the apply function works/use cases?<a class="headerlink" href="#how-the-apply-function-works-use-cases" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.7.1. </span>How the apply function works/use cases?<a class="headerlink" href="#how-the-apply-function-works-use-cases" title="Permalink to this headline">#</a></h3>
 <p>A4 will give you some examples, espeically the airline dataset. We will also keep seing it come up as we manipulate data more.</p>
 <p>the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html">apply docs</a> have tiny examples that help illustrate what it does and some of how it works. The <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/gotchas.html#mutating-with-user-defined-function-udf-methods">pandas faq has a section on apply and similar methods</a> that gives some more use cases.</p>
 </section>
 <section id="is-there-a-better-way-to-see-how-many-missing-values">
-<h3><span class="section-number">8.7.2. </span>Is there a better way to see how many missing values?<a class="headerlink" href="#is-there-a-better-way-to-see-how-many-missing-values" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.7.2. </span>Is there a better way to see how many missing values?<a class="headerlink" href="#is-there-a-better-way-to-see-how-many-missing-values" title="Permalink to this headline">#</a></h3>
 <p>There are lots of ways. All are fine. We used <code class="docutils literal notranslate"><span class="pre">info</span></code> in class because I was trying to use the way we had already seen.
 Info focuses on how many values are <em>present</em> instead of what is missing because it makes more sense in most cases. The more common question is: are there enough values to make decisions with?</p>
 <p>If you wanted to get counts of the missing values, you can use the pandas <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.isna.html"><code class="docutils literal notranslate"><span class="pre">isna</span></code></a> function.  It is a pandas function, the docs say <code class="docutils literal notranslate"><span class="pre">pandas.isna</span></code> not a DataFrame method (which would be described like <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.methodname</span></code>).
@@ -3412,7 +3414,7 @@ dtype: int64
 </div>
 </section>
 <section id="in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for">
-<h3><span class="section-number">8.7.3. </span>in <code class="docutils literal notranslate"><span class="pre">col_name_mapper</span> <span class="pre">=</span> <span class="pre">{col_name:col_name.lower().replace('.','_')</span> <span class="pre">for</span> <span class="pre">col_name</span> <span class="pre">in</span> <span class="pre">coffee_df.columns}</span></code> what is the <code class="docutils literal notranslate"><span class="pre">{}</span></code> for?<a class="headerlink" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.7.3. </span>in <code class="docutils literal notranslate"><span class="pre">col_name_mapper</span> <span class="pre">=</span> <span class="pre">{col_name:col_name.lower().replace('.','_')</span> <span class="pre">for</span> <span class="pre">col_name</span> <span class="pre">in</span> <span class="pre">coffee_df.columns}</span></code> what is the <code class="docutils literal notranslate"><span class="pre">{}</span></code> for?<a class="headerlink" href="#in-col-name-mapper-col-name-col-name-lower-replace-for-col-name-in-coffee-df-columns-what-is-the-for" title="Permalink to this headline">#</a></h3>
 <p>This is called a dictionary comphrehension. It is very similar to a <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a>. It is one of the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict">defined ways to build a <code class="docutils literal notranslate"><span class="pre">dict</span></code> type object</a></p>
 <p>We also saw one when we looked at different types in a <a class="reference internal" href="2023-02-02.html"><span class="doc std std-doc">previous class</span></a>.</p>
 <div class="cell docutils container">

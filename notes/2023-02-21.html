@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>9. Merging and Databases &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-21';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Web Scraping" href="2023-02-23.html" />
     <link rel="prev" title="8. Reparing values" href="2023-02-16.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -465,9 +467,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="merging-and-databases">
-<h1><span class="section-number">9. </span>Merging  and Databases<a class="headerlink" href="#merging-and-databases" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Merging  and Databases<a class="headerlink" href="#merging-and-databases" title="Permalink to this headline">#</a></h1>
 <section id="announcements">
-<h2><span class="section-number">9.1. </span>Announcements<a class="headerlink" href="#announcements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">#</a></h2>
 <p>Assignment 3 is graded, but only today, so A4 is extended until tomorrow so that you can incorporate your A3 feedback into A4 (in particular, extending you EDA if you did not earn level 2 for summarize and visualize in A3).</p>
 <p>Your achievement trackers are updated.</p>
 <p>Take a few minutes to think about the following questions and make a few notes
@@ -483,7 +485,7 @@ about your portfolio. (tip: post an idea as an issue to get early feedback and h
 </ol>
 </section>
 <section id="merging-data">
-<h2><span class="section-number">9.2. </span>Merging Data<a class="headerlink" href="#merging-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Merging Data<a class="headerlink" href="#merging-data" title="Permalink to this headline">#</a></h2>
 <p>Focus this week is on how to programmatically combine sources of data</p>
 <p>We will start by looking at combining multiple tabular data formats and see how to get data from other sources.</p>
 <div class="cell docutils container">
@@ -679,7 +681,7 @@ about your portfolio. (tip: post an idea as an issue to get early feedback and h
 </div>
 </div>
 <section id="what-if-we-want-to-analyze-them-together">
-<h3><span class="section-number">9.2.1. </span>What if we want to analyze them together?<a class="headerlink" href="#what-if-we-want-to-analyze-them-together" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>What if we want to analyze them together?<a class="headerlink" href="#what-if-we-want-to-analyze-them-together" title="Permalink to this headline">#</a></h3>
 <p>We can stack them, but this does not make it easy to see , for example, who changed teams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,7 +813,7 @@ about your portfolio. (tip: post an idea as an issue to get early feedback and h
 columns) and the total number of rows.</p>
 </section>
 <section id="how-can-we-find-which-players-changed-teams">
-<h3><span class="section-number">9.2.2. </span>How can we find which players changed teams?<a class="headerlink" href="#how-can-we-find-which-players-changed-teams" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>How can we find which players changed teams?<a class="headerlink" href="#how-can-we-find-which-players-changed-teams" title="Permalink to this headline">#</a></h3>
 <p>To do this we want to have one player column and a column with each year’s team.</p>
 <p>We can use a merge to do that.</p>
 <div class="cell docutils container">
@@ -1008,7 +1010,7 @@ columns) and the total number of rows.</p>
 happens when a player plays for two team in one season.</p>
 </section>
 <section id="which-players-played-in-2018-but-not-2019">
-<h3><span class="section-number">9.2.3. </span>Which players played in 2018, but not 2019?<a class="headerlink" href="#which-players-played-in-2018-but-not-2019" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.3. </span>Which players played in 2018, but not 2019?<a class="headerlink" href="#which-players-played-in-2018-but-not-2019" title="Permalink to this headline">#</a></h3>
 <p>We have different types of merges, inner is both, out is either.  Left and right keep all the rows of one dataFrame.  We can use left with <code class="docutils literal notranslate"><span class="pre">df_18</span></code> as the left DataFrame to see which players played only in 18.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1379,9 +1381,9 @@ Name: PLAYER_ID, Length: 178, dtype: int64
 </section>
 </section>
 <section id="getting-data-from-databases">
-<h2><span class="section-number">9.3. </span>Getting Data from Databases<a class="headerlink" href="#getting-data-from-databases" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Getting Data from Databases<a class="headerlink" href="#getting-data-from-databases" title="Permalink to this headline">#</a></h2>
 <section id="what-is-a-database">
-<h3><span class="section-number">9.3.1. </span>What is a Database?<a class="headerlink" href="#what-is-a-database" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.3.1. </span>What is a Database?<a class="headerlink" href="#what-is-a-database" title="Permalink to this headline">#</a></h3>
 <p>A common attitude in Data Science is:</p>
 <blockquote>
 <div><p>If your data fits in memory there is no advantage to putting it in a database: it will only be slower and more frustrating.     —<a class="reference external" href="https://dbplyr.tidyverse.org/articles/dbplyr.html"> Hadley Wickham</a></p>
@@ -1413,7 +1415,7 @@ understand them deeper, the CSC one is recommended)</p></li>
 <p><strong>Experimenting with <a class="reference external" href="https://duckdb.org/docs/guides/python/install">DuckDB</a> is a way to earn construct level 3</strong></p>
 </section>
 <section id="accessing-a-database-from-python">
-<h3><span class="section-number">9.3.2. </span>Accessing a Database from Python<a class="headerlink" href="#accessing-a-database-from-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.3.2. </span>Accessing a Database from Python<a class="headerlink" href="#accessing-a-database-from-python" title="Permalink to this headline">#</a></h3>
 <p>We will use pandas again, as well as the <code class="docutils literal notranslate"><span class="pre">request</span></code> module from the <code class="docutils literal notranslate"><span class="pre">urllib</span></code>
 package and <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code>.</p>
 <p>Off the shelf, pandas cannot read databased by default. We’ll use the
@@ -1428,7 +1430,7 @@ are others, depending on the type of database.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;nba1819.db&#39;, &lt;http.client.HTTPMessage at 0x7feb29dd5850&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;nba1819.db&#39;, &lt;http.client.HTTPMessage at 0x7fa42fc6c550&gt;)
 </pre></div>
 </div>
 </div>
@@ -1451,7 +1453,7 @@ To use it, we add a cursor.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x7feb29dc77a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x7fa42fc37c70&gt;
 </pre></div>
 </div>
 </div>
@@ -1529,7 +1531,7 @@ us the column names.</p>
 </section>
 </section>
 <section id="querying-with-pandas">
-<h2><span class="section-number">9.4. </span>Querying with pandas<a class="headerlink" href="#querying-with-pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Querying with pandas<a class="headerlink" href="#querying-with-pandas" title="Permalink to this headline">#</a></h2>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">pd.read_sql</span></code> to send queries, get the result sand transform them
 into a DataFrame all at once</p>
 <p>We can pass the exact same queries if we want.</p>
@@ -1676,7 +1678,7 @@ into a DataFrame all at once</p>
 </div></div></div>
 </div>
 <section id="which-player-was-traded-the-most-during-the-2018-season-how-many-times">
-<h3><span class="section-number">9.4.1. </span>Which player was traded the most during the 2018 season? How many times?<a class="headerlink" href="#which-player-was-traded-the-most-during-the-2018-season-how-many-times" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>Which player was traded the most during the 2018 season? How many times?<a class="headerlink" href="#which-player-was-traded-the-most-during-the-2018-season-how-many-times" title="Permalink to this headline">#</a></h3>
 <p>There is one row in players per team a played for per season, so if a
 player was traded (changed teams), they are in there multiple times.</p>
 <p>First, we’ll check the column names</p>
@@ -1793,7 +1795,7 @@ dtype: int64
 </div>
 </section>
 <section id="did-more-players-who-changed-teams-from-the-2018-season-to-the-2019-season-stay-in-the-same-conferences-or-switch-conferences">
-<h3><span class="section-number">9.4.2. </span>Did more players who changed teams from the 2018 season to the 2019 season stay in the same conferences or switch conferences?<a class="headerlink" href="#did-more-players-who-changed-teams-from-the-2018-season-to-the-2019-season-stay-in-the-same-conferences-or-switch-conferences" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.2. </span>Did more players who changed teams from the 2018 season to the 2019 season stay in the same conferences or switch conferences?<a class="headerlink" href="#did-more-players-who-changed-teams-from-the-2018-season-to-the-2019-season-stay-in-the-same-conferences-or-switch-conferences" title="Permalink to this headline">#</a></h3>
 <p>In the NBA, there are 30 teams organized into two conferences: East and West;
 the <code class="docutils literal notranslate"><span class="pre">conferences</span></code> table has the columns <code class="docutils literal notranslate"><span class="pre">TEAM_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">CONFERENCE</span></code></p>
 <p>Let’s build a Dataframe that could answer the question.</p>
@@ -2299,22 +2301,22 @@ Name: PLAYER_ID, dtype: int64
 </section>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">9.5. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
 <section id="is-there-a-max-db-size">
-<h3><span class="section-number">9.5.1. </span>Is there a max DB size?<a class="headerlink" href="#is-there-a-max-db-size" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.1. </span>Is there a max DB size?<a class="headerlink" href="#is-there-a-max-db-size" title="Permalink to this headline">#</a></h3>
 <p>Generally, no.  In specific instances, yes.  For example, <a class="reference external" href="https://learn.microsoft.com/en-us/sql/sql-server/maximum-capacity-specifications-for-sql-server?view=sql-server-ver16">MSFT SQL Server</a> has a max size of 524,272 terabytes.</p>
 </section>
 <section id="when-can-pandas-not-use-sql-databases">
-<h3><span class="section-number">9.5.2. </span>when can pandas not use SQL databases?<a class="headerlink" href="#when-can-pandas-not-use-sql-databases" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.2. </span>when can pandas not use SQL databases?<a class="headerlink" href="#when-can-pandas-not-use-sql-databases" title="Permalink to this headline">#</a></h3>
 <p>The most important limit here is realy that the cmoputer you are working on will have limits on how much data you can pull from the database into local RAM.</p>
 </section>
 <section id="how-do-you-learn-more-about-different-quieries-you-can-use-for-sql">
-<h3><span class="section-number">9.5.3. </span>how do you learn more about different quieries you can use for sql?<a class="headerlink" href="#how-do-you-learn-more-about-different-quieries-you-can-use-for-sql" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.3. </span>how do you learn more about different quieries you can use for sql?<a class="headerlink" href="#how-do-you-learn-more-about-different-quieries-you-can-use-for-sql" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://wizardzines.com/zines/sql/">Wizard zines</a> has a good reference, but it is not free. I have some of their other work though and it is all high quality. <a class="reference external" href="https://wizardzines.com/comics/sql-query-order/">this preview is especially helpful for me</a> If the cost is prohibitive for you, but the preview of this looks like something you would like, send me an e-mail.</p>
 <p><a class="reference external" href="https://learnsql.com/blog/sql-basics-cheat-sheet/">This cheatsheet is also good</a>.</p>
 </section>
 <section id="what-other-sql-keywords-in-the-queries-are-there-ex-select-from-where">
-<h3><span class="section-number">9.5.4. </span>What other SQL ‘keywords’ in the queries are there? ex: SELECT, FROM, WHERE<a class="headerlink" href="#what-other-sql-keywords-in-the-queries-are-there-ex-select-from-where" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.5.4. </span>What other SQL ‘keywords’ in the queries are there? ex: SELECT, FROM, WHERE<a class="headerlink" href="#what-other-sql-keywords-in-the-queries-are-there-ex-select-from-where" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://www.w3schools.com/sql/sql_quickref.asp">quick reference</a></p>
 </section>
 </section>

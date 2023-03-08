@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>3. Assignment 3: Exploratory Data Analysis &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/03-eda';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Assignment 4:" href="04-prepare.html" />
     <link rel="prev" title="2. Assignment 2: Practicing Python and Accessing Data" href="02-python-access.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -459,14 +461,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-3-exploratory-data-analysis">
-<h1><span class="section-number">3. </span>Assignment 3: Exploratory Data Analysis<a class="headerlink" href="#assignment-3-exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Assignment 3: Exploratory Data Analysis<a class="headerlink" href="#assignment-3-exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
 <p>__Due: __</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You have the option to work with a partner. You must plan this in advance so that you have access to collaborate. If you did not find a partner in class and you would like one, try to find one <a class="reference external" href="https://github.com/rhodyprog4ds/sp23-discuss-sp23community/discussions">on the class discussion</a>. &#64;brownsarahm if you do not get a reply.</p>
 </div>
 <section id="objective-evaluation">
-<h2><span class="section-number">3.1. </span>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Objective &amp; Evaluation<a class="headerlink" href="#objective-evaluation" title="Permalink to this headline">#</a></h2>
 <p>This week your goal is to do a small exploratory data analysis for two datasets of your choice.</p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
@@ -477,19 +479,19 @@ document.write(`
 </ul>
 </section>
 <section id="related-notes">
-<h2><span class="section-number">3.2. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../notes/2023-02-07.html"><span class="doc std std-doc">Exploratory Data Analysis (EDA)</span></a></p></li>
 <li><p><a class="reference internal" href="../notes/2023-02-09.html"><span class="doc std std-doc">Visualization</span></a></p></li>
 </ul>
 </section>
 <section id="choose-datasets">
-<h2><span class="section-number">3.3. </span>Choose Datasets<a class="headerlink" href="#choose-datasets" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Choose Datasets<a class="headerlink" href="#choose-datasets" title="Permalink to this headline">#</a></h2>
 <p>Each Dataset must have at least three variables, but can have more. Both datasets
 must have multiple types of variables. These can be datasets you used last week,
 if they meet the criteria below.</p>
 <section id="dataset-1-d1">
-<h3><span class="section-number">3.3.1. </span>Dataset 1 (d1)<a class="headerlink" href="#dataset-1-d1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Dataset 1 (d1)<a class="headerlink" href="#dataset-1-d1" title="Permalink to this headline">#</a></h3>
 <p>must include at least:</p>
 <ul class="simple">
 <li><p>two continuous valued variables <strong>and</strong></p></li>
@@ -501,7 +503,7 @@ if they meet the criteria below.</p>
 </div>
 </section>
 <section id="dataset-2-d2">
-<h3><span class="section-number">3.3.2. </span>Dataset 2 (d2)<a class="headerlink" href="#dataset-2-d2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Dataset 2 (d2)<a class="headerlink" href="#dataset-2-d2" title="Permalink to this headline">#</a></h3>
 <p>must include at least:</p>
 <ul class="simple">
 <li><p>two categorical variables <strong>and</strong></p></li>
@@ -510,7 +512,7 @@ if they meet the criteria below.</p>
 </section>
 </section>
 <section id="eda">
-<h2><span class="section-number">3.4. </span>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h2>
 <p>Use a separate notebook for each dataset, name them <code class="docutils literal notranslate"><span class="pre">dataset_01.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset_02.ipynb</span></code>.</p>
 <p>For <strong>each</strong> dataset, in the corresponding notebook complete the following:</p>
 <ol class="arabic simple">
@@ -529,7 +531,7 @@ if they meet the criteria below.</p>
 <li><p>Describe what, if anything might need to be done to clean or prepare this data for further analysis in a finale <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Future</span> <span class="pre">analysis</span></code> markdown cell in your notebook.</p></li>
 </ol>
 <section id="question-checklist">
-<h3><span class="section-number">3.4.1. </span>Question checklist<a class="headerlink" href="#question-checklist" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Question checklist<a class="headerlink" href="#question-checklist" title="Permalink to this headline">#</a></h3>
 <p>be sure that every question (all six, 3 per dataset) has:</p>
 <ul class="simple">
 <li><p>a heading</p></li>
@@ -538,7 +540,7 @@ if they meet the criteria below.</p>
 </ul>
 </section>
 <section id="dataset-1-checklist">
-<h3><span class="section-number">3.4.2. </span>Dataset 1 Checklist<a class="headerlink" href="#dataset-1-checklist" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.2. </span>Dataset 1 Checklist<a class="headerlink" href="#dataset-1-checklist" title="Permalink to this headline">#</a></h3>
 <p>make sure that your <code class="docutils literal notranslate"><span class="pre">dataset_01.ipynb</span></code> has:</p>
 <ul class="simple">
 <li><p>Overall summary statistics grouped by a categorical variable</p></li>
@@ -548,7 +550,7 @@ if they meet the criteria below.</p>
 </ul>
 </section>
 <section id="dataset-2-checklist">
-<h3><span class="section-number">3.4.3. </span>Dataset 2 Checklist<a class="headerlink" href="#dataset-2-checklist" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>Dataset 2 Checklist<a class="headerlink" href="#dataset-2-checklist" title="Permalink to this headline">#</a></h3>
 <p>make sure that your <code class="docutils literal notranslate"><span class="pre">dataset_02.ipynb</span></code> has:</p>
 <ul class="simple">
 <li><p>overall summary statistics</p></li>
@@ -563,7 +565,7 @@ if they meet the criteria below.</p>
 </section>
 </section>
 <section id="peer-review">
-<h2><span class="section-number">3.5. </span>Peer Review<a class="headerlink" href="#peer-review" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Peer Review<a class="headerlink" href="#peer-review" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is optional, but if you do a review, you only need to do one analysis each.</p>
@@ -578,7 +580,7 @@ work.</p>
 <li><p>Use the template below for your summary review</p></li>
 </ul>
 <section id="review-questions">
-<h3><span class="section-number">3.5.1. </span>Review Questions<a class="headerlink" href="#review-questions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.1. </span>Review Questions<a class="headerlink" href="#review-questions" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
 <li><p>How was the analysis overall to read? easy? hard? cohesive? jumpy?</p></li>
 <li><p>Did the data summaries tell you enough about the data to understand the analysis and anticipate what kinds of questions could be answered? If not, what questions do you still have about the data?</p></li>
@@ -612,7 +614,7 @@ To understand this analysis I still need to know ...
 </div>
 </section>
 <section id="response">
-<h3><span class="section-number">3.5.2. </span>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.5.2. </span>Response<a class="headerlink" href="#response" title="Permalink to this headline">#</a></h3>
 <p>Respond to your review either inline comments, replies, or by updating your analysis accordingly.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>

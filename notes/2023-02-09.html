@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>6. Visualization &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-02-09';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Tidy Data and Reshaping Datasets" href="2023-02-14.html" />
     <link rel="prev" title="5. Exploratory Data Analysis (EDA)" href="2023-02-07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -460,7 +462,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualization">
-<h1><span class="section-number">6. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h1>
 <p>If your plots do not show, include this in any cell. The <code class="docutils literal notranslate"><span class="pre">%</span></code> signals that this is an
 ipython <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic</a>. This one controls <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-matplotlib">matplotlib</a>. Jupyter uses the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/about/history.html">IPython</a> python kernel.</p>
 <div class="cell docutils container">
@@ -481,7 +483,7 @@ ipython <a class="reference external" href="https://ipython.readthedocs.io/en/st
 </div>
 </div>
 <section id="summarizing-review">
-<h2><span class="section-number">6.1. </span>Summarizing Review<a class="headerlink" href="#summarizing-review" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Summarizing Review<a class="headerlink" href="#summarizing-review" title="Permalink to this headline">#</a></h2>
 <p>We will start with the same dataset we hvae been working with</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -627,7 +629,7 @@ ipython <a class="reference external" href="https://ipython.readthedocs.io/en/st
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe546d37eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f54e8ccf460&gt;
 </pre></div>
 </div>
 <img alt="../_images/3a84afa5b015c8af0e5f0fd1e6d05d7f973c8240df4c80bfc224b5659e2ccf4f.png" src="../_images/3a84afa5b015c8af0e5f0fd1e6d05d7f973c8240df4c80bfc224b5659e2ccf4f.png" />
@@ -643,7 +645,7 @@ a smoothed out histogram.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe544bb5340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f54e8ccfa00&gt;
 </pre></div>
 </div>
 <img alt="../_images/4eb312d4568d0e45a2d3842cdd840493f4f190949a34e01850c687716603b857.png" src="../_images/4eb312d4568d0e45a2d3842cdd840493f4f190949a34e01850c687716603b857.png" />
@@ -725,7 +727,7 @@ a smoothed out histogram.</p>
 </div>
 </section>
 <section id="plotting-in-python">
-<h2><span class="section-number">6.2. </span>Plotting in Python<a class="headerlink" href="#plotting-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Plotting in Python<a class="headerlink" href="#plotting-in-python" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org/">matplotlib</a>: low level plotting tools</p></li>
 <li><p><a class="reference external" href="https://seaborn.pydata.org/index.html">seaborn</a>: high level plotting with opinionated defaults</p></li>
@@ -744,7 +746,7 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p>There are lots of type of plots, we saw the basic patterns of how to use them and we’ve used a few types, but we cannot (and do not need to) go through every single type.  There are general patterns that you can use that will help you think about what type of plot you might want and help you understand them to be able to customize plots.</p>
 <p>[Seaborn’s main goal is opinionated defaults and flexible customization](<a class="reference external" href="https://seaborn.pydata.org/tutorial/introduction.html#opinionated-defaults-and-flexible-customization">https://seaborn.pydata.org/tutorial/introduction.html#opinionated-defaults-and-flexible-customization</a></p>
 <section id="anatomy-of-a-figure">
-<h3><span class="section-number">6.2.1. </span>Anatomy of a figure<a class="headerlink" href="#anatomy-of-a-figure" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Anatomy of a figure<a class="headerlink" href="#anatomy-of-a-figure" title="Permalink to this headline">#</a></h3>
 <p>First is the <a class="reference external" href="https://matplotlib.org">matplotlib</a> structure of a figure.  BOth pandas and seaborn and other plotting libraries use matplotlib. Matplotlib was used <a class="reference external" href="https://numfocus.org/case-studies/first-photograph-black-hole">in visualizing the first Black hole</a>.</p>
 <p><img alt="annotated graph" src="https://matplotlib.org/stable/_images/sphx_glr_anatomy_001.png" /></p>
 <p>This is a lot of information, but these are good to know things.  THe most important is the figure and the axes.</p>
@@ -755,7 +757,7 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p><em>that image was <a class="reference external" href="https://matplotlib.org/stable/gallery/showcase/anatomy.html#anatomy-of-a-figure">drawn with code</a></em> and that page explains more.</p>
 </section>
 <section id="plotting-function-types-in-seaborn">
-<h3><span class="section-number">6.2.2. </span>Plotting Function types in Seaborn<a class="headerlink" href="#plotting-function-types-in-seaborn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Plotting Function types in Seaborn<a class="headerlink" href="#plotting-function-types-in-seaborn" title="Permalink to this headline">#</a></h3>
 <p>Seaborn has two <em>levels</em> or groups of plotting functions. Figure and axes.  Figure level fucntions can plot with subplots.</p>
 <p><img alt="summary of plot types" src="https://seaborn.pydata.org/_images/function_overview_8_0.png" /></p>
 <p>This is from thie <span class="xref myst">overivew</span> section of the official seaborn tutorial. It also includes a comparison of
@@ -763,11 +765,11 @@ Getting started with seaborn is the simplest, so we’ll use that.</p>
 <p>The <a class="reference external" href="https://seaborn.pydata.org/tutorial/introduction.html">official introduction</a> is also a good read.</p>
 </section>
 <section id="more">
-<h3><span class="section-number">6.2.3. </span>More<a class="headerlink" href="#more" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>More<a class="headerlink" href="#more" title="Permalink to this headline">#</a></h3>
 <p>The <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">seaborn gallery</a> and <a class="reference external" href="https://matplotlib.org/2.0.2/gallery.html">matplotlib gallery</a> are nice to look at too.</p>
 </section>
 <section id="styling-in-seaborn">
-<h3><span class="section-number">6.2.4. </span>Styling in Seaborn<a class="headerlink" href="#styling-in-seaborn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.4. </span>Styling in Seaborn<a class="headerlink" href="#styling-in-seaborn" title="Permalink to this headline">#</a></h3>
 <p>Seaborn also lets us set a theme for visual styling
 This by default styles the plots to be more visually appealing</p>
 <div class="cell docutils container">
@@ -783,7 +785,7 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </section>
 </section>
 <section id="bags-by-country">
-<h2><span class="section-number">6.3. </span>Bags by country<a class="headerlink" href="#bags-by-country" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Bags by country<a class="headerlink" href="#bags-by-country" title="Permalink to this headline">#</a></h2>
 <p>the <code class="docutils literal notranslate"><span class="pre">catplot</span></code> lets us plot vs categorical variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,10 +794,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe5492fc850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f54e5372d90&gt;
 </pre></div>
 </div>
-<img alt="../_images/56adb734e7e467e422c9fc841f1f1ae42a4d14198c9ace548417077c707a5682.png" src="../_images/56adb734e7e467e422c9fc841f1f1ae42a4d14198c9ace548417077c707a5682.png" />
+<img alt="../_images/22157f51c78b1d57736ec288a5e61787f7745b26bc649e6320b1cc9ce8db93d3.png" src="../_images/22157f51c78b1d57736ec288a5e61787f7745b26bc649e6320b1cc9ce8db93d3.png" />
 </div>
 </div>
 <p>This is hard to read, we could try stretching it out to make it better</p>
@@ -806,10 +808,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe543e06400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f5508fc0940&gt;
 </pre></div>
 </div>
-<img alt="../_images/2acc1ac5105ed24beed96428759b697f326dc41c8cef20e71bcdd8234b11fc7d.png" src="../_images/2acc1ac5105ed24beed96428759b697f326dc41c8cef20e71bcdd8234b11fc7d.png" />
+<img alt="../_images/b56f1464b2f6bb4eb9d60349513887c065cdf0c51c8681634211d5719e8cb685.png" src="../_images/b56f1464b2f6bb4eb9d60349513887c065cdf0c51c8681634211d5719e8cb685.png" />
 </div>
 </div>
 <p>A better way might be to filter only the top countries. We’ll find those by grouping by country
@@ -890,7 +892,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </section>
 <section id="filtering-a-dataframe">
-<h2><span class="section-number">6.4. </span>Filtering a DataFrame<a class="headerlink" href="#filtering-a-dataframe" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Filtering a DataFrame<a class="headerlink" href="#filtering-a-dataframe" title="Permalink to this headline">#</a></h2>
 <p>Now, we’ll take just the country names out</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2067,7 +2069,7 @@ Name: Country.of.Origin, Length: 1311, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe540c0aa60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f54e4f1b7c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/9e9b896b957123f7d038b8dee310771f94c86f91b6dbd8fe2dbe68890bf48846.png" src="../_images/9e9b896b957123f7d038b8dee310771f94c86f91b6dbd8fe2dbe68890bf48846.png" />
@@ -2075,7 +2077,7 @@ Name: Country.of.Origin, Length: 1311, dtype: bool
 </div>
 </section>
 <section id="variable-types-and-data-types">
-<h2><span class="section-number">6.5. </span>Variable types and data types<a class="headerlink" href="#variable-types-and-data-types" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Variable types and data types<a class="headerlink" href="#variable-types-and-data-types" title="Permalink to this headline">#</a></h2>
 <p>Related but not the same.</p>
 <hr class="docutils" />
 <p>Data types are literal, related to the representation in the computer.</p>
@@ -2101,26 +2103,26 @@ only integers range high enough that we treat them more like continuous most of
 the time.</p>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">6.6. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
 <section id="do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required">
-<h3><span class="section-number">6.6.1. </span>Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?<a class="headerlink" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.1. </span>Do we earn  level 3’s  the same way level 1 and 2 are or are there more steps required?<a class="headerlink" href="#do-we-earn-level-3s-the-same-way-level-1-and-2-are-or-are-there-more-steps-required" title="Permalink to this headline">#</a></h3>
 <p>You earn level 3s from your portfio.  The portfolio makes more sense after you have completed assignment 3, so we will follow up on it next week after you all get a3 feedback.</p>
 </section>
 <section id="how-can-i-check-what-parameters-can-go-into-a-method">
-<h3><span class="section-number">6.6.2. </span>How can I check what parameters can go into a method?<a class="headerlink" href="#how-can-i-check-what-parameters-can-go-into-a-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.2. </span>How can I check what parameters can go into a method?<a class="headerlink" href="#how-can-i-check-what-parameters-can-go-into-a-method" title="Permalink to this headline">#</a></h3>
 <p>You can use the documentation online, or in jupyter, you can get help from the docstring.  I usually use shift+tab to read the docstring but you can also use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function or the <code class="docutils literal notranslate"><span class="pre">?</span></code> in jupyter.</p>
 </section>
 <section id="how-do-you-know-you-can-put-kind-bar-into-the-method">
-<h3><span class="section-number">6.6.3. </span>How do you know you can put kind = “bar” into the method?<a class="headerlink" href="#how-do-you-know-you-can-put-kind-bar-into-the-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.3. </span>How do you know you can put kind = “bar” into the method?<a class="headerlink" href="#how-do-you-know-you-can-put-kind-bar-into-the-method" title="Permalink to this headline">#</a></h3>
 <p>I happen to reembmer this now, but to know what values you can read the docstring as above.</p>
 </section>
 <section id="do-companies-use-things-like-sns-for-more-in-depth-graphical-plots">
-<h3><span class="section-number">6.6.4. </span>Do companies use things like “sns” for more in depth/graphical plots?<a class="headerlink" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.4. </span>Do companies use things like “sns” for more in depth/graphical plots?<a class="headerlink" href="#do-companies-use-things-like-sns-for-more-in-depth-graphical-plots" title="Permalink to this headline">#</a></h3>
 <p>It depends on your role within the company.  If you are a data scientist in a more reasearch role you might use seaborn more, but if you build customer facing visualizations, you might use something else.</p>
 <p>For more interactive visualization, you could use <a class="reference external" href="https://plotly.com/python/">plotly</a> or <a class="reference external" href="https://docs.bokeh.org/en/latest/">bokeh</a> that generate more javascript for you. <a class="reference external" href="https://plotly.com/">Plotly</a> as a company now also has a product called <a class="reference external" href="https://dash.plotly.com/">dash</a> for building data dashboard apps.</p>
 </section>
 <section id="does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy">
-<h3><span class="section-number">6.6.5. </span>Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?<a class="headerlink" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.5. </span>Does “component disciplines” mean statistics, computer science and domain expertise, and does “phases” mean collect, clean, explore, model and deploy?<a class="headerlink" href="#does-component-disciplines-mean-statistics-computer-science-and-domain-expertise-and-does-phases-mean-collect-clean-explore-model-and-deploy" title="Permalink to this headline">#</a></h3>
 <p>Yes.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>

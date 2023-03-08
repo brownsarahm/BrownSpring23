@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>General URI Policies &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus/uri_statements';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Course Communications" href="communication.html" />
     <link rel="prev" title="Support" href="uri_resources.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -445,21 +447,21 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="general-uri-policies">
-<h1>General URI Policies<a class="headerlink" href="#general-uri-policies" title="Permalink to this heading">#</a></h1>
+<h1>General URI Policies<a class="headerlink" href="#general-uri-policies" title="Permalink to this headline">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>URI changed some links and this page is not yet up to date</p>
 </div>
 <section id="anti-bias-statement">
-<h2>Anti-Bias  Statement:<a class="headerlink" href="#anti-bias-statement" title="Permalink to this heading">#</a></h2>
+<h2>Anti-Bias  Statement:<a class="headerlink" href="#anti-bias-statement" title="Permalink to this headline">#</a></h2>
 <p>We respect the rights and dignity of each individual and group. We reject prejudice and intolerance, and we work to understand differences. We believe that equity and inclusion are critical components for campus community members to thrive. If you are a target or a witness of a bias incident, you are encouraged to submit a report to the URI Bias Response Team at <a class="reference external" href="http://www.uri.edu/brt">www.uri.edu/brt</a>. There you will also find people and resources to help.</p>
 </section>
 <section id="disability-services-for-students-statement">
-<h2>Disability Services for Students Statement:<a class="headerlink" href="#disability-services-for-students-statement" title="Permalink to this heading">#</a></h2>
+<h2>Disability Services for Students Statement:<a class="headerlink" href="#disability-services-for-students-statement" title="Permalink to this headline">#</a></h2>
 <p>Your access in this course is important. Please send me your Disability Services for Students (DSS) accommodation letter early in the semester so that we have adequate time to discuss and arrange your approved academic accommodations. If you have not yet established services through DSS, please contact them to engage in a confidential conversation about the process for requesting reasonable accommodations in the classroom. DSS can be reached by calling: 401-874-2098, visiting: <a class="reference external" href="http://web.uri.edu/disability">web.uri.edu/disability</a>, or emailing: <a class="reference external" href="mailto:dss&#37;&#52;&#48;etal&#46;uri&#46;edu">dss<span>&#64;</span>etal<span>&#46;</span>uri<span>&#46;</span>edu</a>.  We are available to meet with students enrolled in Kingston as well as Providence courses.</p>
 </section>
 <section id="academic-honesty">
-<h2>Academic Honesty<a class="headerlink" href="#academic-honesty" title="Permalink to this heading">#</a></h2>
+<h2>Academic Honesty<a class="headerlink" href="#academic-honesty" title="Permalink to this headline">#</a></h2>
 <p>Students are expected to be honest in all academic work. A student’s name on any written work, quiz or exam shall be regarded as assurance that the work is the result of the student’s own independent thought and study. Work should be stated in the student’s own words, properly attributed to its source.   Students have an obligation to know how to quote, paraphrase, summarize, cite and reference the work of others with integrity. The following are examples of academic dishonesty.</p>
 <ul class="simple">
 <li><p>Using material, directly or paraphrasing, from published sources (print or electronic) without appropriate citation</p></li>
@@ -476,7 +478,7 @@ document.write(`
 </ul>
 </section>
 <section id="uri-covid-19-statement">
-<h2>URI COVID-19 Statement<a class="headerlink" href="#uri-covid-19-statement" title="Permalink to this heading">#</a></h2>
+<h2>URI COVID-19 Statement<a class="headerlink" href="#uri-covid-19-statement" title="Permalink to this headline">#</a></h2>
 <p>The University is committed to delivering its educational mission while protecting the health and safety of our community. While the university has worked to create a healthy learning environment for all, it is up to all of us to ensure our campus stays that way.</p>
 <p>As members of the URI community, students are required to comply with standards of conduct and take precautions to keep themselves and others safe. Visit <a class="reference external" href="https://web.uri.edu/coronavirus/">web.uri.edu/coronavirus/</a> for the latest information about the URI COVID-19 response.</p>
 <ul class="simple">

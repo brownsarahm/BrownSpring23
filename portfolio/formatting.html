@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Formatting Tips &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'portfolio/formatting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Portfolio Check 1 Ideas" href="check1ideas.html" />
     <link rel="prev" title="Portfolio" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -458,7 +460,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="formatting-tips">
-<h1>Formatting Tips<a class="headerlink" href="#formatting-tips" title="Permalink to this heading">#</a></h1>
+<h1>Formatting Tips<a class="headerlink" href="#formatting-tips" title="Permalink to this headline">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is all based on you having accepted the portfolio assignment on github and
@@ -472,12 +474,12 @@ assignment has not been issued, you can view <a class="reference external" href=
 </ul>
 <p>This page will cover a few basic tips.</p>
 <section id="managing-files-and-version">
-<h2>Managing Files and version<a class="headerlink" href="#managing-files-and-version" title="Permalink to this heading">#</a></h2>
+<h2>Managing Files and version<a class="headerlink" href="#managing-files-and-version" title="Permalink to this headline">#</a></h2>
 <p>You can either convert your ipynb files to earier to read locally or on GitHub.</p>
 <p>The GitHub version means installing less locally, but means that after you push
 changes, you’ll need to pull the changes that GitHub makes.</p>
 <section id="to-manage-with-a-precommit-hook-jupytext-conversion">
-<h3>To manage with a precommit hook jupytext conversion<a class="headerlink" href="#to-manage-with-a-precommit-hook-jupytext-conversion" title="Permalink to this heading">#</a></h3>
+<h3>To manage with a precommit hook jupytext conversion<a class="headerlink" href="#to-manage-with-a-precommit-hook-jupytext-conversion" title="Permalink to this headline">#</a></h3>
 <p>change your <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file to match the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">repos</span><span class="p">:</span>
 <span class="o">-</span>   <span class="n">repo</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mwouts</span><span class="o">/</span><span class="n">jupytext</span>
@@ -497,7 +499,7 @@ that was in your repository, now add and commit those.</p>
 <p>Now, each time you commit, it will run jupytext first.</p>
 </section>
 <section id="to-manage-with-a-gh-action-jupytext-conversion">
-<h3>To manage with a gh action jupytext conversion<a class="headerlink" href="#to-manage-with-a-gh-action-jupytext-conversion" title="Permalink to this heading">#</a></h3>
+<h3>To manage with a gh action jupytext conversion<a class="headerlink" href="#to-manage-with-a-gh-action-jupytext-conversion" title="Permalink to this headline">#</a></h3>
 <p>create a file at <code class="docutils literal notranslate"><span class="pre">.github/workflows/jupytext.yml</span></code> and paste the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name: jupytext
 
@@ -579,11 +581,11 @@ jobs:
 </section>
 </section>
 <section id="organization">
-<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this heading">#</a></h2>
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">#</a></h2>
 <p>The summary of for the <code class="docutils literal notranslate"><span class="pre">part</span></code> or whole submission, should match the skills to the chapters.  Which prompt you’re addressing is not important, the  prompts are a <em>starting point</em> not the end goal of your portfolio.</p>
 </section>
 <section id="data-files">
-<h2>Data Files<a class="headerlink" href="#data-files" title="Permalink to this heading">#</a></h2>
+<h2>Data Files<a class="headerlink" href="#data-files" title="Permalink to this headline">#</a></h2>
 <p>Also note that for your portfolio to build, you will have to:</p>
 <ul class="simple">
 <li><p>include the data files in the repository and use a relative path OR</p></li>
@@ -592,7 +594,7 @@ jobs:
 <p>using a full local path(eg that starts with <code class="docutils literal notranslate"><span class="pre">///file:</span></code>) <strong>will not work</strong> and will render your portfolio unreadable.</p>
 </section>
 <section id="structure-of-plain-markdown">
-<h2>Structure of plain markdown<a class="headerlink" href="#structure-of-plain-markdown" title="Permalink to this heading">#</a></h2>
+<h2>Structure of plain markdown<a class="headerlink" href="#structure-of-plain-markdown" title="Permalink to this headline">#</a></h2>
 <p>Use a heading like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heading of page</span>
 <span class="c1">## Heading 2</span>
@@ -603,12 +605,12 @@ jobs:
 <p>You can also make text <em>italic</em> or <strong>bold</strong> with either <code class="docutils literal notranslate"><span class="pre">*asterics*</span></code> or <code class="docutils literal notranslate"><span class="pre">__underscores__</span></code> with <code class="docutils literal notranslate"><span class="pre">_one</span> <span class="pre">for</span> <span class="pre">italic_</span></code> or <code class="docutils literal notranslate"><span class="pre">**two</span> <span class="pre">for</span> <span class="pre">bold**</span></code> in either case</p>
 </section>
 <section id="file-naming">
-<h2>File Naming<a class="headerlink" href="#file-naming" title="Permalink to this heading">#</a></h2>
+<h2>File Naming<a class="headerlink" href="#file-naming" title="Permalink to this headline">#</a></h2>
 <p>It is best practice to name files without spaces.
 Each <code class="docutils literal notranslate"><span class="pre">chapter</span></code> or file should have a descriptive file name (<code class="docutils literal notranslate"><span class="pre">with_no_spaces</span></code>) and descriptive title for it.</p>
 </section>
 <section id="syncing-markdown-and-ipynb-files">
-<h2>Syncing markdown and ipynb files<a class="headerlink" href="#syncing-markdown-and-ipynb-files" title="Permalink to this heading">#</a></h2>
+<h2>Syncing markdown and ipynb files<a class="headerlink" href="#syncing-markdown-and-ipynb-files" title="Permalink to this headline">#</a></h2>
 <p>If you have the precommit hook working, git will call a script and convert your notebook files from the ipynb format (which is json like) to Myst Markdown, which is more plain text with some header information.  The markdown format works better with version control, largely because it doesn’t contain the outputs.</p>
 <p>If you don’t get the precommit hook working, but you do get jupytext installed, you can set each file to sync.</p>
 <!-- To sync feedback received to your runnable notebook files, change the related GitHub Actions file: `.github/workflows/`
@@ -631,7 +633,7 @@ change it to:
 This means if you accept suggestion commits from the the `.md` file, the action will upate your `.ipynb` file. If you update your `.ipynb file` the action will update the .md file. -->
 </section>
 <section id="adding-annotations-with-formatting-or-margin-notes">
-<h2>Adding annotations with formatting or margin notes<a class="headerlink" href="#adding-annotations-with-formatting-or-margin-notes" title="Permalink to this heading">#</a></h2>
+<h2>Adding annotations with formatting or margin notes<a class="headerlink" href="#adding-annotations-with-formatting-or-margin-notes" title="Permalink to this headline">#</a></h2>
 <p>You can either install <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/install.html">jupytext</a> and convert locally or upload /push a notebook to your repository and let GitHub convert.<br />
 Then edit the .md file with a <a class="reference internal" href="../syllabus/tools.html#texteditor"><span class="std std-ref">text editor</span></a> of your choice. You can run by uploading if you don’t have jupytext installed, or locally if you have installed jupytext or jupyterbook.</p>
 <p>In your .md file use backticks to mark <a class="reference external" href="https://jupyterbook.org/content/content-blocks.html">special content blocks</a></p>
@@ -658,17 +660,17 @@ Here is a margin note!
 <p>For a complete list of options, see <a class="reference external" href="https://sphinx-book-theme.readthedocs.io/en/latest/reference/demo.html#admonitions">the <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code> documentation</a>.</p>
 </section>
 <section id="links">
-<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading">#</a></h2>
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">#</a></h2>
 <p>Markdown syntax for links</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">text</span> <span class="n">to</span> <span class="n">show</span><span class="p">](</span><span class="n">path</span><span class="o">/</span><span class="ow">or</span><span class="o">/</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="configurations">
-<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this heading">#</a></h2>
+<h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline">#</a></h2>
 <p>Things like the menus and links at the top are controlled as <a class="reference external" href="https://jupyterbook.org/customize/config.html">settings</a>, in <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>. The following are some things that you might change in your configuration file.</p>
 <section id="show-errors-and-continue">
-<span id="keeperrors"></span><h3>Show errors and continue<a class="headerlink" href="#show-errors-and-continue" title="Permalink to this heading">#</a></h3>
+<span id="keeperrors"></span><h3>Show errors and continue<a class="headerlink" href="#show-errors-and-continue" title="Permalink to this headline">#</a></h3>
 <p>To show errors and continue running the rest, add the following to your configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execution settings</span>
 <span class="n">execute</span><span class="p">:</span>
@@ -678,7 +680,7 @@ Here is a margin note!
 </section>
 </section>
 <section id="using-additional-packages">
-<h2>Using additional packages<a class="headerlink" href="#using-additional-packages" title="Permalink to this heading">#</a></h2>
+<h2>Using additional packages<a class="headerlink" href="#using-additional-packages" title="Permalink to this headline">#</a></h2>
 <p>You’ll have to add any additional packages you use (beyond pandas and seaborn) to the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file in your portfolio.</p>
 </section>
 </section>

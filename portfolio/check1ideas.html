@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Portfolio Check 1 Ideas &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'portfolio/check1ideas';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="FAQ" href="../faq/index.html" />
     <link rel="prev" title="Formatting Tips" href="formatting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -451,30 +453,30 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="portfolio-check-1-ideas">
-<span id="check1ideas"></span><h1>Portfolio Check 1 Ideas<a class="headerlink" href="#portfolio-check-1-ideas" title="Permalink to this heading">#</a></h1>
+<span id="check1ideas"></span><h1>Portfolio Check 1 Ideas<a class="headerlink" href="#portfolio-check-1-ideas" title="Permalink to this headline">#</a></h1>
 <p>Remember you’ll be graded against the [rubric] and the [achievement checklists], but these are ideas for the structure.</p>
 <p>You can mix and match different formats to cover the skills collectively.</p>
 <p>If you goal is, for example, a B+ (you need 5 level 3s) you could only do 1-2 skills per portfolio check (there are 4).</p>
 <section id="long-single-analysis">
-<h2>Long single analysis<a class="headerlink" href="#long-single-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Long single analysis<a class="headerlink" href="#long-single-analysis" title="Permalink to this headline">#</a></h2>
 <p>Collect data from multiple sources, prepare each for analysis, and merge them together then do some exploratory data analysis. Describe each step, interpret all outputs, and put the analysis in context of the Data Science Process.</p>
 <p>This would be one long notebook that covers all of the skills.</p>
 <p>Be sure to check the checklists for how level 3s are more complex than level 2s.  I recommend using office hours to help get ideas if you are not sure how to extend your analysis.</p>
 </section>
 <section id="several-shorter-reflections-analyses">
-<h2>Several shorter reflections/analyses<a class="headerlink" href="#several-shorter-reflections-analyses" title="Permalink to this heading">#</a></h2>
+<h2>Several shorter reflections/analyses<a class="headerlink" href="#several-shorter-reflections-analyses" title="Permalink to this headline">#</a></h2>
 <p>You could also submit a few shorter pieces that in total cover
 all of the skills. Some example formats:</p>
 <section id="tutorial">
-<h3>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">#</a></h3>
+<h3>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">#</a></h3>
 <p>Write a notebook that explains a concept related to a skill with examples in a real dataset and with visuals or a toy dataset (minimal number of columns rows)</p>
 </section>
 <section id="cheatsheet">
-<h3>Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permalink to this heading">#</a></h3>
+<h3>Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permalink to this headline">#</a></h3>
 <p>Make a detailed reference with code outputs on a topic or a few topics.</p>
 </section>
 <section id="blog-post">
-<h3>Blog post<a class="headerlink" href="#blog-post" title="Permalink to this heading">#</a></h3>
+<h3>Blog post<a class="headerlink" href="#blog-post" title="Permalink to this headline">#</a></h3>
 <p>Write a blog post styled Notebook that compares or analyzes something, for example:</p>
 <ul class="simple">
 <li><p>how do different ways of loading data compare</p></li>
@@ -482,15 +484,15 @@ all of the skills. Some example formats:</p>
 </ul>
 </section>
 <section id="correction-reflection">
-<h3>Correction &amp; Reflection<a class="headerlink" href="#correction-reflection" title="Permalink to this heading">#</a></h3>
+<h3>Correction &amp; Reflection<a class="headerlink" href="#correction-reflection" title="Permalink to this headline">#</a></h3>
 <p>If you had trouble with an assignment so far, you can revise what you submitted and resubmit it, with reflections and explanation of what you were confused about, what you tried initially, how you eventually figured it out, and explains the correct answer. Then go a little deeper in exploring the topic in that context to also earn level 3.</p>
 </section>
 <section id="extension">
-<h3>Extension<a class="headerlink" href="#extension" title="Permalink to this heading">#</a></h3>
+<h3>Extension<a class="headerlink" href="#extension" title="Permalink to this headline">#</a></h3>
 <p>If there were parts of your previous assignments that you thought were interesting and you want to work with those data more, you can. You need to do <em>more complex</em> analyses of them, but you can build off of what you already have done, especially for assignments 2, 3, and 5.</p>
 </section>
 <section id="practice-problems-and-solutions">
-<h3>Practice Problems and Solutions<a class="headerlink" href="#practice-problems-and-solutions" title="Permalink to this heading">#</a></h3>
+<h3>Practice Problems and Solutions<a class="headerlink" href="#practice-problems-and-solutions" title="Permalink to this headline">#</a></h3>
 <p>Based on the level 3 rubric descriptions, write practice problems that build off of the lecture notes. Include solutions and descriptions for each. These can be open ended or multiple choice questions with plausible distractors.  A plausible distractor is an incorrect answer that represents a way that you think someone could misunderstand.</p>
 <p>For example if the question is 37 + 15 = ?, MCQ with plausible distractors might be:</p>
 <ul class="simple">

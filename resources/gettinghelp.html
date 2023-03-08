@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Getting Help with Programming &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/gettinghelp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Terminals and Environments" href="terminal.html" />
     <link rel="prev" title="How to Study in this class" href="learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -444,9 +446,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="getting-help-with-programming">
-<h1>Getting Help with Programming<a class="headerlink" href="#getting-help-with-programming" title="Permalink to this heading">#</a></h1>
+<h1>Getting Help with Programming<a class="headerlink" href="#getting-help-with-programming" title="Permalink to this headline">#</a></h1>
 <section id="asking-questions">
-<h2>Asking Questions<a class="headerlink" href="#asking-questions" title="Permalink to this heading">#</a></h2>
+<h2>Asking Questions<a class="headerlink" href="#asking-questions" title="Permalink to this headline">#</a></h2>
 <p><img alt="comic on asking questions, that summarizes blog post" src="../_images/questions.png" /></p>
 <p>One of my favorite resources that describes how to ask good questions is
 <a class="reference external" href="https://jvns.ca/blog/good-questions/">this blog post</a> by Julia Evans, a developer
@@ -454,7 +456,7 @@ who writes comics about the things she learns in the course of her work and
 publisher of <a class="reference external" href="https://wizardzines.com/">wizard zines</a>.</p>
 </section>
 <section id="describing-what-you-have-so-far">
-<h2>Describing what you have so far<a class="headerlink" href="#describing-what-you-have-so-far" title="Permalink to this heading">#</a></h2>
+<h2>Describing what you have so far<a class="headerlink" href="#describing-what-you-have-so-far" title="Permalink to this headline">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -470,7 +472,7 @@ but if it does not, it will definitely make it easier for another person to
 understand what you have, what your goal is, and what’s working.</p>
 </section>
 <section id="understanding-errors">
-<h2>Understanding Errors<a class="headerlink" href="#understanding-errors" title="Permalink to this heading">#</a></h2>
+<h2>Understanding Errors<a class="headerlink" href="#understanding-errors" title="Permalink to this headline">#</a></h2>
 <p>Error messages from the compiler are not always straight forward.</p>
 <p>The <a class="reference internal" href="glossary.html#term-TraceBack"><span class="xref std std-term">TraceBack</span></a> can be a really long list of errors that seem like they are not even
 from your code.  It will trace back to all of the places that the error occurred.

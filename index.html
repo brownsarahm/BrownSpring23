@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>About this Book &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -62,12 +61,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="About" href="syllabus/about.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -180,7 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -442,7 +444,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="about-this-book">
-<h1>About this Book<a class="headerlink" href="#about-this-book" title="Permalink to this heading">#</a></h1>
+<h1>About this Book<a class="headerlink" href="#about-this-book" title="Permalink to this headline">#</a></h1>
 <p>Welcome to the course manual for CSC310 at URI with Professor Brown.</p>
 <p>This class meets TTh 5-6:15pm in Tyler 108.</p>
 <p>This website will contain the syllabus, class notes, and other reference material for the class.</p>
@@ -452,13 +454,13 @@ document.write(`
 <p><a class="reference external" href="https://documentation.brightspace.com/EN/le/calendar/learner/subscribe_to_calendar.htm">subscribe to that calendar</a> in your favorite calendar application</p>
 </div>
 <section id="navigating-the-sections">
-<h2>Navigating the Sections<a class="headerlink" href="#navigating-the-sections" title="Permalink to this heading">#</a></h2>
+<h2>Navigating the Sections<a class="headerlink" href="#navigating-the-sections" title="Permalink to this headline">#</a></h2>
 <p>The Syllabus section has logistical operations for the course broken down into sections.  You can also read straight through by starting in the first one and navigating to the next section using the arrow navigation at the end of the page.</p>
 <p>This site is a resource for the course.  We do not follow a text book for this course, but all notes from class are posted in the notes section, accessible on the left hand side menu, visible on large screens and in the menu on mobile.</p>
 <p>The resources section has links and short posts that provide  more context and explanation.  Content in this section is for the most part not strictly the material that you’ll be graded on, but it is often material that will help you understand and grow as a programmer and data scientist.</p>
 </section>
 <section id="reading-each-page">
-<h2>Reading each page<a class="headerlink" href="#reading-each-page" title="Permalink to this heading">#</a></h2>
+<h2>Reading each page<a class="headerlink" href="#reading-each-page" title="Permalink to this headline">#</a></h2>
 <p>All class notes can be downloaded in multiple formats, including as a notebook.  Some pages of the syllabus and resources are also notebooks, if you want to see behind the curtain of how I manage the course information.</p>
 <div class="admonition-try-it-yourself admonition">
 <p class="admonition-title">Try it Yourself</p>

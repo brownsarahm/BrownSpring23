@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Data Sources &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'resources/datasets';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="General Tips and Resources" href="tips.html" />
     <link rel="prev" title="Cheatsheet" href="cheatsheet.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -447,10 +449,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-sources">
-<span id="datasets"></span><h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this heading">#</a></h1>
+<span id="datasets"></span><h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">#</a></h1>
 <p>This page is a semi-curated source of datasets for use in assignments.  The different sections have datasets that are good for different assignments.</p>
 <section id="best-for-loading-directly-into-a-notebook">
-<span id="basic-datasets"></span><h2>Best for loading directly into a notebook<a class="headerlink" href="#best-for-loading-directly-into-a-notebook" title="Permalink to this heading">#</a></h2>
+<span id="basic-datasets"></span><h2>Best for loading directly into a notebook<a class="headerlink" href="#best-for-loading-directly-into-a-notebook" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/rfordatascience/tidytuesday/tree/master/data">Tidy Tuesday</a> inside the folder for each year there is a README file with list of the datasets. These are .csv files</p></li>
 <li><p><a class="reference external" href="https://github.com/jdorfman/awesome-json-datasets">Json Datasets</a></p></li>
@@ -459,7 +461,7 @@ document.write(`
 </ul>
 </section>
 <section id="cleaning-examples">
-<h2>Cleaning Examples<a class="headerlink" href="#cleaning-examples" title="Permalink to this heading">#</a></h2>
+<h2>Cleaning Examples<a class="headerlink" href="#cleaning-examples" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/messy_artist.csv">Messy Artists</a> .csv file, that needs to be cleaned, containing data on artists</p></li>
 <li><p><a class="reference external" href="https://raw.githubusercontent.com/rhodyprog4ds/rhodyds/main/data/messy_wheels.csv">Messy Wheels</a> .csv file, that needs to be cleaned, containing data on various wheel attractions around the globe</p></li>
@@ -475,7 +477,7 @@ document.write(`
 </ul>
 </section>
 <section id="general-sources">
-<h2>General Sources<a class="headerlink" href="#general-sources" title="Permalink to this heading">#</a></h2>
+<h2>General Sources<a class="headerlink" href="#general-sources" title="Permalink to this headline">#</a></h2>
 <p>These may require some more work</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://insights.stackoverflow.com/survey">Stackoverflow Developer Survey</a> This data comes with readme info all packaged together in a .zip. You’ll need to unzip it first.</p></li>
@@ -487,7 +489,7 @@ document.write(`
 </ul>
 </section>
 <section id="datasets-in-many-parts">
-<h2>Datasets in many parts<a class="headerlink" href="#datasets-in-many-parts" title="Permalink to this heading">#</a></h2>
+<h2>Datasets in many parts<a class="headerlink" href="#datasets-in-many-parts" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-30">Makeup Shades</a></p></li>
 <li><p><a class="reference external" href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-01-19">Kenya Census</a></p></li>
@@ -504,13 +506,13 @@ document.write(`
 </ul>
 </section>
 <section id="datasets-with-time">
-<h2>Datasets with time<a class="headerlink" href="#datasets-with-time" title="Permalink to this heading">#</a></h2>
+<h2>Datasets with time<a class="headerlink" href="#datasets-with-time" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2021/2021-03-02">Superbowl commercials</a></p></li>
 </ul>
 </section>
 <section id="databases">
-<h2>Databases<a class="headerlink" href="#databases" title="Permalink to this heading">#</a></h2>
+<h2>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://2016.padjo.org/tutorials/sqlite-data-starterpacks/">SQLite Databases</a></p></li>
 </ul>

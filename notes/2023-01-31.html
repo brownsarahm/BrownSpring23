@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>3. Grading review, Pandas, and Iterables &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-01-31';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Pandas and Indexing" href="2023-02-02.html" />
     <link rel="prev" title="2. Syllabus and Python Review" href="2023-01-26.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -459,9 +461,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="grading-review-pandas-and-iterables">
-<h1><span class="section-number">3. </span>Grading review, Pandas, and Iterables<a class="headerlink" href="#grading-review-pandas-and-iterables" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Grading review, Pandas, and Iterables<a class="headerlink" href="#grading-review-pandas-and-iterables" title="Permalink to this headline">#</a></h1>
 <section id="grading-calculation">
-<h2><span class="section-number">3.1. </span>Grading Calculation<a class="headerlink" href="#grading-calculation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Grading Calculation<a class="headerlink" href="#grading-calculation" title="Permalink to this headline">#</a></h2>
 <p>here is my solution</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,7 +656,7 @@ document.write(`
 </div>
 </section>
 <section id="loading-data-with-pandas">
-<h2><span class="section-number">3.2. </span>Loading data with Pandas<a class="headerlink" href="#loading-data-with-pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Loading data with Pandas<a class="headerlink" href="#loading-data-with-pandas" title="Permalink to this headline">#</a></h2>
 <p>First we learned about the dataset then we can load it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1752,57 +1754,57 @@ alt
 </div>
 </section>
 <section id="questions-after-class">
-<h2><span class="section-number">3.3. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Questions After Class<a class="headerlink" href="#questions-after-class" title="Permalink to this headline">#</a></h2>
 <section id="will-we-be-gathering-our-own-data-or-will-it-all-be-provided-for-the-course">
-<h3><span class="section-number">3.3.1. </span>• will we be gathering our own data or will it all be provided for the course?<a class="headerlink" href="#will-we-be-gathering-our-own-data-or-will-it-all-be-provided-for-the-course" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>• will we be gathering our own data or will it all be provided for the course?<a class="headerlink" href="#will-we-be-gathering-our-own-data-or-will-it-all-be-provided-for-the-course" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="will-you-always-give-us-an-answer-key-for-assignments">
-<h3><span class="section-number">3.3.2. </span>Will you always give us an answer key for assignments?<a class="headerlink" href="#will-you-always-give-us-an-answer-key-for-assignments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Will you always give us an answer key for assignments?<a class="headerlink" href="#will-you-always-give-us-an-answer-key-for-assignments" title="Permalink to this headline">#</a></h3>
 <p>No, but we will always give personalized feedback.</p>
 </section>
 <section id="will-we-be-cleaning-data">
-<h3><span class="section-number">3.3.3. </span>will we be cleaning data?<a class="headerlink" href="#will-we-be-cleaning-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>will we be cleaning data?<a class="headerlink" href="#will-we-be-cleaning-data" title="Permalink to this headline">#</a></h3>
 <p>Yes, see the notes from the first class.</p>
 </section>
 <section id="will-we-do-correlations-later">
-<h3><span class="section-number">3.3.4. </span>Will we do correlations later?<a class="headerlink" href="#will-we-do-correlations-later" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.4. </span>Will we do correlations later?<a class="headerlink" href="#will-we-do-correlations-later" title="Permalink to this headline">#</a></h3>
 <p>Yes</p>
 </section>
 <section id="will-we-go-over-more-imports-like-pandas">
-<h3><span class="section-number">3.3.5. </span>will we go over more imports like pandas?<a class="headerlink" href="#will-we-go-over-more-imports-like-pandas" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.5. </span>will we go over more imports like pandas?<a class="headerlink" href="#will-we-go-over-more-imports-like-pandas" title="Permalink to this headline">#</a></h3>
 <p>Yes, we will use other libraries.  In A2, you’ll even import your own code.</p>
 </section>
 <section id="how-will-datasets-be-used-in-conjunction-with-one-another">
-<h3><span class="section-number">3.3.6. </span>How will datasets be used in conjunction with one another?<a class="headerlink" href="#how-will-datasets-be-used-in-conjunction-with-one-another" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.6. </span>How will datasets be used in conjunction with one another?<a class="headerlink" href="#how-will-datasets-be-used-in-conjunction-with-one-another" title="Permalink to this headline">#</a></h3>
 <p>We will combine data in a few weeks.</p>
 </section>
 <section id="how-similar-of-an-alternative-to-modeling-in-r-exists-in-python">
-<h3><span class="section-number">3.3.7. </span>How similar of an alternative to modeling in R exists in python?<a class="headerlink" href="#how-similar-of-an-alternative-to-modeling-in-r-exists-in-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.7. </span>How similar of an alternative to modeling in R exists in python?<a class="headerlink" href="#how-similar-of-an-alternative-to-modeling-in-r-exists-in-python" title="Permalink to this headline">#</a></h3>
 <p>They are both compelte languages so at some level, they can both do all the same things.  Some libraries are easier/better for specific things in one language or the other.</p>
 </section>
 <section id="will-we-be-working-with-databases-at-all-in-this-class">
-<h3><span class="section-number">3.3.8. </span>Will we be working with databases at all in this class?<a class="headerlink" href="#will-we-be-working-with-databases-at-all-in-this-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.8. </span>Will we be working with databases at all in this class?<a class="headerlink" href="#will-we-be-working-with-databases-at-all-in-this-class" title="Permalink to this headline">#</a></h3>
 <p>A little.  We’ll pull from a database into python.</p>
 </section>
 <section id="are-we-going-going-to-be-using-pandas-a-lot-in-this-class">
-<h3><span class="section-number">3.3.9. </span>Are we going going to be using pandas a lot in this class?<a class="headerlink" href="#are-we-going-going-to-be-using-pandas-a-lot-in-this-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.9. </span>Are we going going to be using pandas a lot in this class?<a class="headerlink" href="#are-we-going-going-to-be-using-pandas-a-lot-in-this-class" title="Permalink to this headline">#</a></h3>
 <p>Yes.  We will use pandas for almost every single remaining class session this semester.</p>
 </section>
 <section id="how-do-you-short-cut-fill-variable-names-in-jupyter">
-<h3><span class="section-number">3.3.10. </span>how do you short-cut fill variable names in jupyter<a class="headerlink" href="#how-do-you-short-cut-fill-variable-names-in-jupyter" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.10. </span>how do you short-cut fill variable names in jupyter<a class="headerlink" href="#how-do-you-short-cut-fill-variable-names-in-jupyter" title="Permalink to this headline">#</a></h3>
 <p>Press tab to autocomplete</p>
 </section>
 <section id="what-is-the-most-efficient-way-to-get-help-on-the-homework">
-<h3><span class="section-number">3.3.11. </span>what is the most efficient way to get help on the homework ?<a class="headerlink" href="#what-is-the-most-efficient-way-to-get-help-on-the-homework" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.11. </span>what is the most efficient way to get help on the homework ?<a class="headerlink" href="#what-is-the-most-efficient-way-to-get-help-on-the-homework" title="Permalink to this headline">#</a></h3>
 <p>Accept the assignment and make an issue or go to office hours for general questions.  For clarifying questions, you can post an issue on the course website.</p>
 <p>If you are stuck with some progress made, upload (or push) your code first and then ask for help so we can see where you are.</p>
 </section>
 <section id="is-there-a-best-or-most-common-way-to-organize-data-for-use">
-<h3><span class="section-number">3.3.12. </span>is there a best or most common way to organize data for use<a class="headerlink" href="#is-there-a-best-or-most-common-way-to-organize-data-for-use" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.12. </span>is there a best or most common way to organize data for use<a class="headerlink" href="#is-there-a-best-or-most-common-way-to-organize-data-for-use" title="Permalink to this headline">#</a></h3>
 <p>csv</p>
 </section>
 <section id="how-would-you-laod-a-csv-file-with-python-if-i-was-using-visual-studio-instead-of-jupyter">
-<h3><span class="section-number">3.3.13. </span>how would you laod a csv file with python if i was using visual studio instead of jupyter?<a class="headerlink" href="#how-would-you-laod-a-csv-file-with-python-if-i-was-using-visual-studio-instead-of-jupyter" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.3.13. </span>how would you laod a csv file with python if i was using visual studio instead of jupyter?<a class="headerlink" href="#how-would-you-laod-a-csv-file-with-python-if-i-was-using-visual-studio-instead-of-jupyter" title="Permalink to this headline">#</a></h3>
 <p>All of the code we are writing will work in any python environment that has the libraries.  the Editor you use (jupyter vs VSCode vs PyCharm) does not impact what you can do with python.  Which interpreter you use can impact and jupyter does default to ipython instead of the core python kernel, but that does not change how to load data.</p>
 <p>Remember that jupyter is not on a cloud service. YOu can use any file on your computer with a relative path.</p>
 </section>

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>4. Assignment 4: &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/04-prepare';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Assignment 5: Constructing Datasets and Using Databases" href="05-construct.html" />
     <link rel="prev" title="3. Assignment 3: Exploratory Data Analysis" href="03-eda.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -445,7 +447,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-4">
-<h1><span class="section-number">4. </span>Assignment 4:<a class="headerlink" href="#assignment-4" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Assignment 4:<a class="headerlink" href="#assignment-4" title="Permalink to this headline">#</a></h1>
 <p><strong>Due: </strong></p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
@@ -456,14 +458,14 @@ document.write(`
 <li><p>visualize <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#visualize-level2">2</a></p></li>
 </ul>
 <section id="related-notes">
-<h2><span class="section-number">4.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../notes/2023-02-14.html"><span class="doc std std-doc">Tidy Data and Reshaping Datasets</span></a></p></li>
 <li><p><a class="reference internal" href="../notes/2023-02-16.html"><span class="doc std std-doc">Reparing values</span></a></p></li>
 </ul>
 </section>
 <section id="check-the-datasets-you-have-worked-with-already">
-<h2><span class="section-number">4.2. </span>Check the Datasets you have worked with already<a class="headerlink" href="#check-the-datasets-you-have-worked-with-already" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Check the Datasets you have worked with already<a class="headerlink" href="#check-the-datasets-you-have-worked-with-already" title="Permalink to this headline">#</a></h2>
 <p>In the datasets you have used or come across but decided you could not work with
 in your past assignments identify at least one
 thing you could not do because the data was not in an appropriate format.</p>
@@ -483,7 +485,7 @@ cleaning a dataset to make it able to answer questions that were not possible co
 </div>
 </section>
 <section id="clean-example-datasets">
-<h2><span class="section-number">4.3. </span>Clean example datasets<a class="headerlink" href="#clean-example-datasets" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Clean example datasets<a class="headerlink" href="#clean-example-datasets" title="Permalink to this headline">#</a></h2>
 <p>There are notebooks in the template that have instructions for how to work with each dataset, including how to load it and what high level cleaning should be done.  Your job is to execute.</p>
 <p>To earn prepare level 2, clean any dataset and do just enough exploratory data analysis to show that the data is usable (eg 1 stat and/or plot).</p>
 <p>To <em>also</em> earn python level 2: clean the CS degrees dataset (use a function or lambda AND loop or list/dictionary comprehension)</p>
@@ -496,7 +498,7 @@ cleaning a dataset to make it able to answer questions that were not possible co
 </div>
 </section>
 <section id="study-cleaned-datasets">
-<h2><span class="section-number">4.4. </span>Study Cleaned Datasets<a class="headerlink" href="#study-cleaned-datasets" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Study Cleaned Datasets<a class="headerlink" href="#study-cleaned-datasets" title="Permalink to this headline">#</a></h2>
 <p>Read example data cleaning notes or scripts. To do this find at least one dataset for which the messy version, clean version, and a script or notes about how it was cleaned are available, answer the following questions in a markdown file or additional notebook in your repository. (some example datasets are on the datasets page and one is in the notes are added to the course website)</p>
 <ol class="arabic simple">
 <li><p>What are 3 common problems to look for in a dataset? Describe them with examples.</p></li>

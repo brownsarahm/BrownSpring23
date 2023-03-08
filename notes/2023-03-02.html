@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>12. What is ML? &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>12. Auditing with AIF360 &#8212; Programming for Data Science at URI Spring 2023</title>
   
   
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -64,13 +63,15 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-03-02';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="next" title="13. Intro to ML &amp; Naive Bayes" href="2023-03-07.html" />
     <link rel="prev" title="11. Evaluating ML Algorithms" href="2023-02-28.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -183,7 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. What is ML?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -421,7 +423,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>What is ML?</h1>
+    <h1>Auditing with AIF360</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,18 +433,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compas-data">12.1. The COMPAS data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-breaking-it-down-by-race">12.2. What about breaking it down by race?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-notation">12.3. ML Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aif360">12.4. Using AIF360</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disparate-impact">12.4.1. Disparate Impact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ml">12.1. What is ML?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compas-data">12.2. The COMPAS data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-breaking-it-down-by-race">12.3. What about breaking it down by race?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-notation">12.4. ML Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aif360">12.5. Using AIF360</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disparate-impact">12.5.1. Disparate Impact</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equalized-odds-fairness">12.5. Equalized Odds Fairness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-odds-difference">12.5.1. Average Odds Difference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equalized-odds-fairness">12.6. Equalized Odds Fairness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-odds-difference">12.6.1. Average Odds Difference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sufficiency-and-calibration">12.6. Sufficiency and Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sufficiency-and-calibration">12.7. Sufficiency and Calibration</a></li>
 </ul>
             </nav>
         </div>
@@ -454,8 +457,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="what-is-ml">
-<h1><span class="section-number">12. </span>What is ML?<a class="headerlink" href="#what-is-ml" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="auditing-with-aif360">
+<h1><span class="section-number">12. </span>Auditing with AIF360<a class="headerlink" href="#auditing-with-aif360" title="Permalink to this headline">#</a></h1>
+<section id="what-is-ml">
+<h2><span class="section-number">12.1. </span>What is ML?<a class="headerlink" href="#what-is-ml" title="Permalink to this headline">#</a></h2>
 <p><img alt="ML flow" src="https://rhodyprog4ds.github.io/BrownSpring23/_images/MLdataflow.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,8 +492,9 @@ document.write(`
 </div>
 </div>
 <p>We may get a warning which is <strong>okay</strong>. If you run the cell again it will go away.</p>
+</section>
 <section id="the-compas-data">
-<h2><span class="section-number">12.1. </span>The COMPAS data<a class="headerlink" href="#the-compas-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>The COMPAS data<a class="headerlink" href="#the-compas-data" title="Permalink to this headline">#</a></h2>
 <p>We are going to continue with the ProPublica COMPAS audit data.  Remember it contains:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">age</span></code>: defendant’s age</p></li>
@@ -588,7 +594,7 @@ document.write(`
 </div>
 </section>
 <section id="what-about-breaking-it-down-by-race">
-<h2><span class="section-number">12.2. </span>What about breaking it down by race?<a class="headerlink" href="#what-about-breaking-it-down-by-race" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>What about breaking it down by race?<a class="headerlink" href="#what-about-breaking-it-down-by-race" title="Permalink to this headline">#</a></h2>
 <p>Recall, we used groupby to get the per race score by creating a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function that we could apply to the groupby object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -632,7 +638,7 @@ document.write(`
 </div>
 </section>
 <section id="ml-notation">
-<h2><span class="section-number">12.3. </span>ML Notation<a class="headerlink" href="#ml-notation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>ML Notation<a class="headerlink" href="#ml-notation" title="Permalink to this headline">#</a></h2>
 <p>We use standard notation in machine learning, and in fair machine learning speicfically.</p>
 <p>This is important because we want to be able to communicate,like we call the horizontal and vertical axes of a plot the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> axes.</p>
 <p>The AIF 360 pacakge we are about to use and sklearn both use this notation.</p>
@@ -662,7 +668,7 @@ document.write(`
 </div>
 </section>
 <section id="using-aif360">
-<h2><span class="section-number">12.4. </span>Using AIF360<a class="headerlink" href="#using-aif360" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.5. </span>Using AIF360<a class="headerlink" href="#using-aif360" title="Permalink to this headline">#</a></h2>
 <p>The AIF360 package implements fairness metrics, some of which are derived from metrics we have seen and some others. <a class="reference external" href="https://aif360.readthedocs.io/en/latest/modules/generated/aif360.metrics.ClassificationMetric.html#aif360.metrics.ClassificationMetric">the documentation</a> has the full list in a summary table with English explanations and details with most equations.</p>
 <p>However, it has a few requirements:</p>
 <ul class="simple">
@@ -917,7 +923,7 @@ document.write(`
 </div>
 <p>the error rate alone does not tell the whole story because there are two types of errors. Plus there are even more ways we can think about if something is fair or not.</p>
 <section id="disparate-impact">
-<h3><span class="section-number">12.4.1. </span>Disparate Impact<a class="headerlink" href="#disparate-impact" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.5.1. </span>Disparate Impact<a class="headerlink" href="#disparate-impact" title="Permalink to this headline">#</a></h3>
 <p>One way we might want to be fair is if the same % of each group of people (Black, <span class="math notranslate nohighlight">\(A=0\)</span> and White,<span class="math notranslate nohighlight">\(A=1\)</span>) get the favorable outcome (a low score).</p>
 <p>In Disparate Impact the ratio is of the positive outcome, independent of the predictor.  So this is the ratio of the % of Black people not rearrested to % of white people rearrested.</p>
 <div class="math notranslate nohighlight">
@@ -945,7 +951,7 @@ document.write(`
 </section>
 </section>
 <section id="equalized-odds-fairness">
-<h2><span class="section-number">12.5. </span>Equalized Odds Fairness<a class="headerlink" href="#equalized-odds-fairness" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.6. </span>Equalized Odds Fairness<a class="headerlink" href="#equalized-odds-fairness" title="Permalink to this headline">#</a></h2>
 <p>The journalists were concerned with the types of errors.  They accepted that it is not the creators of COMPAS fault that Black people get arrested at higher rates (though actual crime rates are equal; Black neighborhoods tend to be overpoliced). They wanted to consider what actually happened and then see how COMPAS did within each group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1060,7 +1066,7 @@ document.write(`
 <p>Black people were given a high score and not rearrested almost twice as often as white people.</p>
 <p>So while the accuracy was similar (see error rate ratio) for Black and White people; the algorithm makes the opposite types of errors.</p>
 <section id="average-odds-difference">
-<h3><span class="section-number">12.5.1. </span>Average Odds Difference<a class="headerlink" href="#average-odds-difference" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.6.1. </span>Average Odds Difference<a class="headerlink" href="#average-odds-difference" title="Permalink to this headline">#</a></h3>
 <p>This is a combines the two errors we looked at separately into a single metric.</p>
 <div class="math notranslate nohighlight">
 \[ \tfrac{1}{2}\left[(FPR_{A = \text{unprivileged}} - FPR_{A = \text{privileged}})
@@ -1092,7 +1098,7 @@ document.write(`
 </section>
 </section>
 <section id="sufficiency-and-calibration">
-<h2><span class="section-number">12.6. </span>Sufficiency and Calibration<a class="headerlink" href="#sufficiency-and-calibration" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.7. </span>Sufficiency and Calibration<a class="headerlink" href="#sufficiency-and-calibration" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://www.equivant.com/response-to-propublica-demonstrating-accuracy-equity-and-predictive-parity/">COMPAS creators argued</a> that the model should be evaluated in terms of if a given score means the same thing across races; using the prediction as the denominator.</p>
 <p>We can look at their preferred metrics too</p>
 <div class="cell docutils container">
@@ -1325,11 +1331,11 @@ Ideally, we would like the score to both mean the same thing for different peopl
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/01-syllabus-install.html"
+       href="2023-03-07.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Intro to ML &amp; Naive Bayes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1348,18 +1354,19 @@ Ideally, we would like the score to both mean the same thing for different peopl
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compas-data">12.1. The COMPAS data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-breaking-it-down-by-race">12.2. What about breaking it down by race?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-notation">12.3. ML Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aif360">12.4. Using AIF360</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disparate-impact">12.4.1. Disparate Impact</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-ml">12.1. What is ML?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-compas-data">12.2. The COMPAS data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-breaking-it-down-by-race">12.3. What about breaking it down by race?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-notation">12.4. ML Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aif360">12.5. Using AIF360</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disparate-impact">12.5.1. Disparate Impact</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equalized-odds-fairness">12.5. Equalized Odds Fairness</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-odds-difference">12.5.1. Average Odds Difference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equalized-odds-fairness">12.6. Equalized Odds Fairness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-odds-difference">12.6.1. Average Odds Difference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sufficiency-and-calibration">12.6. Sufficiency and Calibration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sufficiency-and-calibration">12.7. Sufficiency and Calibration</a></li>
 </ul>
   </nav></div>
 

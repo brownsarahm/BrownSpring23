@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Syllabus and Grading FAQ &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'faq/syllabus';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Git and GitHub" href="github.html" />
     <link rel="prev" title="FAQ" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -445,9 +447,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="syllabus-and-grading-faq">
-<h1>Syllabus and Grading FAQ<a class="headerlink" href="#syllabus-and-grading-faq" title="Permalink to this heading">#</a></h1>
+<h1>Syllabus and Grading FAQ<a class="headerlink" href="#syllabus-and-grading-faq" title="Permalink to this headline">#</a></h1>
 <section id="how-much-does-assignment-x-class-participation-or-a-portfolio-check-weigh-in-my-grade">
-<h2>How much does assignment x, class participation, or a portfolio check weigh in my grade?<a class="headerlink" href="#how-much-does-assignment-x-class-participation-or-a-portfolio-check-weigh-in-my-grade" title="Permalink to this heading">#</a></h2>
+<h2>How much does assignment x, class participation, or a portfolio check weigh in my grade?<a class="headerlink" href="#how-much-does-assignment-x-class-participation-or-a-portfolio-check-weigh-in-my-grade" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>There is no specific weight for any activities, because your grade is based on earning achievements for the skills listed in the <a class="reference internal" href="../syllabus/achievements.html#achievement-definitions"><span class="std std-ref">skills rubric</span></a>.</p>
 <p>However, if you do not submit (or earn no achievements from) assignments or portfolios, the maximum grade you can earn is a C.
@@ -455,19 +457,19 @@ If you do not submit (or earn no achievements from) your portfolio, the maximum 
 </div>
 </section>
 <section id="what-time-are-assignments-due">
-<span id="duetime"></span><h2>What time are assignments due?<a class="headerlink" href="#what-time-are-assignments-due" title="Permalink to this heading">#</a></h2>
+<span id="duetime"></span><h2>What time are assignments due?<a class="headerlink" href="#what-time-are-assignments-due" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>End of day.  I could start grading at any time the next morning.  If your work is not there when I start grading it will not be graded, but if it is, I won’t check the time stamp.</p>
 </div>
 </section>
 <section id="can-i-submit-this-assignment-late-if">
-<h2>Can I submit this assignment late if …?<a class="headerlink" href="#can-i-submit-this-assignment-late-if" title="Permalink to this heading">#</a></h2>
+<h2>Can I submit this assignment late if …?<a class="headerlink" href="#can-i-submit-this-assignment-late-if" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>Late assignments are not accepted, however, your grade is based on the skills, not the assignments. All skills are assessed in at least two <a class="reference internal" href="../syllabus/achievements.html#assignment-skills"><span class="std std-ref">assignments</span></a>, so missing any one will not hurt your grade. If you need an accommodation because you cannot submit multiple assignments, contact Dr. Brown.</p>
 </div>
 </section>
 <section id="i-dont-understand-my-grade-on-this-assignment">
-<h2>I don’t understand my grade on this assignment<a class="headerlink" href="#i-dont-understand-my-grade-on-this-assignment" title="Permalink to this heading">#</a></h2>
+<h2>I don’t understand my grade on this assignment<a class="headerlink" href="#i-dont-understand-my-grade-on-this-assignment" title="Permalink to this headline">#</a></h2>
 <div class="toggle docutils container">
 <p>If you have questions about your grade, the best place to get feedback is to reply on the Feedback PR.  Either reply directly to one of the inline comments, or the summary.</p>
 <p>Be specific about what you think you should have earned and why.</p>

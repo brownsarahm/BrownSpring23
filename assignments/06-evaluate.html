@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>6. Assignment 6: Auditing Algorithms &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/06-evaluate';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Portfolio" href="../portfolio/index.html" />
     <link rel="prev" title="5. Assignment 5: Constructing Datasets and Using Databases" href="05-construct.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="current nav bd-sidenav">
@@ -445,7 +447,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-6-auditing-algorithms">
-<h1><span class="section-number">6. </span>Assignment 6: Auditing Algorithms<a class="headerlink" href="#assignment-6-auditing-algorithms" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Assignment 6: Auditing Algorithms<a class="headerlink" href="#assignment-6-auditing-algorithms" title="Permalink to this headline">#</a></h1>
 <p><strong>Due: </strong></p>
 <p>Eligible skills: (links to checklists)</p>
 <aside class="margin sidebar">
@@ -463,13 +465,13 @@ document.write(`
 <li><p>python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2">2</a></p></li>
 </ul>
 <section id="related-notes">
-<h2><span class="section-number">6.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><span class="xref myst">2022-10-24</span></p></li>
 </ul>
 </section>
 <section id="about-the-data">
-<h2><span class="section-number">6.2. </span>About the data<a class="headerlink" href="#about-the-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>About the data<a class="headerlink" href="#about-the-data" title="Permalink to this headline">#</a></h2>
 <p>We have provided a version of the [Adult] Dataset, which is a popular benchmark dataset for training machine learning models that comes from a recent paper about the risks of that dataset.  The classic Adult dataset tries to predict if a person makes more or less than 50k.</p>
 <p>Researchers reconstructed the Adult dataset with the actual value of the income.  We trained models to predict <code class="docutils literal notranslate"><span class="pre">income&gt;=$10k</span></code>, <code class="docutils literal notranslate"><span class="pre">income&gt;=$20k</span></code> , etc.  We used three different learning algorithms, nicknamed ‘LR’, ‘GPR’, and ‘RPR’ for each target.</p>
 <p><code class="docutils literal notranslate"><span class="pre">adult_models_only.csv</span></code> has the model’s predictions and <code class="docutils literal notranslate"><span class="pre">adult_reconstruction_bin.csv</span></code> has the data. Both have a unique identifier column included.</p>
@@ -479,13 +481,13 @@ document.write(`
 </div>
 </section>
 <section id="complete-an-audit">
-<h2><span class="section-number">6.3. </span>Complete an audit<a class="headerlink" href="#complete-an-audit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Complete an audit<a class="headerlink" href="#complete-an-audit" title="Permalink to this headline">#</a></h2>
 <p>Thoroughly audit any one model.  In your audit, use three different performance metrics. Compare and contrast performance in those metrics across both racial or gender groups.</p>
 <p>Include easy to read tables with your performance metrics and interpretations of the model’s overall performance and any disparities that could be understood by a general audience.</p>
 <p>If the model you chose was used for some real world decision what might the risks be?</p>
 </section>
 <section id="extend-your-audit">
-<h2><span class="section-number">6.4. </span>Extend your Audit<a class="headerlink" href="#extend-your-audit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Extend your Audit<a class="headerlink" href="#extend-your-audit" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>optional
@@ -500,6 +502,13 @@ document.write(`
 </ol>
 <table class="table" id="id1">
 <caption><span class="caption-number">Table 6.1 </span><span class="caption-text">Example table format</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>y</p></td>
 <td><p>model</p></td>

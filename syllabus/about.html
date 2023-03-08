@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>About &#8212; Programming for Data Science at URI Spring 2023</title>
   
@@ -45,7 +45,6 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -62,13 +61,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus/about';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tools and Resources" href="tools.html" />
     <link rel="prev" title="About this Book" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -181,7 +182,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-21.html">9. Merging  and Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-23.html">10. Web Scraping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. What is ML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -446,9 +448,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="about">
-<h1>About<a class="headerlink" href="#about" title="Permalink to this heading">#</a></h1>
+<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">#</a></h1>
 <section id="about-the-topic">
-<h2>About the topic<a class="headerlink" href="#about-the-topic" title="Permalink to this heading">#</a></h2>
+<h2>About the topic<a class="headerlink" href="#about-the-topic" title="Permalink to this headline">#</a></h2>
 <p>Data science exists at the intersection of computer science, statistics, and domain expertise. That means writing programs to access and manipulate data so that it becomes
 available for analysis using statistical and machine learning techniques is at the core of
 data science. Data scientists use their data and analytical ability to find and interpret rich
@@ -458,7 +460,7 @@ aid in understanding data; build mathematical models using the data; and present
 communicate the data insights/findings.</p>
 </section>
 <section id="about-the-goals-and-preparation">
-<h2>About the goals and preparation<a class="headerlink" href="#about-the-goals-and-preparation" title="Permalink to this heading">#</a></h2>
+<h2>About the goals and preparation<a class="headerlink" href="#about-the-goals-and-preparation" title="Permalink to this headline">#</a></h2>
 <p>This course provides a survey of data science. Topics include data driven programming
 in Python; data sets, file formats and meta-data; descriptive statistics, data visualization,
 and foundations of predictive data modeling and machine learning; accessing web data
@@ -468,7 +470,7 @@ machine learning models of a given data set.</p>
 <p>Basic programming skills (CSC201 or CSC211) are a prerequisite to this course. This course is a prerequisite course to machine learning, where you learn how machine learning algorithms work. In this course, we will start with a very fast review of basic programming ideas, since you’ve already done that before. We will learn how to <em>use</em> machine learning algorithms to do data science, but not how to <em>build</em> machine learning algorithms, we’ll use packages that implement the algorithms for us.</p>
 </section>
 <section id="about-the-course">
-<h2>About the course<a class="headerlink" href="#about-the-course" title="Permalink to this heading">#</a></h2>
+<h2>About the course<a class="headerlink" href="#about-the-course" title="Permalink to this headline">#</a></h2>
 <p>This course is designed to make you a better programmer while learning data science.  You may be stronger in one of those areas than the other at the beginning, but you should grow in both areas either way by the end of the semester.</p>
 <!-- 
 ## About this semester
@@ -476,12 +478,12 @@ This semester is a lot of new things for all of us. This course will be complete
 if after that break the change in circumstance allows you to focus less on coursework that will not hurt your grade. -->
 </section>
 <section id="about-this-syllabus">
-<h2>About this syllabus<a class="headerlink" href="#about-this-syllabus" title="Permalink to this heading">#</a></h2>
+<h2>About this syllabus<a class="headerlink" href="#about-this-syllabus" title="Permalink to this headline">#</a></h2>
 <p>This syllabus is a <em>living</em>  document and accessible from BrightSpace, as a pdf for download directly online at <a class="reference external" href="https://rhodyprog4ds.github.io/BrownSpring23/syllabus/">rhodyprog4ds.github.io/BrownFall20/syllabus</a>. If you choose to download a copy of it, note that it is only a copy. You can get notification of changes from GitHub by “watching” the <a class="reference external" href="https://github.com/rhodyprog4ds/BrownSpring23">repository</a>. You can view the date of changes and exactly what changes were made on the Github <a class="reference external" href="https://github.com/rhodyprog4ds/BrownSpring23/commits/main">commits</a> page.</p>
 <p>Creating an <a class="reference external" href="https://github.com/rhodyprog4ds/BrownSpring23/issues">issue on the repository</a> is also a good way to ask questions about anything in the course it will prompt additions and expand the FAQ section.</p>
 </section>
 <section id="about-your-instructor">
-<h2>About your instructor<a class="headerlink" href="#about-your-instructor" title="Permalink to this heading">#</a></h2>
+<h2>About your instructor<a class="headerlink" href="#about-your-instructor" title="Permalink to this headline">#</a></h2>
 <p>Name: Dr. Sarah Brown
 Office hours:  TBA via zoom, link in BrightSpace</p>
 <p>Dr. Brown is an Assistant Professor of Computer Science, who does research on how social context changes machine learning. Dr. Brown earned a PhD in Electrical Engineering from Northeastern University, completed a postdoctoral fellowship at University of California Berkeley, and worked as a postdoctoral research associate at Brown University before joining URI. At Brown University, Dr. Brown taught the Data and Society course for the Master’s in Data Science Program.</p>
