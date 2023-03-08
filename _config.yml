@@ -26,6 +26,11 @@ latex:
 
 exclude_patterns            : ['_data/*',  README.md, ignore/*, syllabus/_config.yml, syllbus/_toc_syllabus.yml]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
+
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.mermaid
+    
 #######################################################################################
 # Execution settings
 execute:
