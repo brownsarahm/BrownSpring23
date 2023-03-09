@@ -446,8 +446,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-7">
 <h1>Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">#</a></h1>
-<p><span class="xref myst">accept the assigment (link tbd)</span></p>
-<p><strong>Due: TBA</strong></p>
+<p><a class="reference external" href="https://classroom.github.com/a/q-cpZN-M">accept the assigment</a></p>
+<p><strong>Due: 2023-03-22</strong></p>
 <p>Eligible skills: (links to checklists)</p>
 <ul class="simple">
 <li><p><strong>first chance</strong> classification <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#classification-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#classification-level2">2</a></p></li>
@@ -476,8 +476,7 @@ the categorical features to one hot encoding.</p>
 <li><p>Include a basic description of the data(what the features are)</p></li>
 <li><p>Describe the classification task in your own worlds</p></li>
 <li><p>Use EDA to determine if you expect the classification to get a high accuracy or not. What types of mistakes do you think will happen most?</p></li>
-<li><p>Explain why or why not Gaussian Naive Bayes and Decision Trees are a reasonable model to try for this data.</p></li>
-<li><p>Hypothesize which will do better and why you think that.</p></li>
+<li><p>Hypothesize which will classifier will do better  and why you think that. Does the data meet the assumptions of Naive Bayes? what is important about this classifier for this application?</p></li>
 </ol>
 </section>
 <section id="basic-classification">
@@ -492,11 +491,6 @@ the categorical features to one hot encoding.</p>
 <li><p>(DT) Is this an interpretable number of levels?</p></li>
 <li><p>(GNB) do the parameters fit the data well?</p></li>
 <li><p>(GNB) do the paramters generate similar synthetic data</p></li>
-</ul>
-</li>
-<li><p>Repeat the split, train, and test steps 5 times, save the scores into a dataframe. Compute the mean and std of the scores.</p>
-<ul class="simple">
-<li><p>Is the performance consistent enough you trust it?</p></li>
 </ul>
 </li>
 <li><p>Interpret the model and its performance in terms of the application. Example questions to consider in your response include</p></li>
@@ -532,12 +526,12 @@ The same skills apply.</p>
 <ol class="arabic simple">
 <li><p>Train a model (if decision tree set the max depth 2 less than the depth it found above) on 10%, 30%, … , 90% of the data. Compute the <a class="reference internal" href="../resources/glossary.html#term-training-accuracy"><span class="xref std std-term">training accuracy</span></a> and test accuracy for each size training data in a DataFrame with columns [‘train_pct’,‘n_train_samples’,‘n_test_samples’,‘train_acc’,‘test_acc’]</p></li>
 <li><p>Plot the accuracies vs training percentage in a line graph.</p></li>
-<li><p>Interpret these results.  How does training vs test size impact the model?</p></li>
+<li><p>Interpret these results.  How does training vs test size impact the model’s performance? Does it impact training and test accuracy the same way?</p></li>
 </ol>
 <p><em>use a loop for this part, possibly also a function</em></p>
 <div class="admonition-thinking-ahead admonition">
 <p class="admonition-title">Thinking Ahead</p>
-<p><em>ideas for level 3</em></p>
+<p><em>ideas for level 3, not required for A7</em></p>
 <p>Repeat the problem setup experiment with cross validation and plot with error bars.</p>
 <ul class="simple">
 <li><p>What is the tradeoff to be made in choosing a test/train size?</p></li>
