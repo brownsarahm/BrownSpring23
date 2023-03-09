@@ -1,8 +1,8 @@
 # Assignment 7
 
-[accept the assigment (link tbd)]()
+[accept the assigment](https://classroom.github.com/a/q-cpZN-M)
 
-__Due: TBA__
+__Due: 2023-03-22__
 
 Eligible skills: (links to checklists)
 
@@ -33,8 +33,7 @@ Use the UCI ML repository
 1. Include a basic description of the data(what the features are)
 1. Describe the classification task in your own worlds
 1. Use EDA to determine if you expect the classification to get a high accuracy or not. What types of mistakes do you think will happen most? 
-1. Explain why or why not Gaussian Naive Bayes and Decision Trees are a reasonable model to try for this data.
-1. Hypothesize which will do better and why you think that.
+1. Hypothesize which will classifier will do better  and why you think that. Does the data meet the assumptions of Naive Bayes? what is important about this classifier for this application? 
 
 
 ## Basic Classification
@@ -48,9 +47,6 @@ Use the UCI ML repository
     - (DT) Is this an interpretable number of levels?
     - (GNB) do the parameters fit the data well?
     - (GNB) do the paramters generate similar synthetic data
-1. Repeat the split, train, and test steps 5 times, save the scores into a dataframe. Compute the mean and std of the scores.
-
-    - Is the performance consistent enough you trust it?
 1. Interpret the model and its performance in terms of the application. Example questions to consider in your response include
 
   - do you think this model is good enough to use for real?
@@ -82,14 +78,14 @@ The most important thing about the max depth here is that it's the same across a
 Do an experiment to compare test set size vs performance:
 1. Train a model (if decision tree set the max depth 2 less than the depth it found above) on 10%, 30%, ... , 90% of the data. Compute the {term}`training accuracy` and test accuracy for each size training data in a DataFrame with columns ['train_pct','n_train_samples','n_test_samples','train_acc','test_acc']
 1. Plot the accuracies vs training percentage in a line graph.  
-1. Interpret these results.  How does training vs test size impact the model?
+1. Interpret these results.  How does training vs test size impact the model's performance? Does it impact training and test accuracy the same way? 
 
 _use a loop for this part, possibly also a function_
 
 
 
 ```{admonition} Thinking Ahead
-_ideas for level 3_
+_ideas for level 3, not required for A7_
 
 Repeat the problem setup experiment with cross validation and plot with error bars.
 - What is the tradeoff to be made in choosing a test/train size?
