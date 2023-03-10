@@ -27,7 +27,7 @@ If you want to use a dataset with nonnumerical features you will have to convert
 the categorical features to one hot encoding.  
 
 ```{hint}
-Use the UCI ML repository
+Use the UCI ML repository, the "new beta version" will let you filter data by the attributes of it you need. 
 ```
 
 1. Include a basic description of the data(what the features are)
