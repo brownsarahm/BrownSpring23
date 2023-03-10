@@ -28,7 +28,7 @@ the definition for evaluate is going to be updated in your gradetrackers soon, t
 ## Related notes
 
 - [](../notes/2023-02-28)
-- [](../notes/2023-02-02)
+- [](../notes/2023-03-02)
 
 
 ## About the data

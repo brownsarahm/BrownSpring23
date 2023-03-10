@@ -516,18 +516,6 @@ sometimes they’re used close to exchangeably.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>We’re going to work with a cleaned copy of the data released by Propublica that also has a minimal subset of features.</p>
 <ul class="simple">
@@ -881,12 +869,7 @@ sometimes they’re used close to exchangeably.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6288366805608185
 </pre></div>
 </div>
 </div>
@@ -908,12 +891,7 @@ sometimes they’re used close to exchangeably.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6582038651004168
 </pre></div>
 </div>
 </div>
@@ -926,12 +904,8 @@ sometimes they’re used close to exchangeably.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1872,  923],
+       [ 881, 1602]])
 </pre></div>
 </div>
 </div>
@@ -963,11 +937,46 @@ sometimes they’re used close to exchangeably.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5745,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5753,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;score_text_High&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">compas_df</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_df</span><span class="p">[</span><span class="s1">&#39;score_text_High&#39;</span><span class="p">])</span>
 
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:3807,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3807</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3804,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3804</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;score_text_High&#39;
 </pre></div>
 </div>
 </div>
@@ -982,12 +991,7 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6451872734595248
 </pre></div>
 </div>
 </div>
@@ -999,12 +1003,7 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">compas_onehot</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6344554455445545
 </pre></div>
 </div>
 </div>
@@ -1021,60 +1020,10 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">acc_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">acc_fx</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1567,</span> in <span class="ni">GroupBy.apply</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1559</span>     <span class="n">new_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1560</span>         <span class="sa">f</span><span class="s2">&quot;The operation </span><span class="si">{</span><span class="n">orig_func</span><span class="si">}</span><span class="s2"> failed on a column. If any error is &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1561</span>         <span class="sa">f</span><span class="s2">&quot;raised, this will raise an exception in a future version &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1562</span>         <span class="sa">f</span><span class="s2">&quot;of pandas. Drop these columns to avoid this warning.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1563</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1564</span>     <span class="k">with</span> <span class="n">rewrite_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1565</span>         <span class="n">old_msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">,</span> <span class="n">new_msg</span>
-<span class="g g-Whitespace">   </span><span class="mi">1566</span>     <span class="p">)</span> <span class="k">if</span> <span class="n">is_np_func</span> <span class="k">else</span> <span class="n">nullcontext</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1567</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1569</span>     <span class="c1"># gh-20949</span>
-<span class="g g-Whitespace">   </span><span class="mi">1570</span>     <span class="c1"># try again, with .apply acting as a filtering</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1574</span>     <span class="c1"># fails on *some* columns, e.g. a numeric operation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1575</span>     <span class="c1"># on a string grouper column</span>
-<span class="g g-Whitespace">   </span><span class="mi">1577</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_selection_context</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1578</span>         <span class="c1"># GH#50538</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1629,</span> in <span class="ni">GroupBy._python_apply_general</span><span class="nt">(self, f, data, not_indexed_same, is_transform, is_agg)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1592</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">   </span><span class="mi">1593</span> <span class="k">def</span> <span class="nf">_python_apply_general</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1594</span>     <span class="bp">self</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1599</span>     <span class="n">is_agg</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1600</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDFrameT</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1601</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1602</span><span class="sd">     Apply function f in python space</span>
-<span class="g g-Whitespace">   </span><span class="mi">1603</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1627</span><span class="sd">         data after applying f</span>
-<span class="g g-Whitespace">   </span><span class="mi">1628</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1629</span>     <span class="n">values</span><span class="p">,</span> <span class="n">mutated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1630</span>     <span class="k">if</span> <span class="n">not_indexed_same</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1631</span>         <span class="n">not_indexed_same</span> <span class="o">=</span> <span class="n">mutated</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutated</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:839,</span> in <span class="ni">BaseGrouper.apply</span><span class="nt">(self, f, data, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span> <span class="c1"># group might be modified</span>
-<span class="g g-Whitespace">    </span><span class="mi">838</span> <span class="n">group_axes</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">axes</span>
-<span class="ne">--&gt; </span><span class="mi">839</span> <span class="n">res</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">mutated</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_is_indexed_like</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">group_axes</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="n">mutated</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">Cell In[14], line 1,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(d)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">acc_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">acc_fx</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>race
+African-American    0.649134
+Caucasian           0.671897
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1115,60 +1064,10 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">recall_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">recall_fx</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1567,</span> in <span class="ni">GroupBy.apply</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1559</span>     <span class="n">new_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1560</span>         <span class="sa">f</span><span class="s2">&quot;The operation </span><span class="si">{</span><span class="n">orig_func</span><span class="si">}</span><span class="s2"> failed on a column. If any error is &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1561</span>         <span class="sa">f</span><span class="s2">&quot;raised, this will raise an exception in a future version &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1562</span>         <span class="sa">f</span><span class="s2">&quot;of pandas. Drop these columns to avoid this warning.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1563</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1564</span>     <span class="k">with</span> <span class="n">rewrite_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1565</span>         <span class="n">old_msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">,</span> <span class="n">new_msg</span>
-<span class="g g-Whitespace">   </span><span class="mi">1566</span>     <span class="p">)</span> <span class="k">if</span> <span class="n">is_np_func</span> <span class="k">else</span> <span class="n">nullcontext</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1567</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1569</span>     <span class="c1"># gh-20949</span>
-<span class="g g-Whitespace">   </span><span class="mi">1570</span>     <span class="c1"># try again, with .apply acting as a filtering</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1574</span>     <span class="c1"># fails on *some* columns, e.g. a numeric operation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1575</span>     <span class="c1"># on a string grouper column</span>
-<span class="g g-Whitespace">   </span><span class="mi">1577</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_selection_context</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1578</span>         <span class="c1"># GH#50538</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1629,</span> in <span class="ni">GroupBy._python_apply_general</span><span class="nt">(self, f, data, not_indexed_same, is_transform, is_agg)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1592</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">   </span><span class="mi">1593</span> <span class="k">def</span> <span class="nf">_python_apply_general</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1594</span>     <span class="bp">self</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1599</span>     <span class="n">is_agg</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1600</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDFrameT</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1601</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1602</span><span class="sd">     Apply function f in python space</span>
-<span class="g g-Whitespace">   </span><span class="mi">1603</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1627</span><span class="sd">         data after applying f</span>
-<span class="g g-Whitespace">   </span><span class="mi">1628</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1629</span>     <span class="n">values</span><span class="p">,</span> <span class="n">mutated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1630</span>     <span class="k">if</span> <span class="n">not_indexed_same</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1631</span>         <span class="n">not_indexed_same</span> <span class="o">=</span> <span class="n">mutated</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutated</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:839,</span> in <span class="ni">BaseGrouper.apply</span><span class="nt">(self, f, data, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span> <span class="c1"># group might be modified</span>
-<span class="g g-Whitespace">    </span><span class="mi">838</span> <span class="n">group_axes</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">axes</span>
-<span class="ne">--&gt; </span><span class="mi">839</span> <span class="n">res</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">mutated</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_is_indexed_like</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">group_axes</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="n">mutated</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">Cell In[16], line 1,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(d)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">recall_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">recall_fx</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>race
+African-American    0.715232
+Caucasian           0.503650
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1181,60 +1080,10 @@ $<span class="math notranslate nohighlight">\( P = \frac{C_{1,1}}{C_{0,1} + C_{1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">precision_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">precision_fx</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1567,</span> in <span class="ni">GroupBy.apply</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1559</span>     <span class="n">new_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1560</span>         <span class="sa">f</span><span class="s2">&quot;The operation </span><span class="si">{</span><span class="n">orig_func</span><span class="si">}</span><span class="s2"> failed on a column. If any error is &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1561</span>         <span class="sa">f</span><span class="s2">&quot;raised, this will raise an exception in a future version &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1562</span>         <span class="sa">f</span><span class="s2">&quot;of pandas. Drop these columns to avoid this warning.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1563</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1564</span>     <span class="k">with</span> <span class="n">rewrite_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1565</span>         <span class="n">old_msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">,</span> <span class="n">new_msg</span>
-<span class="g g-Whitespace">   </span><span class="mi">1566</span>     <span class="p">)</span> <span class="k">if</span> <span class="n">is_np_func</span> <span class="k">else</span> <span class="n">nullcontext</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1567</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1569</span>     <span class="c1"># gh-20949</span>
-<span class="g g-Whitespace">   </span><span class="mi">1570</span>     <span class="c1"># try again, with .apply acting as a filtering</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1574</span>     <span class="c1"># fails on *some* columns, e.g. a numeric operation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1575</span>     <span class="c1"># on a string grouper column</span>
-<span class="g g-Whitespace">   </span><span class="mi">1577</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_selection_context</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">1578</span>         <span class="c1"># GH#50538</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1629,</span> in <span class="ni">GroupBy._python_apply_general</span><span class="nt">(self, f, data, not_indexed_same, is_transform, is_agg)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1592</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">   </span><span class="mi">1593</span> <span class="k">def</span> <span class="nf">_python_apply_general</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1594</span>     <span class="bp">self</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1599</span>     <span class="n">is_agg</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1600</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDFrameT</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1601</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1602</span><span class="sd">     Apply function f in python space</span>
-<span class="g g-Whitespace">   </span><span class="mi">1603</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1627</span><span class="sd">         data after applying f</span>
-<span class="g g-Whitespace">   </span><span class="mi">1628</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1629</span>     <span class="n">values</span><span class="p">,</span> <span class="n">mutated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1630</span>     <span class="k">if</span> <span class="n">not_indexed_same</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1631</span>         <span class="n">not_indexed_same</span> <span class="o">=</span> <span class="n">mutated</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutated</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:839,</span> in <span class="ni">BaseGrouper.apply</span><span class="nt">(self, f, data, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span> <span class="c1"># group might be modified</span>
-<span class="g g-Whitespace">    </span><span class="mi">838</span> <span class="n">group_axes</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">axes</span>
-<span class="ne">--&gt; </span><span class="mi">839</span> <span class="n">res</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">mutated</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_is_indexed_like</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">group_axes</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">841</span>     <span class="n">mutated</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">Cell In[17], line 1,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(d)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">precision_fx</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;two_year_recid&#39;</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;MedHigh&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">compas_onehot</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">precision_fx</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;metrics&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>race
+African-American    0.649535
+Caucasian           0.594828
+dtype: float64
 </pre></div>
 </div>
 </div>
