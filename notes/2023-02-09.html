@@ -184,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/04-prepare.html">4. Assignment 4:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -629,7 +631,7 @@ ipython <a class="reference external" href="https://ipython.readthedocs.io/en/st
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa22671bbe0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f0939dda7c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3a84afa5b015c8af0e5f0fd1e6d05d7f973c8240df4c80bfc224b5659e2ccf4f.png" src="../_images/3a84afa5b015c8af0e5f0fd1e6d05d7f973c8240df4c80bfc224b5659e2ccf4f.png" />
@@ -645,7 +647,7 @@ a smoothed out histogram.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa2267cc490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f0937cbbbe0&gt;
 </pre></div>
 </div>
 <img alt="../_images/4eb312d4568d0e45a2d3842cdd840493f4f190949a34e01850c687716603b857.png" src="../_images/4eb312d4568d0e45a2d3842cdd840493f4f190949a34e01850c687716603b857.png" />
@@ -794,10 +796,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa22249fcd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f0970d5fd00&gt;
 </pre></div>
 </div>
-<img alt="../_images/ace9d16b34315d5e4bd46b1e809c8c90f7e738418075c6cd718e6dd56a8e5e3c.png" src="../_images/ace9d16b34315d5e4bd46b1e809c8c90f7e738418075c6cd718e6dd56a8e5e3c.png" />
+<img alt="../_images/5af0062f0f3541b72758f4422b23b6f533a600d4075a0f1162bbb6751621f1b5.png" src="../_images/5af0062f0f3541b72758f4422b23b6f533a600d4075a0f1162bbb6751621f1b5.png" />
 </div>
 </div>
 <p>This is hard to read, we could try stretching it out to make it better</p>
@@ -808,10 +810,10 @@ Colorblind is a good default, but you can choose others that you like more too.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa220c79c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f0934315a00&gt;
 </pre></div>
 </div>
-<img alt="../_images/fe1305b60ed3cbab0393d3b97118d6ef65e22d3fa1575600d072ac75eea058e8.png" src="../_images/fe1305b60ed3cbab0393d3b97118d6ef65e22d3fa1575600d072ac75eea058e8.png" />
+<img alt="../_images/80d666efa706f24f39ffc27ac2c2576f1d4c31ee463e403e17389e20b639063b.png" src="../_images/80d666efa706f24f39ffc27ac2c2576f1d4c31ee463e403e17389e20b639063b.png" />
 </div>
 </div>
 <p>A better way might be to filter only the top countries. We’ll find those by grouping by country
@@ -2069,7 +2071,7 @@ Name: Country.of.Origin, Length: 1311, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa21d6a4c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f0930b8b670&gt;
 </pre></div>
 </div>
 <img alt="../_images/9e9b896b957123f7d038b8dee310771f94c86f91b6dbd8fe2dbe68890bf48846.png" src="../_images/9e9b896b957123f7d038b8dee310771f94c86f91b6dbd8fe2dbe68890bf48846.png" />

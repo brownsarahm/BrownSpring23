@@ -184,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/04-prepare.html">4. Assignment 4:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -1293,6 +1295,28 @@ Name: in_country_partner, dtype: int64
   <tbody>
     <tr>
       <th>0</th>
+      <td>27642651852</td>
+      <td>PushEvent</td>
+      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 129011...</td>
+      <td>True</td>
+      <td>2023-03-10 19:31:35+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27642555048</td>
+      <td>PushEvent</td>
+      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
+      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
+      <td>{'repository_id': 592944632, 'push_id': 129010...</td>
+      <td>True</td>
+      <td>2023-03-10 19:25:56+00:00</td>
+      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>27622649642</td>
       <td>PushEvent</td>
       <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
@@ -1303,7 +1327,7 @@ Name: in_country_partner, dtype: int64
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>3</th>
       <td>27622605190</td>
       <td>PushEvent</td>
       <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
@@ -1314,7 +1338,7 @@ Name: in_country_partner, dtype: int64
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>27619129183</td>
       <td>PushEvent</td>
       <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
@@ -1322,28 +1346,6 @@ Name: in_country_partner, dtype: int64
       <td>{'repository_id': 592944632, 'push_id': 128892...</td>
       <td>True</td>
       <td>2023-03-09 22:03:15+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27619054355</td>
-      <td>PushEvent</td>
-      <td>{'id': 10656079, 'login': 'brownsarahm', 'disp...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128892...</td>
-      <td>True</td>
-      <td>2023-03-09 21:59:24+00:00</td>
-      <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27581312160</td>
-      <td>PushEvent</td>
-      <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
-      <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128709...</td>
-      <td>True</td>
-      <td>2023-03-08 16:24:56+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1536,13 +1538,13 @@ For example</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>27622649642</td>
+      <td>27642651852</td>
       <td>PushEvent</td>
       <td>{'id': 41898282, 'login': 'github-actions[bot]...</td>
       <td>{'id': 592944632, 'name': 'rhodyprog4ds/BrownS...</td>
-      <td>{'repository_id': 592944632, 'push_id': 128911...</td>
+      <td>{'repository_id': 592944632, 'push_id': 129011...</td>
       <td>True</td>
-      <td>2023-03-10 02:20:47+00:00</td>
+      <td>2023-03-10 19:31:35+00:00</td>
       <td>{'id': 69595187, 'login': 'rhodyprog4ds', 'gra...</td>
     </tr>
   </tbody>
@@ -1906,21 +1908,21 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>7</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-    </tr>
-    <tr>
-      <th>8</th>
       <td>10656079</td>
       <td>brownsarahm</td>
       <td>brownsarahm</td>
       <td></td>
       <td>https://api.github.com/users/brownsarahm</td>
       <td>https://avatars.githubusercontent.com/u/10656079?</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1942,12 +1944,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>11</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>12</th>
@@ -1969,12 +1971,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>14</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>15</th>
@@ -2005,12 +2007,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>18</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>19</th>
@@ -2023,12 +2025,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>20</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>21</th>
@@ -2041,21 +2043,21 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>22</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-    </tr>
-    <tr>
-      <th>23</th>
       <td>41898282</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>
       <td></td>
       <td>https://api.github.com/users/github-actions[bot]</td>
       <td>https://avatars.githubusercontent.com/u/41898282?</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
     <tr>
       <th>24</th>
@@ -2086,12 +2088,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>27</th>
-      <td>10656079</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
+      <td>41898282</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
       <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
     </tr>
     <tr>
       <th>28</th>
@@ -2104,12 +2106,12 @@ name prepended to the new name.</p>
     </tr>
     <tr>
       <th>29</th>
-      <td>41898282</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
+      <td>10656079</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
       <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
     </tr>
   </tbody>
 </table>
@@ -2208,6 +2210,54 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
+      <td>2.764265e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-10 19:31:35+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.764256e+10</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-10 19:25:56+00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>2.762265e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2231,7 +2281,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>3</th>
       <td>2.762261e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2255,7 +2305,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>2.761913e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2279,7 +2329,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>5</th>
       <td>2.761905e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2303,7 +2353,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>6</th>
       <td>2.758131e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2327,7 +2377,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>7</th>
       <td>2.758122e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2351,7 +2401,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>8</th>
       <td>2.756634e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2375,7 +2425,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>9</th>
       <td>2.756632e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2399,7 +2449,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>10</th>
       <td>2.756630e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2423,7 +2473,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>11</th>
       <td>2.756629e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2447,7 +2497,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>12</th>
       <td>2.756628e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2471,7 +2521,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>13</th>
       <td>2.756627e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2495,7 +2545,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>14</th>
       <td>2.756626e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2519,7 +2569,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>15</th>
       <td>2.756625e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2543,7 +2593,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>16</th>
       <td>2.756610e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2567,7 +2617,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>17</th>
       <td>2.756605e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2591,7 +2641,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>18</th>
       <td>2.756481e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2615,7 +2665,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>19</th>
       <td>2.756477e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2639,7 +2689,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>20</th>
       <td>2.756270e+10</td>
       <td>IssuesEvent</td>
       <td>True</td>
@@ -2663,7 +2713,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>21</th>
       <td>2.753462e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
@@ -2687,7 +2737,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>22</th>
       <td>2.753461e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2711,7 +2761,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>23</th>
       <td>2.753458e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2735,7 +2785,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>24</th>
       <td>2.753457e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2759,7 +2809,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>25</th>
       <td>2.742338e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2783,7 +2833,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>26</th>
       <td>2.742331e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2807,7 +2857,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>27</th>
       <td>2.741335e+10</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -2831,7 +2881,7 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>28</th>
       <td>2.741329e+10</td>
       <td>CreateEvent</td>
       <td>True</td>
@@ -2855,59 +2905,11 @@ name prepended to the new name.</p>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>27</th>
+      <th>29</th>
       <td>2.741329e+10</td>
       <td>ReleaseEvent</td>
       <td>True</td>
       <td>2023-03-01 12:05:01+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2.741326e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-03-01 12:03:45+00:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2.741324e+10</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-03-01 12:02:58+00:00</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3104,6 +3106,54 @@ name prepended to the new name.</p>
   <tbody>
     <tr>
       <th>0</th>
+      <td>27642651852</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-10 19:31:35+00:00</td>
+      <td>41898282.0</td>
+      <td>github-actions[bot]</td>
+      <td>github-actions</td>
+      <td></td>
+      <td>https://api.github.com/users/github-actions[bot]</td>
+      <td>https://avatars.githubusercontent.com/u/41898282?</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187.0</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27642555048</td>
+      <td>PushEvent</td>
+      <td>True</td>
+      <td>2023-03-10 19:25:56+00:00</td>
+      <td>10656079.0</td>
+      <td>brownsarahm</td>
+      <td>brownsarahm</td>
+      <td></td>
+      <td>https://api.github.com/users/brownsarahm</td>
+      <td>https://avatars.githubusercontent.com/u/10656079?</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69595187.0</td>
+      <td>rhodyprog4ds</td>
+      <td></td>
+      <td>https://api.github.com/orgs/rhodyprog4ds</td>
+      <td>https://avatars.githubusercontent.com/u/69595187?</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>27622649642</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3127,7 +3177,7 @@ name prepended to the new name.</p>
       <td>https://avatars.githubusercontent.com/u/69595187?</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>3</th>
       <td>27622605190</td>
       <td>PushEvent</td>
       <td>True</td>
@@ -3151,59 +3201,11 @@ name prepended to the new name.</p>
       <td>https://avatars.githubusercontent.com/u/69595187?</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>27619129183</td>
       <td>PushEvent</td>
       <td>True</td>
       <td>2023-03-09 22:03:15+00:00</td>
-      <td>41898282.0</td>
-      <td>github-actions[bot]</td>
-      <td>github-actions</td>
-      <td></td>
-      <td>https://api.github.com/users/github-actions[bot]</td>
-      <td>https://avatars.githubusercontent.com/u/41898282?</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>69595187.0</td>
-      <td>rhodyprog4ds</td>
-      <td></td>
-      <td>https://api.github.com/orgs/rhodyprog4ds</td>
-      <td>https://avatars.githubusercontent.com/u/69595187?</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27619054355</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-03-09 21:59:24+00:00</td>
-      <td>10656079.0</td>
-      <td>brownsarahm</td>
-      <td>brownsarahm</td>
-      <td></td>
-      <td>https://api.github.com/users/brownsarahm</td>
-      <td>https://avatars.githubusercontent.com/u/10656079?</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>69595187.0</td>
-      <td>rhodyprog4ds</td>
-      <td></td>
-      <td>https://api.github.com/orgs/rhodyprog4ds</td>
-      <td>https://avatars.githubusercontent.com/u/69595187?</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>27581312160</td>
-      <td>PushEvent</td>
-      <td>True</td>
-      <td>2023-03-08 16:24:56+00:00</td>
       <td>41898282.0</td>
       <td>github-actions[bot]</td>
       <td>github-actions</td>

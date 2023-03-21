@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Assignment 7 &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>7. Assignment 7 &#8212; Programming for Data Science at URI Spring 2023</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/07-classification';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Portfolio" href="../portfolio/index.html" />
+    <link rel="prev" title="6. Assignment 6: Auditing Algorithms" href="06-evaluate.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -182,15 +184,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-02-28.html">11. Evaluating ML Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-02.html">12. Auditing with AIF360</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-syllabus-install.html">1. Assignment 1: Portfolio Setup, Data Science, and Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-python-access.html">2. Assignment 2: Practicing Python and Accessing Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-eda.html">3. Assignment 3: Exploratory Data Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-prepare.html">4. Assignment 4:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -429,10 +433,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-notes">Related notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-eda">Dataset and EDA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-classification">Basic Classification</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-problem-setups">Exploring Problem Setups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-notes">7.1. Related notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-eda">7.2. Dataset and EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-classification">7.3. Basic Classification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-problem-setups">7.4. Exploring Problem Setups</a></li>
 </ul>
             </nav>
         </div>
@@ -445,7 +449,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-7">
-<h1>Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">7. </span>Assignment 7<a class="headerlink" href="#assignment-7" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://classroom.github.com/a/q-cpZN-M">accept the assigment</a></p>
 <p><strong>Due: 2023-03-22</strong></p>
 <p>Eligible skills: (links to checklists)</p>
@@ -457,14 +461,14 @@ document.write(`
 <li><p>python <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level1">1</a> and <a class="reference external" href="https://rhodyprog4ds.github.io/BrownFall22/syllabus/achievements.html#python-level2">2</a></p></li>
 </ul>
 <section id="related-notes">
-<h2>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.1. </span>Related notes<a class="headerlink" href="#related-notes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../notes/2023-03-07.html"><span class="doc std std-doc">Intro to ML &amp; Naive Bayes</span></a></p></li>
 <li><p><a class="reference internal" href="../notes/2023-03-09.html"><span class="doc std std-doc">Predictions with niave Bayes and Decision Trees</span></a></p></li>
 </ul>
 </section>
 <section id="dataset-and-eda">
-<h2>Dataset and EDA<a class="headerlink" href="#dataset-and-eda" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.2. </span>Dataset and EDA<a class="headerlink" href="#dataset-and-eda" title="Permalink to this headline">#</a></h2>
 <p>Choose a datasets that is well suited for classification and that has all numerical features.
 If you want to use a dataset with nonnumerical features you will have to convert
 the categorical features to one hot encoding.</p>
@@ -480,7 +484,7 @@ the categorical features to one hot encoding.</p>
 </ol>
 </section>
 <section id="basic-classification">
-<h2>Basic Classification<a class="headerlink" href="#basic-classification" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.3. </span>Basic Classification<a class="headerlink" href="#basic-classification" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Fit your chosen classifier with the default parameters on 50% of the data</p></li>
 <li><p>Test it on 50% held out data and generate a classification report</p></li>
@@ -503,7 +507,7 @@ the categorical features to one hot encoding.</p>
 </ul>
 </section>
 <section id="exploring-problem-setups">
-<h2>Exploring Problem Setups<a class="headerlink" href="#exploring-problem-setups" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">7.4. </span>Exploring Problem Setups<a class="headerlink" href="#exploring-problem-setups" title="Permalink to this headline">#</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Understanding the impact of test/train size is a part of classifcation and helps with evaluation.  This exercise is <em>also</em> a chance at python level 2.</p>
@@ -577,6 +581,24 @@ ideas by doing it yourself can help build understanding and intution</strong></p
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="06-evaluate.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Assignment 6: Auditing Algorithms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../portfolio/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Portfolio</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -592,10 +614,10 @@ ideas by doing it yourself can help build understanding and intution</strong></p
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-notes">Related notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-eda">Dataset and EDA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-classification">Basic Classification</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-problem-setups">Exploring Problem Setups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-notes">7.1. Related notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-and-eda">7.2. Dataset and EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-classification">7.3. Basic Classification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-problem-setups">7.4. Exploring Problem Setups</a></li>
 </ul>
   </nav></div>
 

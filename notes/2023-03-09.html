@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Predictions with niave Bayes and Decision Trees &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>14. Predictions with niave Bayes and Decision Trees &#8212; Programming for Data Science at URI Spring 2023</title>
   
   
   
@@ -68,6 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-03-09';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="prev" title="13. Intro to ML &amp; Naive Bayes" href="2023-03-07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -170,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../syllabus/communication.html">Course Communications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="2023-01-24.html">1. Welcome and Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-01-26.html">2. Syllabus and Python Review</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-01-31.html">3. Grading review, Pandas, and Iterables</a></li>
@@ -184,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-02-28.html">11. Evaluating ML Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-02.html">12. Auditing with AIF360</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-07.html">13. Intro to ML &amp; Naive Bayes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Predictions with niave Bayes and Decision Trees</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -193,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/04-prepare.html">4. Assignment 4:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -431,13 +435,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-irises">Classifying Irises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-gnb-make-predictions">How does GNB make predictions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretting-probabilities">Interpretting probabilities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-harder-dataset">What about a harder dataset?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision Trees</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-classifier-parameters">Setting Classifier Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-loading-uci-data">Example Loading UCI data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-irises">14.1. Classifying Irises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-gnb-make-predictions">14.2. How does GNB make predictions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretting-probabilities">14.3. Interpretting probabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-harder-dataset">14.4. What about a harder dataset?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">14.5. Decision Trees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-classifier-parameters">14.6. Setting Classifier Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-loading-uci-data">14.7. Example Loading UCI data</a></li>
 </ul>
             </nav>
         </div>
@@ -450,7 +454,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predictions-with-niave-bayes-and-decision-trees">
-<h1>Predictions with niave Bayes and Decision Trees<a class="headerlink" href="#predictions-with-niave-bayes-and-decision-trees" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">14. </span>Predictions with niave Bayes and Decision Trees<a class="headerlink" href="#predictions-with-niave-bayes-and-decision-trees" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -466,7 +470,7 @@ document.write(`
 </div>
 </div>
 <section id="classifying-irises">
-<h2>Classifying Irises<a class="headerlink" href="#classifying-irises" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.1. </span>Classifying Irises<a class="headerlink" href="#classifying-irises" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -721,7 +725,7 @@ Name: species, dtype: bool
 </div>
 </section>
 <section id="how-does-gnb-make-predictions">
-<h2>How does GNB make predictions?<a class="headerlink" href="#how-does-gnb-make-predictions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.2. </span>How does GNB make predictions?<a class="headerlink" href="#how-does-gnb-make-predictions" title="Permalink to this headline">#</a></h2>
 <p>we fit the Gaussian Naive Bayes, it computes a mean
 <span class="math notranslate nohighlight">\(\theta\)</span> and variance <span class="math notranslate nohighlight">\(\sigma\)</span> and adds them to model parameters in attributes</p>
 <div class="cell docutils container">
@@ -820,10 +824,10 @@ as list of lists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f772cd35f40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5724450cd0&gt;
 </pre></div>
 </div>
-<img alt="../_images/0a56fed9b76298111066971179dd765770f80a81ac7996b2dc26537684d75f62.png" src="../_images/0a56fed9b76298111066971179dd765770f80a81ac7996b2dc26537684d75f62.png" />
+<img alt="../_images/b743113977a8a9524f1c983c18ab7e5abd17b06bcb1fd34d2019d971407e439e.png" src="../_images/b743113977a8a9524f1c983c18ab7e5abd17b06bcb1fd34d2019d971407e439e.png" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -846,7 +850,7 @@ naive assumption. The more flexible is called Quadratic Discriminant Analysis.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f76f066b1f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f570ffd66d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" src="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" />
@@ -859,7 +863,7 @@ That means that the naive assumption doesn’t hold perfectly on this data.</p>
 likelihood of the sample according to a Gaussian distribution (normal) for each class and then calculates the probability of the sample belonging to each class and returns the one with the highest probability.</p>
 </section>
 <section id="interpretting-probabilities">
-<h2>Interpretting probabilities<a class="headerlink" href="#interpretting-probabilities" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.3. </span>Interpretting probabilities<a class="headerlink" href="#interpretting-probabilities" title="Permalink to this headline">#</a></h2>
 <p>We can look directly at the probabilities</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1106,7 +1110,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f76efa39a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f5710087b50&gt;
 </pre></div>
 </div>
 <img alt="../_images/85dc5ce270f983c64a35ab56951f7be76d965ef8391cc8c0c3d9dbd75fb1b535.png" src="../_images/85dc5ce270f983c64a35ab56951f7be76d965ef8391cc8c0c3d9dbd75fb1b535.png" />
@@ -1115,7 +1119,7 @@ forms of color blindness.</p>
 <p>We see that most sampples have nearly all of their probability mass (all probabiilties in a distribution sum (or integrate if continuous) to 1, but a few samples are not.</p>
 </section>
 <section id="what-about-a-harder-dataset">
-<h2>What about a harder dataset?<a class="headerlink" href="#what-about-a-harder-dataset" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.4. </span>What about a harder dataset?<a class="headerlink" href="#what-about-a-harder-dataset" title="Permalink to this headline">#</a></h2>
 <p>Using a toy dataset here shows an easy to see challenge for the classifier that we have seen so far.  Real datasets will be hard in different ways, and since they’re higher dimensional, it’s harder to visualize the cause.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1127,7 +1131,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f76efcd8340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f570c499d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/69261c780c594221a1cd79654f1b2fbb228e99409df8822afd159488c2868365.png" src="../_images/69261c780c594221a1cd79654f1b2fbb228e99409df8822afd159488c2868365.png" />
@@ -1217,7 +1221,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.44
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6
 </pre></div>
 </div>
 </div>
@@ -1254,7 +1258,7 @@ forms of color blindness.</p>
 </div>
 </section>
 <section id="decision-trees">
-<h2>Decision Trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.5. </span>Decision Trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">#</a></h2>
 <p>The Gaussian Naive Bayes model we have seen so far, worked on this really well separated Gaussian distributed data.  Not all data is that easy to classify. Sometimes coming up with a description of the data for a generative model is hard and it might not even be important.  A scientist will find that valuable, but it is not always needed. Another way to think about classification is to focus on writing a rule (or set of rules) for determining the label from the features.  This type of classifier is called discriminative, because it focuses on discriminating (in the literal, differentiate sense, not the socially loaded differentiate on the basis of an attribute of the person in unfair ways sense) between the classes.</p>
 <p>This data does not fit the assumptions of the Niave Bayes model, but a decision tree has a different rule. It can be more complex, but for the scikit learn one relies on splitting the data at a series of points along one axis at a time.</p>
 <p>It is a <strong>discriminative</strong> model, because it describes how to discriminate (in the sense of differentiate) between the classes.</p>
@@ -1283,7 +1287,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.92
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.94
 </pre></div>
 </div>
 </div>
@@ -1298,26 +1302,24 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.3392857142857143, 0.9166666666666666, &#39;x[1] &lt;= 2.255\nsamples = 100.0%\nvalue = [0.48, 0.52]\nclass = B&#39;),
- Text(0.14285714285714285, 0.75, &#39;x[0] &lt;= 4.125\nsamples = 32.7%\nvalue = [0.306, 0.694]\nclass = B&#39;),
- Text(0.07142857142857142, 0.5833333333333334, &#39;samples = 10.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.21428571428571427, 0.5833333333333334, &#39;samples = 22.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.5357142857142857, 0.75, &#39;x[0] &lt;= 2.695\nsamples = 67.3%\nvalue = [0.564, 0.436]\nclass = A&#39;),
- Text(0.35714285714285715, 0.5833333333333334, &#39;x[1] &lt;= 4.0\nsamples = 33.3%\nvalue = [0.32, 0.68]\nclass = B&#39;),
- Text(0.2857142857142857, 0.4166666666666667, &#39;samples = 10.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.42857142857142855, 0.4166666666666667, &#39;samples = 22.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.7142857142857143, 0.5833333333333334, &#39;x[1] &lt;= 2.69\nsamples = 34.0%\nvalue = [0.804, 0.196]\nclass = A&#39;),
- Text(0.5714285714285714, 0.4166666666666667, &#39;x[0] &lt;= 4.1\nsamples = 7.3%\nvalue = [0.182, 0.818]\nclass = B&#39;),
- Text(0.5, 0.25, &#39;samples = 1.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.6428571428571429, 0.25, &#39;samples = 6.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.8571428571428571, 0.4166666666666667, &#39;x[0] &lt;= 4.085\nsamples = 26.7%\nvalue = [0.975, 0.025]\nclass = A&#39;),
- Text(0.7857142857142857, 0.25, &#39;x[1] &lt;= 4.415\nsamples = 1.3%\nvalue = [0.5, 0.5]\nclass = A&#39;),
- Text(0.7142857142857143, 0.08333333333333333, &#39;samples = 0.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.8571428571428571, 0.08333333333333333, &#39;samples = 0.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.9285714285714286, 0.25, &#39;samples = 25.3%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.3181818181818182, 0.9166666666666666, &#39;x[1] &lt;= 1.335\nsamples = 100.0%\nvalue = [0.5, 0.5]\nclass = A&#39;),
+ Text(0.22727272727272727, 0.75, &#39;samples = 2.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.4090909090909091, 0.75, &#39;x[1] &lt;= 2.725\nsamples = 97.3%\nvalue = [0.514, 0.486]\nclass = A&#39;),
+ Text(0.18181818181818182, 0.5833333333333334, &#39;x[0] &lt;= 4.07\nsamples = 47.3%\nvalue = [0.451, 0.549]\nclass = B&#39;),
+ Text(0.09090909090909091, 0.4166666666666667, &#39;samples = 21.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.2727272727272727, 0.4166666666666667, &#39;samples = 26.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.6363636363636364, 0.5833333333333334, &#39;x[0] &lt;= 2.75\nsamples = 50.0%\nvalue = [0.573, 0.427]\nclass = A&#39;),
+ Text(0.45454545454545453, 0.4166666666666667, &#39;x[1] &lt;= 3.9\nsamples = 23.3%\nvalue = [0.114, 0.886]\nclass = B&#39;),
+ Text(0.36363636363636365, 0.25, &#39;samples = 2.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.5454545454545454, 0.25, &#39;samples = 20.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.8181818181818182, 0.4166666666666667, &#39;x[1] &lt;= 3.95\nsamples = 26.7%\nvalue = [0.975, 0.025]\nclass = A&#39;),
+ Text(0.7272727272727273, 0.25, &#39;x[1] &lt;= 2.765\nsamples = 1.3%\nvalue = [0.5, 0.5]\nclass = A&#39;),
+ Text(0.6363636363636364, 0.08333333333333333, &#39;samples = 0.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.8181818181818182, 0.08333333333333333, &#39;samples = 0.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.9090909090909091, 0.25, &#39;samples = 25.3%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
 </pre></div>
 </div>
-<img alt="../_images/2cae8431c34842cffc04b504dba9bdf3b0dbd276f5e093be1fa53765486d1931.png" src="../_images/2cae8431c34842cffc04b504dba9bdf3b0dbd276f5e093be1fa53765486d1931.png" />
+<img alt="../_images/9e086e138d618b610dfaafc730cd1cb4c8fe72cc829e607f4ff47b5565eefb0a.png" src="../_images/9e086e138d618b610dfaafc730cd1cb4c8fe72cc829e607f4ff47b5565eefb0a.png" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1329,7 +1331,7 @@ forms of color blindness.</p>
 </aside>
 </section>
 <section id="setting-classifier-parameters">
-<h2>Setting Classifier Parameters<a class="headerlink" href="#setting-classifier-parameters" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.6. </span>Setting Classifier Parameters<a class="headerlink" href="#setting-classifier-parameters" title="Permalink to this headline">#</a></h2>
 <p>The decision tree we had above has a lot more layers than we would expect.  This is really simple data so we still got perfect classification. However, the more complex the model, the more risk that it will learn something noisy about the training data that doesn’t hold up in the test set.</p>
 <p>Fortunately, we can control the parameters to make it find a simpler decision boundary.</p>
 <div class="cell docutils container">
@@ -1341,7 +1343,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.74
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
 </pre></div>
 </div>
 </div>
@@ -1349,7 +1351,7 @@ forms of color blindness.</p>
 <p>We might need to play with different parameters to get it just how we want it.  A simpler model can be better because it  is easier to understand and sometimes will generalize, or apply to new data, better.</p>
 </section>
 <section id="example-loading-uci-data">
-<h2>Example Loading UCI data<a class="headerlink" href="#example-loading-uci-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">14.7. </span>Example Loading UCI data<a class="headerlink" href="#example-loading-uci-data" title="Permalink to this headline">#</a></h2>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>This is a hint for a7</p>
@@ -1723,6 +1725,24 @@ forms of color blindness.</p>
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="2023-03-07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Intro to ML &amp; Naive Bayes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../assignments/01-syllabus-install.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1738,13 +1758,13 @@ forms of color blindness.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-irises">Classifying Irises</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-gnb-make-predictions">How does GNB make predictions?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretting-probabilities">Interpretting probabilities</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-harder-dataset">What about a harder dataset?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">Decision Trees</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-classifier-parameters">Setting Classifier Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-loading-uci-data">Example Loading UCI data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifying-irises">14.1. Classifying Irises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-gnb-make-predictions">14.2. How does GNB make predictions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretting-probabilities">14.3. Interpretting probabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-about-a-harder-dataset">14.4. What about a harder dataset?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-trees">14.5. Decision Trees</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-classifier-parameters">14.6. Setting Classifier Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-loading-uci-data">14.7. Example Loading UCI data</a></li>
 </ul>
   </nav></div>
 
