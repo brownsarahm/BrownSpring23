@@ -205,6 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../portfolio/index.html">Portfolio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../portfolio/formatting.html">Formatting Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../portfolio/check1ideas.html">Portfolio Check 1 Ideas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../portfolio/check2ideas.html">Check 2 Ideas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
 <ul class="nav bd-sidenav">
@@ -658,7 +659,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1958/1880485675.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/1880485675.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
   list_of_df[2].mean()
 </pre></div>
 </div>
@@ -699,7 +700,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1958/2310255724.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/2310255724.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   list_of_df[2].groupby(&#39;treatment&#39;).mean()
 </pre></div>
 </div>
@@ -748,7 +749,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1958/344217198.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/344217198.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   list_of_df[2].groupby(&#39;person&#39;).mean()
 </pre></div>
 </div>
@@ -1521,7 +1522,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f2264302f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f940c7b65b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" src="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" />
@@ -1535,7 +1536,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f229c1415b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cf94cb80&gt;
 </pre></div>
 </div>
 <img alt="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" src="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" />
@@ -1616,29 +1617,61 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1958/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f22642f8490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93d4bbdee0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2ba0cf7a0fec7ae4f25fed70d83b8630656765ae2a70b237c293f7b81a607198.png" src="../_images/2ba0cf7a0fec7ae4f25fed70d83b8630656765ae2a70b237c293f7b81a607198.png" />
@@ -2131,7 +2164,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f225e784c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cf5f5a00&gt;
 </pre></div>
 </div>
 <img alt="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" src="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" />
@@ -2219,7 +2252,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f225cd0e910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cc3b5d00&gt;
 </pre></div>
 </div>
 <img alt="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" src="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" />

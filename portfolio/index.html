@@ -205,6 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Portfolio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formatting.html">Formatting Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="check1ideas.html">Portfolio Check 1 Ideas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check2ideas.html">Check 2 Ideas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">FAQ</span></p>
 <ul class="nav bd-sidenav">
@@ -453,9 +454,9 @@ document.write(`
 <span id="portolioindex"></span><h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2274/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2285/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   assignment_dummies  = pd.get_dummies(rubric_df[&#39;assignments&#39;].apply(pd.Series).stack()).sum(level=0)
-/tmp/ipykernel_2274/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
+/tmp/ipykernel_2285/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
   portfolio_dummies  = pd.get_dummies(rubric_df[&#39;portfolios&#39;].apply(pd.Series).stack()).sum(level=0)
 </pre></div>
 </div>
@@ -480,7 +481,7 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
 <li><p>Portfolio check 3 is due April 21</p></li>
 <li><p>Portfolio check 4 is due on our assigned final exam date</p></li>
 </ul>
-<p>Portfolio check 1 will assess the following <em>new</em> achievements in addition to an a chance to make up any that you have missed:</p>
+<p>Portfolio check 2 will assess the following <em>new</em> achievements in addition to an a chance to make up any that you have missed:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
@@ -514,6 +515,10 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
       <td>reliable, efficient, pythonic code that consistently adheres to pep8</td>
     </tr>
     <tr>
+      <th>process</th>
+      <td>Compare different ways that data science can facilitate decision making</td>
+    </tr>
+    <tr>
       <th>access</th>
       <td>access data from both common and uncommon formats and identify best practices for formats in different contexts</td>
     </tr>
@@ -532,6 +537,22 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
     <tr>
       <th>prepare</th>
       <td>apply data reshaping, cleaning, and filtering manipulations reliably and correctly by assessing data as received</td>
+    </tr>
+    <tr>
+      <th>evaluate</th>
+      <td>Evaluate a model with multiple metrics and cross validation</td>
+    </tr>
+    <tr>
+      <th>classification</th>
+      <td>fit and apply classification models and select appropriate classification models for different contexts</td>
+    </tr>
+    <tr>
+      <th>regression</th>
+      <td>fit and explain regrularized or nonlinear regression</td>
+    </tr>
+    <tr>
+      <th>clustering</th>
+      <td>apply multiple clustering techniques, and interpret results</td>
     </tr>
   </tbody>
 </table>

@@ -91,13 +91,12 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 
 
 
-
-Portfolio check 1 will assess the following *new* achievements in addition to an a chance to make up any that you have missed:
+Portfolio check 2 will assess the following *new* achievements in addition to an a chance to make up any that you have missed:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-portfolio_df['Level 3'][portfolio_df['P1']==1].reset_index().set_index('keyword')
+portfolio_df['Level 3'][portfolio_df['P2']==1].reset_index().set_index('keyword')
 ```
 
 
