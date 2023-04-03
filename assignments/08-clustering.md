@@ -4,7 +4,7 @@ substitutions:
     [accept the assignment](https://classroom.github.com/a/rzuWo1_-)
   date : 2023-03-29 
 ---
-# Assignment 9
+# Assignment 8: Clustering
 
  [accept the assignment](https://classroom.github.com/a/rzuWo1_-)
 __Due: 2023-03-29__
