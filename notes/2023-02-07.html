@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -522,7 +525,7 @@ and what some of the methods are, and how to get data into them.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 28 entries, 1 to 28
+Index: 28 entries, 1 to 28
 Data columns (total 43 columns):
  #   Column                 Non-Null Count  Dtype  
 ---  ------                 --------------  -----  
@@ -559,7 +562,7 @@ Data columns (total 43 columns):
  30  Moisture               28 non-null     float64
  31  Category.One.Defects   28 non-null     int64  
  32  Quakers                28 non-null     int64  
- 33  Color                  26 non-null     object 
+ 33  Color                  25 non-null     object 
  34  Category.Two.Defects   28 non-null     int64  
  35  Expiration             28 non-null     object 
  36  Certification.Body     28 non-null     object 
@@ -1153,11 +1156,11 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Green           20
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Color
+Green           20
 Blue-Green       3
 Bluish-Green     2
-None             1
-Name: Color, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1176,12 +1179,13 @@ How can you get the number of missing Colors?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>India            13
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country.of.Origin
+India            13
 Uganda           10
 United States     2
 Ecuador           2
 Vietnam           1
-Name: Country.of.Origin, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1206,7 +1210,7 @@ Name: Country.of.Origin, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;India&#39;, &#39;Uganda&#39;, &#39;United States&#39;, &#39;Ecuador&#39;, &#39;Vietnam&#39;], dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;India&#39;, &#39;Uganda&#39;, &#39;United States&#39;, &#39;Ecuador&#39;, &#39;Vietnam&#39;], dtype=&#39;object&#39;, name=&#39;Country.of.Origin&#39;)
 </pre></div>
 </div>
 </div>
@@ -1405,7 +1409,7 @@ these notes as a notebook.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fd8e9e042b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fca29e5bc70&gt;
 </pre></div>
 </div>
 </div>
@@ -1617,7 +1621,10 @@ these notes as a notebook.</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2023-02-02.html"
@@ -1637,7 +1644,10 @@ these notes as a notebook.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1685,7 +1695,7 @@ these notes as a notebook.</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1715,7 +1725,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1724,8 +1734,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

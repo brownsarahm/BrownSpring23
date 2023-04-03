@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>17. Regression Preview &#8212; Programming for Data Science at URI Spring 2023</title>
+    <title>18. Regression Preview &#8212; Programming for Data Science at URI Spring 2023</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-03-28';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
-    <link rel="prev" title="15. Clustering" href="2023-03-21.html" />
+    <link rel="next" title="19. Regression" href="2023-03-30.html" />
+    <link rel="prev" title="17. Comparing Classification and Clustering Data" href="2023-03-23.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -438,8 +441,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-regression">17.1. Preview Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-ready-for-thursday">17.2. Be ready for Thursday</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-regression">18.1. Preview Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-ready-for-thursday">18.2. Be ready for Thursday</a></li>
 </ul>
             </nav>
         </div>
@@ -452,9 +455,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="regression-preview">
-<h1><span class="section-number">17. </span>Regression Preview<a class="headerlink" href="#regression-preview" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">18. </span>Regression Preview<a class="headerlink" href="#regression-preview" title="Permalink to this headline">#</a></h1>
 <section id="preview-regression">
-<h2><span class="section-number">17.1. </span>Preview Regression<a class="headerlink" href="#preview-regression" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">18.1. </span>Preview Regression<a class="headerlink" href="#preview-regression" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">the beginning of sklearn’s regression tutorial</a> carefully. and skim the rest of it.</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py">the linear regression example</a>. cut this code into multiple cells and run it, looking at interim points.</p></li>
@@ -462,7 +465,7 @@ document.write(`
 </ul>
 </section>
 <section id="be-ready-for-thursday">
-<h2><span class="section-number">17.2. </span>Be ready for Thursday<a class="headerlink" href="#be-ready-for-thursday" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">18.2. </span>Be ready for Thursday<a class="headerlink" href="#be-ready-for-thursday" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>what are the assumptions of regression generally?</p></li>
 <li><p>what are the specific assumptions of linear regression?</p></li>
@@ -498,27 +501,33 @@ document.write(`
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2023-03-21.html"
+       href="2023-03-23.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Clustering</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Comparing Classification and Clustering Data</p>
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/01-syllabus-install.html"
+       href="2023-03-30.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -533,8 +542,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-regression">17.1. Preview Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-ready-for-thursday">17.2. Be ready for Thursday</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-regression">18.1. Preview Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-ready-for-thursday">18.2. Be ready for Thursday</a></li>
 </ul>
   </nav></div>
 
@@ -543,7 +552,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -573,7 +582,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -582,8 +591,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

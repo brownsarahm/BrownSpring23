@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -940,8 +943,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method NDFrame.head of     Species                              Owner Country.of.Origin  \
-1   Robusta       ankole coffee producers coop            Uganda   
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method NDFrame.head of     Species                              Owner Country.of.Origin   
+1   Robusta       ankole coffee producers coop            Uganda  \
 2   Robusta                     nishant gurjer             India   
 3   Robusta                      andrew hetzel             India   
 4   Robusta                             ugacof            Uganda   
@@ -970,8 +973,8 @@ document.write(`
 27  Robusta                      cafe politico             India   
 28  Robusta                      cafe politico           Vietnam   
 
-                             Farm.Name Lot.Number  \
-1        kyangundu cooperative society        NaN   
+                             Farm.Name Lot.Number   
+1        kyangundu cooperative society        NaN  \
 2       sethuraman estate kaapi royale         25   
 3                    sethuraman estate        NaN   
 4                  ugacof project area        NaN   
@@ -1000,8 +1003,8 @@ document.write(`
 27                                 NaN        NaN   
 28                                 NaN        NaN   
 
-                                      Mill         ICO.Number  \
-1                  ankole coffee producers                  0   
+                                      Mill         ICO.Number   
+1                  ankole coffee producers                  0  \
 2                        sethuraman estate    14/1148/2017/21   
 3                                      NaN               0000   
 4                                   ugacof                  0   
@@ -1030,8 +1033,8 @@ document.write(`
 27                                     NaN  14-1118-2014-0087   
 28                                     NaN                NaN   
 
-                              Company    Altitude  \
-1        ankole coffee producers coop        1488   
+                              Company    Altitude   
+1        ankole coffee producers coop        1488  \
 2                        kaapi royale        3170   
 3                   sethuraman estate       1000m   
 4                          ugacof ltd        1212   
@@ -1060,8 +1063,8 @@ document.write(`
 27                      cafe politico         NaN   
 28                      cafe politico         NaN   
 
-                           Region  ...         Color  Category.Two.Defects  \
-1            sheema south western  ...         Green                     2   
+                           Region  ...         Color  Category.Two.Defects   
+1            sheema south western  ...         Green                     2  \
 2     chikmagalur karnataka indua  ...           NaN                     2   
 3                     chikmagalur  ...         Green                     0   
 4                         central  ...         Green                     7   
@@ -1088,10 +1091,10 @@ document.write(`
 25               san juan, playas  ...    Blue-Green                     0   
 26  kwanza norte province, angola  ...           NaN                     6   
 27                            NaN  ...         Green                     1   
-28                            NaN  ...          None                     9   
+28                            NaN  ...           NaN                     9   
 
-             Expiration                   Certification.Body  \
-1       June 26th, 2015  Uganda Coffee Development Authority   
+             Expiration                   Certification.Body   
+1       June 26th, 2015  Uganda Coffee Development Authority  \
 2    October 31st, 2018         Specialty Coffee Association   
 3      April 29th, 2016         Specialty Coffee Association   
 4       July 14th, 2015  Uganda Coffee Development Authority   
@@ -1120,8 +1123,8 @@ document.write(`
 27    August 25th, 2015         Specialty Coffee Association   
 28    August 25th, 2015         Specialty Coffee Association   
 
-                       Certification.Address  \
-1   e36d0270932c3b657e96b7b0278dfd85dc0fe743   
+                       Certification.Address   
+1   e36d0270932c3b657e96b7b0278dfd85dc0fe743  \
 2   ff7c18ad303d4b603ac3f8cff7e611ffc735e720   
 3   ff7c18ad303d4b603ac3f8cff7e611ffc735e720   
 4   e36d0270932c3b657e96b7b0278dfd85dc0fe743   
@@ -1150,8 +1153,8 @@ document.write(`
 27  ff7c18ad303d4b603ac3f8cff7e611ffc735e720   
 28  ff7c18ad303d4b603ac3f8cff7e611ffc735e720   
 
-                       Certification.Contact unit_of_measurement  \
-1   03077a1c6bac60e6f514691634a7f6eb5c85aae8                   m   
+                       Certification.Contact unit_of_measurement   
+1   03077a1c6bac60e6f514691634a7f6eb5c85aae8                   m  \
 2   352d0cf7f3e9be14dad7df644ad65efc27605ae2                   m   
 3   352d0cf7f3e9be14dad7df644ad65efc27605ae2                   m   
 4   03077a1c6bac60e6f514691634a7f6eb5c85aae8                   m   
@@ -1475,7 +1478,7 @@ document.write(`
       <td>NaN</td>
       <td>NaN</td>
       <td>...</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>9</td>
       <td>August 25th, 2015</td>
       <td>Specialty Coffee Association</td>
@@ -1499,7 +1502,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 28 entries, 1 to 28
+Index: 28 entries, 1 to 28
 Data columns (total 43 columns):
  #   Column                 Non-Null Count  Dtype  
 ---  ------                 --------------  -----  
@@ -1536,7 +1539,7 @@ Data columns (total 43 columns):
  30  Moisture               28 non-null     float64
  31  Category.One.Defects   28 non-null     int64  
  32  Quakers                28 non-null     int64  
- 33  Color                  26 non-null     object 
+ 33  Color                  25 non-null     object 
  34  Category.Two.Defects   28 non-null     int64  
  35  Expiration             28 non-null     object 
  36  Certification.Body     28 non-null     object 
@@ -1844,7 +1847,10 @@ alt
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2023-01-26.html"
@@ -1864,7 +1870,10 @@ alt
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1905,7 +1914,7 @@ alt
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1935,7 +1944,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1944,8 +1953,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

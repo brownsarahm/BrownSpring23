@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -189,7 +189,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -200,7 +202,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -633,10 +636,11 @@ metrics--&gt;score[[scores/ performance metrics]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>setosa        50
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>species
+setosa        50
 versicolor    50
 virginica     50
-Name: species, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -714,7 +718,7 @@ Name: species, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f064ddc8e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fe65da4d730&gt;
 </pre></div>
 </div>
 <img alt="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" src="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" />
@@ -969,7 +973,10 @@ weighted avg       0.98      0.97      0.97        38
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2023-03-02.html"
@@ -989,7 +996,10 @@ weighted avg       0.98      0.97      0.97        38
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1024,7 +1034,7 @@ weighted avg       0.98      0.97      0.97        38
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1054,7 +1064,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1063,8 +1073,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

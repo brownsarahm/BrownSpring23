@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -659,12 +662,130 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/1880485675.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
-  list_of_df[2].mean()
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>result    6.6
-dtype: float64
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1680,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1679</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1680</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1681</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+
+<span class="ne">ValueError</span>: complex() arg is a malformed string
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1683,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1683</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span>     <span class="c1"># GH#29941 we get here with object arrays containing strs</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;John SmithJane DoeMary JohnsonJohn SmithJane DoeMary Johnson&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">list_of_df</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11563,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11546</span> <span class="nd">@doc</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11547</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11548</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the mean of the values over the requested axis.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11561</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11562</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11563</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11208,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11201</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11206</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11207</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11208</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11209</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11210</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11165,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11161</span>     <span class="n">nv</span><span class="o">.</span><span class="n">validate_stat_func</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11163</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11165</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11166</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11167</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:10519,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10515</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">  </span><span class="mi">10517</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
+<span class="g g-Whitespace">  </span><span class="mi">10518</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
+<span class="ne">&gt; </span><span class="mi">10519</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10520</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">  </span><span class="mi">10521</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1534,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1534</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1535</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1537</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/blocks.py:339,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span> <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="ne">--&gt; </span><span class="mi">339</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="c1"># TODO(EA2D): special case not needed with 2D EAs</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">result</span><span class="p">]])</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:10482,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10480</span>     <span class="k">return</span> <span class="n">values</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10481</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">10482</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:96,</span> in <span class="ni">disallow.__call__.&lt;locals&gt;._f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># we want to transform an object array</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># ValueError message to the more typical TypeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="c1"># e.g. this is normally a disallowed function on</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="c1"># object arrays that contain strings</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">if</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:158,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:421,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:727,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1686,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1683</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span>     <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1685</span>         <span class="c1"># GH#29941 we get here with object arrays containing strs</span>
+<span class="ne">-&gt; </span><span class="mi">1686</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> to numeric&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1687</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+
+<span class="ne">TypeError</span>: Could not convert [&#39;John SmithJane DoeMary JohnsonJohn SmithJane DoeMary Johnson&#39; &#39;aaabbb&#39;] to numeric
 </pre></div>
 </div>
 </div>
@@ -700,47 +821,276 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/2310255724.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  list_of_df[2].groupby(&#39;treatment&#39;).mean()
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1490,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1489</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>         <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1494</span>         <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1495</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:959,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">959</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:657,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ea_wrap_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">657</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:497,</span> in <span class="ni">WrappedCythonOp._cython_op_ndim_compat</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">--&gt; </span><span class="mi">497</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cython_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:541,</span> in <span class="ni">WrappedCythonOp._call_cython_op</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span><span class="p">(</span><span class="n">ngroups</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">541</span> <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">is_numeric</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_vals</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:173,</span> in <span class="ni">WrappedCythonOp._get_cython_function</span><span class="nt">(cls, kind, how, dtype, is_numeric)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="s2">&quot;object&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">__signatures__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="c1"># raise NotImplementedError here rather than TypeError later</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="sa">f</span><span class="s2">&quot;function is not implemented for this dtype: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>         <span class="sa">f</span><span class="s2">&quot;[how-&gt;</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">,dtype-&gt;</span><span class="si">{</span><span class="n">dtype_str</span><span class="si">}</span><span class="s2">]&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">return</span> <span class="n">f</span>
+
+<span class="ne">NotImplementedError</span>: function is not implemented for this dtype: [how-&gt;mean,dtype-&gt;object]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1692,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1692</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="c1"># e.g. &quot;1+1j&quot; or &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;John SmithJane DoeMary Johnson&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1696,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1696</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>     <span class="c1"># e.g. &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: complex() arg is a malformed string
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">list_of_df</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;treatment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1855,</span> in <span class="ni">GroupBy.mean</span><span class="nt">(self, numeric_only, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1507,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_aggregated_output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1503,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_object</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># split on object-dtype blocks bc some columns may raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1">#  while others do not.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="n">blk</span><span class="o">.</span><span class="n">_split</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/blocks.py:329,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1503,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1457,</span> in <span class="ni">GroupBy._agg_py_fallback</span><span class="nt">(self, values, ndim, alt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">ser</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1454</span> <span class="c1"># We do not get here with UDFs, so we know that our dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span> <span class="c1">#  should always be preserved by the implemented aggregations</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span> <span class="c1"># TODO: Is this exactly right; see WrappedCythonOp get_result_dtype?</span>
+<span class="ne">-&gt; </span><span class="mi">1457</span> <span class="n">res_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">agg_series</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">preserve_dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="c1"># Because we only get here with known dtype-preserving</span>
+<span class="g g-Whitespace">   </span><span class="mi">1461</span>     <span class="c1">#  reductions, we cast back to Categorical.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span>     <span class="c1"># TODO: if we ever get &quot;rank&quot; working, exclude it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1463</span>     <span class="n">res_values</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">_from_sequence</span><span class="p">(</span><span class="n">res_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:994,</span> in <span class="ni">BaseGrouper.agg_series</span><span class="nt">(self, obj, func, preserve_dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">987</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">988</span>     <span class="c1"># we can preserve a little bit more aggressively with EA dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span>     <span class="c1">#  because maybe_cast_pointwise_result will do a try/except</span>
+<span class="g g-Whitespace">    </span><span class="mi">990</span>     <span class="c1">#  with _from_sequence.  NB we are assuming here that _from_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">991</span>     <span class="c1">#  is sufficiently strict that it casts appropriately.</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>     <span class="n">preserve_dtype</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">994</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aggregate_series_pure_python</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span> <span class="n">npvalues</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_objects</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">try_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">if</span> <span class="n">preserve_dtype</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:1015,</span> in <span class="ni">BaseGrouper._aggregate_series_pure_python</span><span class="nt">(self, obj, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span> <span class="n">splitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_splitter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splitter</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1015</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">libreduction</span><span class="o">.</span><span class="n">extract_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">initialized</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span>         <span class="c1"># We only do this validation on the first iteration</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1857,</span> in <span class="ni">GroupBy.mean.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11563,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11546</span> <span class="nd">@doc</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11547</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11548</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the mean of the values over the requested axis.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11561</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11562</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11563</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11208,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11201</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11206</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11207</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11208</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11209</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11210</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11165,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11161</span>     <span class="n">nv</span><span class="o">.</span><span class="n">validate_stat_func</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11163</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11165</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11166</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11167</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/series.py:4671,</span> in <span class="ni">Series._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4666</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4667</span>         <span class="sa">f</span><span class="s2">&quot;Series.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not allow </span><span class="si">{</span><span class="n">kwd_name</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">numeric_only</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4668</span>         <span class="s2">&quot;with non-numeric dtypes.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4670</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4671</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:96,</span> in <span class="ni">disallow.__call__.&lt;locals&gt;._f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># we want to transform an object array</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># ValueError message to the more typical TypeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="c1"># e.g. this is normally a disallowed function on</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="c1"># object arrays that contain strings</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">if</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:158,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:421,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:727,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1699,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1696</span>             <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>             <span class="c1"># e.g. &quot;foo&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1699</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> to numeric&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1700</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">TypeError</span>: Could not convert John SmithJane DoeMary Johnson to numeric
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>result</th>
-    </tr>
-    <tr>
-      <th>treatment</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>a</th>
-      <td>9.500000</td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td>4.666667</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,51 +1099,276 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/344217198.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  list_of_df[2].groupby(&#39;person&#39;).mean()
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1490,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1489</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>         <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1494</span>         <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1495</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:959,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">959</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:657,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ea_wrap_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">657</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:497,</span> in <span class="ni">WrappedCythonOp._cython_op_ndim_compat</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">--&gt; </span><span class="mi">497</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cython_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:541,</span> in <span class="ni">WrappedCythonOp._call_cython_op</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span><span class="p">(</span><span class="n">ngroups</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">541</span> <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">is_numeric</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_vals</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:173,</span> in <span class="ni">WrappedCythonOp._get_cython_function</span><span class="nt">(cls, kind, how, dtype, is_numeric)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="s2">&quot;object&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">__signatures__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="c1"># raise NotImplementedError here rather than TypeError later</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="sa">f</span><span class="s2">&quot;function is not implemented for this dtype: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>         <span class="sa">f</span><span class="s2">&quot;[how-&gt;</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">,dtype-&gt;</span><span class="si">{</span><span class="n">dtype_str</span><span class="si">}</span><span class="s2">]&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">return</span> <span class="n">f</span>
+
+<span class="ne">NotImplementedError</span>: function is not implemented for this dtype: [how-&gt;mean,dtype-&gt;object]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1692,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1692</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="c1"># e.g. &quot;1+1j&quot; or &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;ab&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1696,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1696</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>     <span class="c1"># e.g. &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: complex() arg is a malformed string
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">list_of_df</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;person&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1855,</span> in <span class="ni">GroupBy.mean</span><span class="nt">(self, numeric_only, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1507,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_aggregated_output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1503,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_object</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># split on object-dtype blocks bc some columns may raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1">#  while others do not.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="n">blk</span><span class="o">.</span><span class="n">_split</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/blocks.py:329,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1503,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1457,</span> in <span class="ni">GroupBy._agg_py_fallback</span><span class="nt">(self, values, ndim, alt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">ser</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1454</span> <span class="c1"># We do not get here with UDFs, so we know that our dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span> <span class="c1">#  should always be preserved by the implemented aggregations</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span> <span class="c1"># TODO: Is this exactly right; see WrappedCythonOp get_result_dtype?</span>
+<span class="ne">-&gt; </span><span class="mi">1457</span> <span class="n">res_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">agg_series</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">preserve_dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="c1"># Because we only get here with known dtype-preserving</span>
+<span class="g g-Whitespace">   </span><span class="mi">1461</span>     <span class="c1">#  reductions, we cast back to Categorical.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span>     <span class="c1"># TODO: if we ever get &quot;rank&quot; working, exclude it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1463</span>     <span class="n">res_values</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">_from_sequence</span><span class="p">(</span><span class="n">res_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:994,</span> in <span class="ni">BaseGrouper.agg_series</span><span class="nt">(self, obj, func, preserve_dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">987</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">988</span>     <span class="c1"># we can preserve a little bit more aggressively with EA dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span>     <span class="c1">#  because maybe_cast_pointwise_result will do a try/except</span>
+<span class="g g-Whitespace">    </span><span class="mi">990</span>     <span class="c1">#  with _from_sequence.  NB we are assuming here that _from_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">991</span>     <span class="c1">#  is sufficiently strict that it casts appropriately.</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>     <span class="n">preserve_dtype</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">994</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aggregate_series_pure_python</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span> <span class="n">npvalues</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_objects</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">try_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">if</span> <span class="n">preserve_dtype</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:1015,</span> in <span class="ni">BaseGrouper._aggregate_series_pure_python</span><span class="nt">(self, obj, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span> <span class="n">splitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_splitter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splitter</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1015</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">libreduction</span><span class="o">.</span><span class="n">extract_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">initialized</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span>         <span class="c1"># We only do this validation on the first iteration</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1857,</span> in <span class="ni">GroupBy.mean.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11563,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11546</span> <span class="nd">@doc</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11547</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11548</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the mean of the values over the requested axis.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11561</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11562</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11563</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11208,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11201</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11206</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11207</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11208</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11209</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11210</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11165,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11161</span>     <span class="n">nv</span><span class="o">.</span><span class="n">validate_stat_func</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11163</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11165</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11166</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11167</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/series.py:4671,</span> in <span class="ni">Series._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4666</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4667</span>         <span class="sa">f</span><span class="s2">&quot;Series.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not allow </span><span class="si">{</span><span class="n">kwd_name</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">numeric_only</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4668</span>         <span class="s2">&quot;with non-numeric dtypes.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4670</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4671</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:96,</span> in <span class="ni">disallow.__call__.&lt;locals&gt;._f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># we want to transform an object array</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># ValueError message to the more typical TypeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="c1"># e.g. this is normally a disallowed function on</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="c1"># object arrays that contain strings</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">if</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:158,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:421,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:727,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/nanops.py:1699,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1696</span>             <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>             <span class="c1"># e.g. &quot;foo&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1699</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> to numeric&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1700</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">TypeError</span>: Could not convert ab to numeric
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>result</th>
-    </tr>
-    <tr>
-      <th>person</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Jane Doe</th>
-      <td>13.5</td>
-    </tr>
-    <tr>
-      <th>John Smith</th>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>Mary Johnson</th>
-      <td>2.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1522,7 +2097,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f940c7b65b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f59103ae9a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" src="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" />
@@ -1536,7 +2111,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cf94cb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f590f9ea790&gt;
 </pre></div>
 </div>
 <img alt="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" src="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" />
@@ -1617,64 +2192,14 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1936/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
-/tmp/ipykernel_1973/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
-  sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f590fac7c70&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93d4bbdee0&gt;
-</pre></div>
-</div>
-<img alt="../_images/2ba0cf7a0fec7ae4f25fed70d83b8630656765ae2a70b237c293f7b81a607198.png" src="../_images/2ba0cf7a0fec7ae4f25fed70d83b8630656765ae2a70b237c293f7b81a607198.png" />
+<img alt="../_images/4ef6a54c403ebdfaf262dc0ef507bc72fd5d269edfbc547e58ad94168f072a38.png" src="../_images/4ef6a54c403ebdfaf262dc0ef507bc72fd5d269edfbc547e58ad94168f072a38.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2164,7 +2689,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cf5f5a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f594c5e0070&gt;
 </pre></div>
 </div>
 <img alt="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" src="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" />
@@ -2252,7 +2777,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f93cc3b5d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f590a7f9940&gt;
 </pre></div>
 </div>
 <img alt="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" src="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" />
@@ -2287,7 +2812,10 @@ Name: Number.of.Bags, dtype: int64
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2023-02-09.html"
@@ -2307,7 +2835,10 @@ Name: Number.of.Bags, dtype: int64
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -2331,7 +2862,7 @@ Name: Number.of.Bags, dtype: int64
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -2361,7 +2892,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -2370,8 +2901,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

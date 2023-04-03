@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -505,9 +508,9 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   Unnamed: 0_level_0                                             topics  \
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   Unnamed: 0_level_0                                             topics   
                   week                                 Unnamed: 1_level_1   
- 0                   1                             [admin, python review]   
+ 0                   1                             [admin, python review]  \
  1                   2                        Loading data, Python review   
  2                   3                          Exploratory Data Analysis   
  3                   4                                      Data Cleaning   
@@ -538,9 +541,9 @@ document.write(`
  11                   [unstructured]  
  12            [unstructured, tools]  
  13                 [tools, compare]  ,
-    Unnamed: 0_level_0                                              skill  \
+    Unnamed: 0_level_0                                              skill   
                keyword                                 Unnamed: 1_level_1   
- 0              python                              pythonic code writing   
+ 0              python                              pythonic code writing  \
  1             process                 describe data science as a process   
  2              access                    access data in multiple formats   
  3           construct           construct datasets from multiple sources   
@@ -556,9 +559,9 @@ document.write(`
  13     representation          Choose representations and transform data   
  14           workflow  use industry standard data science tools and w...   
  
-                                               Level 1  \
+                                               Level 1   
                                     Unnamed: 2_level_1   
- 0   python code that mostly runs, occasional pep8 ...   
+ 0   python code that mostly runs, occasional pep8 ...  \
  1           Identify basic components of data science   
  2   load data from at least one format; identify t...   
  3   identify what should happen to merge datasets ...   
@@ -574,9 +577,9 @@ document.write(`
  13  Identify options for representing text and cat...   
  14  Solve well strucutred fully specified problems...   
  
-                                               Level 2  \
+                                               Level 2   
                                     Unnamed: 3_level_1   
- 0   python code that reliably runs, frequent pep8 ...   
+ 0   python code that reliably runs, frequent pep8 ...  \
  1   Describe and define each stage of the data sci...   
  2   Load data for processing from the most common ...   
  3                                  apply basic merges   
@@ -609,9 +612,9 @@ document.write(`
  12  Evaluate tradeoffs between different model com...  
  13  apply transformations in different contexts OR...  
  14  Independently scope and solve realistic data s...  ,
-    Unnamed: 0_level_0                 A1                 A2  \
+    Unnamed: 0_level_0                 A1                 A2   
                keyword Unnamed: 1_level_1 Unnamed: 2_level_1   
- 0              python                  1                  1   
+ 0              python                  1                  1  \
  1             process                  1                  0   
  2              access                  0                  1   
  3           construct                  0                  0   
@@ -627,9 +630,9 @@ document.write(`
  13     representation                  0                  0   
  14           workflow                  0                  0   
  
-                    A3                 A4                 A5  \
+                    A3                 A4                 A5   
     Unnamed: 3_level_1 Unnamed: 4_level_1 Unnamed: 5_level_1   
- 0                   0                  1                  1   
+ 0                   0                  1                  1  \
  1                   0                  0                  0   
  2                   1                  1                  1   
  3                   0                  0                  1   
@@ -645,9 +648,9 @@ document.write(`
  13                  0                  0                  0   
  14                  0                  0                  0   
  
-                    A6                 A7                 A8  \
+                    A6                 A7                 A8   
     Unnamed: 6_level_1 Unnamed: 7_level_1 Unnamed: 8_level_1   
- 0                   0                  0                  0   
+ 0                   0                  0                  0  \
  1                   1                  1                  1   
  2                   0                  0                  0   
  3                   0                  1                  1   
@@ -663,9 +666,9 @@ document.write(`
  13                  0                  0                  0   
  14                  0                  0                  0   
  
-                    A9                 A10                 A11  \
+                    A9                 A10                 A11   
     Unnamed: 9_level_1 Unnamed: 10_level_1 Unnamed: 11_level_1   
- 0                   0                   0                   0   
+ 0                   0                   0                   0  \
  1                   1                   1                   1   
  2                   0                   0                   0   
  3                   0                   0                   0   
@@ -698,9 +701,9 @@ document.write(`
  12                   0                   1                   2  
  13                   1                   1                   2  
  14                   1                   1                   4  ,
-    Unnamed: 0_level_0                                            Level 3  \
+    Unnamed: 0_level_0                                            Level 3   
                keyword                                 Unnamed: 1_level_1   
- 0              python  reliable, efficient, pythonic code that consis...   
+ 0              python  reliable, efficient, pythonic code that consis...  \
  1             process  Compare different ways that data science can f...   
  2              access  access data from both common and uncommon form...   
  3           construct       merge data that is not automatically aligned   
@@ -1570,10 +1573,10 @@ padding-right: 1rem;
 &lt;/div&gt;
 &lt;/footer&gt;&lt;!-- #globalfooter --&gt;
 &lt;/div&gt;&lt;!-- #page --&gt;
-&lt;script id=&quot;uricl-js-js&quot; src=&quot;https://web.uri.edu/cs/wp-content/plugins/uri-component-library/js/cl.built.js?ver=20230328&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script id=&quot;uricl-js-js&quot; src=&quot;https://web.uri.edu/cs/wp-content/plugins/uri-component-library/js/cl.built.js?ver=20230403&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 &lt;script id=&quot;uri-tides-js-extra&quot; type=&quot;text/javascript&quot;&gt;
 /* &lt;![CDATA[ */
-var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot;8454049&quot;,&quot;name&quot;:&quot;Quonset Point&quot;,&quot;lat&quot;:&quot;41.5868&quot;,&quot;lon&quot;:&quot;-71.4110&quot;},&quot;data&quot;:[{&quot;t&quot;:&quot;2023-03-28 17:48&quot;,&quot;v&quot;:&quot;46.2&quot;,&quot;f&quot;:&quot;0,0,0&quot;}]},&quot;tide&quot;:{&quot;predictions&quot;:[{&quot;t&quot;:&quot;2023-03-27 04:46&quot;,&quot;v&quot;:&quot;3.546&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-27 10:06&quot;,&quot;v&quot;:&quot;0.394&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-27 17:16&quot;,&quot;v&quot;:&quot;2.966&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-27 21:58&quot;,&quot;v&quot;:&quot;0.344&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-28 05:39&quot;,&quot;v&quot;:&quot;3.194&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-28 10:59&quot;,&quot;v&quot;:&quot;0.701&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-28 18:08&quot;,&quot;v&quot;:&quot;2.774&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-28 22:50&quot;,&quot;v&quot;:&quot;0.606&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-29 06:35&quot;,&quot;v&quot;:&quot;2.923&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-29 12:37&quot;,&quot;v&quot;:&quot;0.897&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-29 19:02&quot;,&quot;v&quot;:&quot;2.674&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-29 23:58&quot;,&quot;v&quot;:&quot;0.775&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-30 07:35&quot;,&quot;v&quot;:&quot;2.763&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-03-30 14:24&quot;,&quot;v&quot;:&quot;0.874&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-03-30 20:00&quot;,&quot;v&quot;:&quot;2.676&quot;,&quot;type&quot;:&quot;H&quot;}]},&quot;date&quot;:&quot;1680026180&quot;,&quot;expires_on&quot;:&quot;1680026480&quot;};
+var tides = {&quot;temperature&quot;:{&quot;metadata&quot;:{&quot;id&quot;:&quot;8454049&quot;,&quot;name&quot;:&quot;Quonset Point&quot;,&quot;lat&quot;:&quot;41.5868&quot;,&quot;lon&quot;:&quot;-71.4110&quot;},&quot;data&quot;:[{&quot;t&quot;:&quot;2023-04-03 19:06&quot;,&quot;v&quot;:&quot;46.0&quot;,&quot;f&quot;:&quot;0,0,0&quot;}]},&quot;tide&quot;:{&quot;predictions&quot;:[{&quot;t&quot;:&quot;2023-04-02 03:30&quot;,&quot;v&quot;:&quot;0.398&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-02 10:29&quot;,&quot;v&quot;:&quot;3.041&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-02 16:15&quot;,&quot;v&quot;:&quot;0.377&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-02 22:41&quot;,&quot;v&quot;:&quot;3.297&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-03 04:16&quot;,&quot;v&quot;:&quot;0.175&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-03 11:04&quot;,&quot;v&quot;:&quot;3.239&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-03 16:46&quot;,&quot;v&quot;:&quot;0.178&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-03 23:18&quot;,&quot;v&quot;:&quot;3.575&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-04 04:58&quot;,&quot;v&quot;:&quot;-0.020&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-04 11:36&quot;,&quot;v&quot;:&quot;3.417&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-04 17:16&quot;,&quot;v&quot;:&quot;0.008&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-04 23:53&quot;,&quot;v&quot;:&quot;3.824&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-05 05:38&quot;,&quot;v&quot;:&quot;-0.170&quot;,&quot;type&quot;:&quot;L&quot;},{&quot;t&quot;:&quot;2023-04-05 12:10&quot;,&quot;v&quot;:&quot;3.547&quot;,&quot;type&quot;:&quot;H&quot;},{&quot;t&quot;:&quot;2023-04-05 17:47&quot;,&quot;v&quot;:&quot;-0.119&quot;,&quot;type&quot;:&quot;L&quot;}]},&quot;date&quot;:&quot;1680549378&quot;,&quot;expires_on&quot;:&quot;1680549678&quot;};
 /* ]]&gt; */
 &lt;/script&gt;
 &lt;script id=&quot;uri-tides-js&quot; src=&quot;https://web.uri.edu/cs/wp-content/plugins/uri-tides/js/tides.js?ver=2.1.0&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
@@ -1629,7 +1632,7 @@ var URIMODERN = {&quot;base&quot;:&quot;https:\/\/web.uri.edu\/cs&quot;,&quot;pa
 |==================================|     |==================================|
 ####################################     ####################################
 --&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;window.NREUM||(NREUM={});NREUM.info={&quot;beacon&quot;:&quot;bam.nr-data.net&quot;,&quot;licenseKey&quot;:&quot;NRJS-efb76a2da79a549a60d&quot;,&quot;applicationID&quot;:&quot;1015449156&quot;,&quot;transactionName&quot;:&quot;MVRUMkMAVxdWV0daCwgedwVFCFYKGERSVAE=&quot;,&quot;queueTime&quot;:0,&quot;applicationTime&quot;:288,&quot;atts&quot;:&quot;HRNXRAsaRBk=&quot;,&quot;errorBeacon&quot;:&quot;bam.nr-data.net&quot;,&quot;agent&quot;:&quot;&quot;}&lt;/script&gt;&lt;/body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;window.NREUM||(NREUM={});NREUM.info={&quot;beacon&quot;:&quot;bam.nr-data.net&quot;,&quot;licenseKey&quot;:&quot;NRJS-efb76a2da79a549a60d&quot;,&quot;applicationID&quot;:&quot;1015449156&quot;,&quot;transactionName&quot;:&quot;MVRUMkMAVxdWV0daCwgedwVFCFYKGERSVAE=&quot;,&quot;queueTime&quot;:0,&quot;applicationTime&quot;:345,&quot;atts&quot;:&quot;HRNXRAsaRBk=&quot;,&quot;errorBeacon&quot;:&quot;bam.nr-data.net&quot;,&quot;agent&quot;:&quot;&quot;}&lt;/script&gt;&lt;/body&gt;
 &lt;/html&gt;
 </pre></div>
 </div>
@@ -3244,7 +3247,10 @@ var URIMODERN = {&quot;base&quot;:&quot;https:\/\/web.uri.edu\/cs&quot;,&quot;pa
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="2023-02-21.html"
@@ -3264,7 +3270,10 @@ var URIMODERN = {&quot;base&quot;:&quot;https:\/\/web.uri.edu\/cs&quot;,&quot;pa
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -3303,7 +3312,7 @@ var URIMODERN = {&quot;base&quot;:&quot;https:\/\/web.uri.edu\/cs&quot;,&quot;pa
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -3333,7 +3342,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -3342,8 +3351,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

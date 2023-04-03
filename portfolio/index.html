@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Formatting Tips" href="formatting.html" />
-    <link rel="prev" title="8. Assignment 9" href="../assignments/08-clustering.html" />
+    <link rel="prev" title="9. Assignment 9: Linear Regression" href="../assignments/09-regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -187,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-09.html">14. Predictions with niave Bayes and Decision Trees</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-21.html">15. Clustering</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-28.html">17. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-28.html">18. Regression Preview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/2023-03-30.html">19. Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -198,7 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/05-construct.html">5. Assignment 5: Constructing Datasets and Using Databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/06-evaluate.html">6. Assignment 6: Auditing Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="current nav bd-sidenav">
@@ -454,10 +457,82 @@ document.write(`
 <span id="portolioindex"></span><h1>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2285/1159722460.py:26: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
-  assignment_dummies  = pd.get_dummies(rubric_df[&#39;assignments&#39;].apply(pd.Series).stack()).sum(level=0)
-/tmp/ipykernel_2285/1159722460.py:31: FutureWarning: Using the level keyword in DataFrame and Series aggregations is deprecated and will be removed in a future version. Use groupby instead. df.sum(level=1) should use df.groupby(level=1).sum().
-  portfolio_dummies  = pd.get_dummies(rubric_df[&#39;portfolios&#39;].apply(pd.Series).stack()).sum(level=0)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">26</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">rubric_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="kc">None</span><span class="p">:</span><span class="s1">&#39;TBD&#39;</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">rubric_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mastery&#39;</span><span class="p">:</span><span class="s1">&#39;Level 3&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>               <span class="s1">&#39;compentent&#39;</span><span class="p">:</span><span class="s1">&#39;Level 2&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>               <span class="s1">&#39;aware&#39;</span><span class="p">:</span><span class="s1">&#39;Level 1&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">26</span> <span class="n">assignment_dummies</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">rubric_df</span><span class="p">[</span><span class="s1">&#39;assignments&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">assignment_dummies</span><span class="p">[</span><span class="s1">&#39;# Assignments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">assignment_dummies</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">col_rename</span> <span class="o">=</span> <span class="p">{</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="s1">&#39;A&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">)}</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11519,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.sum</span><span class="nt">(self, axis, skipna, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11500</span> <span class="nd">@doc</span><span class="p">(</span>  <span class="c1"># type: ignore[misc]</span>
+<span class="g g-Whitespace">  </span><span class="mi">11501</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11502</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the sum of the values over the requested axis.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11517</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11518</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11519</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="n">min_count</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11287,</span> in <span class="ni">NDFrame.sum</span><span class="nt">(self, axis, skipna, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11279</span> <span class="k">def</span> <span class="nf">sum</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11280</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11281</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11285</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11286</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11287</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_min_count_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11288</span>         <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nansum</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="n">min_count</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11289</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:11259,</span> in <span class="ni">NDFrame._min_count_stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11247</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">  </span><span class="mi">11248</span> <span class="k">def</span> <span class="nf">_min_count_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11249</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11256</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11257</span> <span class="p">):</span>
+<span class="g g-Whitespace">  </span><span class="mi">11258</span>     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;sum&quot;</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11259</span>         <span class="n">nv</span><span class="o">.</span><span class="n">validate_sum</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11260</span>     <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;prod&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">11261</span>         <span class="n">nv</span><span class="o">.</span><span class="n">validate_prod</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/compat/numpy/function.py:82,</span> in <span class="ni">CompatValidator.__call__</span><span class="nt">(self, args, kwargs, fname, max_fname_arg_count, method)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="n">validate_kwargs</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">82</span>     <span class="n">validate_args_and_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">fname</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">max_fname_arg_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid validation method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/util/_validators.py:221,</span> in <span class="ni">validate_args_and_kwargs</span><span class="nt">(fname, args, kwargs, max_fname_arg_count, compat_args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">() got multiple values for keyword argument &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">args_dict</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">221</span> <span class="n">validate_kwargs</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">compat_args</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/util/_validators.py:162,</span> in <span class="ni">validate_kwargs</span><span class="nt">(fname, kwargs, compat_args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span><span class="sd"> Checks whether parameters passed to the **kwargs argument in a</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span><span class="sd"> function `fname` are valid parameters as specified in `*compat_args`</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span><span class="sd"> map to the default values specified in `compat_args`</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="n">kwds</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">162</span> <span class="n">_check_for_invalid_keys</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">compat_args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="n">_check_for_default_values</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">kwds</span><span class="p">,</span> <span class="n">compat_args</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/util/_validators.py:136,</span> in <span class="ni">_check_for_invalid_keys</span><span class="nt">(fname, kwargs, compat_args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">if</span> <span class="n">diff</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="n">bad_arg</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">diff</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">136</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">() got an unexpected keyword argument &#39;</span><span class="si">{</span><span class="n">bad_arg</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: sum() got an unexpected keyword argument &#39;level&#39;
 </pre></div>
 </div>
 </div>
@@ -484,79 +559,15 @@ Use the feedback you get on assignments to inspire your portfolio.</p>
 <p>Portfolio check 2 will assess the following <em>new</em> achievements in addition to an a chance to make up any that you have missed:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">portfolio_df</span><span class="p">[</span><span class="s1">&#39;Level 3&#39;</span><span class="p">][</span><span class="n">portfolio_df</span><span class="p">[</span><span class="s1">&#39;P2&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;keyword&#39;</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Level 3</th>
-    </tr>
-    <tr>
-      <th>keyword</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>python</th>
-      <td>reliable, efficient, pythonic code that consistently adheres to pep8</td>
-    </tr>
-    <tr>
-      <th>process</th>
-      <td>Compare different ways that data science can facilitate decision making</td>
-    </tr>
-    <tr>
-      <th>access</th>
-      <td>access data from both common and uncommon formats and identify best practices for formats in different contexts</td>
-    </tr>
-    <tr>
-      <th>construct</th>
-      <td>merge data that is not automatically aligned</td>
-    </tr>
-    <tr>
-      <th>summarize</th>
-      <td>Compute and interpret various summary statistics of subsets of data</td>
-    </tr>
-    <tr>
-      <th>visualize</th>
-      <td>generate complex plots with pandas and plotting libraries and customize with matplotlib or additional parameters</td>
-    </tr>
-    <tr>
-      <th>prepare</th>
-      <td>apply data reshaping, cleaning, and filtering manipulations reliably and correctly by assessing data as received</td>
-    </tr>
-    <tr>
-      <th>evaluate</th>
-      <td>Evaluate a model with multiple metrics and cross validation</td>
-    </tr>
-    <tr>
-      <th>classification</th>
-      <td>fit and apply classification models and select appropriate classification models for different contexts</td>
-    </tr>
-    <tr>
-      <th>regression</th>
-      <td>fit and explain regrularized or nonlinear regression</td>
-    </tr>
-    <tr>
-      <th>clustering</th>
-      <td>apply multiple clustering techniques, and interpret results</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;portfolio_df&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <!--
 
@@ -607,15 +618,18 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../assignments/08-clustering.html"
+       href="../assignments/09-regression.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Assignment 9</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Assignment 9: Linear Regression</p>
       </div>
     </a>
     <a class="right-next"
@@ -627,7 +641,10 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -651,7 +668,7 @@ portfolio_df['Level 3'][portfolio_df['P4']==1].reset_index().set_index('keyword'
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -681,7 +698,7 @@ By Professor Sarah M Brown
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -690,8 +707,8 @@ By Professor Sarah M Brown
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
