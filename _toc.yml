@@ -45,6 +45,7 @@ parts:
     - file: assignments/07-classification
     - file: assignments/08-clustering
     - file: assignments/09-regression
+    - file: assignments/10-optimize
   - caption: Portfolio
     chapters:
       - file: portfolio/index
