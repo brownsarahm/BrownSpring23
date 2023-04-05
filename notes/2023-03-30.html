@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-03-30';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="next" title="20. ML Task Review and Cross Validation" href="2023-04-04.html" />
     <link rel="prev" title="18. Regression Preview" href="2023-03-28.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -190,6 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-23.html">17. Comparing Classification and Clustering Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -202,6 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/07-classification.html">7. Assignment 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/10-optimize.html">10. Assignment 10: Tuning Model Parameters</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -664,7 +666,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.10140072])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.10144876])
 </pre></div>
 </div>
 </div>
@@ -676,7 +678,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0103333583034122
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9564511771596771
 </pre></div>
 </div>
 </div>
@@ -695,7 +697,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.978710240984896
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6293411475830655
 </pre></div>
 </div>
 </div>
@@ -707,7 +709,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.97871024])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.62934115])
 </pre></div>
 </div>
 </div>
@@ -720,10 +722,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fccc34b7370&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8de6f963d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/8ab6b7bc769894683de96b029e2b78440c1d7e91320452357bddbb7fd54256d7.png" src="../_images/8ab6b7bc769894683de96b029e2b78440c1d7e91320452357bddbb7fd54256d7.png" />
+<img alt="../_images/f5828648460d5e9d94db3e1b65e75120b445312eb1c1e79897fe641efc2b63ed.png" src="../_images/f5828648460d5e9d94db3e1b65e75120b445312eb1c1e79897fe641efc2b63ed.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -738,10 +740,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fccc13c7fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8de4ebef10&gt;
 </pre></div>
 </div>
-<img alt="../_images/92c25496104e6fb06b6122c4a7d88ac41820a06a8c79d02a51e9db3fdfcc2222.png" src="../_images/92c25496104e6fb06b6122c4a7d88ac41820a06a8c79d02a51e9db3fdfcc2222.png" />
+<img alt="../_images/28e3e3dbbe65d3a675a15ad95347e573febd56e8fcdf578e3c72f7e268481550.png" src="../_images/28e3e3dbbe65d3a675a15ad95347e573febd56e8fcdf578e3c72f7e268481550.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -751,7 +753,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1597380536006214
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9715317221280023
 </pre></div>
 </div>
 </div>
@@ -763,7 +765,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.061632653061224
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0167346938775514
 </pre></div>
 </div>
 </div>
@@ -775,7 +777,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.378797257875153
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3220474522004607
 </pre></div>
 </div>
 </div>
@@ -787,7 +789,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5201132656731737
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40925866571431424
 </pre></div>
 </div>
 </div>
@@ -818,10 +820,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fccc1353070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8de4ed8490&gt;
 </pre></div>
 </div>
-<img alt="../_images/af582c12d51accb59722bb7181f1a772630ca986f3f6672f69480046dce938fa.png" src="../_images/af582c12d51accb59722bb7181f1a772630ca986f3f6672f69480046dce938fa.png" />
+<img alt="../_images/7cdb68a21a2cbf03ba972b68a303ebef02414b32ed88ef09e60d283777f2b12f.png" src="../_images/7cdb68a21a2cbf03ba972b68a303ebef02414b32ed88ef09e60d283777f2b12f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -831,7 +833,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5201132656731737
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40925866571431424
 </pre></div>
 </div>
 </div>
@@ -951,7 +953,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.08787942, 0.22249372])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.09869275, 0.10384494])
 </pre></div>
 </div>
 </div>
@@ -963,7 +965,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43706660036881295
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4444863609385601
 </pre></div>
 </div>
 </div>
@@ -976,7 +978,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fccc06a1970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f8de413b640&gt;
 </pre></div>
 </div>
 <img alt="../_images/e9855f411204545413d6b247afd176640a0d7be66fd386a3c912d5b751c96bc1.png" src="../_images/e9855f411204545413d6b247afd176640a0d7be66fd386a3c912d5b751c96bc1.png" />
@@ -1134,11 +1136,11 @@ the total bill.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/01-syllabus-install.html"
+       href="2023-04-04.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>ML Task Review and Cross Validation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
