@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-04-04';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="next" title="21. SVM and Model Optimization" href="2023-04-06.html" />
     <link rel="prev" title="19. Regression" href="2023-03-30.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">20. ML Task Review and Cross Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -513,7 +514,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95652174, 0.95652174, 1.        , 0.90909091, 0.95454545])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95652174, 0.91304348, 0.95454545, 0.90909091, 1.        ])
 </pre></div>
 </div>
 </div>
@@ -525,7 +526,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9553359683794467
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9466403162055336
 </pre></div>
 </div>
 </div>
@@ -537,8 +538,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91666667, 0.91666667, 1.        , 1.        , 0.90909091,
-       0.90909091, 1.        , 1.        , 0.90909091, 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91666667, 1.        , 0.90909091, 0.81818182, 1.        ,
+       1.        , 0.81818182, 1.        , 1.        , 1.        ])
 </pre></div>
 </div>
 </div>
@@ -550,7 +551,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9643939393939392
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9462121212121211
 </pre></div>
 </div>
 </div>
@@ -581,8 +582,8 @@ document.write(`
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-13.21501456, -12.35573429, -12.58267711, -12.82969487,
-        -8.70169277])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.89636151, -12.63202631, -12.12662699, -10.74716036,
+        -9.16987298])
 </pre></div>
 </div>
 </div>
@@ -682,15 +683,15 @@ document.write(`
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
@@ -779,87 +780,87 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.006935</td>
-      <td>0.000700</td>
-      <td>0.001166</td>
-      <td>0.000054</td>
+      <td>0.008185</td>
+      <td>0.001423</td>
+      <td>0.001269</td>
+      <td>0.000050</td>
       <td>2</td>
       <td>{'n_clusters': 2}</td>
-      <td>-17.831022</td>
-      <td>-24.686524</td>
-      <td>-24.440957</td>
-      <td>-21.798061</td>
-      <td>-18.028919</td>
-      <td>-21.357097</td>
-      <td>2.976565</td>
+      <td>-17.661782</td>
+      <td>-20.609145</td>
+      <td>-27.102205</td>
+      <td>-17.450070</td>
+      <td>-13.134246</td>
+      <td>-19.191490</td>
+      <td>4.618483</td>
       <td>5</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.009622</td>
-      <td>0.000278</td>
-      <td>0.001140</td>
-      <td>0.000018</td>
+      <td>0.012174</td>
+      <td>0.000887</td>
+      <td>0.001415</td>
+      <td>0.000139</td>
       <td>3</td>
       <td>{'n_clusters': 3}</td>
-      <td>-13.111358</td>
-      <td>-12.355734</td>
-      <td>-12.442711</td>
-      <td>-12.829695</td>
-      <td>-8.701693</td>
-      <td>-11.888238</td>
-      <td>1.616318</td>
+      <td>-9.896362</td>
+      <td>-12.632026</td>
+      <td>-12.126627</td>
+      <td>-10.747160</td>
+      <td>-9.169873</td>
+      <td>-10.914410</td>
+      <td>1.305946</td>
       <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.010799</td>
-      <td>0.000519</td>
-      <td>0.001151</td>
-      <td>0.000012</td>
+      <td>0.012712</td>
+      <td>0.000442</td>
+      <td>0.001259</td>
+      <td>0.000109</td>
       <td>4</td>
       <td>{'n_clusters': 4}</td>
-      <td>-10.200154</td>
-      <td>-9.343682</td>
-      <td>-9.880986</td>
-      <td>-8.481239</td>
-      <td>-6.623641</td>
-      <td>-8.905941</td>
-      <td>1.281139</td>
+      <td>-9.353469</td>
+      <td>-10.929840</td>
+      <td>-9.419059</td>
+      <td>-6.248260</td>
+      <td>-6.198122</td>
+      <td>-8.429750</td>
+      <td>1.887936</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.012574</td>
-      <td>0.000633</td>
-      <td>0.001139</td>
-      <td>0.000017</td>
+      <td>0.014226</td>
+      <td>0.000279</td>
+      <td>0.001844</td>
+      <td>0.000912</td>
       <td>5</td>
       <td>{'n_clusters': 5}</td>
-      <td>-9.033360</td>
-      <td>-7.519074</td>
-      <td>-9.014487</td>
-      <td>-7.682308</td>
-      <td>-5.338136</td>
-      <td>-7.717473</td>
-      <td>1.350233</td>
+      <td>-8.319114</td>
+      <td>-9.310683</td>
+      <td>-8.850791</td>
+      <td>-5.999820</td>
+      <td>-5.987369</td>
+      <td>-7.693555</td>
+      <td>1.423055</td>
       <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.013703</td>
-      <td>0.000306</td>
-      <td>0.001246</td>
-      <td>0.000237</td>
+      <td>0.015549</td>
+      <td>0.000639</td>
+      <td>0.001426</td>
+      <td>0.000136</td>
       <td>6</td>
       <td>{'n_clusters': 6}</td>
-      <td>-7.878061</td>
-      <td>-6.667228</td>
-      <td>-6.296144</td>
-      <td>-6.532517</td>
-      <td>-5.378686</td>
-      <td>-6.550527</td>
-      <td>0.801775</td>
+      <td>-6.418450</td>
+      <td>-6.982272</td>
+      <td>-5.743847</td>
+      <td>-5.180372</td>
+      <td>-5.436542</td>
+      <td>-5.952297</td>
+      <td>0.660828</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -899,7 +900,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 4, &#39;min_samples_leaf&#39;: 2}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 2, &#39;min_samples_leaf&#39;: 2}
 </pre></div>
 </div>
 </div>
@@ -953,7 +954,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(18, 23)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 4)
 </pre></div>
 </div>
 </div>
@@ -1001,11 +1002,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/01-syllabus-install.html"
+       href="2023-04-06.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>SVM and Model Optimization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

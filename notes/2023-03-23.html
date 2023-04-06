@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -521,7 +522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb19da5a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa48638fbb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/62177fad05105929dd5415dd4c73f7867f9f36c0bfa9cc8fbe91fc7bd289e84d.png" src="../_images/62177fad05105929dd5415dd4c73f7867f9f36c0bfa9cc8fbe91fc7bd289e84d.png" />
@@ -631,7 +632,7 @@ remember most data frame operations return a copy of the dataframe.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb19da57f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa48638f880&gt;
 </pre></div>
 </div>
 <img alt="../_images/b41e0c597b47607e61476447134bf3440f5e94688d71558b841ee6c2969234aa.png" src="../_images/b41e0c597b47607e61476447134bf3440f5e94688d71558b841ee6c2969234aa.png" />
@@ -646,7 +647,7 @@ remember most data frame operations return a copy of the dataframe.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb140e3a30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa47853f5e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/03154a9b76225faf7e576212f04b7df815a5e16bb027a864e92142a68b65be98.png" src="../_images/03154a9b76225faf7e576212f04b7df815a5e16bb027a864e92142a68b65be98.png" />
@@ -668,7 +669,7 @@ remember most data frame operations return a copy of the dataframe.</p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb0b30e9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa477fe00d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/8c80a76e55acc30a88616785e8da031895a365bc4526d1f6b147f0c1cdd2296d.png" src="../_images/8c80a76e55acc30a88616785e8da031895a365bc4526d1f6b147f0c1cdd2296d.png" />
@@ -686,7 +687,7 @@ remember most data frame operations return a copy of the dataframe.</p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb0ab1c4f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa4773bd940&gt;
 </pre></div>
 </div>
 <img alt="../_images/82ed3d77bebddd63b16d0a2e2cabb34396b44ae39a2aef763d35cfcf2fecbeb5.png" src="../_images/82ed3d77bebddd63b16d0a2e2cabb34396b44ae39a2aef763d35cfcf2fecbeb5.png" />
@@ -704,7 +705,7 @@ remember most data frame operations return a copy of the dataframe.</p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb09ff0e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa4acf629a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/5ee854fa2f3f163eee87a7a81111c6d199f28649179e4ad3e6befc1a7ff35c1e.png" src="../_images/5ee854fa2f3f163eee87a7a81111c6d199f28649179e4ad3e6befc1a7ff35c1e.png" />
@@ -739,7 +740,7 @@ times.</p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb0b2e9580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa476156580&gt;
 </pre></div>
 </div>
 <img alt="../_images/a14ada1949d11e1ea0830c610a8d23b7539bdf4d509b9083d515e55d17c4384d.png" src="../_images/a14ada1949d11e1ea0830c610a8d23b7539bdf4d509b9083d515e55d17c4384d.png" />
@@ -752,7 +753,7 @@ times.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb09413250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa4755a1c70&gt;
 </pre></div>
 </div>
 <img alt="../_images/5efda5fc01c12a294aaf837d4bbeebf80d7f0ac7d75bc8a1d04daf7235526db5.png" src="../_images/5efda5fc01c12a294aaf837d4bbeebf80d7f0ac7d75bc8a1d04daf7235526db5.png" />
@@ -765,7 +766,7 @@ times.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7ffb087ed190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa4751bc760&gt;
 </pre></div>
 </div>
 <img alt="../_images/69a53fd7d2002780e81c6396687222ed81ca2600048944b0b975ffd43f548512.png" src="../_images/69a53fd7d2002780e81c6396687222ed81ca2600048944b0b975ffd43f548512.png" />

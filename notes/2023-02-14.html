@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-28.html">18. Regression Preview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -2099,7 +2100,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7487fb9070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f44eb1db190&gt;
 </pre></div>
 </div>
 <img alt="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" src="../_images/ff986bd5a7c69d54326c32167e64b85c31b21ae24d8d57ba7e625e3b446242d8.png" />
@@ -2113,7 +2114,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7487fb0ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f44eb003040&gt;
 </pre></div>
 </div>
 <img alt="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" src="../_images/9aa0b8ac4e49e461214d74b55c3c47e328d9f7cc06f9744873da4fc5fda421c3.png" />
@@ -2194,11 +2195,11 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1918/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1904/3482930274.py:1: UserWarning: Dataset has 0 variance; skipping density estimate. Pass `warn_singular=False` to disable this warning.
   sns.displot(data=coffe_scores_df2, x=&#39;score&#39;,hue=&#39;Country.of.Origin&#39;,
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f748ae5c310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f44e60625b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/4ef6a54c403ebdfaf262dc0ef507bc72fd5d269edfbc547e58ad94168f072a38.png" src="../_images/4ef6a54c403ebdfaf262dc0ef507bc72fd5d269edfbc547e58ad94168f072a38.png" />
@@ -2691,7 +2692,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7482f7d070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f44e62193d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" src="../_images/c0cd5dae1613f6e9bef8d23206e1331390273ba48df61fb5e166c7b557eabd49.png" />
@@ -2779,7 +2780,7 @@ Name: Number.of.Bags, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7482e79a30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f44e5f11520&gt;
 </pre></div>
 </div>
 <img alt="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" src="../_images/f20dac6f3713437643c00683862175ad26abe7272e25a108c77955d1bd40cd5b.png" />
