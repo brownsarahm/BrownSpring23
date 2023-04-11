@@ -86,7 +86,7 @@ You can view a (fake) example [in this repository](https://github.com/rhodyprog4
 - Portfolio Check 1 is due March 6
 - Portfolio Check 2 is due April 7
 - Portfolio check 3 is due April 21
-- Portfolio check 4 is due on our assigned final exam date
+- Portfolio check 4 is due May 9
 
 
 
