@@ -192,6 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -518,10 +519,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f95d471f520&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f39cc722790&gt;
 </pre></div>
 </div>
-<img alt="../_images/5bc90ec80fbc3b31b0b627bb2a6da0f6e75c390eed34746a52310cac04899941.png" src="../_images/5bc90ec80fbc3b31b0b627bb2a6da0f6e75c390eed34746a52310cac04899941.png" />
+<img alt="../_images/4d897dc6418273c405d5ff6df8a15bf81b21c6076477a5bdb284a214c3e87000.png" src="../_images/4d897dc6418273c405d5ff6df8a15bf81b21c6076477a5bdb284a214c3e87000.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -531,10 +532,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f95aa2e2cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f398dbc5700&gt;
 </pre></div>
 </div>
-<img alt="../_images/53cc1b93b6a266476ad256dc1cdb9846b2df0e6b9a662041318fd15dbfbffc1c.png" src="../_images/53cc1b93b6a266476ad256dc1cdb9846b2df0e6b9a662041318fd15dbfbffc1c.png" />
+<img alt="../_images/e77e5a85d935c181bb9a4043e96e7d0ab3bd81e33f34bc7ea6e939447d21c969.png" src="../_images/e77e5a85d935c181bb9a4043e96e7d0ab3bd81e33f34bc7ea6e939447d21c969.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -553,10 +554,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[6.17, 1.63],
-       [2.16, 6.02],
-       [1.35, 6.11],
-       [2.23, 5.12]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.66, 1.48],
+       [2.16, 6.12],
+       [6.49, 6.84],
+       [5.94, 6.71]])
 </pre></div>
 </div>
 </div>
@@ -617,8 +618,8 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.23</td>
-      <td>5.59</td>
+      <td>1.7</td>
+      <td>1.29</td>
     </tr>
   </tbody>
 </table>
@@ -631,7 +632,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.17, 1.63])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.66, 1.48])
 </pre></div>
 </div>
 </div>
@@ -655,7 +656,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x0&#39;, ylabel=&#39;x1&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/d300102880bf5d7f5e72a284812c5d206ab78dd16fc4177ace5c99f2f610551f.png" src="../_images/d300102880bf5d7f5e72a284812c5d206ab78dd16fc4177ace5c99f2f610551f.png" />
+<img alt="../_images/3cf508f0026dc1c352052accd6945e6182e2ddb644bb9328e339161f57333fb2.png" src="../_images/3cf508f0026dc1c352052accd6945e6182e2ddb644bb9328e339161f57333fb2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -692,38 +693,38 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.23</td>
-      <td>5.59</td>
-      <td>D</td>
+      <td>1.70</td>
+      <td>1.29</td>
+      <td>A</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.09</td>
-      <td>2.43</td>
-      <td>A</td>
-      <td>3</td>
+      <td>2.16</td>
+      <td>5.93</td>
+      <td>B</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.10</td>
-      <td>6.51</td>
-      <td>D</td>
+      <td>2.40</td>
+      <td>6.82</td>
+      <td>B</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5.54</td>
-      <td>1.28</td>
-      <td>C</td>
-      <td>0</td>
+      <td>6.14</td>
+      <td>5.61</td>
+      <td>D</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2.54</td>
-      <td>5.43</td>
+      <td>1.54</td>
+      <td>5.63</td>
       <td>B</td>
-      <td>3</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -743,7 +744,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x0&#39;, ylabel=&#39;x1&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/eaa3f0e5d95861e2e696c4e0507e8b67fb72036f70b2bc58c21be9816885e450.png" src="../_images/eaa3f0e5d95861e2e696c4e0507e8b67fb72036f70b2bc58c21be9816885e450.png" />
+<img alt="../_images/63707f7b4d36feabe569609c600db1b5514bffe8e80cdb3c1f404b38dcfbcb34.png" src="../_images/63707f7b4d36feabe569609c600db1b5514bffe8e80cdb3c1f404b38dcfbcb34.png" />
 </div>
 </div>
 <p>Now we can update the assignments again</p>
@@ -761,7 +762,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x0&#39;, ylabel=&#39;x1&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/46826f089cd3286ed062370c0173bbe1af888da8f7a11a8d6bbfcdd7d1ea4acf.png" src="../_images/46826f089cd3286ed062370c0173bbe1af888da8f7a11a8d6bbfcdd7d1ea4acf.png" />
+<img alt="../_images/af12c09fdc5809dbb9414bac110bc7ac42cdfb205d188b099c068abe6af25d6f.png" src="../_images/af12c09fdc5809dbb9414bac110bc7ac42cdfb205d188b099c068abe6af25d6f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -799,43 +800,43 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.23</td>
-      <td>5.59</td>
-      <td>D</td>
+      <td>1.70</td>
+      <td>1.29</td>
+      <td>A</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.09</td>
-      <td>2.43</td>
-      <td>A</td>
-      <td>3</td>
-      <td>3</td>
+      <td>2.16</td>
+      <td>5.93</td>
+      <td>B</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.10</td>
-      <td>6.51</td>
-      <td>D</td>
+      <td>2.40</td>
+      <td>6.82</td>
+      <td>B</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5.54</td>
-      <td>1.28</td>
-      <td>C</td>
-      <td>0</td>
-      <td>0</td>
+      <td>6.14</td>
+      <td>5.61</td>
+      <td>D</td>
+      <td>3</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2.54</td>
-      <td>5.43</td>
+      <td>1.54</td>
+      <td>5.63</td>
       <td>B</td>
-      <td>3</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -876,12 +877,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bf607d1e7f7c678f055d1860553ee9411237349c2becdddc3e4b5b3eaf71ae6c.png" src="../_images/bf607d1e7f7c678f055d1860553ee9411237349c2becdddc3e4b5b3eaf71ae6c.png" />
-<img alt="../_images/d8686ca07ea25ac46bde2438eeff4005098e3c73a1c9d5555f4837da72eee25b.png" src="../_images/d8686ca07ea25ac46bde2438eeff4005098e3c73a1c9d5555f4837da72eee25b.png" />
-<img alt="../_images/d84dd93c46ffd91b98b6da70375981e0d44b0521e096e9d443c4e81ba478dfae.png" src="../_images/d84dd93c46ffd91b98b6da70375981e0d44b0521e096e9d443c4e81ba478dfae.png" />
-<img alt="../_images/718ab02b95d4c30599992e16bf936161d60e58f97c8269d6fe8b837f1379e188.png" src="../_images/718ab02b95d4c30599992e16bf936161d60e58f97c8269d6fe8b837f1379e188.png" />
-<img alt="../_images/ad8d5d9e1585e324ce8b8889de11164526c517d23654852fdee4440b1f46d92e.png" src="../_images/ad8d5d9e1585e324ce8b8889de11164526c517d23654852fdee4440b1f46d92e.png" />
-<img alt="../_images/ad8d5d9e1585e324ce8b8889de11164526c517d23654852fdee4440b1f46d92e.png" src="../_images/ad8d5d9e1585e324ce8b8889de11164526c517d23654852fdee4440b1f46d92e.png" />
+<img alt="../_images/00a91fe23a665436dd35452f6928b1c7fdc61690a017e28c782615d282717059.png" src="../_images/00a91fe23a665436dd35452f6928b1c7fdc61690a017e28c782615d282717059.png" />
+<img alt="../_images/ff681aeabb06b89f9f749409a5c3c8556f818f685edd940800f88fa990688ec2.png" src="../_images/ff681aeabb06b89f9f749409a5c3c8556f818f685edd940800f88fa990688ec2.png" />
+<img alt="../_images/4fd1f3220921659bfbe391083c3e64e0d4d04dfda00f260b17cf1a4bbd91d2cb.png" src="../_images/4fd1f3220921659bfbe391083c3e64e0d4d04dfda00f260b17cf1a4bbd91d2cb.png" />
+<img alt="../_images/d3c989d10e186e27ba5e95c84a245b017c0909e1b0d40dafced9e83933f2e8aa.png" src="../_images/d3c989d10e186e27ba5e95c84a245b017c0909e1b0d40dafced9e83933f2e8aa.png" />
+<img alt="../_images/b7bef119e613e6020d3539e6f42f055ef996b20cde5385be6cbee99180ca8e55.png" src="../_images/b7bef119e613e6020d3539e6f42f055ef996b20cde5385be6cbee99180ca8e55.png" />
+<img alt="../_images/671a95308076911b469b7bbb2681e76adde3451206a7ace47de4216dde59e335.png" src="../_images/671a95308076911b469b7bbb2681e76adde3451206a7ace47de4216dde59e335.png" />
+<img alt="../_images/d81f9497c6e897ef3eec3511fe1e45bd359c6c1ee73d65f71b72f0d844f3f027.png" src="../_images/d81f9497c6e897ef3eec3511fe1e45bd359c6c1ee73d65f71b72f0d844f3f027.png" />
+<img alt="../_images/d81f9497c6e897ef3eec3511fe1e45bd359c6c1ee73d65f71b72f0d844f3f027.png" src="../_images/d81f9497c6e897ef3eec3511fe1e45bd359c6c1ee73d65f71b72f0d844f3f027.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -917,36 +920,40 @@ document.write(`
       <th>3</th>
       <th>4</th>
       <th>5</th>
+      <th>6</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.23</td>
-      <td>5.59</td>
-      <td>D</td>
+      <td>1.70</td>
+      <td>1.29</td>
+      <td>A</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.09</td>
-      <td>2.43</td>
-      <td>A</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
+      <td>2.16</td>
+      <td>5.93</td>
+      <td>B</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.10</td>
-      <td>6.51</td>
-      <td>D</td>
+      <td>2.40</td>
+      <td>6.82</td>
+      <td>B</td>
+      <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -955,25 +962,27 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>5.54</td>
-      <td>1.28</td>
-      <td>C</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2.54</td>
-      <td>5.43</td>
-      <td>B</td>
+      <td>6.14</td>
+      <td>5.61</td>
+      <td>D</td>
+      <td>3</td>
       <td>3</td>
       <td>2</td>
       <td>2</td>
       <td>2</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.54</td>
+      <td>5.63</td>
+      <td>B</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>...</th>
@@ -985,45 +994,50 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
       <th>195</th>
-      <td>1.20</td>
-      <td>1.63</td>
-      <td>A</td>
+      <td>5.71</td>
+      <td>5.85</td>
+      <td>D</td>
       <td>3</td>
       <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>196</th>
-      <td>1.94</td>
-      <td>6.77</td>
-      <td>B</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
+      <td>6.07</td>
+      <td>2.32</td>
+      <td>C</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>197</th>
-      <td>6.23</td>
-      <td>7.07</td>
-      <td>D</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1.59</td>
+      <td>2.59</td>
+      <td>A</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>198</th>
-      <td>5.78</td>
-      <td>1.76</td>
-      <td>C</td>
+      <td>1.66</td>
+      <td>1.48</td>
+      <td>A</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1032,18 +1046,19 @@ document.write(`
     </tr>
     <tr>
       <th>199</th>
-      <td>6.84</td>
-      <td>6.15</td>
-      <td>D</td>
+      <td>2.15</td>
+      <td>1.68</td>
+      <td>A</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>200 rows × 8 columns</p>
+<p>200 rows × 9 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1076,10 +1091,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f95a2ad0fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f398c6e35e0&gt;
 </pre></div>
 </div>
-<img alt="../_images/025e98c74720a5a217d224794586c8ab7ea2381edd88ad28e6d0e76920516e47.png" src="../_images/025e98c74720a5a217d224794586c8ab7ea2381edd88ad28e6d0e76920516e47.png" />
+<img alt="../_images/d9af46bc3e8960a1b83b6b54dc1bf1ef76f251769ba02fc37a8ac7f8144feebc.png" src="../_images/d9af46bc3e8960a1b83b6b54dc1bf1ef76f251769ba02fc37a8ac7f8144feebc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1089,7 +1104,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7492322704108295
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7655796157143695
 </pre></div>
 </div>
 </div>
@@ -1101,7 +1116,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7492322704108295
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7655796157143695
 </pre></div>
 </div>
 </div>
@@ -1113,7 +1128,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26824683349743134
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39984629983841685
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1140,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6666972416513355
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.44193792548739597
 </pre></div>
 </div>
 </div>
@@ -1163,68 +1178,74 @@ document.write(`
       <th>3</th>
       <th>4</th>
       <th>5</th>
+      <th>6</th>
       <th>km_clusters</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.23</td>
-      <td>5.59</td>
-      <td>D</td>
+      <td>1.70</td>
+      <td>1.29</td>
+      <td>A</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.09</td>
-      <td>2.43</td>
-      <td>A</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
+      <td>2.16</td>
+      <td>5.93</td>
+      <td>B</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6.10</td>
-      <td>6.51</td>
-      <td>D</td>
+      <td>2.40</td>
+      <td>6.82</td>
+      <td>B</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5.54</td>
-      <td>1.28</td>
-      <td>C</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>6.14</td>
+      <td>5.61</td>
+      <td>D</td>
       <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2.54</td>
-      <td>5.43</td>
+      <td>1.54</td>
+      <td>5.63</td>
       <td>B</td>
-      <td>3</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>2</td>
     </tr>
   </tbody>
@@ -1238,7 +1259,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999999999999999
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -1250,7 +1271,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5364020407835092
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7414853124040691
 </pre></div>
 </div>
 </div>
@@ -1262,7 +1283,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8901116131199286
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7537496058050397
 </pre></div>
 </div>
 </div>

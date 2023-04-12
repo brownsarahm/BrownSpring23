@@ -192,6 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-03-30.html">19. Regression</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -502,7 +503,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9736842105263158
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9473684210526315
 </pre></div>
 </div>
 </div>
@@ -514,7 +515,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95652174, 0.86956522, 0.95454545, 0.95454545, 0.95454545])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95652174, 0.91304348, 1.        , 0.90909091, 0.95454545])
 </pre></div>
 </div>
 </div>
@@ -526,7 +527,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9288537549407115
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9466403162055336
 </pre></div>
 </div>
 </div>
@@ -538,8 +539,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.83333333, 0.90909091, 0.81818182, 0.90909091,
-       1.        , 0.90909091, 1.        , 0.90909091, 0.90909091])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.91666667, 0.90909091, 1.        , 1.        ,
+       1.        , 0.90909091, 1.        , 1.        , 0.90909091])
 </pre></div>
 </div>
 </div>
@@ -551,7 +552,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9196969696969696
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9643939393939392
 </pre></div>
 </div>
 </div>
@@ -578,12 +579,14 @@ document.write(`
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-15.45973912, -12.99808518,  -8.21361491, -17.70423875,
-        -9.68009339])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-10.57077693, -17.87915145, -11.50506381, -10.22264764,
+       -12.30832404])
 </pre></div>
 </div>
 </div>
@@ -677,24 +680,6 @@ document.write(`
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
@@ -702,6 +687,22 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
@@ -782,87 +783,87 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.010773</td>
-      <td>0.000582</td>
-      <td>0.002413</td>
-      <td>0.000919</td>
+      <td>0.008096</td>
+      <td>0.000520</td>
+      <td>0.001363</td>
+      <td>0.000077</td>
       <td>2</td>
       <td>{'n_clusters': 2}</td>
-      <td>-30.089317</td>
-      <td>-23.084618</td>
-      <td>-15.488517</td>
-      <td>-29.547372</td>
-      <td>-18.129983</td>
-      <td>-23.267962</td>
-      <td>5.880716</td>
+      <td>-19.882437</td>
+      <td>-26.824035</td>
+      <td>-23.333133</td>
+      <td>-20.376257</td>
+      <td>-22.832800</td>
+      <td>-22.649732</td>
+      <td>2.479999</td>
       <td>5</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.014225</td>
-      <td>0.002268</td>
-      <td>0.001655</td>
-      <td>0.000068</td>
+      <td>0.013230</td>
+      <td>0.001335</td>
+      <td>0.001500</td>
+      <td>0.000107</td>
       <td>3</td>
       <td>{'n_clusters': 3}</td>
-      <td>-15.459739</td>
-      <td>-12.998085</td>
-      <td>-8.477800</td>
-      <td>-17.704239</td>
-      <td>-9.680093</td>
-      <td>-12.863991</td>
-      <td>3.451370</td>
+      <td>-10.570777</td>
+      <td>-17.879151</td>
+      <td>-10.975365</td>
+      <td>-10.222648</td>
+      <td>-12.308324</td>
+      <td>-12.391253</td>
+      <td>2.833571</td>
       <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.016933</td>
-      <td>0.000853</td>
-      <td>0.002021</td>
-      <td>0.000898</td>
+      <td>0.015203</td>
+      <td>0.001217</td>
+      <td>0.001760</td>
+      <td>0.000409</td>
       <td>4</td>
       <td>{'n_clusters': 4}</td>
-      <td>-10.457526</td>
-      <td>-9.269320</td>
-      <td>-7.036051</td>
-      <td>-12.676718</td>
-      <td>-7.352467</td>
-      <td>-9.358416</td>
-      <td>2.080592</td>
+      <td>-8.346931</td>
+      <td>-12.241410</td>
+      <td>-9.051105</td>
+      <td>-7.104496</td>
+      <td>-8.479767</td>
+      <td>-9.044742</td>
+      <td>1.719850</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.019157</td>
-      <td>0.001208</td>
-      <td>0.001558</td>
-      <td>0.000025</td>
+      <td>0.014793</td>
+      <td>0.000639</td>
+      <td>0.001509</td>
+      <td>0.000170</td>
       <td>5</td>
       <td>{'n_clusters': 5}</td>
-      <td>-8.896382</td>
-      <td>-7.573274</td>
-      <td>-5.790235</td>
-      <td>-10.276553</td>
-      <td>-6.983987</td>
-      <td>-7.904086</td>
-      <td>1.551621</td>
+      <td>-8.693277</td>
+      <td>-10.494982</td>
+      <td>-7.370670</td>
+      <td>-6.326560</td>
+      <td>-6.657573</td>
+      <td>-7.908612</td>
+      <td>1.527244</td>
       <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.022435</td>
-      <td>0.000954</td>
-      <td>0.001668</td>
-      <td>0.000126</td>
+      <td>0.016220</td>
+      <td>0.000151</td>
+      <td>0.001468</td>
+      <td>0.000022</td>
       <td>6</td>
       <td>{'n_clusters': 6}</td>
-      <td>-6.648636</td>
-      <td>-6.775508</td>
-      <td>-5.449087</td>
-      <td>-8.681216</td>
-      <td>-5.525452</td>
-      <td>-6.615980</td>
-      <td>1.169838</td>
+      <td>-7.455231</td>
+      <td>-9.259088</td>
+      <td>-6.995346</td>
+      <td>-6.380672</td>
+      <td>-7.091746</td>
+      <td>-7.436416</td>
+      <td>0.974723</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -956,7 +957,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9, 36)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9, 10)
 </pre></div>
 </div>
 </div>
