@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-04-04';</script>
@@ -422,7 +424,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -438,6 +442,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-tasks">20.1. Relationship between Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">20.2. Cross Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-cross-validation-really-do">20.3. What Does Cross validation really do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-with-clustering">20.4. Cross validation with clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-search-optimization">20.5. Grid Search Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-decision-tree">20.6. Optimizing a Decision Tree</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -449,6 +466,54 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ml-task-review-and-cross-validation">
 <h1><span class="section-number">20. </span>ML Task Review and Cross Validation<a class="headerlink" href="#ml-task-review-and-cross-validation" title="Permalink to this headline">#</a></h1>
+<section id="relationship-between-tasks">
+<h2><span class="section-number">20.1. </span>Relationship between Tasks<a class="headerlink" href="#relationship-between-tasks" title="Permalink to this headline">#</a></h2>
+<p>We learned classification first, because it shares similarities with each
+regression and clustering, while regression and clustering have less in common.</p>
+<p>Classification is supervised learning for a categorical target.<br />
+Regression is supervised learning for a continuous target.
+Clustering is unsupervised learning for a categorical target.</p>
+<p>Sklearn provides a nice flow chart for thinking through this.</p>
+<p><img alt="estimator flow chart" src="https://scikit-learn.org/stable/_static/ml_map.png" /></p>
+<p>Predicting a category is another way of saying categorical target. Predicting a
+quantitiy is another way of saying continuous target. Having lables or not is
+the difference between</p>
+<p>The flowchart assumes you know what you want to do with data and that is the
+ideal scenario. You have a dataset and you have a goal.
+For the purpose of getting to practice with a variety of things, in this course
+we ask you to start with a task and then find a dataset. Assignment 9 is the
+last time that’s true however. Starting with Assignment 10 and the last
+portflios, you can choose and focus on a specific application domain and then
+choose the right task from there.</p>
+<p>Thinking about this, however, you use this information to move between the tasks
+within a given type of data.
+For example, you can use the same data for clustering as you did for classification.
+Switching the task changes the questions though: classification evaluation tells
+us how separable the classes are given that classifiers decision rule. Clustering
+can find other subgroups or the same ones, so the evaluation we choose allows us
+to explore this in more ways.</p>
+<p>Regression requires a continuous target, so we need a dataset to be suitable for
+that, we can’t transform from the classification dataset to a regression one.<br />
+However, we can go the other way and that’s how some classification datasets are
+created.</p>
+<p>The UCI <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/adult">adult</a> Dataset is a popular ML dataset that was dervied from census
+data. The goal is to use a variety of features to predict if a person makes
+more than <span class="math notranslate nohighlight">\(50k per year or not. While income is a continuous value, they applied
+a threshold (\)</span>50k) to it to make a binary variable. The dataset does not include
+income in dollars, only the binary indicator.</p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>Recent work reconsturcted the dataset with the continuous valued income.
+Their <a class="reference external" href="https://github.com/zykls/folktables">repository</a> contains the data as well
+as links to their paper and a video of their talk on it.</p>
+</div>
+</section>
+<section id="cross-validation">
+<h2><span class="section-number">20.2. </span>Cross Validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">#</a></h2>
+<p>This week our goal is to learn how to optmize models. The first step in that is
+to get a good estimate of its performance.</p>
+<p>We have seen that the test train splits, which are random, influence the
+performance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic libraries</span>
@@ -471,6 +536,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We’ll use the Iris data with a decision tree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
@@ -483,21 +549,17 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can split the data, fit the model, then compute a score, but since the
+splitting is a randomized step, the score is a random variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_X_train</span><span class="p">,</span> <span class="n">iris_X_test</span><span class="p">,</span> <span class="n">iris_y_train</span><span class="p">,</span> <span class="n">iris_y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
 <span class="n">dt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">iris_X_test</span><span class="p">,</span><span class="n">iris_y_test</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -508,6 +570,32 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Since it is random, if we repeat this, we will generally get a different value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_X_train</span><span class="p">,</span> <span class="n">iris_X_test</span><span class="p">,</span> <span class="n">iris_y_train</span><span class="p">,</span> <span class="n">iris_y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">)</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">iris_X_test</span><span class="p">,</span><span class="n">iris_y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9473684210526315
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, if we have a coin that we want to see if it’s fair or not. We would
+flip it to test.  One flip doesn’t tell us, but if we flip it a few times, we
+can estimate the probability it is heads by counting how many of the flips are
+heads and dividing by how many flips.</p>
+<p>We can do something similar with our model performance. We can split the data
+a bunch of times and compute the score each time.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> does this all for us.</p>
+<p>It takes an estimator object and the data.</p>
+<p>By default it uses 5-fold cross validation. It splits the data into 5 sections,
+then uses 4 of them to train and one to test. It then iterates through so that
+each section gets used for testing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span>
@@ -515,11 +603,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95652174, 0.91304348, 1.        , 0.90909091, 0.95454545])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.91304348, 0.90909091, 1.        , 1.        ])
 </pre></div>
 </div>
 </div>
 </div>
+<p>We will still use the test train split to keep our test data separate from the data that we use to find our preferred parameters.</p>
+<p>We get back a score for each section or “fold” of the data. We can average those
+to get a single estimate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -527,11 +618,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9466403162055336
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9553359683794467
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can change it to 10-fold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">iris_X_train</span><span class="p">,</span><span class="n">iris_y_train</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -539,8 +631,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.91666667, 0.90909091, 1.        , 1.        ,
-       1.        , 0.90909091, 1.        , 1.        , 0.90909091])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 1.        , 0.90909091, 0.90909091, 0.81818182,
+       1.        , 1.        , 1.        , 1.        , 1.        ])
 </pre></div>
 </div>
 </div>
@@ -552,11 +644,271 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9643939393939392
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9545454545454545
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="what-does-cross-validation-really-do">
+<h2><span class="section-number">20.3. </span>What Does Cross validation really do?<a class="headerlink" href="#what-does-cross-validation-really-do" title="Permalink to this headline">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is extra detail that was not presented in class.</p>
+</div>
+<p>It uses StratifiedKfold for classification, but since we’re using regression it will use <code class="docutils literal notranslate"><span class="pre">KFold</span></code>. <code class="docutils literal notranslate"><span class="pre">test_train_split</span></code> uses <code class="docutils literal notranslate"><span class="pre">ShuffleSplit</span></code> by default, let’s load that too to see what it does.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The key in the following is to get the <em>concepts</em> not all of the details in how I evaluate and visualize.  I could have made figures separately to explain the concept, but I like to show that Python is self contained.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">ShuffleSplit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we use the <code class="docutils literal notranslate"><span class="pre">split</span></code> method it gives us a generator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">diabetes_X</span><span class="p">,</span> <span class="n">diabetes_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">diabetes_X</span><span class="p">,</span> <span class="n">diabetes_y</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;diabetes_X&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use this in a loop to get the list of indices that will be used to get the test and train data for each fold.  To visualize what this is  doing, see below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diabetes_y</span><span class="p">)</span>
+<span class="n">kf_tt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N_samples</span><span class="p">)))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">diabetes_X</span><span class="p">,</span> <span class="n">diabetes_y</span><span class="p">):</span>
+    <span class="n">kf_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;unused&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">N_samples</span>
+    <span class="n">kf_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="n">train_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Train&#39;</span>
+    <span class="n">kf_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="n">test_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span>
+    <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">N_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diabetes_y</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">kf_tt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N_samples</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="ne">NameError</span>: name &#39;diabetes_y&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>How would you use those indices to get a out actual test and train data?</p>
+</aside>
+<p>We can count how many times ‘Test’ and ‘Train’ appear</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_test</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">part</span><span class="p">:</span> <span class="nb">len</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">part</span> <span class="k">if</span> <span class="n">v</span><span class="o">==</span><span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+<span class="n">count_train</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">part</span><span class="p">:</span> <span class="nb">len</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">part</span> <span class="k">if</span> <span class="n">v</span><span class="o">==</span><span class="s1">&#39;Train&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we apply this along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> we to check that each sample is used in exactly 1 test set how may times each sample is used</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">sum</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;kf_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>and exactly 9 training sets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">sum</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;kf_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>the describe helps ensure that all fo the values are exa</p>
+<p>We can also visualize:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> doesn’t work on strings, so we can replace them for the plotting</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Train&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}),</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span><span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ticks&#39;</span><span class="p">:[</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.75</span><span class="p">]},</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">colorbar</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span>
+<span class="n">colorbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span><span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Train&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}),</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span><span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ticks&#39;</span><span class="p">:[</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.75</span><span class="p">]},</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">colorbar</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">colorbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span><span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;kf_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that unlike <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code class="docutils literal notranslate"><span class="pre">test_train_split</span></code></a> this does not always randomize and shuffle the data before splitting.</p>
+<p>If we apply those <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions along <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, we can see the size of each test set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_test</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;kf_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>and training set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_train</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">kf_tt_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_train</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;kf_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can verify that these splits are the same size as what <code class="docutils literal notranslate"><span class="pre">test_train_split</span></code> does using the right settings.  10-fold splits the data into 10 parts and tests on 1, so that makes a test size of 1/10=.1, so we can use the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> and check the length.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_train2</span><span class="p">,</span><span class="n">X_test2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">,</span><span class="n">y_test2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">diabetes_X</span><span class="p">,</span> <span class="n">diabetes_y</span> <span class="p">,</span>
+                                                  <span class="n">test_size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">[</span><span class="n">X_train2</span><span class="p">,</span><span class="n">X_test2</span><span class="p">,]]</span>
+</pre></div>
+</div>
+<p>Under the hood <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> uses <code class="docutils literal notranslate"><span class="pre">ShuffleSplit</span></code>
+We can do a similar experiment as above to see what <code class="docutils literal notranslate"><span class="pre">ShuffleSplit</span></code> does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skf</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">N_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diabetes_y</span><span class="p">)</span>
+<span class="n">ss_tt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N_samples</span><span class="p">)))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">diabetes_X</span><span class="p">,</span> <span class="n">diabetes_y</span><span class="p">):</span>
+    <span class="n">ss_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;unused&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">N_samples</span>
+    <span class="n">ss_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="n">train_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Train&#39;</span>
+    <span class="n">ss_tt_df</span><span class="p">[</span><span class="s1">&#39;split &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="n">test_idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span>
+    <span class="n">i</span> <span class="o">+=</span><span class="mi">1</span>
+
+<span class="n">ss_tt_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">skf</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">N_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">diabetes_y</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ss_tt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N_samples</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="ne">NameError</span>: name &#39;diabetes_y&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">ss_tt_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Train&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}),</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span><span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ticks&#39;</span><span class="p">:[</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.75</span><span class="p">]},</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">colorbar</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span>
+<span class="n">colorbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span><span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">ss_tt_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Train&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}),</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span><span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ticks&#39;</span><span class="p">:[</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.75</span><span class="p">]},</span><span class="n">linewidths</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">colorbar</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">colorbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span><span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;ss_tt_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-validation-with-clustering">
+<h2><span class="section-number">20.4. </span>Cross validation with clustering<a class="headerlink" href="#cross-validation-with-clustering" title="Permalink to this headline">#</a></h2>
+<p>We can use <em>any</em> estimator object here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">km</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -579,14 +931,12 @@ document.write(`
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-10.57077693, -17.87915145, -11.50506381, -10.22264764,
-       -12.30832404])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.41205929, -15.80237351, -10.77014002, -20.39056119,
+       -11.77079729])
 </pre></div>
 </div>
 </div>
@@ -600,7 +950,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">km</span><span class="o">.</span><span class="n">score</span><span class="p">()</span>
 
 <span class="ne">TypeError</span>: score() missing 1 required positional argument: &#39;X&#39;
@@ -608,6 +958,11 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="grid-search-optimization">
+<h2><span class="section-number">20.5. </span>Grid Search Optimization<a class="headerlink" href="#grid-search-optimization" title="Permalink to this headline">#</a></h2>
+<p>We can optimize, however to determing the different parameter settings.</p>
+<p>A simple way to do this is to fit the model for different parameters and score for each and compare.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_clusters&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]}</span>
@@ -618,7 +973,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_clusters&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]}</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">km_opt</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">km</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">)</span>
 
@@ -627,6 +982,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> object is constructed first and requires an estimator object and a dictionary that describes the parameter grid to search over.
+The dictionary has the parameter names as the keys and the values are the values for that parameter to test.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method on the Grid Search object fits all of the separate models.</p>
+<p>In this case we optimize of a one dimensional “grid” just a set of values for one parameter, the number of clusters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_clusters&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]}</span>
@@ -684,13 +1043,13 @@ document.write(`
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
@@ -713,6 +1072,10 @@ document.write(`
 <div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(estimator=KMeans(n_clusters=3),
              param_grid={&#x27;n_clusters&#x27;: [2, 3, 4, 5, 6]})</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(estimator=KMeans(n_clusters=3),
              param_grid={&#x27;n_clusters&#x27;: [2, 3, 4, 5, 6]})</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: KMeans</label><div class="sk-toggleable__content"><pre>KMeans(n_clusters=3)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">KMeans</label><div class="sk-toggleable__content"><pre>KMeans(n_clusters=3)</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>I still need to explore this question. A volunteer who wants to do this for a portfolio section can do that as well</p>
 </div>
 <p>Why does <code class="docutils literal notranslate"><span class="pre">,scoring=metrics.silhouette_score</span></code> not work?</p>
 <div class="cell docutils container">
@@ -739,6 +1102,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We note that this is a dictionary, so to make it more readable, we can make it a DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">km_opt</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
@@ -783,93 +1147,98 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.008096</td>
-      <td>0.000520</td>
-      <td>0.001363</td>
-      <td>0.000077</td>
+      <td>0.008807</td>
+      <td>0.002783</td>
+      <td>0.001269</td>
+      <td>0.000088</td>
       <td>2</td>
       <td>{'n_clusters': 2}</td>
-      <td>-19.882437</td>
-      <td>-26.824035</td>
-      <td>-23.333133</td>
-      <td>-20.376257</td>
-      <td>-22.832800</td>
-      <td>-22.649732</td>
-      <td>2.479999</td>
+      <td>-14.393152</td>
+      <td>-21.372699</td>
+      <td>-20.755246</td>
+      <td>-42.096046</td>
+      <td>-26.833011</td>
+      <td>-25.090031</td>
+      <td>9.373096</td>
       <td>5</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.013230</td>
-      <td>0.001335</td>
-      <td>0.001500</td>
-      <td>0.000107</td>
+      <td>0.009553</td>
+      <td>0.000479</td>
+      <td>0.001195</td>
+      <td>0.000016</td>
       <td>3</td>
       <td>{'n_clusters': 3}</td>
-      <td>-10.570777</td>
-      <td>-17.879151</td>
-      <td>-10.975365</td>
-      <td>-10.222648</td>
-      <td>-12.308324</td>
-      <td>-12.391253</td>
-      <td>2.833571</td>
+      <td>-9.412059</td>
+      <td>-15.802374</td>
+      <td>-10.770140</td>
+      <td>-20.390561</td>
+      <td>-11.770797</td>
+      <td>-13.629186</td>
+      <td>3.996269</td>
       <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.015203</td>
-      <td>0.001217</td>
-      <td>0.001760</td>
-      <td>0.000409</td>
+      <td>0.012284</td>
+      <td>0.000736</td>
+      <td>0.001242</td>
+      <td>0.000041</td>
       <td>4</td>
       <td>{'n_clusters': 4}</td>
-      <td>-8.346931</td>
-      <td>-12.241410</td>
-      <td>-9.051105</td>
-      <td>-7.104496</td>
-      <td>-8.479767</td>
-      <td>-9.044742</td>
-      <td>1.719850</td>
+      <td>-6.730595</td>
+      <td>-11.129900</td>
+      <td>-7.230458</td>
+      <td>-14.365552</td>
+      <td>-8.534128</td>
+      <td>-9.598127</td>
+      <td>2.829677</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.014793</td>
-      <td>0.000639</td>
-      <td>0.001509</td>
-      <td>0.000170</td>
+      <td>0.014805</td>
+      <td>0.001611</td>
+      <td>0.001307</td>
+      <td>0.000071</td>
       <td>5</td>
       <td>{'n_clusters': 5}</td>
-      <td>-8.693277</td>
-      <td>-10.494982</td>
-      <td>-7.370670</td>
-      <td>-6.326560</td>
-      <td>-6.657573</td>
-      <td>-7.908612</td>
-      <td>1.527244</td>
+      <td>-5.681285</td>
+      <td>-9.179227</td>
+      <td>-5.137202</td>
+      <td>-10.315310</td>
+      <td>-7.520775</td>
+      <td>-7.566760</td>
+      <td>1.980629</td>
       <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.016220</td>
-      <td>0.000151</td>
-      <td>0.001468</td>
-      <td>0.000022</td>
+      <td>0.015818</td>
+      <td>0.000813</td>
+      <td>0.001330</td>
+      <td>0.000052</td>
       <td>6</td>
       <td>{'n_clusters': 6}</td>
-      <td>-7.455231</td>
-      <td>-9.259088</td>
-      <td>-6.995346</td>
-      <td>-6.380672</td>
-      <td>-7.091746</td>
-      <td>-7.436416</td>
-      <td>0.974723</td>
+      <td>-5.150233</td>
+      <td>-9.178046</td>
+      <td>-5.145058</td>
+      <td>-8.750555</td>
+      <td>-7.211440</td>
+      <td>-7.087066</td>
+      <td>1.713334</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="optimizing-a-decision-tree">
+<h2><span class="section-number">20.6. </span>Optimizing a Decision Tree<a class="headerlink" href="#optimizing-a-decision-tree" title="Permalink to this headline">#</a></h2>
+<p>Today we will optimize a decision tree over three parameters. One is the criterion, which is how it decides where to create thresholds in parameters. Gini is the default and it computes how concentrated each class is at that node, another is entropy, entropy is, generally how random something is.  Intuitively these do similar things, which makes sense because they are two ways to make the same choice, but they have slightly different calculations.</p>
+<p>The other two parameters we have seen some before. Max depth is the height of the tree and min smaples per leaf makes it keeps the leaf sizes small.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
@@ -896,6 +1265,8 @@ document.write(`
                          &#x27;max_depth&#x27;: [2, 3, 4],
                          &#x27;min_samples_leaf&#x27;: [2, 4, 6, 8, 10, 12, 14, 16, 18]})</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier()</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier()</pre></div></div></div></div></div></div></div></div></div></div></div></div>
 </div>
+<p>We will fit it with default CV settings.
+And we can see the best parameters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_opt</span><span class="o">.</span><span class="n">best_params_</span>
@@ -904,6 +1275,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2}
+</pre></div>
+</div>
+</div>
+</div>
+<p>and we can use ti to get predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">dt_opt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">iris_X_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -957,11 +1336,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9, 10)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9, 22)
 </pre></div>
 </div>
 </div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Remember that best is context dependent and relative.  The best accuracy might not be the best overall. Automatic optimization can only find the best thing in terms of a single score.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1022,6 +1406,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-tasks">20.1. Relationship between Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">20.2. Cross Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-cross-validation-really-do">20.3. What Does Cross validation really do?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation-with-clustering">20.4. Cross validation with clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-search-optimization">20.5. Grid Search Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-a-decision-tree">20.6. Optimizing a Decision Tree</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
