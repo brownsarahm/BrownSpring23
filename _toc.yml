@@ -35,6 +35,7 @@ parts:
     - file: notes/2023-04-04
     - file: notes/2023-04-06
     - file: notes/2023-04-11
+    - file: notes/2023-04-18
   - caption: Assignments
     numbered: True
     chapters:
@@ -48,7 +49,8 @@ parts:
     - file: assignments/08-clustering
     - file: assignments/09-regression
     - file: assignments/10-optimize
-    # - file: assignments/11-comparison
+    - file: assignments/11-compare
+    - file: assignments/12-fake-news
   - caption: Portfolio
     chapters:
       - file: portfolio/index
