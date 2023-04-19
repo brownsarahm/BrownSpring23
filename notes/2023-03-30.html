@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -206,6 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/10-optimize.html">10. Assignment 10: Tuning Model Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/11-compare.html">11. Assignment 11: Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/12-fake-news.html">12. Assignment 12: Fake News</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -668,7 +671,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.10001462])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.10727732])
 </pre></div>
 </div>
 </div>
@@ -680,7 +683,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.032163176586637
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8130670273138643
 </pre></div>
 </div>
 </div>
@@ -699,7 +702,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8584300770107065
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.164761259133402
 </pre></div>
 </div>
 </div>
@@ -711,7 +714,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.85843008])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.16476126])
 </pre></div>
 </div>
 </div>
@@ -724,10 +727,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc33972a7c0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe992d6efa0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/ebbe3b143d6a36d0295c2fa15e9072341e94b2c78eda149cbd8ac0d73ce1a95e.png" src="../_images/ebbe3b143d6a36d0295c2fa15e9072341e94b2c78eda149cbd8ac0d73ce1a95e.png" />
+<img alt="../_images/12109b62aac456650eabbed3b7b3608d6d3bb5a411c29ebfc230566f9fa3b2cf.png" src="../_images/12109b62aac456650eabbed3b7b3608d6d3bb5a411c29ebfc230566f9fa3b2cf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -742,10 +745,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc33764aeb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fe990bb9f10&gt;
 </pre></div>
 </div>
-<img alt="../_images/2cc32f0d5a8ad40ee69296aa783b217d0c9c6daf432dc84881819c29173dd5ee.png" src="../_images/2cc32f0d5a8ad40ee69296aa783b217d0c9c6daf432dc84881819c29173dd5ee.png" />
+<img alt="../_images/4328d78eae04994b49e6d7ef423f2b14f1194de1137fcf895fbb49b2a8c85f6a.png" src="../_images/4328d78eae04994b49e6d7ef423f2b14f1194de1137fcf895fbb49b2a8c85f6a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -755,7 +758,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5313250615273329
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.318858492465685
 </pre></div>
 </div>
 </div>
@@ -767,7 +770,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.837755102040816
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.225510204081633
 </pre></div>
 </div>
 </div>
@@ -779,7 +782,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18723428993052368
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40888368320669766
 </pre></div>
 </div>
 </div>
@@ -791,7 +794,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6848211059680055
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22627602975157257
 </pre></div>
 </div>
 </div>
@@ -822,10 +825,10 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc348b91400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe990b8edf0&gt;
 </pre></div>
 </div>
-<img alt="../_images/f9f17a8993190fa6bf4077255189f6005c49d91766bd5cb9805fd662ea02164c.png" src="../_images/f9f17a8993190fa6bf4077255189f6005c49d91766bd5cb9805fd662ea02164c.png" />
+<img alt="../_images/2bf00397af500a4436db1a3adce70b8e7316da911b2d49650c12bcf664df163a.png" src="../_images/2bf00397af500a4436db1a3adce70b8e7316da911b2d49650c12bcf664df163a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -835,7 +838,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6848211059680055
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22627602975157257
 </pre></div>
 </div>
 </div>
@@ -955,7 +958,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.09154808, 0.22403669])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.09249729, 0.20975998])
 </pre></div>
 </div>
 </div>
@@ -967,7 +970,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40525607574515443
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46804505809439423
 </pre></div>
 </div>
 </div>
@@ -980,7 +983,7 @@ the total bill.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fc33760df70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe992d87160&gt;
 </pre></div>
 </div>
 <img alt="../_images/e9855f411204545413d6b247afd176640a0d7be66fd386a3c912d5b751c96bc1.png" src="../_images/e9855f411204545413d6b247afd176640a0d7be66fd386a3c912d5b751c96bc1.png" />

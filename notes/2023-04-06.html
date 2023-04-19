@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -206,6 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/10-optimize.html">10. Assignment 10: Tuning Model Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/11-compare.html">11. Assignment 11: Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/12-fake-news.html">12. Assignment 12: Fake News</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -446,7 +449,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-an-svm">21.1. Fitting an SVM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-comparison">21.2. Model Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-to-compare-models">21.2. Other ways to compare models</a></li>
 </ul>
             </nav>
         </div>
@@ -594,111 +597,111 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000885</td>
-      <td>0.000232</td>
-      <td>0.000548</td>
-      <td>0.000068</td>
+      <td>0.000768</td>
+      <td>0.000091</td>
+      <td>0.000477</td>
+      <td>0.000038</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>0.913043</td>
       <td>0.956522</td>
       <td>1.0</td>
+      <td>0.954545</td>
       <td>1.000000</td>
-      <td>1.0</td>
-      <td>0.973913</td>
-      <td>0.034783</td>
-      <td>3</td>
+      <td>1.000000</td>
+      <td>0.982213</td>
+      <td>0.021793</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000857</td>
-      <td>0.000024</td>
-      <td>0.000549</td>
-      <td>0.000014</td>
+      <td>0.000789</td>
+      <td>0.000016</td>
+      <td>0.000506</td>
+      <td>0.000008</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
       <td>0.913043</td>
-      <td>0.956522</td>
       <td>1.0</td>
       <td>0.954545</td>
-      <td>1.0</td>
-      <td>0.964822</td>
-      <td>0.032651</td>
-      <td>6</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
+      <td>0.955336</td>
+      <td>0.027515</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.000746</td>
-      <td>0.000016</td>
-      <td>0.000503</td>
-      <td>0.000023</td>
+      <td>0.000681</td>
+      <td>0.000008</td>
+      <td>0.000454</td>
+      <td>0.000012</td>
       <td>1</td>
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
-      <td>0.913043</td>
       <td>1.000000</td>
       <td>1.0</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
       <td>1.000000</td>
-      <td>1.0</td>
-      <td>0.982609</td>
-      <td>0.034783</td>
-      <td>1</td>
+      <td>0.981818</td>
+      <td>0.022268</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.000813</td>
+      <td>0.000750</td>
       <td>0.000014</td>
-      <td>0.000535</td>
-      <td>0.000005</td>
+      <td>0.000485</td>
+      <td>0.000008</td>
       <td>1</td>
       <td>rbf</td>
       <td>{'C': 1, 'kernel': 'rbf'}</td>
       <td>0.913043</td>
-      <td>0.956522</td>
       <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>0.973913</td>
-      <td>0.034783</td>
-      <td>3</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
+      <td>0.955336</td>
+      <td>0.027515</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.000744</td>
-      <td>0.000017</td>
-      <td>0.000535</td>
-      <td>0.000036</td>
+      <td>0.000675</td>
+      <td>0.000009</td>
+      <td>0.000452</td>
+      <td>0.000011</td>
       <td>10</td>
       <td>linear</td>
       <td>{'C': 10, 'kernel': 'linear'}</td>
-      <td>0.869565</td>
-      <td>0.956522</td>
+      <td>0.913043</td>
       <td>1.0</td>
+      <td>0.909091</td>
+      <td>0.954545</td>
       <td>1.000000</td>
-      <td>1.0</td>
-      <td>0.965217</td>
-      <td>0.050704</td>
-      <td>5</td>
+      <td>0.955336</td>
+      <td>0.039794</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.000783</td>
-      <td>0.000017</td>
-      <td>0.000526</td>
-      <td>0.000015</td>
+      <td>0.000707</td>
+      <td>0.000005</td>
+      <td>0.000460</td>
+      <td>0.000010</td>
       <td>10</td>
       <td>rbf</td>
       <td>{'C': 10, 'kernel': 'rbf'}</td>
-      <td>0.913043</td>
       <td>1.000000</td>
       <td>1.0</td>
+      <td>0.954545</td>
+      <td>0.954545</td>
       <td>1.000000</td>
-      <td>1.0</td>
-      <td>0.982609</td>
-      <td>0.034783</td>
-      <td>1</td>
+      <td>0.981818</td>
+      <td>0.022268</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -711,15 +714,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 1, &#39;kernel&#39;: &#39;linear&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 0.5, &#39;kernel&#39;: &#39;linear&#39;}
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="model-comparison">
-<h2><span class="section-number">21.2. </span>Model Comparison<a class="headerlink" href="#model-comparison" title="Permalink to this headline">#</a></h2>
-<p>To compare models, we will first optimize the parameters of two diffrent models and look at how the different parameters settings impact the model comparison.  Later, we’ll see how to compare across models of different classes.</p>
+<section id="other-ways-to-compare-models">
+<h2><span class="section-number">21.2. </span>Other ways to compare models<a class="headerlink" href="#other-ways-to-compare-models" title="Permalink to this headline">#</a></h2>
+<p>We can look at the performance, here the score is the accuracy and we could also look at other performance metrics.</p>
+<p>We can compare them on time: the training time or the test time (more important).</p>
+<p>We can also compare models on their interpretability: a decision tree is easy to explain how it makes a decision.</p>
+<p>We can compare if it is generative (describes the data, could generate synthetic data) or discriminative (describes the decision rule). A generative model might be preferred even with lower accuracy by a scientist who wants to understand the data.  It can also help to give ideas about what you might do to improve the model.  If you just need the most accuracy, like if you are placing ads, you would typically use a discriminative model because it is complex, and you just want accuracy you don’t need to understand.</p>
 </section>
 </section>
 
@@ -791,7 +797,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-an-svm">21.1. Fitting an SVM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-comparison">21.2. Model Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-ways-to-compare-models">21.2. Other ways to compare models</a></li>
 </ul>
   </nav></div>
 

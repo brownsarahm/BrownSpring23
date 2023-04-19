@@ -195,6 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -208,6 +209,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/10-optimize.html">10. Assignment 10: Tuning Model Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/11-compare.html">11. Assignment 11: Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/12-fake-news.html">12. Assignment 12: Fake News</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -565,7 +568,7 @@ splitting is a randomized step, the score is a random variable.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9473684210526315
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.868421052631579
 </pre></div>
 </div>
 </div>
@@ -603,7 +606,7 @@ each section gets used for testing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 0.91304348, 0.90909091, 1.        , 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91304348, 0.95652174, 0.95454545, 0.95454545, 0.90909091])
 </pre></div>
 </div>
 </div>
@@ -631,8 +634,8 @@ to get a single estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 1.        , 0.90909091, 0.90909091, 0.81818182,
-       1.        , 1.        , 1.        , 1.        , 1.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91666667, 0.91666667, 0.90909091, 1.        , 1.        ,
+       0.90909091, 1.        , 0.81818182, 0.90909091, 0.90909091])
 </pre></div>
 </div>
 </div>
@@ -644,7 +647,7 @@ to get a single estimate.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9545454545454545
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9469696969696969
 </pre></div>
 </div>
 </div>
@@ -935,8 +938,8 @@ We can do a similar experiment as above to see what <code class="docutils litera
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -9.41205929, -15.80237351, -10.77014002, -20.39056119,
-       -11.77079729])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-13.40853516, -12.41507296, -14.05592079,  -8.40784823,
+       -16.87223056])
 </pre></div>
 </div>
 </div>
@@ -1047,15 +1050,15 @@ The dictionary has the parameter names as the keys and the values are the values
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
 /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(
@@ -1147,87 +1150,87 @@ The dictionary has the parameter names as the keys and the values are the values
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.008807</td>
-      <td>0.002783</td>
-      <td>0.001269</td>
-      <td>0.000088</td>
+      <td>0.006885</td>
+      <td>0.001934</td>
+      <td>0.001125</td>
+      <td>0.000018</td>
       <td>2</td>
       <td>{'n_clusters': 2}</td>
-      <td>-14.393152</td>
-      <td>-21.372699</td>
-      <td>-20.755246</td>
-      <td>-42.096046</td>
-      <td>-26.833011</td>
-      <td>-25.090031</td>
-      <td>9.373096</td>
+      <td>-28.868060</td>
+      <td>-20.242191</td>
+      <td>-29.102797</td>
+      <td>-15.234876</td>
+      <td>-32.893890</td>
+      <td>-25.268363</td>
+      <td>6.507575</td>
       <td>5</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.009553</td>
-      <td>0.000479</td>
-      <td>0.001195</td>
+      <td>0.007712</td>
+      <td>0.000194</td>
+      <td>0.001119</td>
       <td>0.000016</td>
       <td>3</td>
       <td>{'n_clusters': 3}</td>
-      <td>-9.412059</td>
-      <td>-15.802374</td>
-      <td>-10.770140</td>
-      <td>-20.390561</td>
-      <td>-11.770797</td>
-      <td>-13.629186</td>
-      <td>3.996269</td>
+      <td>-13.408535</td>
+      <td>-12.415073</td>
+      <td>-14.055921</td>
+      <td>-8.407848</td>
+      <td>-16.872231</td>
+      <td>-13.031922</td>
+      <td>2.745940</td>
       <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.012284</td>
-      <td>0.000736</td>
-      <td>0.001242</td>
-      <td>0.000041</td>
+      <td>0.009384</td>
+      <td>0.000189</td>
+      <td>0.001108</td>
+      <td>0.000014</td>
       <td>4</td>
       <td>{'n_clusters': 4}</td>
-      <td>-6.730595</td>
-      <td>-11.129900</td>
-      <td>-7.230458</td>
-      <td>-14.365552</td>
-      <td>-8.534128</td>
-      <td>-9.598127</td>
-      <td>2.829677</td>
+      <td>-8.342585</td>
+      <td>-9.507140</td>
+      <td>-10.980526</td>
+      <td>-6.839631</td>
+      <td>-11.894456</td>
+      <td>-9.512868</td>
+      <td>1.807859</td>
       <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.014805</td>
-      <td>0.001611</td>
-      <td>0.001307</td>
-      <td>0.000071</td>
+      <td>0.010814</td>
+      <td>0.000313</td>
+      <td>0.001101</td>
+      <td>0.000006</td>
       <td>5</td>
       <td>{'n_clusters': 5}</td>
-      <td>-5.681285</td>
-      <td>-9.179227</td>
-      <td>-5.137202</td>
-      <td>-10.315310</td>
-      <td>-7.520775</td>
-      <td>-7.566760</td>
-      <td>1.980629</td>
+      <td>-6.600014</td>
+      <td>-7.810454</td>
+      <td>-10.439694</td>
+      <td>-5.959394</td>
+      <td>-8.796436</td>
+      <td>-7.921198</td>
+      <td>1.594700</td>
       <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.015818</td>
-      <td>0.000813</td>
-      <td>0.001330</td>
-      <td>0.000052</td>
+      <td>0.012508</td>
+      <td>0.000646</td>
+      <td>0.001176</td>
+      <td>0.000096</td>
       <td>6</td>
       <td>{'n_clusters': 6}</td>
-      <td>-5.150233</td>
-      <td>-9.178046</td>
-      <td>-5.145058</td>
-      <td>-8.750555</td>
-      <td>-7.211440</td>
-      <td>-7.087066</td>
-      <td>1.713334</td>
+      <td>-6.319215</td>
+      <td>-7.477774</td>
+      <td>-8.154772</td>
+      <td>-5.305862</td>
+      <td>-6.869625</td>
+      <td>-6.825450</td>
+      <td>0.975704</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -1274,7 +1277,7 @@ And we can see the best parameters</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;gini&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 3, &#39;min_samples_leaf&#39;: 2}
 </pre></div>
 </div>
 </div>
@@ -1336,7 +1339,7 @@ And we can see the best parameters</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9, 22)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(36, 51)
 </pre></div>
 </div>
 </div>

@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notes/2023-04-11';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Assignment 1: Portfolio Setup, Data Science, and Python" href="../assignments/01-syllabus-install.html" />
+    <link rel="next" title="23. Intro to NLP- representing text data" href="2023-04-18.html" />
     <link rel="prev" title="21. SVM and Model Optimization" href="2023-04-06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-04-04.html">20. ML Task Review and Cross Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -206,6 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../assignments/08-clustering.html">8. Assignment 8: Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/09-regression.html">9. Assignment 9: Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../assignments/10-optimize.html">10. Assignment 10: Tuning Model Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/11-compare.html">11. Assignment 11: Model Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../assignments/12-fake-news.html">12. Assignment 12: Fake News</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Portfolio</span></p>
 <ul class="nav bd-sidenav">
@@ -445,7 +448,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnist-digits">22.1. MNIST Digits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-timing-vary">22.1. How does the timing vary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-training-impact-our-model">22.2. How does training impact our model?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-differences-matter">22.3. When do differences matter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">22.4. Digits Dataset</a></li>
 </ul>
             </nav>
         </div>
@@ -472,8 +478,27 @@ document.write(`
 <span class="c1"># import the whole model selection module</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;colorblind&#39;</span><span class="p">)</span>
-
-<span class="c1"># load and split the data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-further-reading admonition">
+<p class="admonition-title">Further Reading</p>
+<p>If you struggled to understand this code excerpt to fill in the comments, some generic strategies to understand code may help, beyond applying what we have covered in class.</p>
+<p><a class="reference external" href="https://www.manning.com/books/the-programmers-brain">The Programmer’s brain</a>
+is an overview of how brains work, as applied to programming, written for working
+developers. This means that it assumes you know most CS concepts and at least two programming languages. If you don’t there may be some parts that do not make sense to you, but the general ideas should still make sense.
+The author is a professor who researchers how people learn
+programming and how to effectively teach it.</p>
+<p>This book is available for free online, including an audio version of the first chapter.</p>
+<p><strong>I strongly recommend this if you have trouble remembering things</strong></p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load and split the data</span>
 <span class="n">iris_X</span><span class="p">,</span> <span class="n">iris_y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">iris_X_train</span><span class="p">,</span> <span class="n">iris_X_test</span><span class="p">,</span> <span class="n">iris_y_train</span><span class="p">,</span> <span class="n">iris_y_test</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
   <span class="n">iris_X</span><span class="p">,</span><span class="n">iris_y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
@@ -509,6 +534,63 @@ document.write(`
 </div>
 </div>
 </div>
+<p>So we have redone some familiar code.  We have found the optimal parameters for best accuracy for two different classifiers, SVM and Decision tree on our data.</p>
+<p>This is extra detail we did not do in class for time reasons</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>We can  use EDA to understand how the score varied across all of the parameter settings we tried.
+
+```{code-cell} ipython3
+sv_df[&#39;mean_test_score&#39;].describe()
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_df</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    90.000000
+mean      0.893426
+std       0.019373
+min       0.883333
+25%       0.883333
+50%       0.883333
+75%       0.900000
+max       0.941667
+Name: mean_test_score, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this we see that in both cases the standard deviation (std) is really
+low. This tells us that the parameter changes didn’t impact the performance
+much.  Combined with the overall high accuracy this tells us that the data
+is probably really easy to classify.  If the performance had been uniformly
+bad, it might have instead told us that we did not try a wide enough range
+of parameters.</p>
+<p>To confirm how many parameter settings we have used we can check a couple different ways. First, above in the count of the describe.</p>
+<p>We can also calculate directly from the parameter grids before we even do the fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">description_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;param_C&#39;</span><span class="p">,</span> <span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span> <span class="s1">&#39;params&#39;</span><span class="p">,]</span>
+<span class="n">vars_to_plot</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">,</span> <span class="s1">&#39;std_fit_time&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_score_time&#39;</span><span class="p">,</span> <span class="s1">&#39;std_score_time&#39;</span><span class="p">]</span>
+<span class="n">svm_time</span> <span class="o">=</span> <span class="n">sv_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span> <span class="n">description_vars</span><span class="p">,</span>
+           <span class="n">value_vars</span><span class="o">=</span><span class="n">vars_to_plot</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sv_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mean_fit_time&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span>
+     <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;param_kernel&#39;</span><span class="p">,</span><span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb3124fc40&gt;
+</pre></div>
+</div>
+<img alt="../_images/45a767b39e14cbe915b75d0d5f823889c4048bfb665c8cd8b617580e2ca1ccba.png" src="../_images/45a767b39e14cbe915b75d0d5f823889c4048bfb665c8cd8b617580e2ca1ccba.png" />
+</div>
+</div>
+<section id="how-does-the-timing-vary">
+<h2><span class="section-number">22.1. </span>How does the timing vary?<a class="headerlink" href="#how-does-the-timing-vary" title="Permalink to this headline">#</a></h2>
+<p>Let’s dig in and see which one is better.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sv_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -559,10 +641,10 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000784</td>
-      <td>0.000059</td>
-      <td>0.000505</td>
-      <td>0.000035</td>
+      <td>0.000735</td>
+      <td>0.000046</td>
+      <td>0.000449</td>
+      <td>0.000013</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
@@ -570,15 +652,15 @@ document.write(`
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>1.0</td>
       <td>0.916667</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>0.916667</td>
+      <td>0.916667</td>
       <td>1.0</td>
-      <td>0.983333</td>
-      <td>0.033333</td>
-      <td>3</td>
+      <td>0.975</td>
+      <td>0.038188</td>
+      <td>6</td>
     </tr>
   </tbody>
 </table>
@@ -601,10 +683,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7dd6a219a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb3122e2b0&gt;
 </pre></div>
 </div>
-<img alt="../_images/a15c9bc209efe5bf73e866c5a745172d456f5f46ddf554a7fbea82c93eded1a2.png" src="../_images/a15c9bc209efe5bf73e866c5a745172d456f5f46ddf554a7fbea82c93eded1a2.png" />
+<img alt="../_images/45a767b39e14cbe915b75d0d5f823889c4048bfb665c8cd8b617580e2ca1ccba.png" src="../_images/45a767b39e14cbe915b75d0d5f823889c4048bfb665c8cd8b617580e2ca1ccba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -646,7 +728,7 @@ document.write(`
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
       <td>mean_fit_time</td>
-      <td>0.000784</td>
+      <td>0.000735</td>
     </tr>
     <tr>
       <th>1</th>
@@ -654,7 +736,7 @@ document.write(`
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
       <td>mean_fit_time</td>
-      <td>0.000893</td>
+      <td>0.000809</td>
     </tr>
     <tr>
       <th>2</th>
@@ -662,7 +744,7 @@ document.write(`
       <td>linear</td>
       <td>{'C': 0.75, 'kernel': 'linear'}</td>
       <td>mean_fit_time</td>
-      <td>0.000744</td>
+      <td>0.000699</td>
     </tr>
     <tr>
       <th>3</th>
@@ -670,7 +752,7 @@ document.write(`
       <td>rbf</td>
       <td>{'C': 0.75, 'kernel': 'rbf'}</td>
       <td>mean_fit_time</td>
-      <td>0.000865</td>
+      <td>0.000794</td>
     </tr>
     <tr>
       <th>4</th>
@@ -678,7 +760,7 @@ document.write(`
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
       <td>mean_fit_time</td>
-      <td>0.000748</td>
+      <td>0.000706</td>
     </tr>
   </tbody>
 </table>
@@ -691,12 +773,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7dd6886dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb2eda0b50&gt;
 </pre></div>
 </div>
-<img alt="../_images/106eb2b48458843fa552cbfaee40c7d1bad3d0449e04343d5f1ab5c88e3e74e4.png" src="../_images/106eb2b48458843fa552cbfaee40c7d1bad3d0449e04343d5f1ab5c88e3e74e4.png" />
+<img alt="../_images/112751393c2a90474336525e8b9f98471e08201bd5dbdd228269c40a04cf4258.png" src="../_images/112751393c2a90474336525e8b9f98471e08201bd5dbdd228269c40a04cf4258.png" />
 </div>
 </div>
+</section>
+<section id="how-does-training-impact-our-model">
+<h2><span class="section-number">22.2. </span>How does training impact our model?<a class="headerlink" href="#how-does-training-impact-our-model" title="Permalink to this headline">#</a></h2>
+<p>Now we can create the learning curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">train_scores</span><span class="p">,</span> <span class="n">test_scores</span><span class="p">,</span> <span class="n">fit_times</span><span class="p">,</span> <span class="n">score_times</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">learning_curve</span><span class="p">(</span><span class="n">svm_opt</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">,</span><span class="n">iris_X_train</span><span class="p">,</span> <span class="n">iris_y_train</span><span class="p">,</span>
@@ -705,6 +791,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>It returns the list of the counts for each training size (we input percentages and it returns counts)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">train_scores</span><span class="p">,</span> <span class="n">test_scores</span><span class="p">,</span> <span class="n">fit_times</span><span class="p">,</span> <span class="n">score_times</span><span class="p">]</span>
@@ -713,26 +800,34 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([38, 48, 57, 76]),
- array([[0.97368421, 1.        , 1.        , 1.        , 1.        ],
-        [0.97916667, 0.97916667, 1.        , 1.        , 1.        ],
-        [0.96491228, 0.96491228, 1.        , 1.        , 1.        ],
-        [0.97368421, 0.98684211, 1.        , 0.98684211, 1.        ]]),
- array([[0.95833333, 1.        , 0.95833333, 1.        , 0.95833333],
-        [0.95833333, 1.        , 0.95833333, 1.        , 0.95833333],
-        [0.91666667, 1.        , 0.95833333, 1.        , 0.95833333],
-        [0.91666667, 1.        , 0.95833333, 1.        , 0.95833333]]),
- array([[0.00089908, 0.00066566, 0.00066805, 0.00067043, 0.00067925],
-        [0.00074959, 0.00073075, 0.00069046, 0.00068903, 0.0006845 ],
-        [0.00073385, 0.00072002, 0.00070739, 0.00073099, 0.00072312],
-        [0.00078416, 0.00077224, 0.00072694, 0.00075841, 0.00075412]]),
- array([[0.00057507, 0.00046992, 0.00046921, 0.00052905, 0.00046587],
-        [0.00047326, 0.00047255, 0.00048733, 0.00048852, 0.00046468],
-        [0.00050497, 0.00046492, 0.0004673 , 0.00046921, 0.00046849],
-        [0.00053644, 0.00053263, 0.00057364, 0.00051284, 0.00052977]])]
+ array([[1.        , 1.        , 1.        , 1.        , 1.        ],
+        [1.        , 1.        , 1.        , 1.        , 1.        ],
+        [1.        , 1.        , 1.        , 1.        , 1.        ],
+        [0.98684211, 1.        , 0.98684211, 0.98684211, 1.        ]]),
+ array([[1.        , 1.        , 0.95833333, 1.        , 0.91666667],
+        [1.        , 1.        , 0.95833333, 1.        , 0.91666667],
+        [1.        , 1.        , 1.        , 0.95833333, 0.91666667],
+        [1.        , 1.        , 1.        , 0.95833333, 0.95833333]]),
+ array([[0.00089741, 0.00065184, 0.00062275, 0.00065613, 0.00064254],
+        [0.00072265, 0.00064564, 0.00064516, 0.00065827, 0.00062346],
+        [0.00065064, 0.00065207, 0.00068974, 0.00064182, 0.00065064],
+        [0.00071049, 0.0007143 , 0.00066781, 0.00066566, 0.00067449]]),
+ array([[0.00050735, 0.0004425 , 0.00045896, 0.00042009, 0.00043416],
+        [0.00045562, 0.00047708, 0.00042367, 0.00043964, 0.0004189 ],
+        [0.00045133, 0.00042629, 0.00043941, 0.00046062, 0.00042582],
+        [0.0004344 , 0.000453  , 0.00043869, 0.00042129, 0.00045133]])]
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can use our skills in transforming data to make it easier to exmine just a subset of the scores.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This is <em>one</em> thing we can analyze, but there are others. To earn prepare on assignment 11,  manipulate your results a different way.</p>
+</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -740,7 +835,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.99473684, 0.99166667, 0.98596491, 0.98947368])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.        , 1.        , 1.        , 0.99210526])
 </pre></div>
 </div>
 </div>
@@ -754,10 +849,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([38, 48, 57, 76]),
- array([0.99473684, 0.99166667, 0.98596491, 0.98947368]),
- array([0.975     , 0.975     , 0.96666667, 0.96666667]),
- array([0.0007165 , 0.00070887, 0.00072308, 0.00075917]),
- array([0.00050182, 0.00047727, 0.00047498, 0.00053706])]
+ array([1.        , 1.        , 1.        , 0.99210526]),
+ array([0.975     , 0.975     , 0.975     , 0.98333333]),
+ array([0.00069413, 0.00065904, 0.00065699, 0.00068655]),
+ array([0.00045261, 0.00044298, 0.00044069, 0.00043974])]
 </pre></div>
 </div>
 </div>
@@ -770,14 +865,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.80000000e+01, 9.94736842e-01, 9.75000000e-01, 7.16495514e-04,
-        5.01823425e-04],
-       [4.80000000e+01, 9.91666667e-01, 9.75000000e-01, 7.08866119e-04,
-        4.77266312e-04],
-       [5.70000000e+01, 9.85964912e-01, 9.66666667e-01, 7.23075867e-04,
-        4.74977493e-04],
-       [7.60000000e+01, 9.89473684e-01, 9.66666667e-01, 7.59172440e-04,
-        5.37061691e-04]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.80000000e+01, 1.00000000e+00, 9.75000000e-01, 6.94131851e-04,
+        4.52613831e-04],
+       [4.80000000e+01, 1.00000000e+00, 9.75000000e-01, 6.59036636e-04,
+        4.42981720e-04],
+       [5.70000000e+01, 1.00000000e+00, 9.75000000e-01, 6.56986237e-04,
+        4.40692902e-04],
+       [7.60000000e+01, 9.92105263e-01, 9.83333333e-01, 6.86550140e-04,
+        4.39739227e-04]])
 </pre></div>
 </div>
 </div>
@@ -827,34 +922,34 @@ document.write(`
     <tr>
       <th>0</th>
       <td>38.0</td>
-      <td>0.994737</td>
+      <td>1.000000</td>
       <td>0.975000</td>
-      <td>0.000716</td>
-      <td>0.000502</td>
+      <td>0.000694</td>
+      <td>0.000453</td>
     </tr>
     <tr>
       <th>1</th>
       <td>48.0</td>
-      <td>0.991667</td>
+      <td>1.000000</td>
       <td>0.975000</td>
-      <td>0.000709</td>
-      <td>0.000477</td>
+      <td>0.000659</td>
+      <td>0.000443</td>
     </tr>
     <tr>
       <th>2</th>
       <td>57.0</td>
-      <td>0.985965</td>
-      <td>0.966667</td>
-      <td>0.000723</td>
-      <td>0.000475</td>
+      <td>1.000000</td>
+      <td>0.975000</td>
+      <td>0.000657</td>
+      <td>0.000441</td>
     </tr>
     <tr>
       <th>3</th>
       <td>76.0</td>
-      <td>0.989474</td>
-      <td>0.966667</td>
-      <td>0.000759</td>
-      <td>0.000537</td>
+      <td>0.992105</td>
+      <td>0.983333</td>
+      <td>0.000687</td>
+      <td>0.000440</td>
     </tr>
   </tbody>
 </table>
@@ -868,12 +963,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7dd455db20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb2ecd7a90&gt;
 </pre></div>
 </div>
-<img alt="../_images/e188ab40fe423a599618df0f7a40897d597a30d78398c5caa3ba1d90c7b8dc32.png" src="../_images/e188ab40fe423a599618df0f7a40897d597a30d78398c5caa3ba1d90c7b8dc32.png" />
+<img alt="../_images/fe89350362dba2dd01b187f12e71447fcade5e653af3cb2f89dfc9e0fb515032.png" src="../_images/fe89350362dba2dd01b187f12e71447fcade5e653af3cb2f89dfc9e0fb515032.png" />
 </div>
 </div>
+<p>We can see here that the training score and test score are basically the same. This means we’re doing about as well as we cana at learning the a generalizable model and we probably hav enough data for this task.</p>
+</section>
+<section id="when-do-differences-matter">
+<h2><span class="section-number">22.3. </span>When do differences matter?<a class="headerlink" href="#when-do-differences-matter" title="Permalink to this headline">#</a></h2>
+<p>We can check calculate a confidence interval to determine more precisely when the performance of two models is meaningfully different.</p>
+<p>This function calculates the 95% confidence interval.  The range within which we are 95% confident the quantity we have estimated is truly within in.  When we have more samples in the test set used to calculate the score, we are more confident in the estimate, so the interval is narrower.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">classification_confint</span><span class="p">(</span><span class="n">acc</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -898,11 +999,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9666666666666666)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9916666666666666, 0.9416666666666667)
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can calculate the number of observations used to compute the accuracy using the size of the training data and the fact that we set it to 10-fold cross validation. That means that 10% (100/10) of the data was used for each fold and each validation set.</p>
 <ul class="simple">
 <li><p>150 samples</p></li>
 <li><p>80% training size (20% test size)</p></li>
@@ -920,6 +1022,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>And thn we can use this to find the range for each model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classification_confint</span><span class="p">(</span><span class="n">svm_opt</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
@@ -939,11 +1042,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8651018725330326, 1.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8090578364484197, 1.0)
 </pre></div>
 </div>
 </div>
 </div>
+<p>When the ranges overlap, th models are not significanlty different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_diff</span> <span class="o">=</span> <span class="mi">500</span>
@@ -953,7 +1057,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((0.9836984102004682, 0.999634923132865),
- (0.9509323164170446, 0.9824010169162886))
+ (0.9211229950268539, 0.9622103383064794))
 </pre></div>
 </div>
 </div>
@@ -994,8 +1098,255 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="mnist-digits">
-<h2><span class="section-number">22.1. </span>MNIST Digits<a class="headerlink" href="#mnist-digits" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="digits-dataset">
+<h2><span class="section-number">22.4. </span>Digits Dataset<a class="headerlink" href="#digits-dataset" title="Permalink to this headline">#</a></h2>
+<p>Today, we’ll load a new dataset and use the default sklearn data structure for datasets.  We get back the default data stucture when we use a <code class="docutils literal notranslate"><span class="pre">load_</span></code> function without any parameters at all.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This shows us that the type is defined by sklearn and they called it <code class="docutils literal notranslate"><span class="pre">bunch</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sklearn.utils._bunch.Bunch
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can print it out to begin exploring it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: array([[ 0.,  0.,  5., ...,  0.,  0.,  0.],
+        [ 0.,  0.,  0., ..., 10.,  0.,  0.],
+        [ 0.,  0.,  0., ..., 16.,  9.,  0.],
+        ...,
+        [ 0.,  0.,  1., ...,  6.,  0.,  0.],
+        [ 0.,  0.,  2., ..., 12.,  0.,  0.],
+        [ 0.,  0., 10., ..., 12.,  1.,  0.]]),
+ &#39;target&#39;: array([0, 1, 2, ..., 8, 9, 8]),
+ &#39;frame&#39;: None,
+ &#39;feature_names&#39;: [&#39;pixel_0_0&#39;,
+  &#39;pixel_0_1&#39;,
+  &#39;pixel_0_2&#39;,
+  &#39;pixel_0_3&#39;,
+  &#39;pixel_0_4&#39;,
+  &#39;pixel_0_5&#39;,
+  &#39;pixel_0_6&#39;,
+  &#39;pixel_0_7&#39;,
+  &#39;pixel_1_0&#39;,
+  &#39;pixel_1_1&#39;,
+  &#39;pixel_1_2&#39;,
+  &#39;pixel_1_3&#39;,
+  &#39;pixel_1_4&#39;,
+  &#39;pixel_1_5&#39;,
+  &#39;pixel_1_6&#39;,
+  &#39;pixel_1_7&#39;,
+  &#39;pixel_2_0&#39;,
+  &#39;pixel_2_1&#39;,
+  &#39;pixel_2_2&#39;,
+  &#39;pixel_2_3&#39;,
+  &#39;pixel_2_4&#39;,
+  &#39;pixel_2_5&#39;,
+  &#39;pixel_2_6&#39;,
+  &#39;pixel_2_7&#39;,
+  &#39;pixel_3_0&#39;,
+  &#39;pixel_3_1&#39;,
+  &#39;pixel_3_2&#39;,
+  &#39;pixel_3_3&#39;,
+  &#39;pixel_3_4&#39;,
+  &#39;pixel_3_5&#39;,
+  &#39;pixel_3_6&#39;,
+  &#39;pixel_3_7&#39;,
+  &#39;pixel_4_0&#39;,
+  &#39;pixel_4_1&#39;,
+  &#39;pixel_4_2&#39;,
+  &#39;pixel_4_3&#39;,
+  &#39;pixel_4_4&#39;,
+  &#39;pixel_4_5&#39;,
+  &#39;pixel_4_6&#39;,
+  &#39;pixel_4_7&#39;,
+  &#39;pixel_5_0&#39;,
+  &#39;pixel_5_1&#39;,
+  &#39;pixel_5_2&#39;,
+  &#39;pixel_5_3&#39;,
+  &#39;pixel_5_4&#39;,
+  &#39;pixel_5_5&#39;,
+  &#39;pixel_5_6&#39;,
+  &#39;pixel_5_7&#39;,
+  &#39;pixel_6_0&#39;,
+  &#39;pixel_6_1&#39;,
+  &#39;pixel_6_2&#39;,
+  &#39;pixel_6_3&#39;,
+  &#39;pixel_6_4&#39;,
+  &#39;pixel_6_5&#39;,
+  &#39;pixel_6_6&#39;,
+  &#39;pixel_6_7&#39;,
+  &#39;pixel_7_0&#39;,
+  &#39;pixel_7_1&#39;,
+  &#39;pixel_7_2&#39;,
+  &#39;pixel_7_3&#39;,
+  &#39;pixel_7_4&#39;,
+  &#39;pixel_7_5&#39;,
+  &#39;pixel_7_6&#39;,
+  &#39;pixel_7_7&#39;],
+ &#39;target_names&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+ &#39;images&#39;: array([[[ 0.,  0.,  5., ...,  1.,  0.,  0.],
+         [ 0.,  0., 13., ..., 15.,  5.,  0.],
+         [ 0.,  3., 15., ..., 11.,  8.,  0.],
+         ...,
+         [ 0.,  4., 11., ..., 12.,  7.,  0.],
+         [ 0.,  2., 14., ..., 12.,  0.,  0.],
+         [ 0.,  0.,  6., ...,  0.,  0.,  0.]],
+ 
+        [[ 0.,  0.,  0., ...,  5.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  9.,  0.,  0.],
+         [ 0.,  0.,  3., ...,  6.,  0.,  0.],
+         ...,
+         [ 0.,  0.,  1., ...,  6.,  0.,  0.],
+         [ 0.,  0.,  1., ...,  6.,  0.,  0.],
+         [ 0.,  0.,  0., ..., 10.,  0.,  0.]],
+ 
+        [[ 0.,  0.,  0., ..., 12.,  0.,  0.],
+         [ 0.,  0.,  3., ..., 14.,  0.,  0.],
+         [ 0.,  0.,  8., ..., 16.,  0.,  0.],
+         ...,
+         [ 0.,  9., 16., ...,  0.,  0.,  0.],
+         [ 0.,  3., 13., ..., 11.,  5.,  0.],
+         [ 0.,  0.,  0., ..., 16.,  9.,  0.]],
+ 
+        ...,
+ 
+        [[ 0.,  0.,  1., ...,  1.,  0.,  0.],
+         [ 0.,  0., 13., ...,  2.,  1.,  0.],
+         [ 0.,  0., 16., ..., 16.,  5.,  0.],
+         ...,
+         [ 0.,  0., 16., ..., 15.,  0.,  0.],
+         [ 0.,  0., 15., ..., 16.,  0.,  0.],
+         [ 0.,  0.,  2., ...,  6.,  0.,  0.]],
+ 
+        [[ 0.,  0.,  2., ...,  0.,  0.,  0.],
+         [ 0.,  0., 14., ..., 15.,  1.,  0.],
+         [ 0.,  4., 16., ..., 16.,  7.,  0.],
+         ...,
+         [ 0.,  0.,  0., ..., 16.,  2.,  0.],
+         [ 0.,  0.,  4., ..., 16.,  2.,  0.],
+         [ 0.,  0.,  5., ..., 12.,  0.,  0.]],
+ 
+        [[ 0.,  0., 10., ...,  1.,  0.,  0.],
+         [ 0.,  2., 16., ...,  1.,  0.,  0.],
+         [ 0.,  0., 15., ..., 15.,  0.,  0.],
+         ...,
+         [ 0.,  4., 16., ..., 16.,  6.,  0.],
+         [ 0.,  8., 16., ..., 16.,  8.,  0.],
+         [ 0.,  1.,  8., ..., 12.,  1.,  0.]]]),
+ &#39;DESCR&#39;: &quot;.. _digits_dataset:\n\nOptical recognition of handwritten digits dataset\n--------------------------------------------------\n\n**Data Set Characteristics:**\n\n    :Number of Instances: 1797\n    :Number of Attributes: 64\n    :Attribute Information: 8x8 image of integer pixels in the range 0..16.\n    :Missing Attribute Values: None\n    :Creator: E. Alpaydin (alpaydin &#39;@&#39; boun.edu.tr)\n    :Date: July; 1998\n\nThis is a copy of the test set of the UCI ML hand-written digits datasets\nhttps://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits\n\nThe data set contains images of hand-written digits: 10 classes where\neach class refers to a digit.\n\nPreprocessing programs made available by NIST were used to extract\nnormalized bitmaps of handwritten digits from a preprinted form. From a\ntotal of 43 people, 30 contributed to the training set and different 13\nto the test set. 32x32 bitmaps are divided into nonoverlapping blocks of\n4x4 and the number of on pixels are counted in each block. This generates\nan input matrix of 8x8 where each element is an integer in the range\n0..16. This reduces dimensionality and gives invariance to small\ndistortions.\n\nFor info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.\nT. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.\nL. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,\n1994.\n\n.. topic:: References\n\n  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their\n    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of\n    Graduate Studies in Science and Engineering, Bogazici University.\n  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.\n  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.\n    Linear dimensionalityreduction using relevance weighted LDA. School of\n    Electrical and Electronic Engineering Nanyang Technological University.\n    2005.\n  - Claudio Gentile. A New Approximate Maximal Margin Classification\n    Algorithm. NIPS. 2000.\n&quot;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We note that it has key value pairs, and that the last one is called <code class="docutils literal notranslate"><span class="pre">DESCR</span></code> and is text that describes the data.  If we send that to the print function it will be formatted more readably.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="s1">&#39;DESCR&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _digits_dataset:
+
+Optical recognition of handwritten digits dataset
+--------------------------------------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 1797
+    :Number of Attributes: 64
+    :Attribute Information: 8x8 image of integer pixels in the range 0..16.
+    :Missing Attribute Values: None
+    :Creator: E. Alpaydin (alpaydin &#39;@&#39; boun.edu.tr)
+    :Date: July; 1998
+
+This is a copy of the test set of the UCI ML hand-written digits datasets
+https://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits
+
+The data set contains images of hand-written digits: 10 classes where
+each class refers to a digit.
+
+Preprocessing programs made available by NIST were used to extract
+normalized bitmaps of handwritten digits from a preprinted form. From a
+total of 43 people, 30 contributed to the training set and different 13
+to the test set. 32x32 bitmaps are divided into nonoverlapping blocks of
+4x4 and the number of on pixels are counted in each block. This generates
+an input matrix of 8x8 where each element is an integer in the range
+0..16. This reduces dimensionality and gives invariance to small
+distortions.
+
+For info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.
+T. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.
+L. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,
+1994.
+
+.. topic:: References
+
+  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their
+    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of
+    Graduate Studies in Science and Engineering, Bogazici University.
+  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.
+  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.
+    Linear dimensionalityreduction using relevance weighted LDA. School of
+    Electrical and Electronic Engineering Nanyang Technological University.
+    2005.
+  - Claudio Gentile. A New Approximate Maximal Margin Classification
+    Algorithm. NIPS. 2000.
+</pre></div>
+</div>
+</div>
+</div>
+<p>This tells us that we are going to be predicting what digit (0,1,2,3,4,5,6,7,8, or 9) is in the image.</p>
+<p>To get an idea of what the images look like, we can use <code class="docutils literal notranslate"><span class="pre">matshow</span></code> which is short for matrix show. It takes a 2D matrix and plots it as a grayscale image. To get the actual color bar, we use the matplotlib <code class="docutils literal notranslate"><span class="pre">plt.gray()</span></code>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-try-it-yourself admonition">
+<p class="admonition-title">Try it yourself</p>
+<p>Try using matshow without <code class="docutils literal notranslate"><span class="pre">plt.gray()</span></code>. How is it different?  What might alternatives do?  What other code in this notebook influences how plots look?</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Removing a line from an excerpt of code can help you see hat that line did and learn more about how each piece work.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fdb2ebefd30&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="../_images/3ac07023677174c16c5ccb6027db6635398f2f5922c78cdc88bf095bcb9d0cf0.png" src="../_images/3ac07023677174c16c5ccb6027db6635398f2f5922c78cdc88bf095bcb9d0cf0.png" />
+</div>
+</div>
+<p>For easier ML, we will reload it differently:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits_X</span><span class="p">,</span> <span class="n">digits_y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1003,6 +1354,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>This has one row for each sample and has reshaped the 8x8 image into a 64 length vector. So we have one ‘feature’ for each pixel in the images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digits_X</span><span class="o">.</span><span class="n">shape</span>
@@ -1015,6 +1367,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Now we can train a model and generate a learning curve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_clf_digits</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
@@ -1042,12 +1395,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f7e00fa6580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fdb2eb53be0&gt;
 </pre></div>
 </div>
 <img alt="../_images/fdaf126074a9ead9c7e7e370feb27c4782f1daefbb7eac0dcfbfb03046a65ff1.png" src="../_images/fdaf126074a9ead9c7e7e370feb27c4782f1daefbb7eac0dcfbfb03046a65ff1.png" />
 </div>
 </div>
+<p>This larger gap shows that a different model or maybe more data could help us learn better.  Th good news is that we are probably not overfitting, overfitting would occur when the training accuracy still improves but the test accuracy goes down.</p>
 </section>
 </section>
 
@@ -1092,11 +1446,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../assignments/01-syllabus-install.html"
+       href="2023-04-18.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Assignment 1: Portfolio Setup, Data Science, and Python</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Intro to NLP- representing text data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1118,7 +1472,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnist-digits">22.1. MNIST Digits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-timing-vary">22.1. How does the timing vary?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-training-impact-our-model">22.2. How does training impact our model?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-differences-matter">22.3. When do differences matter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digits-dataset">22.4. Digits Dataset</a></li>
 </ul>
   </nav></div>
 
