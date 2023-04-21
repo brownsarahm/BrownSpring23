@@ -194,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-20.html">24. ML with Text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -597,111 +598,111 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000839</td>
-      <td>0.000202</td>
-      <td>0.000501</td>
-      <td>0.000067</td>
+      <td>0.000882</td>
+      <td>0.000178</td>
+      <td>0.000551</td>
+      <td>0.000059</td>
       <td>0.5</td>
       <td>linear</td>
       <td>{'C': 0.5, 'kernel': 'linear'}</td>
-      <td>1.0</td>
       <td>0.956522</td>
-      <td>0.863636</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.945850</td>
-      <td>0.053082</td>
-      <td>5</td>
+      <td>0.954545</td>
+      <td>1.0</td>
+      <td>0.954545</td>
+      <td>0.973123</td>
+      <td>0.021957</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000801</td>
-      <td>0.000010</td>
-      <td>0.000516</td>
-      <td>0.000021</td>
+      <td>0.000853</td>
+      <td>0.000012</td>
+      <td>0.000597</td>
+      <td>0.000052</td>
       <td>0.5</td>
       <td>rbf</td>
       <td>{'C': 0.5, 'kernel': 'rbf'}</td>
-      <td>1.0</td>
       <td>0.956522</td>
-      <td>0.909091</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.954941</td>
-      <td>0.040663</td>
-      <td>1</td>
+      <td>0.954545</td>
+      <td>1.0</td>
+      <td>0.909091</td>
+      <td>0.964032</td>
+      <td>0.033918</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.000711</td>
-      <td>0.000012</td>
-      <td>0.000463</td>
-      <td>0.000011</td>
+      <td>0.000749</td>
+      <td>0.000028</td>
+      <td>0.000499</td>
+      <td>0.000017</td>
       <td>1</td>
       <td>linear</td>
       <td>{'C': 1, 'kernel': 'linear'}</td>
-      <td>1.0</td>
       <td>0.956522</td>
-      <td>0.909091</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.954941</td>
-      <td>0.040663</td>
+      <td>0.954545</td>
+      <td>1.0</td>
+      <td>0.954545</td>
+      <td>0.973123</td>
+      <td>0.021957</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.000770</td>
-      <td>0.000018</td>
-      <td>0.000491</td>
-      <td>0.000009</td>
+      <td>0.000877</td>
+      <td>0.000153</td>
+      <td>0.000545</td>
+      <td>0.000008</td>
       <td>1</td>
       <td>rbf</td>
       <td>{'C': 1, 'kernel': 'rbf'}</td>
-      <td>1.0</td>
       <td>0.956522</td>
-      <td>0.909091</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.954941</td>
-      <td>0.040663</td>
-      <td>1</td>
+      <td>0.954545</td>
+      <td>1.0</td>
+      <td>0.909091</td>
+      <td>0.964032</td>
+      <td>0.033918</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.000718</td>
-      <td>0.000019</td>
-      <td>0.000455</td>
+      <td>0.000764</td>
+      <td>0.000042</td>
+      <td>0.000502</td>
       <td>0.000011</td>
       <td>10</td>
       <td>linear</td>
       <td>{'C': 10, 'kernel': 'linear'}</td>
-      <td>1.0</td>
       <td>0.913043</td>
-      <td>0.818182</td>
-      <td>0.909091</td>
       <td>1.0</td>
-      <td>0.928063</td>
-      <td>0.067837</td>
-      <td>6</td>
+      <td>0.954545</td>
+      <td>1.0</td>
+      <td>0.954545</td>
+      <td>0.964427</td>
+      <td>0.032761</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0.000729</td>
-      <td>0.000010</td>
-      <td>0.000469</td>
-      <td>0.000012</td>
+      <td>0.000760</td>
+      <td>0.000017</td>
+      <td>0.000524</td>
+      <td>0.000015</td>
       <td>10</td>
       <td>rbf</td>
       <td>{'C': 10, 'kernel': 'rbf'}</td>
+      <td>0.956522</td>
       <td>1.0</td>
-      <td>0.913043</td>
-      <td>0.909091</td>
-      <td>0.909091</td>
+      <td>0.954545</td>
       <td>1.0</td>
-      <td>0.946245</td>
-      <td>0.043914</td>
-      <td>4</td>
+      <td>0.954545</td>
+      <td>0.973123</td>
+      <td>0.021957</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -714,7 +715,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 0.5, &#39;kernel&#39;: &#39;rbf&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 0.5, &#39;kernel&#39;: &#39;linear&#39;}
 </pre></div>
 </div>
 </div>

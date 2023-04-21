@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="2023-04-06.html">21. SVM and Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-11.html">22. Model Comparison</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2023-04-18.html">23. Intro to NLP- representing text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023-04-20.html">24. ML with Text</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Assignments</span></p>
 <ul class="nav bd-sidenav">
@@ -839,10 +840,10 @@ as list of lists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f248ca7ddc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5d1087c4f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/4dd1b2099dd73cec11ac89d0454a7b9670104c47d5e954a6ff9c1bf7875f56d3.png" src="../_images/4dd1b2099dd73cec11ac89d0454a7b9670104c47d5e954a6ff9c1bf7875f56d3.png" />
+<img alt="../_images/dd8b54b35194176b9ee367d4bd5caa0d7d30f8a4421f696eb60d29f082dddf41.png" src="../_images/dd8b54b35194176b9ee367d4bd5caa0d7d30f8a4421f696eb60d29f082dddf41.png" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -865,7 +866,7 @@ naive assumption. The more flexible is called Quadratic Discriminant Analysis.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f24785a0160&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5cd106f130&gt;
 </pre></div>
 </div>
 <img alt="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" src="../_images/f15343f4f2c2ee6746a647b63b3026e2c342cd3be6b60b934570a2a9bbba6b1b.png" />
@@ -1125,7 +1126,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f247864e910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f5ccd604790&gt;
 </pre></div>
 </div>
 <img alt="../_images/85dc5ce270f983c64a35ab56951f7be76d965ef8391cc8c0c3d9dbd75fb1b535.png" src="../_images/85dc5ce270f983c64a35ab56951f7be76d965ef8391cc8c0c3d9dbd75fb1b535.png" />
@@ -1146,7 +1147,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f247868d880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f5ccd7a4250&gt;
 </pre></div>
 </div>
 <img alt="../_images/69261c780c594221a1cd79654f1b2fbb228e99409df8822afd159488c2868365.png" src="../_images/69261c780c594221a1cd79654f1b2fbb228e99409df8822afd159488c2868365.png" />
@@ -1236,7 +1237,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.66
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1303,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.94
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
@@ -1317,34 +1318,32 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.246875, 0.9375, &#39;x[1] &lt;= 1.64\nsamples = 100.0%\nvalue = [0.533, 0.467]\nclass = A&#39;),
- Text(0.1, 0.8125, &#39;x[0] &lt;= 3.965\nsamples = 14.0%\nvalue = [0.238, 0.762]\nclass = B&#39;),
- Text(0.05, 0.6875, &#39;samples = 3.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.15, 0.6875, &#39;samples = 10.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.39375, 0.8125, &#39;x[1] &lt;= 1.94\nsamples = 86.0%\nvalue = [0.581, 0.419]\nclass = A&#39;),
- Text(0.25, 0.6875, &#39;x[0] &lt;= 4.315\nsamples = 9.3%\nvalue = [0.857, 0.143]\nclass = A&#39;),
- Text(0.2, 0.5625, &#39;samples = 8.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.3, 0.5625, &#39;samples = 1.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.5375, 0.6875, &#39;x[1] &lt;= 2.41\nsamples = 76.7%\nvalue = [0.548, 0.452]\nclass = A&#39;),
- Text(0.4, 0.5625, &#39;x[0] &lt;= 3.73\nsamples = 18.7%\nvalue = [0.321, 0.679]\nclass = B&#39;),
- Text(0.35, 0.4375, &#39;samples = 6.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.45, 0.4375, &#39;samples = 12.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.675, 0.5625, &#39;x[0] &lt;= 2.75\nsamples = 58.0%\nvalue = [0.621, 0.379]\nclass = A&#39;),
- Text(0.55, 0.4375, &#39;x[1] &lt;= 4.0\nsamples = 25.3%\nvalue = [0.316, 0.684]\nclass = B&#39;),
- Text(0.5, 0.3125, &#39;samples = 8.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.6, 0.3125, &#39;samples = 17.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.8, 0.4375, &#39;x[1] &lt;= 2.715\nsamples = 32.7%\nvalue = [0.857, 0.143]\nclass = A&#39;),
- Text(0.7, 0.3125, &#39;x[0] &lt;= 4.23\nsamples = 4.7%\nvalue = [0.143, 0.857]\nclass = B&#39;),
- Text(0.65, 0.1875, &#39;samples = 0.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.75, 0.1875, &#39;samples = 4.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.9, 0.3125, &#39;x[0] &lt;= 4.095\nsamples = 28.0%\nvalue = [0.976, 0.024]\nclass = A&#39;),
- Text(0.85, 0.1875, &#39;x[0] &lt;= 3.035\nsamples = 1.3%\nvalue = [0.5, 0.5]\nclass = A&#39;),
- Text(0.8, 0.0625, &#39;samples = 0.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
- Text(0.9, 0.0625, &#39;samples = 0.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
- Text(0.95, 0.1875, &#39;samples = 26.7%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.246875, 0.9285714285714286, &#39;x[1] &lt;= 1.685\nsamples = 100.0%\nvalue = [0.513, 0.487]\nclass = A&#39;),
+ Text(0.1, 0.7857142857142857, &#39;x[0] &lt;= 3.965\nsamples = 14.0%\nvalue = [0.286, 0.714]\nclass = B&#39;),
+ Text(0.05, 0.6428571428571429, &#39;samples = 4.0%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.15, 0.6428571428571429, &#39;samples = 10.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.39375, 0.7857142857142857, &#39;x[1] &lt;= 1.95\nsamples = 86.0%\nvalue = [0.55, 0.45]\nclass = A&#39;),
+ Text(0.25, 0.6428571428571429, &#39;x[0] &lt;= 4.275\nsamples = 8.0%\nvalue = [0.833, 0.167]\nclass = A&#39;),
+ Text(0.2, 0.5, &#39;samples = 6.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.3, 0.5, &#39;samples = 1.3%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.5375, 0.6428571428571429, &#39;x[1] &lt;= 2.245\nsamples = 78.0%\nvalue = [0.521, 0.479]\nclass = A&#39;),
+ Text(0.4, 0.5, &#39;x[0] &lt;= 3.745\nsamples = 13.3%\nvalue = [0.25, 0.75]\nclass = B&#39;),
+ Text(0.35, 0.35714285714285715, &#39;samples = 3.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.45, 0.35714285714285715, &#39;samples = 10.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.675, 0.5, &#39;x[0] &lt;= 2.695\nsamples = 64.7%\nvalue = [0.577, 0.423]\nclass = A&#39;),
+ Text(0.55, 0.35714285714285715, &#39;x[1] &lt;= 4.0\nsamples = 28.7%\nvalue = [0.372, 0.628]\nclass = B&#39;),
+ Text(0.5, 0.21428571428571427, &#39;samples = 10.7%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.6, 0.21428571428571427, &#39;samples = 18.0%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.8, 0.35714285714285715, &#39;x[1] &lt;= 3.895\nsamples = 36.0%\nvalue = [0.741, 0.259]\nclass = A&#39;),
+ Text(0.7, 0.21428571428571427, &#39;x[0] &lt;= 4.1\nsamples = 10.0%\nvalue = [0.133, 0.867]\nclass = B&#39;),
+ Text(0.65, 0.07142857142857142, &#39;samples = 1.3%\nvalue = [1.0, 0.0]\nclass = A&#39;),
+ Text(0.75, 0.07142857142857142, &#39;samples = 8.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.9, 0.21428571428571427, &#39;x[0] &lt;= 4.085\nsamples = 26.0%\nvalue = [0.974, 0.026]\nclass = A&#39;),
+ Text(0.85, 0.07142857142857142, &#39;samples = 0.7%\nvalue = [0.0, 1.0]\nclass = B&#39;),
+ Text(0.95, 0.07142857142857142, &#39;samples = 25.3%\nvalue = [1.0, 0.0]\nclass = A&#39;)]
 </pre></div>
 </div>
-<img alt="../_images/aabc8648e020cd89fb8aacb1a8bc934d1f4302b873b514922986f8016dca984e.png" src="../_images/aabc8648e020cd89fb8aacb1a8bc934d1f4302b873b514922986f8016dca984e.png" />
+<img alt="../_images/888024feab0d9d9813f3dfa726ed468e920339541eda7a5997a64b17665a2b94.png" src="../_images/888024feab0d9d9813f3dfa726ed468e920339541eda7a5997a64b17665a2b94.png" />
 </div>
 </div>
 <aside class="margin sidebar">
@@ -1368,7 +1367,7 @@ forms of color blindness.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.56
 </pre></div>
 </div>
 </div>
